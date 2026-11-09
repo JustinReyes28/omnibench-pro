@@ -23,7 +23,7 @@ docker compose up -d
 docker exec -it omnibench-dev bash
 
 # 2. Inside the container: install dependencies, refresh data, and run dev server
-pip install -r requirements.txt
+pip install -r requirements-etl.txt
 npm install
 python -m scripts.ingest.run_all
 python -m scripts.transform.build_dataset

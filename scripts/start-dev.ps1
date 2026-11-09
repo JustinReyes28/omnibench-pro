@@ -68,7 +68,7 @@ if (-not (Test-Path $venvPython)) {
 }
 
 Write-Host "      Installing Python requirements..." -ForegroundColor Gray
-& $venvPip install --quiet -r requirements.txt
+& $venvPip install --quiet -r requirements-etl.txt
 
 # 4. Data Ingestion & Build Dataset
 if (-not $SkipIngest) {

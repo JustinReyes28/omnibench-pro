@@ -1,0 +1,26 @@
+# Node & Vite build artifacts
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# Python virtual environments & cache
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+
+# Local environment secrets (NEVER commit API keys)
+.env
+.env.local
+.env.*.local
+
+# Logs and OS metadata
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db

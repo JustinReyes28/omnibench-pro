@@ -1,0 +1,78 @@
+"""Phase 3 Data Integrity & Pre-Commit Regression Gate Suite."""
+
+import copy
+import json
+import unittest
+from pathlib import Path
+from scripts.ci.semantic_diff_check import has_substantive_changes
+from scripts.transform.schema import validate_canonical_model_record
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+UNIFIED_PATH = ROOT_DIR / "public" / "data" / "models_unified.json"
+TRENDS_PATH = ROOT_DIR / "public" / "data" / "historical_trends.json"
+CHANGELOG_PATH = ROOT_DIR / "public" / "data" / "changelog.json"
+
+
+class TestDataIntegrity(unittest.TestCase):
+    def setUp(self) -> None:
+        self.raw_text = UNIFIED_PATH.read_text(encoding="utf-8")
+        self.data = json.loads(self.raw_text)
+
+    def test_payload_size_and_minimum_fleet_count(self) -> None:
+        size_kb = UNIFIED_PATH.stat().st_size / 1024.0
+        self.assertLess(size_kb, 500.0, "models_unified.json must stay under 500 KB")
+        models = self.data.get("models", [])
+        self.assertGreaterEqual(len(models), 100, "Minimum fleet threshold is 100 models")
+
+    def test_zero_nan_or_infinity_tokens(self) -> None:
+        for forbidden in ("NaN", "Infinity", "-Infinity", "undefined"):
+            self.assertNotIn(forbidden, self.raw_text)
+
+    def test_frontier_grading_and_verified_model_names(self) -> None:
+        models = self.data.get("models", [])
+        names = {m["display_name"] for m in models}
+        # Ensure fictitious model names do not exist
+        for fake in ("GPT-5.6 Mini", "GPT-5.6 Nano", "Qwen 3.8 Coder 32B", "DeepSeek R2", "Llama 4.1 405B"):
+            self.assertNotIn(fake, names)
+
+        # Ensure multiple thinking effort variants exist
+        efforts = {m.get("thinking_effort") for m in models}
+        for req_effort in ("max", "xhigh", "high", "medium", "low", "standard"):
+            self.assertIn(req_effort, efforts)
+
+        # Ensure Claude Opus 5.5 (Max) and Gemini 4 Carbon (High) lead and outrank older models
+        by_id = {m["id"]: m["composite"]["unified_quality_score"] for m in models}
+        top_id = models[0]["id"]
+        self.assertIn(top_id, ("anthropic-claude-opus-5-5", "google-gemini-4-carbon-high"))
+        self.assertGreater(by_id["anthropic-claude-opus-5-5"], by_id["openai-gpt-5-6-sol"] + 15.0)
+        self.assertGreater(by_id["openai-gpt-6-astra-max"], by_id["openai-gpt-5-6-sol"] + 10.0)
+        self.assertGreater(by_id["deepseek-v4-1-flash-1017"], by_id["deepseek-r1-0528"] + 20.0)
+        self.assertGreater(by_id["meta-muse-wonder-full-max"], by_id["meta-llama-3-1-405b-instruct"] + 45.0)
+
+    def test_all_models_pass_schema_and_attribution_urls(self) -> None:
+        sources_meta = self.data.get("sources_metadata", {})
+        for key in ("artificial_analysis", "livebench", "arena", "vals"):
+            self.assertIn(key, sources_meta)
+            self.assertTrue(sources_meta[key].get("url", "").startswith("https://"))
+
+        for model in self.data.get("models", []):
+            validate_canonical_model_record(model)
+
+    def test_semantic_diff_ignores_volatile_timestamps(self) -> None:
+        clone = copy.deepcopy(self.data)
+        clone["generated_at"] = "2099-01-01T00:00:00Z"
+        clone["sources_metadata"]["artificial_analysis"]["last_updated"] = "2099-01-01T00:00:00Z"
+        self.assertFalse(has_substantive_changes(self.data, clone))
+
+        clone["models"][0]["composite"]["unified_quality_score"] -= 1.5
+        self.assertTrue(has_substantive_changes(self.data, clone))
+
+    def test_historical_trends_and_changelog_exist(self) -> None:
+        self.assertTrue(TRENDS_PATH.exists())
+        self.assertTrue(CHANGELOG_PATH.exists())
+        trends = json.loads(TRENDS_PATH.read_text(encoding="utf-8"))
+        self.assertGreaterEqual(len(trends.get("timeline", [])), 4)
+
+
+if __name__ == "__main__":
+    unittest.main()

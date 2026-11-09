@@ -1,0 +1,3680 @@
+{
+  "schema_version": "1.1.0",
+  "updated_at": "2026-10-28T06:00:00Z",
+  "models": [
+    {
+      "canonical_id": "anthropic-claude-opus-5-5",
+      "display_name": "Claude Opus 5.5 (Max)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 5.5 (Max)",
+          "Claude Opus 5.5 (Max) (reasoning)",
+          "Claude Opus 5.5",
+          "Claude Opus 5.5 (Reasoning)",
+          "Claude Opus 5.5 (max with fallback)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-5-5",
+          "claude-opus-5.5-(max)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-5-5-202610",
+          "Claude Opus 5.5 (Max)",
+          "Claude Opus 5.5"
+        ],
+        "vals": [
+          "Claude Opus 5.5",
+          "Claude Opus 5.5 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-5-5-xhigh",
+      "display_name": "Claude Opus 5.5 (xHigh)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 5.5 (xHigh)",
+          "Claude Opus 5.5 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-5-5-xhigh",
+          "claude-opus-5.5-(xhigh)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-5-5-xhigh-202610",
+          "Claude Opus 5.5 (xHigh)"
+        ],
+        "vals": [
+          "Claude Opus 5.5 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-5-5-high",
+      "display_name": "Claude Opus 5.5 (High)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 5.5 (High)",
+          "Claude Opus 5.5 (High) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-5-5-high",
+          "claude-opus-5.5-(high)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-5-5-high-202610",
+          "Claude Opus 5.5 (High)"
+        ],
+        "vals": [
+          "Claude Opus 5.5 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-5-5-medium",
+      "display_name": "Claude Opus 5.5 (Medium)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 5.5 (Medium)",
+          "Claude Opus 5.5 (Medium) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-5-5-medium",
+          "claude-opus-5.5-(medium)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-5-5-medium-202610",
+          "Claude Opus 5.5 (Medium)"
+        ],
+        "vals": [
+          "Claude Opus 5.5 (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-5-5-low",
+      "display_name": "Claude Opus 5.5 (Low)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 5.5 (Low)",
+          "Claude Opus 5.5 (Low) (hybrid)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-5-5-low",
+          "claude-opus-5.5-(low)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-5-5-low-202610",
+          "Claude Opus 5.5 (Low)"
+        ],
+        "vals": [
+          "Claude Opus 5.5 (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-1-max",
+      "display_name": "Claude Fable 5.1 (Max)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.1 (Max)",
+          "Claude Fable 5.1 (Max) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-1-max",
+          "claude-fable-5.1-(max)"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-1-max-202610",
+          "Claude Fable 5.1 (Max)"
+        ],
+        "vals": [
+          "Claude Fable 5.1 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-1-xhigh",
+      "display_name": "Claude Fable 5.1 (xHigh)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.1 (xHigh)",
+          "Claude Fable 5.1 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-1-xhigh",
+          "claude-fable-5.1-(xhigh)"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-1-xhigh-202610",
+          "Claude Fable 5.1 (xHigh)"
+        ],
+        "vals": [
+          "Claude Fable 5.1 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-1-high",
+      "display_name": "Claude Fable 5.1 (High)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.1 (High)",
+          "Claude Fable 5.1 (High) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-1-high",
+          "claude-fable-5.1-(high)"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-1-high-202610",
+          "Claude Fable 5.1 (High)"
+        ],
+        "vals": [
+          "Claude Fable 5.1 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-1-medium",
+      "display_name": "Claude Fable 5.1 (Medium)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.1 (Medium)",
+          "Claude Fable 5.1 (Medium) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-1-medium",
+          "claude-fable-5.1-(medium)"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-1-medium-202610",
+          "Claude Fable 5.1 (Medium)"
+        ],
+        "vals": [
+          "Claude Fable 5.1 (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-1-low",
+      "display_name": "Claude Fable 5.1 (Low)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.1 (Low)",
+          "Claude Fable 5.1 (Low) (hybrid)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-1-low",
+          "claude-fable-5.1-(low)"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-1-low-202610",
+          "Claude Fable 5.1 (Low)"
+        ],
+        "vals": [
+          "Claude Fable 5.1 (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-5-5",
+      "display_name": "Claude Sonnet 5.5 (Max)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Sonnet 5.5 (Max)",
+          "Claude Sonnet 5.5 (Max) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-sonnet-5-5",
+          "claude-sonnet-5.5-(max)"
+        ],
+        "arena": [
+          "anthropic-claude-sonnet-5-5-202610",
+          "Claude Sonnet 5.5 (Max)"
+        ],
+        "vals": [
+          "Claude Sonnet 5.5 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-5-5-xhigh",
+      "display_name": "Claude Sonnet 5.5 (xHigh)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Sonnet 5.5 (xHigh)",
+          "Claude Sonnet 5.5 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-sonnet-5-5-xhigh",
+          "claude-sonnet-5.5-(xhigh)"
+        ],
+        "arena": [
+          "anthropic-claude-sonnet-5-5-xhigh-202610",
+          "Claude Sonnet 5.5 (xHigh)"
+        ],
+        "vals": [
+          "Claude Sonnet 5.5 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-5-5-high",
+      "display_name": "Claude Sonnet 5.5 (High)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Sonnet 5.5 (High)",
+          "Claude Sonnet 5.5 (High) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-sonnet-5-5-high",
+          "claude-sonnet-5.5-(high)"
+        ],
+        "arena": [
+          "anthropic-claude-sonnet-5-5-high-202610",
+          "Claude Sonnet 5.5 (High)"
+        ],
+        "vals": [
+          "Claude Sonnet 5.5 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-5-5-medium",
+      "display_name": "Claude Sonnet 5.5 (Medium)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Sonnet 5.5 (Medium)",
+          "Claude Sonnet 5.5 (Medium) (hybrid)"
+        ],
+        "livebench": [
+          "anthropic-claude-sonnet-5-5-medium",
+          "claude-sonnet-5.5-(medium)"
+        ],
+        "arena": [
+          "anthropic-claude-sonnet-5-5-medium-202610",
+          "Claude Sonnet 5.5 (Medium)"
+        ],
+        "vals": [
+          "Claude Sonnet 5.5 (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-5-5-low",
+      "display_name": "Claude Sonnet 5.5 (Low)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Sonnet 5.5 (Low)",
+          "Claude Sonnet 5.5 (Low) (standard)"
+        ],
+        "livebench": [
+          "anthropic-claude-sonnet-5-5-low",
+          "claude-sonnet-5.5-(low)"
+        ],
+        "arena": [
+          "anthropic-claude-sonnet-5-5-low-202610",
+          "Claude Sonnet 5.5 (Low)"
+        ],
+        "vals": [
+          "Claude Sonnet 5.5 (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-haiku-5-5-max",
+      "display_name": "Claude Haiku 5.5 (Max)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Haiku 5.5 (Max)",
+          "Claude Haiku 5.5 (Max) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-haiku-5-5-max",
+          "claude-haiku-5.5-(max)"
+        ],
+        "arena": [
+          "anthropic-claude-haiku-5-5-max-202610",
+          "Claude Haiku 5.5 (Max)"
+        ],
+        "vals": [
+          "Claude Haiku 5.5 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-haiku-5-5-xhigh",
+      "display_name": "Claude Haiku 5.5 (xHigh)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Haiku 5.5 (xHigh)",
+          "Claude Haiku 5.5 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-haiku-5-5-xhigh",
+          "claude-haiku-5.5-(xhigh)"
+        ],
+        "arena": [
+          "anthropic-claude-haiku-5-5-xhigh-202610",
+          "Claude Haiku 5.5 (xHigh)"
+        ],
+        "vals": [
+          "Claude Haiku 5.5 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-haiku-5-5-high",
+      "display_name": "Claude Haiku 5.5 (High)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Haiku 5.5 (High)",
+          "Claude Haiku 5.5 (High) (hybrid)"
+        ],
+        "livebench": [
+          "anthropic-claude-haiku-5-5-high",
+          "claude-haiku-5.5-(high)"
+        ],
+        "arena": [
+          "anthropic-claude-haiku-5-5-high-202610",
+          "Claude Haiku 5.5 (High)"
+        ],
+        "vals": [
+          "Claude Haiku 5.5 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-haiku-5-5-medium",
+      "display_name": "Claude Haiku 5.5 (Medium)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Haiku 5.5 (Medium)",
+          "Claude Haiku 5.5 (Medium) (standard)"
+        ],
+        "livebench": [
+          "anthropic-claude-haiku-5-5-medium",
+          "claude-haiku-5.5-(medium)"
+        ],
+        "arena": [
+          "anthropic-claude-haiku-5-5-medium-202610",
+          "Claude Haiku 5.5 (Medium)"
+        ],
+        "vals": [
+          "Claude Haiku 5.5 (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-haiku-5-5-low",
+      "display_name": "Claude Haiku 5.5 (Low)",
+      "provider": "Anthropic",
+      "release_date": "2026-10-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Haiku 5.5 (Low)",
+          "Claude Haiku 5.5 (Low) (standard)"
+        ],
+        "livebench": [
+          "anthropic-claude-haiku-5-5-low",
+          "claude-haiku-5.5-(low)"
+        ],
+        "arena": [
+          "anthropic-claude-haiku-5-5-low-202610",
+          "Claude Haiku 5.5 (Low)"
+        ],
+        "vals": [
+          "Claude Haiku 5.5 (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-5",
+      "display_name": "Claude Opus 5 (Max)",
+      "provider": "Anthropic",
+      "release_date": "2026-06-20",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 5 (Max)",
+          "Claude Opus 5 (Max) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-5",
+          "claude-opus-5-(max)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-5-202610",
+          "Claude Opus 5 (Max)"
+        ],
+        "vals": [
+          "Claude Opus 5 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-xhigh",
+      "display_name": "Claude Fable 5 (xHigh)",
+      "provider": "Anthropic",
+      "release_date": "2026-07-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5 (xHigh)",
+          "Claude Fable 5 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-xhigh",
+          "claude-fable-5-(xhigh)"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-xhigh-202610",
+          "Claude Fable 5 (xHigh)"
+        ],
+        "vals": [
+          "Claude Fable 5 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-5-xhigh",
+      "display_name": "Claude Sonnet 5 (xHigh)",
+      "provider": "Anthropic",
+      "release_date": "2026-06-20",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Sonnet 5 (xHigh)",
+          "Claude Sonnet 5 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-sonnet-5-xhigh",
+          "claude-sonnet-5-(xhigh)"
+        ],
+        "arena": [
+          "anthropic-claude-sonnet-5-xhigh-202610",
+          "Claude Sonnet 5 (xHigh)"
+        ],
+        "vals": [
+          "Claude Sonnet 5 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-4-8-xhigh",
+      "display_name": "Claude Opus 4.8 (xHigh)",
+      "provider": "Anthropic",
+      "release_date": "2026-04-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 4.8 (xHigh)",
+          "Claude Opus 4.8 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-4-8-xhigh",
+          "claude-opus-4.8-(xhigh)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-4-8-xhigh-202610",
+          "Claude Opus 4.8 (xHigh)"
+        ],
+        "vals": [
+          "Claude Opus 4.8 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-4-7-xhigh",
+      "display_name": "Claude Opus 4.7 (xHigh)",
+      "provider": "Anthropic",
+      "release_date": "2026-02-24",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 4.7 (xHigh)",
+          "Claude Opus 4.7 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-4-7-xhigh",
+          "claude-opus-4.7-(xhigh)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-4-7-xhigh-202610",
+          "Claude Opus 4.7 (xHigh)"
+        ],
+        "vals": [
+          "Claude Opus 4.7 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-4-6-high",
+      "display_name": "Claude Opus 4.6 (High)",
+      "provider": "Anthropic",
+      "release_date": "2025-12-15",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 4.6 (High)",
+          "Claude Opus 4.6 (High) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-4-6-high",
+          "claude-opus-4.6-(high)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-4-6-high-202610",
+          "Claude Opus 4.6 (High)"
+        ],
+        "vals": [
+          "Claude Opus 4.6 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-4-6-medium",
+      "display_name": "Claude Sonnet 4.6 (Medium)",
+      "provider": "Anthropic",
+      "release_date": "2025-12-15",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Sonnet 4.6 (Medium)",
+          "Claude Sonnet 4.6 (Medium) (hybrid)"
+        ],
+        "livebench": [
+          "anthropic-claude-sonnet-4-6-medium",
+          "claude-sonnet-4.6-(medium)"
+        ],
+        "arena": [
+          "anthropic-claude-sonnet-4-6-medium-202610",
+          "Claude Sonnet 4.6 (Medium)"
+        ],
+        "vals": [
+          "Claude Sonnet 4.6 (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-4-5-high",
+      "display_name": "Claude Opus 4.5 (High)",
+      "provider": "Anthropic",
+      "release_date": "2025-11-01",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 200000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Opus 4.5 (High)",
+          "Claude Opus 4.5 (High) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-opus-4-5-high",
+          "claude-opus-4.5-(high)"
+        ],
+        "arena": [
+          "anthropic-claude-opus-4-5-high-202610",
+          "Claude Opus 4.5 (High)"
+        ],
+        "vals": [
+          "Claude Opus 4.5 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-haiku-4-5",
+      "display_name": "Claude Haiku 4.5",
+      "provider": "Anthropic",
+      "release_date": "2025-10-01",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 200000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Haiku 4.5",
+          "Claude Haiku 4.5 (standard)"
+        ],
+        "livebench": [
+          "anthropic-claude-haiku-4-5",
+          "claude-haiku-4.5"
+        ],
+        "arena": [
+          "anthropic-claude-haiku-4-5-202610",
+          "Claude Haiku 4.5"
+        ],
+        "vals": [
+          "Claude Haiku 4.5"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-3-7-sonnet",
+      "display_name": "Claude 3.7 Sonnet (Thinking)",
+      "provider": "Anthropic",
+      "release_date": "2025-02-24",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 200000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude 3.7 Sonnet (Thinking)",
+          "Claude 3.7 Sonnet (Thinking) (reasoning)"
+        ],
+        "livebench": [
+          "anthropic-claude-3-7-sonnet",
+          "claude-3.7-sonnet-(thinking)"
+        ],
+        "arena": [
+          "anthropic-claude-3-7-sonnet-202610",
+          "Claude 3.7 Sonnet (Thinking)"
+        ],
+        "vals": [
+          "Claude 3.7 Sonnet (Thinking)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-astra-max",
+      "display_name": "GPT-6 Astra (Max)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-08",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Astra (Max)",
+          "GPT-6 Astra (Max) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-astra-max",
+          "gpt-6-astra-(max)"
+        ],
+        "arena": [
+          "openai-gpt-6-astra-max-202610",
+          "GPT-6 Astra (Max)"
+        ],
+        "vals": [
+          "GPT-6 Astra (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-astra-xhigh",
+      "display_name": "GPT-6 Astra (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-08",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Astra (xHigh)",
+          "GPT-6 Astra (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-astra-xhigh",
+          "gpt-6-astra-(xhigh)"
+        ],
+        "arena": [
+          "openai-gpt-6-astra-xhigh-202610",
+          "GPT-6 Astra (xHigh)"
+        ],
+        "vals": [
+          "GPT-6 Astra (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-astra-high",
+      "display_name": "GPT-6 Astra (High)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-08",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Astra (High)",
+          "GPT-6 Astra (High) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-astra-high",
+          "gpt-6-astra-(high)"
+        ],
+        "arena": [
+          "openai-gpt-6-astra-high-202610",
+          "GPT-6 Astra (High)"
+        ],
+        "vals": [
+          "GPT-6 Astra (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-astra-medium",
+      "display_name": "GPT-6 Astra (Medium)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-08",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Astra (Medium)",
+          "GPT-6 Astra (Medium) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-astra-medium",
+          "gpt-6-astra-(medium)"
+        ],
+        "arena": [
+          "openai-gpt-6-astra-medium-202610",
+          "GPT-6 Astra (Medium)"
+        ],
+        "vals": [
+          "GPT-6 Astra (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-astra-low",
+      "display_name": "GPT-6 Astra (Low)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-08",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Astra (Low)",
+          "GPT-6 Astra (Low) (hybrid)"
+        ],
+        "livebench": [
+          "openai-gpt-6-astra-low",
+          "gpt-6-astra-(low)"
+        ],
+        "arena": [
+          "openai-gpt-6-astra-low-202610",
+          "GPT-6 Astra (Low)"
+        ],
+        "vals": [
+          "GPT-6 Astra (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-sol-max",
+      "display_name": "GPT-6.1 Sol (Max)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-19",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Sol (Max)",
+          "GPT-6.1 Sol (Max) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-sol-max",
+          "gpt-6.1-sol-(max)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-sol-max-202610",
+          "GPT-6.1 Sol (Max)"
+        ],
+        "vals": [
+          "GPT-6.1 Sol (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-sol-xhigh",
+      "display_name": "GPT-6.1 Sol (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-19",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Sol (xHigh)",
+          "GPT-6.1 Sol (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-sol-xhigh",
+          "gpt-6.1-sol-(xhigh)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-sol-xhigh-202610",
+          "GPT-6.1 Sol (xHigh)"
+        ],
+        "vals": [
+          "GPT-6.1 Sol (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-sol-high",
+      "display_name": "GPT-6.1 Sol (High)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-19",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Sol (High)",
+          "GPT-6.1 Sol (High) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-sol-high",
+          "gpt-6.1-sol-(high)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-sol-high-202610",
+          "GPT-6.1 Sol (High)"
+        ],
+        "vals": [
+          "GPT-6.1 Sol (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-sol-medium",
+      "display_name": "GPT-6.1 Sol (Medium)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-19",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Sol (Medium)",
+          "GPT-6.1 Sol (Medium) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-sol-medium",
+          "gpt-6.1-sol-(medium)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-sol-medium-202610",
+          "GPT-6.1 Sol (Medium)"
+        ],
+        "vals": [
+          "GPT-6.1 Sol (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-sol-low",
+      "display_name": "GPT-6.1 Sol (Low)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-19",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Sol (Low)",
+          "GPT-6.1 Sol (Low) (hybrid)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-sol-low",
+          "gpt-6.1-sol-(low)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-sol-low-202610",
+          "GPT-6.1 Sol (Low)"
+        ],
+        "vals": [
+          "GPT-6.1 Sol (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-terra",
+      "display_name": "GPT-6.1 Terra (Max)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-26",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Terra (Max)",
+          "GPT-6.1 Terra (Max) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-terra",
+          "gpt-6.1-terra-(max)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-terra-202610",
+          "GPT-6.1 Terra (Max)"
+        ],
+        "vals": [
+          "GPT-6.1 Terra (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-terra-xhigh",
+      "display_name": "GPT-6.1 Terra (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-26",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Terra (xHigh)",
+          "GPT-6.1 Terra (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-terra-xhigh",
+          "gpt-6.1-terra-(xhigh)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-terra-xhigh-202610",
+          "GPT-6.1 Terra (xHigh)"
+        ],
+        "vals": [
+          "GPT-6.1 Terra (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-terra-high",
+      "display_name": "GPT-6.1 Terra (High)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-26",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Terra (High)",
+          "GPT-6.1 Terra (High) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-terra-high",
+          "gpt-6.1-terra-(high)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-terra-high-202610",
+          "GPT-6.1 Terra (High)"
+        ],
+        "vals": [
+          "GPT-6.1 Terra (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-terra-medium",
+      "display_name": "GPT-6.1 Terra (Medium)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-26",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Terra (Medium)",
+          "GPT-6.1 Terra (Medium) (hybrid)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-terra-medium",
+          "gpt-6.1-terra-(medium)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-terra-medium-202610",
+          "GPT-6.1 Terra (Medium)"
+        ],
+        "vals": [
+          "GPT-6.1 Terra (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-terra-non-reasoning",
+      "display_name": "GPT-6.1 Terra (Non-Reasoning)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-26",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "none",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Terra (Non-Reasoning)",
+          "GPT-6.1 Terra (Non-Reasoning) (standard)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-terra-non-reasoning",
+          "gpt-6.1-terra-(non-reasoning)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-terra-non-reasoning-202610",
+          "GPT-6.1 Terra (Non-Reasoning)"
+        ],
+        "vals": [
+          "GPT-6.1 Terra (Non-Reasoning)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-1-terra-low",
+      "display_name": "GPT-6.1 Terra (Low)",
+      "provider": "OpenAI",
+      "release_date": "2026-10-26",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.1 Terra (Low)",
+          "GPT-6.1 Terra (Low) (standard)"
+        ],
+        "livebench": [
+          "openai-gpt-6-1-terra-low",
+          "gpt-6.1-terra-(low)"
+        ],
+        "arena": [
+          "openai-gpt-6-1-terra-low-202610",
+          "GPT-6.1 Terra (Low)"
+        ],
+        "vals": [
+          "GPT-6.1 Terra (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-sol-max",
+      "display_name": "GPT-6 Sol (Max)",
+      "provider": "OpenAI",
+      "release_date": "2026-08-22",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Sol (Max)",
+          "GPT-6 Sol (Max) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-sol-max",
+          "gpt-6-sol-(max)"
+        ],
+        "arena": [
+          "openai-gpt-6-sol-max-202610",
+          "GPT-6 Sol (Max)"
+        ],
+        "vals": [
+          "GPT-6 Sol (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-luna-max",
+      "display_name": "GPT-6 Luna (Max)",
+      "provider": "OpenAI",
+      "release_date": "2026-09-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Luna (Max)",
+          "GPT-6 Luna (Max) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-luna-max",
+          "gpt-6-luna-(max)"
+        ],
+        "arena": [
+          "openai-gpt-6-luna-max-202610",
+          "GPT-6 Luna (Max)"
+        ],
+        "vals": [
+          "GPT-6 Luna (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-luna-xhigh",
+      "display_name": "GPT-6 Luna (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-09-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Luna (xHigh)",
+          "GPT-6 Luna (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-6-luna-xhigh",
+          "gpt-6-luna-(xhigh)"
+        ],
+        "arena": [
+          "openai-gpt-6-luna-xhigh-202610",
+          "GPT-6 Luna (xHigh)"
+        ],
+        "vals": [
+          "GPT-6 Luna (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-luna-high",
+      "display_name": "GPT-6 Luna (High)",
+      "provider": "OpenAI",
+      "release_date": "2026-09-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Luna (High)",
+          "GPT-6 Luna (High) (hybrid)"
+        ],
+        "livebench": [
+          "openai-gpt-6-luna-high",
+          "gpt-6-luna-(high)"
+        ],
+        "arena": [
+          "openai-gpt-6-luna-high-202610",
+          "GPT-6 Luna (High)"
+        ],
+        "vals": [
+          "GPT-6 Luna (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-luna-medium",
+      "display_name": "GPT-6 Luna (Medium)",
+      "provider": "OpenAI",
+      "release_date": "2026-09-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Luna (Medium)",
+          "GPT-6 Luna (Medium) (standard)"
+        ],
+        "livebench": [
+          "openai-gpt-6-luna-medium",
+          "gpt-6-luna-(medium)"
+        ],
+        "arena": [
+          "openai-gpt-6-luna-medium-202610",
+          "GPT-6 Luna (Medium)"
+        ],
+        "vals": [
+          "GPT-6 Luna (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-luna-low",
+      "display_name": "GPT-6 Luna (Low)",
+      "provider": "OpenAI",
+      "release_date": "2026-09-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6 Luna (Low)",
+          "GPT-6 Luna (Low) (standard)"
+        ],
+        "livebench": [
+          "openai-gpt-6-luna-low",
+          "gpt-6-luna-(low)"
+        ],
+        "arena": [
+          "openai-gpt-6-luna-low-202610",
+          "GPT-6 Luna (Low)"
+        ],
+        "vals": [
+          "GPT-6 Luna (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-6-sol",
+      "display_name": "GPT-5.6 Sol (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-05-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-5.6 Sol (xHigh)",
+          "GPT-5.6 Sol (xHigh) (reasoning)",
+          "GPT-5.6 Sol",
+          "GPT-5.6 Sol (Reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-5-6-sol",
+          "gpt-5.6-sol-(xhigh)",
+          "gpt-5.6-sol"
+        ],
+        "arena": [
+          "openai-gpt-5-6-sol-202610",
+          "GPT-5.6 Sol",
+          "GPT-5.6 Sol (xHigh)"
+        ],
+        "vals": [
+          "GPT-5.6 Sol",
+          "GPT-5.6 Sol (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-6-terra",
+      "display_name": "GPT-5.6 Terra (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-05-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-5.6 Terra (xHigh)",
+          "GPT-5.6 Terra (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-5-6-terra",
+          "gpt-5.6-terra-(xhigh)"
+        ],
+        "arena": [
+          "openai-gpt-5-6-terra-202610",
+          "GPT-5.6 Terra (xHigh)"
+        ],
+        "vals": [
+          "GPT-5.6 Terra (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-6-luna",
+      "display_name": "GPT-5.6 Luna (High)",
+      "provider": "OpenAI",
+      "release_date": "2026-05-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-5.6 Luna (High)",
+          "GPT-5.6 Luna (High) (hybrid)"
+        ],
+        "livebench": [
+          "openai-gpt-5-6-luna",
+          "gpt-5.6-luna-(high)"
+        ],
+        "arena": [
+          "openai-gpt-5-6-luna-202610",
+          "GPT-5.6 Luna (High)"
+        ],
+        "vals": [
+          "GPT-5.6 Luna (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-5-xhigh",
+      "display_name": "GPT-5.5 (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-03-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-5.5 (xHigh)",
+          "GPT-5.5 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-5-5-xhigh",
+          "gpt-5.5-(xhigh)"
+        ],
+        "arena": [
+          "openai-gpt-5-5-xhigh-202610",
+          "GPT-5.5 (xHigh)"
+        ],
+        "vals": [
+          "GPT-5.5 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-4-xhigh",
+      "display_name": "GPT-5.4 (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-01-22",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-5.4 (xHigh)",
+          "GPT-5.4 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-5-4-xhigh",
+          "gpt-5.4-(xhigh)"
+        ],
+        "arena": [
+          "openai-gpt-5-4-xhigh-202610",
+          "GPT-5.4 (xHigh)"
+        ],
+        "vals": [
+          "GPT-5.4 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-4-mini-xhigh",
+      "display_name": "GPT-5.4 Mini (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-01-22",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 400000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-5.4 Mini (xHigh)",
+          "GPT-5.4 Mini (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-5-4-mini-xhigh",
+          "gpt-5.4-mini-(xhigh)"
+        ],
+        "arena": [
+          "openai-gpt-5-4-mini-xhigh-202610",
+          "GPT-5.4 Mini (xHigh)"
+        ],
+        "vals": [
+          "GPT-5.4 Mini (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-4-nano-xhigh",
+      "display_name": "GPT-5.4 Nano (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-01-22",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 400000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-5.4 Nano (xHigh)",
+          "GPT-5.4 Nano (xHigh) (hybrid)"
+        ],
+        "livebench": [
+          "openai-gpt-5-4-nano-xhigh",
+          "gpt-5.4-nano-(xhigh)"
+        ],
+        "arena": [
+          "openai-gpt-5-4-nano-xhigh-202610",
+          "GPT-5.4 Nano (xHigh)"
+        ],
+        "vals": [
+          "GPT-5.4 Nano (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-2-high",
+      "display_name": "GPT-5.2 (High)",
+      "provider": "OpenAI",
+      "release_date": "2025-12-11",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 400000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-5.2 (High)",
+          "GPT-5.2 (High) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-5-2-high",
+          "gpt-5.2-(high)"
+        ],
+        "arena": [
+          "openai-gpt-5-2-high-202610",
+          "GPT-5.2 (High)"
+        ],
+        "vals": [
+          "GPT-5.2 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-mini-high",
+      "display_name": "GPT-5 Mini (High)",
+      "provider": "OpenAI",
+      "release_date": "2025-09-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 400000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-5 Mini (High)",
+          "GPT-5 Mini (High) (reasoning)"
+        ],
+        "livebench": [
+          "openai-gpt-5-mini-high",
+          "gpt-5-mini-(high)"
+        ],
+        "arena": [
+          "openai-gpt-5-mini-high-202610",
+          "GPT-5 Mini (High)"
+        ],
+        "vals": [
+          "GPT-5 Mini (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-o3-high",
+      "display_name": "o3 (High)",
+      "provider": "OpenAI",
+      "release_date": "2025-04-16",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 200000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "o3 (High)",
+          "o3 (High) (reasoning)"
+        ],
+        "livebench": [
+          "openai-o3-high",
+          "o3-(high)"
+        ],
+        "arena": [
+          "openai-o3-high-202610",
+          "o3 (High)"
+        ],
+        "vals": [
+          "o3 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-4-1",
+      "display_name": "GPT-4.1",
+      "provider": "OpenAI",
+      "release_date": "2025-04-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-4.1",
+          "GPT-4.1 (standard)"
+        ],
+        "livebench": [
+          "openai-gpt-4-1",
+          "gpt-4.1"
+        ],
+        "arena": [
+          "openai-gpt-4-1-202610",
+          "GPT-4.1"
+        ],
+        "vals": [
+          "GPT-4.1"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-4-carbon-high",
+      "display_name": "Gemini 4 Carbon (High)",
+      "provider": "Google",
+      "release_date": "2026-10-28",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 4 Carbon (High)",
+          "Gemini 4 Carbon (High) (reasoning)"
+        ],
+        "livebench": [
+          "google-gemini-4-carbon-high",
+          "gemini-4-carbon-(high)"
+        ],
+        "arena": [
+          "google-gemini-4-carbon-high-202610",
+          "Gemini 4 Carbon (High)"
+        ],
+        "vals": [
+          "Gemini 4 Carbon (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-4-argon",
+      "display_name": "Gemini 4 Argon (High)",
+      "provider": "Google",
+      "release_date": "2026-10-05",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 4 Argon (High)",
+          "Gemini 4 Argon (High) (reasoning)"
+        ],
+        "livebench": [
+          "google-gemini-4-argon",
+          "gemini-4-argon-(high)"
+        ],
+        "arena": [
+          "google-gemini-4-argon-202610",
+          "Gemini 4 Argon (High)"
+        ],
+        "vals": [
+          "Gemini 4 Argon (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-3-8-flash-high",
+      "display_name": "Gemini 3.8 Flash (High)",
+      "provider": "Google",
+      "release_date": "2026-09-22",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 3.8 Flash (High)",
+          "Gemini 3.8 Flash (High) (reasoning)"
+        ],
+        "livebench": [
+          "google-gemini-3-8-flash-high",
+          "gemini-3.8-flash-(high)"
+        ],
+        "arena": [
+          "google-gemini-3-8-flash-high-202610",
+          "Gemini 3.8 Flash (High)"
+        ],
+        "vals": [
+          "Gemini 3.8 Flash (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-3-8-flash-medium",
+      "display_name": "Gemini 3.8 Flash (Medium)",
+      "provider": "Google",
+      "release_date": "2026-09-22",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 3.8 Flash (Medium)",
+          "Gemini 3.8 Flash (Medium) (hybrid)"
+        ],
+        "livebench": [
+          "google-gemini-3-8-flash-medium",
+          "gemini-3.8-flash-(medium)"
+        ],
+        "arena": [
+          "google-gemini-3-8-flash-medium-202610",
+          "Gemini 3.8 Flash (Medium)"
+        ],
+        "vals": [
+          "Gemini 3.8 Flash (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-3-8-flash-low",
+      "display_name": "Gemini 3.8 Flash (Low)",
+      "provider": "Google",
+      "release_date": "2026-09-22",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 3.8 Flash (Low)",
+          "Gemini 3.8 Flash (Low) (standard)"
+        ],
+        "livebench": [
+          "google-gemini-3-8-flash-low",
+          "gemini-3.8-flash-(low)"
+        ],
+        "arena": [
+          "google-gemini-3-8-flash-low-202610",
+          "Gemini 3.8 Flash (Low)"
+        ],
+        "vals": [
+          "Gemini 3.8 Flash (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-3-7-flash-high",
+      "display_name": "Gemini 3.7 Flash (High)",
+      "provider": "Google",
+      "release_date": "2026-07-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 3.7 Flash (High)",
+          "Gemini 3.7 Flash (High) (reasoning)"
+        ],
+        "livebench": [
+          "google-gemini-3-7-flash-high",
+          "gemini-3.7-flash-(high)"
+        ],
+        "arena": [
+          "google-gemini-3-7-flash-high-202610",
+          "Gemini 3.7 Flash (High)"
+        ],
+        "vals": [
+          "Gemini 3.7 Flash (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-3-6-flash-high",
+      "display_name": "Gemini 3.6 Flash (High)",
+      "provider": "Google",
+      "release_date": "2026-05-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 3.6 Flash (High)",
+          "Gemini 3.6 Flash (High) (reasoning)"
+        ],
+        "livebench": [
+          "google-gemini-3-6-flash-high",
+          "gemini-3.6-flash-(high)"
+        ],
+        "arena": [
+          "google-gemini-3-6-flash-high-202610",
+          "Gemini 3.6 Flash (High)"
+        ],
+        "vals": [
+          "Gemini 3.6 Flash (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-3-5-flash-high",
+      "display_name": "Gemini 3.5 Flash (High)",
+      "provider": "Google",
+      "release_date": "2026-03-08",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 3.5 Flash (High)",
+          "Gemini 3.5 Flash (High) (reasoning)"
+        ],
+        "livebench": [
+          "google-gemini-3-5-flash-high",
+          "gemini-3.5-flash-(high)"
+        ],
+        "arena": [
+          "google-gemini-3-5-flash-high-202610",
+          "Gemini 3.5 Flash (High)"
+        ],
+        "vals": [
+          "Gemini 3.5 Flash (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-3-5-flash-lite",
+      "display_name": "Gemini 3.5 Flash-Lite",
+      "provider": "Google",
+      "release_date": "2026-03-08",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 3.5 Flash-Lite",
+          "Gemini 3.5 Flash-Lite (standard)"
+        ],
+        "livebench": [
+          "google-gemini-3-5-flash-lite",
+          "gemini-3.5-flash-lite"
+        ],
+        "arena": [
+          "google-gemini-3-5-flash-lite-202610",
+          "Gemini 3.5 Flash-Lite"
+        ],
+        "vals": [
+          "Gemini 3.5 Flash-Lite"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemini-3-1-pro-high",
+      "display_name": "Gemini 3.1 Pro (High)",
+      "provider": "Google",
+      "release_date": "2026-02-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 3.1 Pro (High)",
+          "Gemini 3.1 Pro (High) (reasoning)"
+        ],
+        "livebench": [
+          "google-gemini-3-1-pro-high",
+          "gemini-3.1-pro-(high)"
+        ],
+        "arena": [
+          "google-gemini-3-1-pro-high-202610",
+          "Gemini 3.1 Pro (High)"
+        ],
+        "vals": [
+          "Gemini 3.1 Pro (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemma-4-31b",
+      "display_name": "Gemma 4 31B",
+      "provider": "Google",
+      "release_date": "2026-08-15",
+      "license": "Gemma Terms",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemma 4 31B",
+          "Gemma 4 31B (standard)"
+        ],
+        "livebench": [
+          "google-gemma-4-31b",
+          "gemma-4-31b"
+        ],
+        "arena": [
+          "google-gemma-4-31b-202610",
+          "Gemma 4 31B"
+        ],
+        "vals": [
+          "Gemma 4 31B"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemma-4-26b-a4b",
+      "display_name": "Gemma 4 26B A4B",
+      "provider": "Google",
+      "release_date": "2026-08-15",
+      "license": "Gemma Terms",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemma 4 26B A4B",
+          "Gemma 4 26B A4B (standard)"
+        ],
+        "livebench": [
+          "google-gemma-4-26b-a4b",
+          "gemma-4-26b-a4b"
+        ],
+        "arena": [
+          "google-gemma-4-26b-a4b-202610",
+          "Gemma 4 26B A4B"
+        ],
+        "vals": [
+          "Gemma 4 26B A4B"
+        ]
+      }
+    },
+    {
+      "canonical_id": "google-gemma-4-12b",
+      "display_name": "Gemma 4 12B (Non-Reasoning)",
+      "provider": "Google",
+      "release_date": "2026-08-15",
+      "license": "Gemma Terms",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "none",
+      "aliases": {
+        "artificial_analysis": [
+          "Gemma 4 12B (Non-Reasoning)",
+          "Gemma 4 12B (Non-Reasoning) (standard)"
+        ],
+        "livebench": [
+          "google-gemma-4-12b",
+          "gemma-4-12b-(non-reasoning)"
+        ],
+        "arena": [
+          "google-gemma-4-12b-202610",
+          "Gemma 4 12B (Non-Reasoning)"
+        ],
+        "vals": [
+          "Gemma 4 12B (Non-Reasoning)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-muse-wonder-full-max",
+      "display_name": "Muse Wonder Full (Max)",
+      "provider": "Meta",
+      "release_date": "2026-10-16",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Muse Wonder Full (Max)",
+          "Muse Wonder Full (Max) (reasoning)"
+        ],
+        "livebench": [
+          "meta-muse-wonder-full-max",
+          "muse-wonder-full-(max)"
+        ],
+        "arena": [
+          "meta-muse-wonder-full-max-202610",
+          "Muse Wonder Full (Max)"
+        ],
+        "vals": [
+          "Muse Wonder Full (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-muse-wonder-max",
+      "display_name": "Muse Wonder 1.0 (Max)",
+      "provider": "Meta",
+      "release_date": "2026-10-16",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Muse Wonder 1.0 (Max)",
+          "Muse Wonder 1.0 (Max) (reasoning)"
+        ],
+        "livebench": [
+          "meta-muse-wonder-max",
+          "muse-wonder-1.0-(max)"
+        ],
+        "arena": [
+          "meta-muse-wonder-max-202610",
+          "Muse Wonder 1.0 (Max)"
+        ],
+        "vals": [
+          "Muse Wonder 1.0 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-muse-spark-1-3",
+      "display_name": "Muse Spark 1.3 (High)",
+      "provider": "Meta",
+      "release_date": "2026-09-28",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Muse Spark 1.3 (High)",
+          "Muse Spark 1.3 (High) (reasoning)"
+        ],
+        "livebench": [
+          "meta-muse-spark-1-3",
+          "muse-spark-1.3-(high)"
+        ],
+        "arena": [
+          "meta-muse-spark-1-3-202610",
+          "Muse Spark 1.3 (High)"
+        ],
+        "vals": [
+          "Muse Spark 1.3 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-muse-spark-1-2",
+      "display_name": "Muse Spark 1.2 (High)",
+      "provider": "Meta",
+      "release_date": "2026-08-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Muse Spark 1.2 (High)",
+          "Muse Spark 1.2 (High) (reasoning)"
+        ],
+        "livebench": [
+          "meta-muse-spark-1-2",
+          "muse-spark-1.2-(high)"
+        ],
+        "arena": [
+          "meta-muse-spark-1-2-202610",
+          "Muse Spark 1.2 (High)"
+        ],
+        "vals": [
+          "Muse Spark 1.2 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-muse-spark-1-1-xhigh",
+      "display_name": "Muse Spark 1.1 (xHigh)",
+      "provider": "Meta",
+      "release_date": "2026-06-30",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Muse Spark 1.1 (xHigh)",
+          "Muse Spark 1.1 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "meta-muse-spark-1-1-xhigh",
+          "muse-spark-1.1-(xhigh)"
+        ],
+        "arena": [
+          "meta-muse-spark-1-1-xhigh-202610",
+          "Muse Spark 1.1 (xHigh)"
+        ],
+        "vals": [
+          "Muse Spark 1.1 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-muse-spark-open-xhigh",
+      "display_name": "Muse Spark Open (xHigh)",
+      "provider": "Meta",
+      "release_date": "2026-09-28",
+      "license": "Llama 4 Community",
+      "is_open_weights": true,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Muse Spark Open (xHigh)",
+          "Muse Spark Open (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "meta-muse-spark-open-xhigh",
+          "muse-spark-open-(xhigh)"
+        ],
+        "arena": [
+          "meta-muse-spark-open-xhigh-202610",
+          "Muse Spark Open (xHigh)"
+        ],
+        "vals": [
+          "Muse Spark Open (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-muse-glimmer-high",
+      "display_name": "Muse Glimmer (High)",
+      "provider": "Meta",
+      "release_date": "2026-09-28",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 131000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Muse Glimmer (High)",
+          "Muse Glimmer (High) (hybrid)"
+        ],
+        "livebench": [
+          "meta-muse-glimmer-high",
+          "muse-glimmer-(high)"
+        ],
+        "arena": [
+          "meta-muse-glimmer-high-202610",
+          "Muse Glimmer (High)"
+        ],
+        "vals": [
+          "Muse Glimmer (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-llama-4-maverick-17b-128e",
+      "display_name": "Llama 4 Maverick 17B 128E Instruct",
+      "provider": "Meta",
+      "release_date": "2025-04-05",
+      "license": "Llama 4 Community",
+      "is_open_weights": true,
+      "context_window": 524000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Llama 4 Maverick 17B 128E Instruct",
+          "Llama 4 Maverick 17B 128E Instruct (standard)"
+        ],
+        "livebench": [
+          "meta-llama-4-maverick-17b-128e",
+          "llama-4-maverick-17b-128e-instruct"
+        ],
+        "arena": [
+          "meta-llama-4-maverick-17b-128e-202610",
+          "Llama 4 Maverick 17B 128E Instruct"
+        ],
+        "vals": [
+          "Llama 4 Maverick 17B 128E Instruct"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-llama-4-scout-17b-16e",
+      "display_name": "Llama 4 Scout 17B 16E Instruct",
+      "provider": "Meta",
+      "release_date": "2025-04-05",
+      "license": "Llama 4 Community",
+      "is_open_weights": true,
+      "context_window": 10000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Llama 4 Scout 17B 16E Instruct",
+          "Llama 4 Scout 17B 16E Instruct (standard)"
+        ],
+        "livebench": [
+          "meta-llama-4-scout-17b-16e",
+          "llama-4-scout-17b-16e-instruct"
+        ],
+        "arena": [
+          "meta-llama-4-scout-17b-16e-202610",
+          "Llama 4 Scout 17B 16E Instruct"
+        ],
+        "vals": [
+          "Llama 4 Scout 17B 16E Instruct"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-llama-3-3-70b-instruct",
+      "display_name": "Llama 3.3 70B Instruct",
+      "provider": "Meta",
+      "release_date": "2024-12-06",
+      "license": "Llama 3.3 Community",
+      "is_open_weights": true,
+      "context_window": 131000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Llama 3.3 70B Instruct",
+          "Llama 3.3 70B Instruct (standard)"
+        ],
+        "livebench": [
+          "meta-llama-3-3-70b-instruct",
+          "llama-3.3-70b-instruct"
+        ],
+        "arena": [
+          "meta-llama-3-3-70b-instruct-202610",
+          "Llama 3.3 70B Instruct"
+        ],
+        "vals": [
+          "Llama 3.3 70B Instruct"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-llama-3-1-405b-instruct",
+      "display_name": "Llama 3.1 405B Instruct",
+      "provider": "Meta",
+      "release_date": "2024-07-23",
+      "license": "Llama 3.1 Community",
+      "is_open_weights": true,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Llama 3.1 405B Instruct",
+          "Llama 3.1 405B Instruct (standard)"
+        ],
+        "livebench": [
+          "meta-llama-3-1-405b-instruct",
+          "llama-3.1-405b-instruct"
+        ],
+        "arena": [
+          "meta-llama-3-1-405b-instruct-202610",
+          "Llama 3.1 405B Instruct"
+        ],
+        "vals": [
+          "Llama 3.1 405B Instruct"
+        ]
+      }
+    },
+    {
+      "canonical_id": "deepseek-v4-1-flash-1017",
+      "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
+      "provider": "DeepSeek",
+      "release_date": "2026-10-17",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "DeepSeek V4.1 Flash 1017 (Max)",
+          "DeepSeek V4.1 Flash 1017 (Max) (reasoning)"
+        ],
+        "livebench": [
+          "deepseek-v4-1-flash-1017",
+          "deepseek-v4.1-flash-1017-(max)"
+        ],
+        "arena": [
+          "deepseek-v4-1-flash-1017-202610",
+          "DeepSeek V4.1 Flash 1017 (Max)"
+        ],
+        "vals": [
+          "DeepSeek V4.1 Flash 1017 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "deepseek-v4-pro-0813",
+      "display_name": "DeepSeek V4 Pro 0813 (Max)",
+      "provider": "DeepSeek",
+      "release_date": "2026-08-13",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "DeepSeek V4 Pro 0813 (Max)",
+          "DeepSeek V4 Pro 0813 (Max) (reasoning)"
+        ],
+        "livebench": [
+          "deepseek-v4-pro-0813",
+          "deepseek-v4-pro-0813-(max)"
+        ],
+        "arena": [
+          "deepseek-v4-pro-0813-202610",
+          "DeepSeek V4 Pro 0813 (Max)"
+        ],
+        "vals": [
+          "DeepSeek V4 Pro 0813 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "deepseek-v4-pro-0423",
+      "display_name": "DeepSeek V4 Pro 0423",
+      "provider": "DeepSeek",
+      "release_date": "2026-04-23",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "DeepSeek V4 Pro 0423",
+          "DeepSeek V4 Pro 0423 (reasoning)"
+        ],
+        "livebench": [
+          "deepseek-v4-pro-0423"
+        ],
+        "arena": [
+          "deepseek-v4-pro-0423-202610",
+          "DeepSeek V4 Pro 0423"
+        ],
+        "vals": [
+          "DeepSeek V4 Pro 0423"
+        ]
+      }
+    },
+    {
+      "canonical_id": "deepseek-v4-flash-0731",
+      "display_name": "DeepSeek V4 Flash 0731 (High)",
+      "provider": "DeepSeek",
+      "release_date": "2026-07-31",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "DeepSeek V4 Flash 0731 (High)",
+          "DeepSeek V4 Flash 0731 (High) (reasoning)"
+        ],
+        "livebench": [
+          "deepseek-v4-flash-0731",
+          "deepseek-v4-flash-0731-(high)"
+        ],
+        "arena": [
+          "deepseek-v4-flash-0731-202610",
+          "DeepSeek V4 Flash 0731 (High)"
+        ],
+        "vals": [
+          "DeepSeek V4 Flash 0731 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "deepseek-v4-flash-0423",
+      "display_name": "DeepSeek V4 Flash 0423",
+      "provider": "DeepSeek",
+      "release_date": "2026-04-23",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "DeepSeek V4 Flash 0423",
+          "DeepSeek V4 Flash 0423 (standard)"
+        ],
+        "livebench": [
+          "deepseek-v4-flash-0423"
+        ],
+        "arena": [
+          "deepseek-v4-flash-0423-202610",
+          "DeepSeek V4 Flash 0423"
+        ],
+        "vals": [
+          "DeepSeek V4 Flash 0423"
+        ]
+      }
+    },
+    {
+      "canonical_id": "deepseek-v3-2",
+      "display_name": "DeepSeek V3.2",
+      "provider": "DeepSeek",
+      "release_date": "2025-11-20",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 164000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "DeepSeek V3.2",
+          "DeepSeek V3.2 (standard)"
+        ],
+        "livebench": [
+          "deepseek-v3-2",
+          "deepseek-v3.2"
+        ],
+        "arena": [
+          "deepseek-v3-2-202610",
+          "DeepSeek V3.2"
+        ],
+        "vals": [
+          "DeepSeek V3.2"
+        ]
+      }
+    },
+    {
+      "canonical_id": "deepseek-r1-0528",
+      "display_name": "DeepSeek-R1 (0528)",
+      "provider": "DeepSeek",
+      "release_date": "2025-05-28",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 164000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "DeepSeek-R1 (0528)",
+          "DeepSeek-R1 (0528) (reasoning)"
+        ],
+        "livebench": [
+          "deepseek-r1-0528",
+          "deepseek-r1-(0528)"
+        ],
+        "arena": [
+          "deepseek-r1-0528-202610",
+          "DeepSeek-R1 (0528)"
+        ],
+        "vals": [
+          "DeepSeek-R1 (0528)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "qwen-3-8-max-0902",
+      "display_name": "Qwen3.8 Max (0902)",
+      "provider": "Alibaba",
+      "release_date": "2026-09-02",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 984000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen3.8 Max (0902)",
+          "Qwen3.8 Max (0902) (reasoning)"
+        ],
+        "livebench": [
+          "qwen-3-8-max-0902",
+          "qwen3.8-max-(0902)"
+        ],
+        "arena": [
+          "qwen-3-8-max-0902-202610",
+          "Qwen3.8 Max (0902)"
+        ],
+        "vals": [
+          "Qwen3.8 Max (0902)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "qwen-3-8-flash-next",
+      "display_name": "Qwen3.8-Flash-Next",
+      "provider": "Alibaba",
+      "release_date": "2026-09-18",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen3.8-Flash-Next",
+          "Qwen3.8-Flash-Next (reasoning)"
+        ],
+        "livebench": [
+          "qwen-3-8-flash-next",
+          "qwen3.8-flash-next"
+        ],
+        "arena": [
+          "qwen-3-8-flash-next-202610",
+          "Qwen3.8-Flash-Next"
+        ],
+        "vals": [
+          "Qwen3.8-Flash-Next"
+        ]
+      }
+    },
+    {
+      "canonical_id": "qwen-3-8-27b-xhigh",
+      "display_name": "Qwen3.8 27B (xHigh)",
+      "provider": "Alibaba",
+      "release_date": "2026-09-02",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 256000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen3.8 27B (xHigh)",
+          "Qwen3.8 27B (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "qwen-3-8-27b-xhigh",
+          "qwen3.8-27b-(xhigh)"
+        ],
+        "arena": [
+          "qwen-3-8-27b-xhigh-202610",
+          "Qwen3.8 27B (xHigh)"
+        ],
+        "vals": [
+          "Qwen3.8 27B (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "qwen-3-7-max",
+      "display_name": "Qwen3.7 Max",
+      "provider": "Alibaba",
+      "release_date": "2026-06-15",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 524000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen3.7 Max",
+          "Qwen3.7 Max (reasoning)"
+        ],
+        "livebench": [
+          "qwen-3-7-max",
+          "qwen3.7-max"
+        ],
+        "arena": [
+          "qwen-3-7-max-202610",
+          "Qwen3.7 Max"
+        ],
+        "vals": [
+          "Qwen3.7 Max"
+        ]
+      }
+    },
+    {
+      "canonical_id": "qwen-3-6-plus",
+      "display_name": "Qwen3.6 Plus",
+      "provider": "Alibaba",
+      "release_date": "2026-04-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen3.6 Plus",
+          "Qwen3.6 Plus (hybrid)"
+        ],
+        "livebench": [
+          "qwen-3-6-plus",
+          "qwen3.6-plus"
+        ],
+        "arena": [
+          "qwen-3-6-plus-202610",
+          "Qwen3.6 Plus"
+        ],
+        "vals": [
+          "Qwen3.6 Plus"
+        ]
+      }
+    },
+    {
+      "canonical_id": "qwen-3-5-397b-a17b",
+      "display_name": "Qwen3.5 397B A17B (Reasoning)",
+      "provider": "Alibaba",
+      "release_date": "2026-03-01",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen3.5 397B A17B (Reasoning)",
+          "Qwen3.5 397B A17B (Reasoning) (reasoning)"
+        ],
+        "livebench": [
+          "qwen-3-5-397b-a17b",
+          "qwen3.5-397b-a17b-(reasoning)"
+        ],
+        "arena": [
+          "qwen-3-5-397b-a17b-202610",
+          "Qwen3.5 397B A17B (Reasoning)"
+        ],
+        "vals": [
+          "Qwen3.5 397B A17B (Reasoning)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "qwen-3-5-122b-a10b",
+      "display_name": "Qwen3.5 122B A10B (Reasoning)",
+      "provider": "Alibaba",
+      "release_date": "2026-03-01",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen3.5 122B A10B (Reasoning)",
+          "Qwen3.5 122B A10B (Reasoning) (reasoning)"
+        ],
+        "livebench": [
+          "qwen-3-5-122b-a10b",
+          "qwen3.5-122b-a10b-(reasoning)"
+        ],
+        "arena": [
+          "qwen-3-5-122b-a10b-202610",
+          "Qwen3.5 122B A10B (Reasoning)"
+        ],
+        "vals": [
+          "Qwen3.5 122B A10B (Reasoning)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "qwen-3-coder-480b-a35b",
+      "display_name": "Qwen3-Coder 480B A35B Instruct",
+      "provider": "Alibaba",
+      "release_date": "2025-09-25",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen3-Coder 480B A35B Instruct",
+          "Qwen3-Coder 480B A35B Instruct (standard)"
+        ],
+        "livebench": [
+          "qwen-3-coder-480b-a35b",
+          "qwen3-coder-480b-a35b-instruct"
+        ],
+        "arena": [
+          "qwen-3-coder-480b-a35b-202610",
+          "Qwen3-Coder 480B A35B Instruct"
+        ],
+        "vals": [
+          "Qwen3-Coder 480B A35B Instruct"
+        ]
+      }
+    },
+    {
+      "canonical_id": "qwen-3-235b-a22b-2507",
+      "display_name": "Qwen3 235B A22B Instruct 2507",
+      "provider": "Alibaba",
+      "release_date": "2025-07-20",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen3 235B A22B Instruct 2507",
+          "Qwen3 235B A22B Instruct 2507 (standard)"
+        ],
+        "livebench": [
+          "qwen-3-235b-a22b-2507",
+          "qwen3-235b-a22b-instruct-2507"
+        ],
+        "arena": [
+          "qwen-3-235b-a22b-2507-202610",
+          "Qwen3 235B A22B Instruct 2507"
+        ],
+        "vals": [
+          "Qwen3 235B A22B Instruct 2507"
+        ]
+      }
+    },
+    {
+      "canonical_id": "moonshot-kimi-k3-1-pro",
+      "display_name": "Kimi K3.1 Pro (Max)",
+      "provider": "Moonshot AI",
+      "release_date": "2026-10-23",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Kimi K3.1 Pro (Max)",
+          "Kimi K3.1 Pro (Max) (reasoning)"
+        ],
+        "livebench": [
+          "moonshot-kimi-k3-1-pro",
+          "kimi-k3.1-pro-(max)"
+        ],
+        "arena": [
+          "moonshot-kimi-k3-1-pro-202610",
+          "Kimi K3.1 Pro (Max)"
+        ],
+        "vals": [
+          "Kimi K3.1 Pro (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "moonshot-kimi-k3-base",
+      "display_name": "Kimi K3 (Max)",
+      "provider": "Moonshot AI",
+      "release_date": "2026-08-18",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Kimi K3 (Max)",
+          "Kimi K3 (Max) (reasoning)"
+        ],
+        "livebench": [
+          "moonshot-kimi-k3-base",
+          "kimi-k3-(max)"
+        ],
+        "arena": [
+          "moonshot-kimi-k3-base-202610",
+          "Kimi K3 (Max)"
+        ],
+        "vals": [
+          "Kimi K3 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "moonshot-kimi-k2-6-thinking",
+      "display_name": "Kimi K2.6 Thinking",
+      "provider": "Moonshot AI",
+      "release_date": "2026-04-10",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Kimi K2.6 Thinking",
+          "Kimi K2.6 Thinking (reasoning)"
+        ],
+        "livebench": [
+          "moonshot-kimi-k2-6-thinking",
+          "kimi-k2.6-thinking"
+        ],
+        "arena": [
+          "moonshot-kimi-k2-6-thinking-202610",
+          "Kimi K2.6 Thinking"
+        ],
+        "vals": [
+          "Kimi K2.6 Thinking"
+        ]
+      }
+    },
+    {
+      "canonical_id": "xai-grok-4-7-xhigh",
+      "display_name": "Grok 4.7 (xHigh)",
+      "provider": "xAI",
+      "release_date": "2026-10-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 500000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Grok 4.7 (xHigh)",
+          "Grok 4.7 (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "xai-grok-4-7-xhigh",
+          "grok-4.7-(xhigh)"
+        ],
+        "arena": [
+          "xai-grok-4-7-xhigh-202610",
+          "Grok 4.7 (xHigh)"
+        ],
+        "vals": [
+          "Grok 4.7 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "xai-grok-4-7-high",
+      "display_name": "Grok 4.7 (High)",
+      "provider": "xAI",
+      "release_date": "2026-10-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 500000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Grok 4.7 (High)",
+          "Grok 4.7 (High) (reasoning)"
+        ],
+        "livebench": [
+          "xai-grok-4-7-high",
+          "grok-4.7-(high)"
+        ],
+        "arena": [
+          "xai-grok-4-7-high-202610",
+          "Grok 4.7 (High)"
+        ],
+        "vals": [
+          "Grok 4.7 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "xai-grok-4-7-low",
+      "display_name": "Grok 4.7 (Low)",
+      "provider": "xAI",
+      "release_date": "2026-10-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 500000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "Grok 4.7 (Low)",
+          "Grok 4.7 (Low) (hybrid)"
+        ],
+        "livebench": [
+          "xai-grok-4-7-low",
+          "grok-4.7-(low)"
+        ],
+        "arena": [
+          "xai-grok-4-7-low-202610",
+          "Grok 4.7 (Low)"
+        ],
+        "vals": [
+          "Grok 4.7 (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "xai-grok-4-6-high",
+      "display_name": "Grok 4.6 (High)",
+      "provider": "xAI",
+      "release_date": "2026-08-20",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 500000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Grok 4.6 (High)",
+          "Grok 4.6 (High) (reasoning)"
+        ],
+        "livebench": [
+          "xai-grok-4-6-high",
+          "grok-4.6-(high)"
+        ],
+        "arena": [
+          "xai-grok-4-6-high-202610",
+          "Grok 4.6 (High)"
+        ],
+        "vals": [
+          "Grok 4.6 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "xai-grok-4-5-high",
+      "display_name": "Grok 4.5 (High)",
+      "provider": "xAI",
+      "release_date": "2026-06-14",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 500000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Grok 4.5 (High)",
+          "Grok 4.5 (High) (reasoning)"
+        ],
+        "livebench": [
+          "xai-grok-4-5-high",
+          "grok-4.5-(high)"
+        ],
+        "arena": [
+          "xai-grok-4-5-high-202610",
+          "Grok 4.5 (High)"
+        ],
+        "vals": [
+          "Grok 4.5 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "zai-glm-5-3-max",
+      "display_name": "GLM-5.3 (Max)",
+      "provider": "Z.AI",
+      "release_date": "2026-10-04",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "GLM-5.3 (Max)",
+          "GLM-5.3 (Max) (reasoning)"
+        ],
+        "livebench": [
+          "zai-glm-5-3-max",
+          "glm-5.3-(max)"
+        ],
+        "arena": [
+          "zai-glm-5-3-max-202610",
+          "GLM-5.3 (Max)"
+        ],
+        "vals": [
+          "GLM-5.3 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "zai-glm-5-3-low",
+      "display_name": "GLM-5.3 (Low)",
+      "provider": "Z.AI",
+      "release_date": "2026-10-04",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "GLM-5.3 (Low)",
+          "GLM-5.3 (Low) (hybrid)"
+        ],
+        "livebench": [
+          "zai-glm-5-3-low",
+          "glm-5.3-(low)"
+        ],
+        "arena": [
+          "zai-glm-5-3-low-202610",
+          "GLM-5.3 (Low)"
+        ],
+        "vals": [
+          "GLM-5.3 (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "zai-glm-5-3-flash",
+      "display_name": "GLM-5.3 Flash (Max)",
+      "provider": "Z.AI",
+      "release_date": "2026-10-04",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "GLM-5.3 Flash (Max)",
+          "GLM-5.3 Flash (Max) (reasoning)"
+        ],
+        "livebench": [
+          "zai-glm-5-3-flash",
+          "glm-5.3-flash-(max)"
+        ],
+        "arena": [
+          "zai-glm-5-3-flash-202610",
+          "GLM-5.3 Flash (Max)"
+        ],
+        "vals": [
+          "GLM-5.3 Flash (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "xiaomi-mimo-v2-6-pro",
+      "display_name": "MiMo-V2.6-Pro",
+      "provider": "Xiaomi",
+      "release_date": "2026-10-11",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "MiMo-V2.6-Pro",
+          "MiMo-V2.6-Pro (reasoning)"
+        ],
+        "livebench": [
+          "xiaomi-mimo-v2-6-pro",
+          "mimo-v2.6-pro"
+        ],
+        "arena": [
+          "xiaomi-mimo-v2-6-pro-202610",
+          "MiMo-V2.6-Pro"
+        ],
+        "vals": [
+          "MiMo-V2.6-Pro"
+        ]
+      }
+    },
+    {
+      "canonical_id": "xiaomi-mimo-v2-6-flash",
+      "display_name": "MiMo-V2.6-Flash",
+      "provider": "Xiaomi",
+      "release_date": "2026-10-11",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "MiMo-V2.6-Flash",
+          "MiMo-V2.6-Flash (hybrid)"
+        ],
+        "livebench": [
+          "xiaomi-mimo-v2-6-flash",
+          "mimo-v2.6-flash"
+        ],
+        "arena": [
+          "xiaomi-mimo-v2-6-flash-202610",
+          "MiMo-V2.6-Flash"
+        ],
+        "vals": [
+          "MiMo-V2.6-Flash"
+        ]
+      }
+    },
+    {
+      "canonical_id": "minimax-m3-1-flash",
+      "display_name": "MiniMax-M3.1-Flash",
+      "provider": "MiniMax",
+      "release_date": "2026-10-15",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "MiniMax-M3.1-Flash",
+          "MiniMax-M3.1-Flash (reasoning)"
+        ],
+        "livebench": [
+          "minimax-m3-1-flash",
+          "minimax-m3.1-flash"
+        ],
+        "arena": [
+          "minimax-m3-1-flash-202610",
+          "MiniMax-M3.1-Flash"
+        ],
+        "vals": [
+          "MiniMax-M3.1-Flash"
+        ]
+      }
+    },
+    {
+      "canonical_id": "minimax-m3",
+      "display_name": "MiniMax-M3",
+      "provider": "MiniMax",
+      "release_date": "2026-07-22",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "MiniMax-M3",
+          "MiniMax-M3 (standard)"
+        ],
+        "livebench": [
+          "minimax-m3"
+        ],
+        "arena": [
+          "minimax-m3-202610",
+          "MiniMax-M3"
+        ],
+        "vals": [
+          "MiniMax-M3"
+        ]
+      }
+    },
+    {
+      "canonical_id": "mistral-large-4",
+      "display_name": "Mistral Large 4",
+      "provider": "Mistral AI",
+      "release_date": "2026-10-02",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 524000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Mistral Large 4",
+          "Mistral Large 4 (reasoning)"
+        ],
+        "livebench": [
+          "mistral-large-4"
+        ],
+        "arena": [
+          "mistral-large-4-202610",
+          "Mistral Large 4"
+        ],
+        "vals": [
+          "Mistral Large 4"
+        ]
+      }
+    },
+    {
+      "canonical_id": "stepfun-step-5-preview",
+      "display_name": "Step 5 Preview",
+      "provider": "StepFun",
+      "release_date": "2026-10-08",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Step 5 Preview",
+          "Step 5 Preview (reasoning)"
+        ],
+        "livebench": [
+          "stepfun-step-5-preview",
+          "step-5-preview"
+        ],
+        "arena": [
+          "stepfun-step-5-preview-202610",
+          "Step 5 Preview"
+        ],
+        "vals": [
+          "Step 5 Preview"
+        ]
+      }
+    },
+    {
+      "canonical_id": "tencent-hy4-preview",
+      "display_name": "Hy4 Preview",
+      "provider": "Tencent",
+      "release_date": "2026-10-06",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 524000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Hy4 Preview",
+          "Hy4 Preview (reasoning)"
+        ],
+        "livebench": [
+          "tencent-hy4-preview",
+          "hy4-preview"
+        ],
+        "arena": [
+          "tencent-hy4-preview-202610",
+          "Hy4 Preview"
+        ],
+        "vals": [
+          "Hy4 Preview"
+        ]
+      }
+    },
+    {
+      "canonical_id": "inclusionai-ling-3-1-flash-1019",
+      "display_name": "Ling 3.1 Flash 1019",
+      "provider": "InclusionAI",
+      "release_date": "2026-10-19",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Ling 3.1 Flash 1019",
+          "Ling 3.1 Flash 1019 (reasoning)"
+        ],
+        "livebench": [
+          "inclusionai-ling-3-1-flash-1019",
+          "ling-3.1-flash-1019"
+        ],
+        "arena": [
+          "inclusionai-ling-3-1-flash-1019-202610",
+          "Ling 3.1 Flash 1019"
+        ],
+        "vals": [
+          "Ling 3.1 Flash 1019"
+        ]
+      }
+    },
+    {
+      "canonical_id": "nvidia-smaug-nemotron-3-5-nvfp4",
+      "display_name": "Smaug-Nemotron-3.5-NVFP4",
+      "provider": "NVIDIA",
+      "release_date": "2026-09-25",
+      "license": "NVIDIA Open",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Smaug-Nemotron-3.5-NVFP4",
+          "Smaug-Nemotron-3.5-NVFP4 (reasoning)"
+        ],
+        "livebench": [
+          "nvidia-smaug-nemotron-3-5-nvfp4",
+          "smaug-nemotron-3.5-nvfp4"
+        ],
+        "arena": [
+          "nvidia-smaug-nemotron-3-5-nvfp4-202610",
+          "Smaug-Nemotron-3.5-NVFP4"
+        ],
+        "vals": [
+          "Smaug-Nemotron-3.5-NVFP4"
+        ]
+      }
+    },
+    {
+      "canonical_id": "nvidia-nemotron-3-5-super-vl",
+      "display_name": "Nemotron 3.5 Super VL",
+      "provider": "NVIDIA",
+      "release_date": "2026-09-25",
+      "license": "NVIDIA Open",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Nemotron 3.5 Super VL",
+          "Nemotron 3.5 Super VL (standard)"
+        ],
+        "livebench": [
+          "nvidia-nemotron-3-5-super-vl",
+          "nemotron-3.5-super-vl"
+        ],
+        "arena": [
+          "nvidia-nemotron-3-5-super-vl-202610",
+          "Nemotron 3.5 Super VL"
+        ],
+        "vals": [
+          "Nemotron 3.5 Super VL"
+        ]
+      }
+    },
+    {
+      "canonical_id": "nvidia-nemotron-3-ultra",
+      "display_name": "Nemotron 3 Ultra",
+      "provider": "NVIDIA",
+      "release_date": "2026-06-18",
+      "license": "NVIDIA Open",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Nemotron 3 Ultra",
+          "Nemotron 3 Ultra (reasoning)"
+        ],
+        "livebench": [
+          "nvidia-nemotron-3-ultra",
+          "nemotron-3-ultra"
+        ],
+        "arena": [
+          "nvidia-nemotron-3-ultra-202610",
+          "Nemotron 3 Ultra"
+        ],
+        "vals": [
+          "Nemotron 3 Ultra"
+        ]
+      }
+    },
+    {
+      "canonical_id": "inception-mercury-3-high",
+      "display_name": "Mercury 3 (High)",
+      "provider": "Inception",
+      "release_date": "2026-09-30",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 256000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Mercury 3 (High)",
+          "Mercury 3 (High) (reasoning)"
+        ],
+        "livebench": [
+          "inception-mercury-3-high",
+          "mercury-3-(high)"
+        ],
+        "arena": [
+          "inception-mercury-3-high-202610",
+          "Mercury 3 (High)"
+        ],
+        "vals": [
+          "Mercury 3 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "reflection-beam-1-0",
+      "display_name": "Beam 1.0",
+      "provider": "Reflection AI",
+      "release_date": "2026-09-22",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1050000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Beam 1.0",
+          "Beam 1.0 (standard)"
+        ],
+        "livebench": [
+          "reflection-beam-1-0",
+          "beam-1.0"
+        ],
+        "arena": [
+          "reflection-beam-1-0-202610",
+          "Beam 1.0"
+        ],
+        "vals": [
+          "Beam 1.0"
+        ]
+      }
+    },
+    {
+      "canonical_id": "ifm-k2-horizon-375b-a23b",
+      "display_name": "K2 Horizon 375B A23B",
+      "provider": "IFM",
+      "release_date": "2026-10-05",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 524000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "K2 Horizon 375B A23B",
+          "K2 Horizon 375B A23B (standard)"
+        ],
+        "livebench": [
+          "ifm-k2-horizon-375b-a23b",
+          "k2-horizon-375b-a23b"
+        ],
+        "arena": [
+          "ifm-k2-horizon-375b-a23b-202610",
+          "K2 Horizon 375B A23B"
+        ],
+        "vals": [
+          "K2 Horizon 375B A23B"
+        ]
+      }
+    },
+    {
+      "canonical_id": "thinking-machines-inkling-xhigh",
+      "display_name": "Inkling (xHigh)",
+      "provider": "Thinking Machines",
+      "release_date": "2026-09-15",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Inkling (xHigh)",
+          "Inkling (xHigh) (reasoning)"
+        ],
+        "livebench": [
+          "thinking-machines-inkling-xhigh",
+          "inkling-(xhigh)"
+        ],
+        "arena": [
+          "thinking-machines-inkling-xhigh-202610",
+          "Inkling (xHigh)"
+        ],
+        "vals": [
+          "Inkling (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "thinking-machines-inkling-small",
+      "display_name": "Inkling Small",
+      "provider": "Thinking Machines",
+      "release_date": "2026-09-15",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Inkling Small",
+          "Inkling Small (standard)"
+        ],
+        "livebench": [
+          "thinking-machines-inkling-small",
+          "inkling-small"
+        ],
+        "arena": [
+          "thinking-machines-inkling-small-202610",
+          "Inkling Small"
+        ],
+        "vals": [
+          "Inkling Small"
+        ]
+      }
+    },
+    {
+      "canonical_id": "cohere-command-a-plus",
+      "display_name": "Command A+",
+      "provider": "Cohere",
+      "release_date": "2026-08-28",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 192000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [
+          "Command A+",
+          "Command A+ (standard)"
+        ],
+        "livebench": [
+          "cohere-command-a-plus",
+          "command-a+"
+        ],
+        "arena": [
+          "cohere-command-a-plus-202610",
+          "Command A+"
+        ],
+        "vals": [
+          "Command A+"
+        ]
+      }
+    }
+  ]
+}

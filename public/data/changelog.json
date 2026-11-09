@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.1.0",
+  "updated_at": "2026-10-29T02:03:52Z",
+  "entries": [
+    {
+      "date": "2026-10-28",
+      "type": "release_sync",
+      "summary": "Expanded fleet to 132 verified models with multi-effort reasoning variants (Max, xHigh, High, Medium, Low, Standard) and calibrated frontier grading (30% AA v5.0 / 30% LiveBench 2.0 / 25% Vals v2.2 / 15% Arena Text+Coding Elo).",
+      "highlights": [
+        "Gemini 4 Carbon (High) (#1 AA Intelligence at 59.0%, #2 Vals Index at 70.36%) and Claude Opus 5.5 (Max) (#1 Arena Coding Elo at 1548, #3 LiveBench at 85.1%) lead the unified frontier at 97.65 and 97.16 pts.",
+        "Claude Fable 5.1 (Max) leads LiveBench 2.0 at 85.7%, while Claude Sonnet 5.5 (Max) leads Vals Enterprise Index v2.2 at 70.85%.",
+        "GPT-6 Astra (Max) (93.56 pts) and GPT-6.1 Sol (Max) (90.61 pts) anchor OpenAI's frontier ahead of prior-gen GPT-5.6 Sol (xHigh) (#30, 72.70 pts).",
+        "DeepSeek V4.1 Flash 1017 (Max) leads open-weights models at 69.85 pts ($0.20/1M blended), while legacy DeepSeek-R1 (0528) (#108, 35.26 pts) and Llama 3.1 405B Instruct (#128, 14.49 pts) calibrate accurately into historical tiers.",
+        "Removed unverified model names (GPT-5.6 Mini/Nano, Qwen 3.8 Coder 32B, DeepSeek R2, Llama 4.1 405B) and replaced with verified upstream releases."
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "model_addition",
+      "summary": "Added multi-effort thinking tiers across Anthropic Claude 5.5/5.1, OpenAI GPT-6 Astra/Sol/Terra/Luna, Google Gemini 4/3.8, Meta Muse Wonder/Spark, and xAI Grok 4.7.",
+      "highlights": [
+        "Added explicit thinking_effort telemetry (max, xhigh, high, medium, low, none, standard) to measure accuracy vs. latency/cost scaling across reasoning effort levels."
+      ]
+    }
+  ]
+}

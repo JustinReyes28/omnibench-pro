@@ -1,0 +1,61 @@
+name: Sync Upstream AI Benchmarks (ETL)
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: "benchmark-etl"
+  cancel-in-progress: false
+
+jobs:
+  sync-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Python ETL dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Phase 1 Ingestion Adapters
+        env:
+          AA_API_KEY: ${{ secrets.AA_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python -m scripts.ingest.run_all
+
+      - name: Run Phase 2 Entity Resolution and Normalization
+        run: python -m scripts.transform.build_dataset
+
+      - name: Run Phase 3 Data Integrity Gate
+        run: pytest tests/test_data_integrity.py
+
+      - name: Check for Semantic Benchmark Changes
+        id: diff_check
+        run: |
+          if python -m scripts.ci.semantic_diff_check; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update Historical Trends and Commit Changes
+        if: steps.diff_check.outputs.changed == 'true'
+        run: |
+          python -m scripts.ci.archive_snapshot
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ public/data/
+          git commit -m "chore(data): sync latest AI benchmark scores [$(date -u +'%Y-%m-%d')]"
+          git push

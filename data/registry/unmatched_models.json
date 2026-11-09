@@ -1,0 +1,14 @@
+{
+  "unmatched_count": 1,
+  "unmatched_models": [
+    {
+      "provisional_id": "unmatched-stealth-nebula-v1-preview",
+      "source_key": "arena",
+      "raw_name": "stealth-nebula-v1-preview-20261027",
+      "provider": "Stealth Lab",
+      "normalized_slug": "stealth-nebula-v1-preview",
+      "closest_canonical_candidate": "stepfun-step-5-preview",
+      "similarity_score": 0.615
+    }
+  ]
+}

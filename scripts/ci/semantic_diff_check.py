@@ -3,6 +3,7 @@
 from __future__ import annotations
 import copy
 import json
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -49,14 +50,32 @@ def has_substantive_changes(old_payload: dict[str, Any], new_payload: dict[str, 
     return _diff_values(old_models, new_models)
 
 
+def load_git_head_baseline() -> dict[str, Any] | None:
+    """Loads the committed HEAD version of public/data/models_unified.json from Git."""
+    try:
+        raw = subprocess.check_output(
+            ["git", "show", "HEAD:public/data/models_unified.json"],
+            cwd=str(ROOT_DIR),
+            stderr=subprocess.DEVNULL,
+            text=True,
+        )
+        return json.loads(raw)
+    except Exception:
+        return None
+
+
 if __name__ == "__main__":
     if not DEFAULT_TARGET.exists():
         print("models_unified.json missing; signaling change required.")
         sys.exit(0)
     current = json.loads(DEFAULT_TARGET.read_text(encoding="utf-8"))
-    # Compare against itself by default unless a baseline path is passed
-    baseline_path = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_TARGET
-    baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
+    if len(sys.argv) > 1:
+        baseline = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    else:
+        baseline = load_git_head_baseline()
+        if baseline is None:
+            print("[semantic_diff_check] No Git HEAD baseline found; signaling change required.")
+            sys.exit(0)
     changed = has_substantive_changes(baseline, current)
     print(f"[semantic_diff_check] substantive_changes={changed}")
     sys.exit(0 if changed else 2)

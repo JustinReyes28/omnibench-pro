@@ -9,6 +9,7 @@ class LiveBenchFetcher(BaseFetcher):
     source_key = "livebench"
     source_name = "LiveBench"
     source_url = "https://livebench.ai/"
+    model_id_field = "model_key"
     repo_url = "https://github.com/LiveBench/new-livebench"
 
     @staticmethod

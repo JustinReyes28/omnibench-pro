@@ -64,6 +64,15 @@ def build_unified_dataset() -> dict[str, Any]:
     for item in aa_raw.get("models", []):
         cid, _, meta = resolver.resolve("artificial_analysis", item["model_name"], item.get("provider", "Unknown"))
         rec = ensure_record(cid, meta)
+        if cid.startswith("unmatched-"):
+            if item.get("release_date"):
+                rec["release_date"] = item["release_date"]
+            if item.get("license"):
+                rec["license"] = item["license"]
+            if "open_weights" in item:
+                rec["is_open_weights"] = bool(item["open_weights"])
+            if item.get("context_window"):
+                rec["context_window"] = int(item["context_window"])
         rec["pricing"] = {
             "input_per_1m_usd": round(float(item["input_price_per_1m"]), 3),
             "output_per_1m_usd": round(float(item["output_price_per_1m"]), 3),
@@ -83,6 +92,8 @@ def build_unified_dataset() -> dict[str, Any]:
     for item in lb_raw.get("models", []):
         cid, _, meta = resolver.resolve("livebench", item.get("model_key") or item["display_name"], item.get("provider", "Unknown"))
         rec = ensure_record(cid, meta)
+        if cid.startswith("unmatched-") and item.get("display_name"):
+            rec["display_name"] = item["display_name"]
         rec["benchmarks"]["livebench"] = {
             "global_average": round(float(item["global_average"]), 2),
             "coding": round(float(item["coding"]), 2),
@@ -99,6 +110,11 @@ def build_unified_dataset() -> dict[str, Any]:
     for item in ar_raw.get("models", []):
         cid, _, meta = resolver.resolve("arena", item.get("arena_model_id") or item["display_name"], item.get("organization", "Unknown"))
         rec = ensure_record(cid, meta)
+        if cid.startswith("unmatched-") and item.get("display_name"):
+            rec["display_name"] = item["display_name"]
+        if cid.startswith("unmatched-") and item.get("license"):
+            rec["license"] = item["license"]
+            rec["is_open_weights"] = item["license"].lower() not in ("proprietary", "commercial")
         rec["benchmarks"]["arena"] = {
             "text_elo": int(item["text_elo"]),
             "text_ci_lower": int(item["text_ci_lower"]),

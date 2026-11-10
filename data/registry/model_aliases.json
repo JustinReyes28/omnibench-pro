@@ -1,7 +1,249 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-10-28T06:00:00Z",
+  "updated_at": "2026-11-10T06:00:00Z",
   "models": [
+    {
+      "canonical_id": "anthropic-claude-fable-5-2-max",
+      "display_name": "Claude Fable 5.2 (Max)",
+      "provider": "Anthropic",
+      "release_date": "2026-11-09",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.2 (Max)",
+          "Claude Fable 5.2 (Max) (reasoning)",
+          "Claude Fable 5.2",
+          "Claude Fable 5.2 (max with fallback)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-2-max",
+          "claude-fable-5.2-(max)",
+          "claude-fable-5-2-max"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-2-max-202611",
+          "claude-fable-5-2-max",
+          "Claude Fable 5.2 (Max)",
+          "Claude Fable 5.2"
+        ],
+        "vals": [
+          "Claude Fable 5.2 (Max)",
+          "Claude Fable 5.2"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-2-xhigh",
+      "display_name": "Claude Fable 5.2 (xHigh)",
+      "provider": "Anthropic",
+      "release_date": "2026-11-09",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.2 (xHigh)",
+          "Claude Fable 5.2 (xHigh) (reasoning)",
+          "Claude Fable 5.2 (xhigh with fallback)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-2-xhigh",
+          "claude-fable-5.2-(xhigh)",
+          "claude-fable-5-2-xhigh"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-2-xhigh-202611",
+          "claude-fable-5-2-xhigh",
+          "Claude Fable 5.2 (xHigh)"
+        ],
+        "vals": [
+          "Claude Fable 5.2 (xHigh)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-2-high",
+      "display_name": "Claude Fable 5.2 (High)",
+      "provider": "Anthropic",
+      "release_date": "2026-11-09",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.2 (High)",
+          "Claude Fable 5.2 (High) (reasoning)",
+          "Claude Fable 5.2 (high with fallback)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-2-high",
+          "claude-fable-5.2-(high)",
+          "claude-fable-5-2-high"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-2-high-202611",
+          "claude-fable-5-2-high",
+          "Claude Fable 5.2 (High)"
+        ],
+        "vals": [
+          "Claude Fable 5.2 (High)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-2-medium",
+      "display_name": "Claude Fable 5.2 (Medium)",
+      "provider": "Anthropic",
+      "release_date": "2026-11-09",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.2 (Medium)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-2-medium",
+          "claude-fable-5.2-(medium)"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-2-medium-202611",
+          "Claude Fable 5.2 (Medium)"
+        ],
+        "vals": [
+          "Claude Fable 5.2 (Medium)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-2-low",
+      "display_name": "Claude Fable 5.2 (Low)",
+      "provider": "Anthropic",
+      "release_date": "2026-11-09",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "low",
+      "aliases": {
+        "artificial_analysis": [
+          "Claude Fable 5.2 (Low)"
+        ],
+        "livebench": [
+          "anthropic-claude-fable-5-2-low",
+          "claude-fable-5.2-(low)"
+        ],
+        "arena": [
+          "anthropic-claude-fable-5-2-low-202611",
+          "Claude Fable 5.2 (Low)"
+        ],
+        "vals": [
+          "Claude Fable 5.2 (Low)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "thinking-machines-inkling-2-small",
+      "display_name": "Inkling 2 Small",
+      "provider": "Thinking Machines",
+      "release_date": "2026-11-05",
+      "license": "Apache 2.0",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Inkling 2 Small",
+          "Inkling 2",
+          "Inkling 2 Small (Reasoning)"
+        ],
+        "livebench": [
+          "thinking-machines-inkling-2-small",
+          "inkling-2-small",
+          "inkling-2"
+        ],
+        "arena": [
+          "thinking-machines-inkling-2-small-202611",
+          "inkling-2-small",
+          "Inkling 2 Small",
+          "Inkling 2"
+        ],
+        "vals": [
+          "Inkling 2 Small",
+          "Inkling 2"
+        ]
+      }
+    },
+    {
+      "canonical_id": "meta-muse-ember-max",
+      "display_name": "Muse Ember (Max)",
+      "provider": "Meta",
+      "release_date": "2026-11-09",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "Muse Ember (Max)",
+          "Muse Ember"
+        ],
+        "livebench": [
+          "meta-muse-ember-max",
+          "muse-ember-(max)"
+        ],
+        "arena": [
+          "meta-muse-ember-max-202611",
+          "Muse Ember (Max)",
+          "Muse Ember"
+        ],
+        "vals": [
+          "Muse Ember (Max)",
+          "Muse Ember"
+        ]
+      }
+    },
+    {
+      "canonical_id": "tencent-hy4",
+      "display_name": "Tencent Hy4",
+      "provider": "Tencent",
+      "release_date": "2026-11-03",
+      "license": "Open-Weights",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [
+          "Tencent Hy4",
+          "Hunyuan 4",
+          "Tencent Hy4 (Reasoning)"
+        ],
+        "livebench": [
+          "tencent-hy4",
+          "hunyuan-4"
+        ],
+        "arena": [
+          "tencent-hy4-202611",
+          "Tencent Hy4"
+        ],
+        "vals": [
+          "Tencent Hy4"
+        ]
+      }
+    },
     {
       "canonical_id": "anthropic-claude-opus-5-5",
       "display_name": "Claude Opus 5.5 (Max)",

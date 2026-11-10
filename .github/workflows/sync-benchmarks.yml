@@ -2,7 +2,7 @@ name: Sync Upstream AI Benchmarks (ETL)
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 */12 * * *"
   workflow_dispatch:
 
 permissions:
@@ -25,12 +25,15 @@ jobs:
         with:
           python-version: "3.12"
           cache: "pip"
+          cache-dependency-path: "requirements-etl.txt"
 
       - name: Install Python ETL dependencies
         run: pip install -r requirements-etl.txt
 
       - name: Run Phase 1 Ingestion Adapters
         env:
+          OMNIBENCH_OFFLINE: "0"
+          OMNIBENCH_MIN_REFRESH_HOURS: ${{ github.event_name == 'schedule' && '5.5' || '0' }}
           AA_API_KEY: ${{ secrets.AA_API_KEY }}
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python -m scripts.ingest.run_all

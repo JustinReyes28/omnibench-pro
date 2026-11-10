@@ -34,6 +34,27 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
         self.assertTrue(cid.startswith("unmatched-"))
         self.assertEqual(len(self.resolver.unmatched_queue), 1)
 
+    def test_version_and_effort_signature_prevents_fuzzy_collision(self) -> None:
+        # Registered Nov 2026 models resolve to their exact canonical IDs
+        cid_fable, _, _ = self.resolver.resolve("artificial_analysis", "Claude Fable 5.2 (Max)")
+        cid_fable_xh, _, _ = self.resolver.resolve("livebench", "anthropic-claude-fable-5-2-xhigh")
+        cid_inkling2, _, _ = self.resolver.resolve("vals", "Inkling 2 Small")
+        self.assertEqual(cid_fable, "anthropic-claude-fable-5-2-max")
+        self.assertEqual(cid_fable_xh, "anthropic-claude-fable-5-2-xhigh")
+        self.assertEqual(cid_inkling2, "thinking-machines-inkling-2-small")
+
+        # Future unaliased versions/efforts must NOT fuzzy-collide into prior versions
+        cid_future_inkling, tier_i3, meta_i3 = self.resolver.resolve("vals", "Inkling 3 Small")
+        self.assertEqual(tier_i3, "tier3_quarantine")
+        self.assertEqual(cid_future_inkling, "unmatched-inkling-3-small")
+        self.assertEqual(meta_i3["provider"], "Thinking Machines")
+
+        cid_future_fable, tier_f53, meta_f53 = self.resolver.resolve("arena", "Claude Fable 5.3 (Max)")
+        self.assertEqual(tier_f53, "tier3_quarantine")
+        self.assertEqual(cid_future_fable, "unmatched-claude-fable-5-3-max")
+        self.assertEqual(meta_f53["provider"], "Anthropic")
+        self.assertEqual(meta_f53["thinking_effort"], "max")
+
     def test_pareto_frontier_calculation(self) -> None:
         sample_models = [
             {"id": "cheap-good", "pricing": {"blended_per_1m_usd": 0.50}, "composite": {"unified_quality_score": 80.0}},

@@ -9,6 +9,7 @@ class ValsFetcher(BaseFetcher):
     source_key = "vals"
     source_name = "Vals.ai"
     source_url = "https://www.vals.ai/benchmarks"
+    model_id_field = "vals_model_name"
     vals_endpoint = "https://www.vals.ai/api/benchmarks/vals_index"
 
     def fetch_live_models(self) -> list[dict[str, Any]]:

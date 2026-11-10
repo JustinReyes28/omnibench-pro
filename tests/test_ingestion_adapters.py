@@ -30,6 +30,23 @@ class TestIngestionAdapters(unittest.TestCase):
         self.assertEqual(res["mathematics"], 86.0)
         self.assertEqual(res["global_average"], 80.5)
 
+    def test_incremental_merge_preserves_existing_models(self) -> None:
+        adapter = ValsFetcher(offline_mode=True)
+        merged = adapter.merge_with_lkg([
+            {
+                "vals_model_name": "Claude Fable 5.2 (Max)",
+                "provider": "Anthropic",
+                "vals_index": 71.85,
+                "finance_agent": 70.1,
+                "legal_bench": 54.2,
+                "tax_agent": 47.5,
+                "vibe_code": 94.2,
+                "cost_per_test_usd": 24.5,
+            }
+        ])
+        self.assertGreaterEqual(len(merged), 139)
+        self.assertEqual(merged[0]["vals_model_name"], "Claude Fable 5.2 (Max)")
+
 
 if __name__ == "__main__":
     unittest.main()

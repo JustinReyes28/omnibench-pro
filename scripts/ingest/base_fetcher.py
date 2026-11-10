@@ -17,27 +17,53 @@ RAW_DATA_DIR = ROOT_DIR / "data" / "raw"
 
 
 class BaseFetcher:
-    """Abstract base class for upstream benchmark adapters with LKG fallback."""
+    """Abstract base class for upstream benchmark adapters with LKG fallback and incremental merge."""
 
     source_key: str = "base"
     source_name: str = "Base Source"
     source_url: str = "https://example.com"
+    model_id_field: str = "model_name"
     default_timeout: float = 30.0
     max_retries: int = 3
     backoff_schedule: tuple[float, ...] = (1.0, 4.0, 16.0)
 
-    def __init__(self, raw_dir: Path | None = None, offline_mode: bool | None = None) -> None:
+    def __init__(
+        self,
+        raw_dir: Path | None = None,
+        offline_mode: bool | None = None,
+        min_refresh_interval_hours: float | None = None,
+    ) -> None:
         self.raw_dir = (raw_dir or RAW_DATA_DIR) / self.source_key
         self.raw_dir.mkdir(parents=True, exist_ok=True)
         self.latest_path = self.raw_dir / "latest.json"
         if offline_mode is None:
             offline_mode = os.environ.get("OMNIBENCH_OFFLINE", "1") == "1"
         self.offline_mode = offline_mode
+        if min_refresh_interval_hours is None:
+            min_refresh_interval_hours = float(os.environ.get("OMNIBENCH_MIN_REFRESH_HOURS", "0"))
+        self.min_refresh_interval_hours = min_refresh_interval_hours
 
     @property
     def user_agent(self) -> str:
         repo = os.environ.get("GITHUB_REPOSITORY", "omnibench/omnibench")
         return f"OmniBench-Aggregator/1.0 (+https://github.com/{repo})"
+
+    def is_snapshot_fresh(self) -> bool:
+        """Returns True if the local LKG snapshot was fetched within min_refresh_interval_hours."""
+        if self.min_refresh_interval_hours <= 0 or os.environ.get("OMNIBENCH_FORCE_REFRESH", "0") == "1":
+            return False
+        if not self.latest_path.exists():
+            return False
+        try:
+            data = json.loads(self.latest_path.read_text(encoding="utf-8"))
+            fetched_at = data.get("fetched_at")
+            if not fetched_at:
+                return False
+            fetched_dt = datetime.fromisoformat(fetched_at.replace("Z", "+00:00"))
+            age_hours = (datetime.now(timezone.utc) - fetched_dt).total_seconds() / 3600.0
+            return 0.0 <= age_hours < self.min_refresh_interval_hours
+        except Exception:
+            return False
 
     def request_json(self, url: str, headers: dict[str, str] | None = None) -> dict[str, Any]:
         """Performs an HTTP GET with exponential backoff (1s, 4s, 16s)."""
@@ -77,8 +103,63 @@ class BaseFetcher:
         data["status"] = "cached_fallback"
         return data
 
+    def merge_with_lkg(self, live_models: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        """Merges newly fetched models with the existing LKG snapshot so partial upstream responses never drop existing models."""
+        if not self.latest_path.exists():
+            return live_models
+        try:
+            existing_data = json.loads(self.latest_path.read_text(encoding="utf-8"))
+            existing_models: list[dict[str, Any]] = existing_data.get("models", [])
+        except Exception:
+            return live_models
+
+        def _key_for(item: dict[str, Any]) -> str:
+            val = (
+                item.get(self.model_id_field)
+                or item.get("model_name")
+                or item.get("model_key")
+                or item.get("arena_model_id")
+                or item.get("vals_model_name")
+                or item.get("display_name")
+                or ""
+            )
+            return str(val).strip().lower()
+
+        existing_by_key = {_key_for(m): m for m in existing_models if _key_for(m)}
+        seen_live_keys: set[str] = set()
+        merged: list[dict[str, Any]] = []
+
+        for item in live_models:
+            k = _key_for(item)
+            if not k:
+                continue
+            seen_live_keys.add(k)
+            if k in existing_by_key:
+                combined = dict(existing_by_key[k])
+                combined.update(item)
+                merged.append(combined)
+            else:
+                merged.append(item)
+
+        for item in existing_models:
+            k = _key_for(item)
+            if k and k not in seen_live_keys:
+                merged.append(item)
+
+        return merged
+
     def save_snapshot(self, models: list[dict[str, Any]], status: str = "live", extra_meta: dict[str, Any] | None = None) -> dict[str, Any]:
         """Validates and writes the snapshot atomically to data/raw/<source>/latest.json."""
+        preserved_meta: dict[str, Any] = {}
+        if self.latest_path.exists():
+            try:
+                old = json.loads(self.latest_path.read_text(encoding="utf-8"))
+                for k in ("methodology_version", "release"):
+                    if k in old:
+                        preserved_meta[k] = old[k]
+            except Exception:
+                pass
+
         payload: dict[str, Any] = {
             "source_key": self.source_key,
             "source_name": self.source_name,
@@ -86,6 +167,7 @@ class BaseFetcher:
             "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "status": status,
             "fetch_status": status,
+            **preserved_meta,
             "model_count": len(models),
             "models": models,
         }
@@ -100,12 +182,16 @@ class BaseFetcher:
         raise NotImplementedError
 
     def run(self) -> dict[str, Any]:
-        """Executes live fetch with automatic Last-Known-Good fallback."""
+        """Executes live fetch with cooldown check, incremental LKG merge, and automatic LKG fallback."""
+        if not self.offline_mode and self.is_snapshot_fresh():
+            logger.info("[%s] Snapshot is within %.1fh cooldown window; reusing LKG snapshot.", self.source_key, self.min_refresh_interval_hours)
+            return self.load_lkg_snapshot()
         try:
-            models = self.fetch_live_models()
-            if not models:
+            live_models = self.fetch_live_models()
+            if not live_models:
                 raise ValueError("Upstream returned 0 models")
-            return self.save_snapshot(models, status="live")
+            merged_models = self.merge_with_lkg(live_models)
+            return self.save_snapshot(merged_models, status="live")
         except Exception as exc:
             logger.warning("[%s] Live fetch unavailable (%s); using Last-Known-Good snapshot.", self.source_key, exc)
             return self.load_lkg_snapshot()

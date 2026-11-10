@@ -30,7 +30,8 @@ def build_historical_and_changelog() -> None:
         {"date": "2026-09-15", "label": "Sep 2026"},
         {"date": "2026-10-01", "label": "Early Oct 2026"},
         {"date": "2026-10-15", "label": "Mid Oct 2026"},
-        {"date": "2026-10-28", "label": "Late Oct 2026 (Current)"},
+        {"date": "2026-10-28", "label": "Late Oct 2026"},
+        {"date": "2026-11-10", "label": "Nov 2026 (Current)"},
     ]
 
     series = []
@@ -65,6 +66,17 @@ def build_historical_and_changelog() -> None:
         "schema_version": "1.1.0",
         "updated_at": unified["generated_at"],
         "entries": [
+            {
+                "date": "2026-11-10",
+                "type": "release_sync",
+                "summary": "Added November 2026 frontier and efficiency releases — Claude Fable 5.2 (Max, xHigh, High, Medium, Low), Inkling 2 Small, Muse Ember (Max), and Tencent Hy4 — expanding the verified fleet to 140 models with automated 12-hour incremental sync.",
+                "highlights": [
+                    "Anthropic's Claude Fable 5.2 (Max) (65.0% AA Intelligence, 86.4% LiveBench, 71.85% Vals Index, 1568 Arena Coding Elo) and Claude Fable 5.2 (xHigh) (#1 LiveBench 2.0 release at 84.9%, #1 WebDev Arena) claim the #1 and #2 unified frontier spots.",
+                    "Thinking Machines' Inkling 2 Small (released Nov 5, 2026; 1M context, 150 tok/s, $0.30/$1.00 per 1M tokens) debuts with 73.89% LegalBench and strong open-weights value efficiency.",
+                    "Meta's Muse Ember (Max) ($0.10/$0.50 per 1M tokens, 60.48% Vals Index) and Tencent Hy4 (1M context open-weights reasoning model, 59.35% Vals Index) join the Pareto efficiency frontier.",
+                    "Hardened 3-tier EntityResolver with version/effort token signature guards so new model generations never fuzzy-collide with prior versions."
+                ]
+            },
             {
                 "date": "2026-10-28",
                 "type": "release_sync",

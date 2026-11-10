@@ -12,18 +12,89 @@ ALIASES_PATH = ROOT_DIR / "data" / "registry" / "model_aliases.json"
 UNMATCHED_PATH = ROOT_DIR / "data" / "registry" / "unmatched_models.json"
 
 _DATE_SUFFIX_RE = re.compile(r"-(?:202\d{3,5}|\d{4})$")
-_REASONING_TAG_RE = re.compile(r"\s*\((?:reasoning|max|high|thinking|xhigh|preview|with fallback|max with fallback|xhigh with fallback|high with fallback)\)\s*", re.IGNORECASE)
-_VENDOR_PREFIX_RE = re.compile(r"^(?:openai|anthropic|google|meta|qwen|deepseek|mistral|moonshot|xai|zai|xiaomi|minimax|nvidia)[/-]", re.IGNORECASE)
+_WITH_FALLBACK_RE = re.compile(r"\s+with\s+fallback\b", re.IGNORECASE)
+_REASONING_TAG_RE = re.compile(
+    r"\s*\((?:reasoning|thinking|preview|with fallback)\)\s*",
+    re.IGNORECASE,
+)
+_VENDOR_PREFIX_RE = re.compile(
+    r"^(?:openai|anthropic|google|meta|qwen|alibaba|deepseek|mistral|moonshot|xai|zai|xiaomi|minimax|nvidia|thinking-machines|thinking_machines|tencent|cohere|allenai|microsoft|amazon|stepfun|upstage|liquid|ibm)[/-]",
+    re.IGNORECASE,
+)
+_EFFORT_TOKENS = frozenset({"max", "xhigh", "high", "medium", "low", "minimal", "none", "standard"})
+
+_PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
+    (("claude", "anthropic"), "Anthropic"),
+    (("gpt-", "o1-", "o3-", "o4-", "openai"), "OpenAI"),
+    (("gemini", "gemma", "google"), "Google"),
+    (("inkling", "thinking-machines", "thinking machines"), "Thinking Machines"),
+    (("muse", "llama", "meta"), "Meta"),
+    (("hy4", "hunyuan", "tencent"), "Tencent"),
+    (("deepseek",), "DeepSeek"),
+    (("qwen", "qwq", "alibaba"), "Alibaba"),
+    (("glm", "z.ai", "zai"), "Z.AI"),
+    (("mimo", "xiaomi"), "Xiaomi"),
+    (("minimax",), "MiniMax"),
+    (("kimi", "moonshot"), "Moonshot AI"),
+    (("grok", "xai"), "xAI"),
+    (("mistral", "pixtral", "codestral", "magistral"), "Mistral AI"),
+    (("nemotron", "nvidia"), "NVIDIA"),
+    (("step-", "step "), "StepFun"),
+    (("nova", "amazon"), "Amazon"),
+    (("command", "aya", "cohere"), "Cohere"),
+    (("phi-", "microsoft"), "Microsoft"),
+)
 
 
 def normalize_slug(raw_name: str) -> str:
-    """Deterministic Tier 2 slug normalizer stripping date stamps, vendor prefixes, and generic effort tags."""
+    """Deterministic Tier 2 slug normalizer stripping date stamps, vendor prefixes, and generic non-effort tags."""
     cleaned = raw_name.strip()
     cleaned = _VENDOR_PREFIX_RE.sub("", cleaned)
+    cleaned = _WITH_FALLBACK_RE.sub("", cleaned)
     cleaned = _REASONING_TAG_RE.sub("", cleaned)
     cleaned = _DATE_SUFFIX_RE.sub("", cleaned)
     slug = re.sub(r"[^a-z0-9]+", "-", cleaned.lower()).strip("-")
     return slug
+
+
+def _slug_signature(slug: str) -> tuple[tuple[str, ...], frozenset[str]]:
+    """Extracts numeric version tokens and explicit effort tokens so distinct versions/efforts never fuzzy-collide."""
+    parts = slug.split("-")
+    nums = tuple(re.findall(r"\d+", slug))
+    efforts = frozenset(p for p in parts if p in _EFFORT_TOKENS)
+    return nums, efforts
+
+
+def _infer_provider(raw_name: str, provider: str) -> str:
+    if provider and provider != "Unknown":
+        return provider
+    lowered = raw_name.lower()
+    for prefixes, canonical_provider in _PROVIDER_HINTS:
+        if any(tok in lowered for tok in prefixes):
+            return canonical_provider
+    return "Unknown"
+
+
+def _infer_effort_and_mode(raw_name: str) -> tuple[str, str]:
+    lowered = raw_name.lower()
+    tokens = set(re.findall(r"[a-z0-9]+", lowered))
+    if "xhigh" in tokens:
+        return "xhigh", "reasoning"
+    if "max" in tokens:
+        return "max", "reasoning"
+    if "high" in tokens:
+        return "high", "reasoning"
+    if "medium" in tokens:
+        return "medium", "reasoning"
+    if "low" in tokens:
+        return "low", "hybrid"
+    if "minimal" in tokens:
+        return "minimal", "hybrid"
+    if "none" in tokens:
+        return "none", "non_reasoning"
+    if "reasoning" in tokens or "thinking" in tokens:
+        return "high", "reasoning"
+    return "standard", "standard"
 
 
 class EntityResolver:
@@ -74,10 +145,13 @@ class EntityResolver:
             cid = self.normalized_lookup[norm_slug]
             return cid, "tier2_normalized", self.canonical_models[cid]
 
-        # Tier 3: Fuzzy Similarity Candidate Search + Unmatched Quarantine Queue
+        # Tier 3: Fuzzy Similarity Candidate Search (guarded by numeric version & effort signature)
+        norm_sig = _slug_signature(norm_slug)
         best_cid = None
         best_ratio = 0.0
         for cand_slug, cid in self.normalized_lookup.items():
+            if _slug_signature(cand_slug) != norm_sig:
+                continue
             ratio = difflib.SequenceMatcher(None, norm_slug, cand_slug).ratio()
             if ratio > best_ratio:
                 best_ratio = ratio
@@ -86,28 +160,31 @@ class EntityResolver:
         if best_cid and best_ratio >= 0.92:
             return best_cid, "tier2_fuzzy_high_confidence", self.canonical_models[best_cid]
 
+        inferred_provider = _infer_provider(raw_name, provider)
+        effort, reasoning_mode = _infer_effort_and_mode(raw_name)
         provisional_id = f"unmatched-{norm_slug}"
         quarantine_entry = {
             "provisional_id": provisional_id,
             "source_key": source_key,
             "raw_name": raw_name,
-            "provider": provider,
+            "provider": inferred_provider,
             "normalized_slug": norm_slug,
             "closest_canonical_candidate": best_cid,
             "similarity_score": round(best_ratio, 3),
         }
         self.unmatched_queue.append(quarantine_entry)
 
+        clean_display = _REASONING_TAG_RE.sub("", _WITH_FALLBACK_RE.sub("", raw_name)).strip()
         provisional_meta = {
             "canonical_id": provisional_id,
-            "display_name": _REASONING_TAG_RE.sub("", raw_name).strip(),
-            "provider": provider,
-            "release_date": "2026-10-27",
+            "display_name": clean_display,
+            "provider": inferred_provider,
+            "release_date": "2026-11-09",
             "license": "Proprietary",
             "is_open_weights": False,
             "context_window": 128000,
-            "reasoning_mode": "reasoning" if "max" in lowered or "reasoning" in lowered else "standard",
-            "thinking_effort": "max" if "max" in lowered else ("high" if "high" in lowered else "standard"),
+            "reasoning_mode": reasoning_mode,
+            "thinking_effort": effort,
         }
         return provisional_id, "tier3_quarantine", provisional_meta
 

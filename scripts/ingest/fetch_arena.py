@@ -10,6 +10,7 @@ class ArenaFetcher(BaseFetcher):
     source_key = "arena"
     source_name = "Arena.ai (LMSYS)"
     source_url = "https://arena.ai/leaderboard"
+    model_id_field = "arena_model_id"
     hf_endpoint = "https://huggingface.co/api/spaces/lmarena-ai/arena-leaderboard"
 
     def fetch_live_models(self) -> list[dict[str, Any]]:

@@ -40,10 +40,31 @@ class TestDataIntegrity(unittest.TestCase):
         for req_effort in ("max", "xhigh", "high", "medium", "low", "standard"):
             self.assertIn(req_effort, efforts)
 
-        # Ensure Claude Opus 5.5 (Max) and Gemini 4 Carbon (High) lead and outrank older models
+        # Ensure latest Nov 2026 frontier and open-weights releases exist
+        for latest_model in (
+            "Claude Fable 5.2 (Max)",
+            "Claude Fable 5.2 (xHigh)",
+            "Claude Fable 5.2 (High)",
+            "Inkling 2 Small",
+            "Muse Ember (Max)",
+            "Tencent Hy4",
+        ):
+            self.assertIn(latest_model, names)
+
+        # Ensure frontier leaders outrank prior generations
         by_id = {m["id"]: m["composite"]["unified_quality_score"] for m in models}
         top_id = models[0]["id"]
-        self.assertIn(top_id, ("anthropic-claude-opus-5-5", "google-gemini-4-carbon-high"))
+        self.assertIn(
+            top_id,
+            (
+                "anthropic-claude-fable-5-2-max",
+                "anthropic-claude-fable-5-2-xhigh",
+                "anthropic-claude-opus-5-5",
+                "google-gemini-4-carbon-high",
+            ),
+        )
+        self.assertGreater(by_id["anthropic-claude-fable-5-2-max"], by_id["anthropic-claude-fable-5-1-max"])
+        self.assertGreater(by_id["thinking-machines-inkling-2-small"], by_id["thinking-machines-inkling-small"])
         self.assertGreater(by_id["anthropic-claude-opus-5-5"], by_id["openai-gpt-5-6-sol"] + 15.0)
         self.assertGreater(by_id["openai-gpt-6-astra-max"], by_id["openai-gpt-5-6-sol"] + 10.0)
         self.assertGreater(by_id["deepseek-v4-1-flash-1017"], by_id["deepseek-r1-0528"] + 20.0)

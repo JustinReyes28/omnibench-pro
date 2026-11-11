@@ -1,15 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-11T04:31:58Z",
+  "updated_at": "2026-11-11T09:47:28Z",
   "entries": [
-    {
-      "date": "2026-11-11",
-      "type": "release_sync",
-      "summary": "Autonomous 12-hour sync expanded the verified fleet to 187 models across multi-effort and standard configurations.",
-      "highlights": [
-        "Newly indexed models include: Gemini 4 Carbon (Medium, Low, Standard), Muse Ember (xHigh), Mistral Large 4 (High, Medium), Qwen3.8 27B (Medium, Low), and DeepSeek V4.1 Flash 1017 (High, Non-Reasoning)."
-      ]
-    },
     {
       "date": "2026-11-10",
       "type": "release_sync",

@@ -70,6 +70,29 @@ class TestDataIntegrity(unittest.TestCase):
         for model in self.data.get("models", []):
             validate_canonical_model_record(model)
 
+    def test_all_models_have_complete_four_source_benchmarks_and_pricing(self) -> None:
+        models = self.data.get("models", [])
+        forbidden_providers = {"Wonder", "Mercury", "Mistral", "Stealth Lab", "Agnes", "Nanbeige", "Unknown"}
+        for m in models:
+            mid = m["id"]
+            self.assertNotIn(m["provider"], forbidden_providers, f"Invalid provider on {mid}: {m['provider']}")
+            self.assertEqual(m["composite"]["sources_present"], 4, f"Incomplete benchmark sources on {mid}")
+            self.assertEqual(m["composite"]["coverage_ratio"], 1.0, f"Incomplete coverage_ratio on {mid}")
+            self.assertFalse(m["composite"]["provisional_ranking"], f"Unexpected provisional model in unified dataset: {mid}")
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                self.assertIsNotNone(m["benchmarks"].get(src), f"Missing {src} benchmark on {mid}")
+            for pillar in ("aa", "lb", "ar", "va"):
+                val = m["normalized_pillars"].get(pillar)
+                self.assertIsNotNone(val, f"Missing normalized pillar {pillar} on {mid}")
+                self.assertGreater(val, 0.0, f"Zero normalized pillar {pillar} on {mid}")
+            self.assertIsNotNone(m["pricing"].get("blended_per_1m_usd"), f"Missing blended pricing on {mid}")
+            self.assertGreater(m["pricing"]["blended_per_1m_usd"], 0.0, f"Non-positive pricing on {mid}")
+            self.assertIsNotNone(m["performance"].get("output_tokens_per_sec"), f"Missing speed on {mid}")
+
+        by_id = {m["id"]: m for m in models}
+        self.assertAlmostEqual(by_id["openai-gpt-6-astra-max"]["pricing"]["blended_per_1m_usd"], 21.88, places=2)
+        self.assertAlmostEqual(by_id["meta-muse-wonder-full-max"]["pricing"]["blended_per_1m_usd"], 10.50, places=2)
+
     def test_semantic_diff_ignores_volatile_timestamps(self) -> None:
         clone = copy.deepcopy(self.data)
         clone["generated_at"] = "2099-01-01T00:00:00Z"

@@ -1,4 +1,14 @@
 {
-  "unmatched_count": 0,
-  "unmatched_models": []
+  "unmatched_count": 1,
+  "unmatched_models": [
+    {
+      "provisional_id": "unmatched-stealth-lab-stealth-nebula-v1",
+      "source_keys": [
+        "arena"
+      ],
+      "raw_name": "stealth-nebula-v1-preview-20261027",
+      "provider": "Stealth Lab",
+      "sources_present": 1
+    }
+  ]
 }

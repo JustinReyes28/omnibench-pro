@@ -153,6 +153,29 @@ def build_unified_dataset() -> dict[str, Any]:
             "cost_per_test_usd": round(float(item["cost_per_test_usd"]), 2) if item.get("cost_per_test_usd") is not None else None,
         }
 
+    # Quarantine any incomplete models (fewer than 4 benchmark sources) so single-source
+    # upstream scrapes never pollute the canonical registry or render broken single-bar rows.
+    incomplete_cids = [
+        cid
+        for cid, rec in merged.items()
+        if sum(1 for k in ("artificial_analysis", "livebench", "arena", "vals") if rec["benchmarks"].get(k) is not None) < 4
+    ]
+    for cid in incomplete_cids:
+        rec = merged.pop(cid)
+        present_sources = [
+            k for k in ("artificial_analysis", "livebench", "arena", "vals") if rec["benchmarks"].get(k) is not None
+        ]
+        if cid in resolver.auto_promoted_ids:
+            resolver.auto_promoted_ids.discard(cid)
+            resolver.canonical_models.pop(cid, None)
+        resolver.unmatched_queue.append({
+            "provisional_id": f"unmatched-{cid}",
+            "source_keys": present_sources,
+            "raw_name": rec["display_name"],
+            "provider": rec["provider"],
+            "sources_present": len(present_sources),
+        })
+
     resolver.save_registry()
     resolver.save_unmatched_queue()
 

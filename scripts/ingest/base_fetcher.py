@@ -174,14 +174,19 @@ class BaseFetcher:
     def merge_with_lkg(self, live_models: list[dict[str, Any]]) -> list[dict[str, Any]]:
         """Merges newly fetched models with the existing LKG snapshot so partial upstream responses never drop existing models."""
         if not self.latest_path.exists():
-            return live_models
+            cleaned: list[dict[str, Any]] = []
+            for m in live_models:
+                c = dict(m)
+                c.pop("_scraped_summary", None)
+                cleaned.append(c)
+            return cleaned
         try:
             existing_data = json.loads(self.latest_path.read_text(encoding="utf-8"))
             existing_models: list[dict[str, Any]] = existing_data.get("models", [])
         except Exception:
             return live_models
 
-        def _key_for(item: dict[str, Any]) -> str:
+        def _raw_id(item: dict[str, Any]) -> str:
             val = (
                 item.get(self.model_id_field)
                 or item.get("model_name")
@@ -191,27 +196,75 @@ class BaseFetcher:
                 or item.get("display_name")
                 or ""
             )
-            return str(val).strip().lower()
+            return str(val).strip()
+
+        def _key_for(item: dict[str, Any]) -> str:
+            return _raw_id(item).lower()
+
+        resolver = None
+        if self.source_key in ("artificial_analysis", "livebench", "arena", "vals"):
+            try:
+                from scripts.transform.entity_resolver import EntityResolver
+                resolver = EntityResolver()
+            except Exception:
+                resolver = None
 
         existing_by_key = {_key_for(m): m for m in existing_models if _key_for(m)}
+        existing_by_cid: dict[str, dict[str, Any]] = {}
+        if resolver is not None:
+            for m in existing_models:
+                rid = _raw_id(m)
+                if not rid:
+                    continue
+                cid, _, _ = resolver.resolve(self.source_key, rid, auto_promote=False)
+                if not cid.startswith("unmatched-"):
+                    existing_by_cid.setdefault(cid, m)
+
+        seen_existing_keys: set[str] = set()
         seen_live_keys: set[str] = set()
         merged: list[dict[str, Any]] = []
 
         for item in live_models:
-            k = _key_for(item)
+            rid = _raw_id(item)
+            k = rid.lower()
             if not k:
                 continue
-            seen_live_keys.add(k)
-            if k in existing_by_key:
-                combined = dict(existing_by_key[k])
-                combined.update(item)
+            is_scraped_summary = bool(item.get("_scraped_summary"))
+            clean_item = dict(item)
+            clean_item.pop("_scraped_summary", None)
+
+            matched_existing: dict[str, Any] | None = existing_by_key.get(k)
+            if matched_existing is None and resolver is not None:
+                cid, _, _ = resolver.resolve(self.source_key, rid, auto_promote=False)
+                if not cid.startswith("unmatched-"):
+                    matched_existing = existing_by_cid.get(cid)
+
+            if matched_existing is not None:
+                ex_key = _key_for(matched_existing)
+                if ex_key in seen_existing_keys:
+                    continue
+                seen_existing_keys.add(ex_key)
+                combined = dict(matched_existing)
+                if is_scraped_summary:
+                    for field in ("intelligence_index", "context_window"):
+                        if field in clean_item and clean_item[field] is not None:
+                            combined[field] = clean_item[field]
+                else:
+                    combined.update(clean_item)
+                    if k != ex_key:
+                        for id_f in (self.model_id_field, "model_name", "model_key", "arena_model_id", "vals_model_name", "display_name", "provider", "organization"):
+                            if id_f in matched_existing:
+                                combined[id_f] = matched_existing[id_f]
                 merged.append(combined)
             else:
-                merged.append(item)
+                if k in seen_live_keys:
+                    continue
+                seen_live_keys.add(k)
+                merged.append(clean_item)
 
         for item in existing_models:
             k = _key_for(item)
-            if k and k not in seen_live_keys:
+            if k and k not in seen_existing_keys:
                 merged.append(item)
 
         return merged

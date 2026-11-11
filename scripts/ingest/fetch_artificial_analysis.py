@@ -117,6 +117,7 @@ class ArtificialAnalysisFetcher(BaseFetcher):
                     "input_price_per_1m": round(blended_est * 0.5, 3),
                     "output_price_per_1m": round(blended_est * 2.5, 3),
                     "blended_price_per_1m": blended_est,
+                    "_scraped_summary": True,
                 })
         return models
 

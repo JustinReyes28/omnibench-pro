@@ -33,7 +33,7 @@ _PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
     (("gpt-", "o1-", "o3-", "o4-", "openai"), "OpenAI"),
     (("gemini", "gemma", "google"), "Google"),
     (("inkling", "thinking-machines", "thinking machines"), "Thinking Machines"),
-    (("muse", "llama", "meta"), "Meta"),
+    (("muse", "llama", "meta", "wonder"), "Meta"),
     (("hy4", "hunyuan", "tencent"), "Tencent"),
     (("deepseek",), "DeepSeek"),
     (("qwen", "qwq", "alibaba"), "Alibaba"),
@@ -44,6 +44,7 @@ _PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
     (("grok", "xai"), "xAI"),
     (("mistral", "pixtral", "codestral", "magistral"), "Mistral AI"),
     (("nemotron", "nvidia"), "NVIDIA"),
+    (("mercury", "inception"), "Inception"),
     (("step-", "step "), "StepFun"),
     (("nova", "amazon"), "Amazon"),
     (("command", "aya", "cohere"), "Cohere"),
@@ -60,6 +61,25 @@ _PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
     (("exaone",), "LG AI Research"),
     (("sonar", "r1-1776", "perplexity"), "Perplexity"),
 )
+
+_PROVIDER_ALIASES: dict[str, str] = {
+    "mistral": "Mistral AI",
+    "mistral ai": "Mistral AI",
+    "moonshot": "Moonshot AI",
+    "moonshot ai": "Moonshot AI",
+    "z.ai": "Z.AI",
+    "zai": "Z.AI",
+    "zhipu": "Z.AI",
+    "x.ai": "xAI",
+    "xai": "xAI",
+    "thinking machines": "Thinking Machines",
+    "thinking-machines": "Thinking Machines",
+    "reflection": "Reflection AI",
+    "reflection ai": "Reflection AI",
+    "inception": "Inception",
+    "mercury": "Inception",
+    "wonder": "Meta",
+}
 
 
 def normalize_slug(raw_name: str) -> str:
@@ -86,7 +106,7 @@ def _slug_signature(slug: str) -> tuple[tuple[str, ...], frozenset[str]]:
 
 def _infer_provider(raw_name: str, provider: str) -> str:
     if provider and provider != "Unknown":
-        return provider
+        return _PROVIDER_ALIASES.get(provider.strip().lower(), provider.strip())
     lowered = raw_name.lower()
     for prefixes, canonical_provider in _PROVIDER_HINTS:
         if any(tok in lowered for tok in prefixes):
@@ -110,7 +130,7 @@ def _infer_effort_and_mode(raw_name: str) -> tuple[str, str]:
     if "minimal" in tokens:
         return "minimal", "hybrid"
     if "none" in tokens:
-        return "none", "non_reasoning"
+        return "standard", "non_reasoning"
     if "reasoning" in tokens or "thinking" in tokens:
         return "high", "reasoning"
     return "standard", "standard"
@@ -122,7 +142,7 @@ class EntityResolver:
     def __init__(self, aliases_path: Path | None = None) -> None:
         self.aliases_path = aliases_path or ALIASES_PATH
         raw = json.loads(self.aliases_path.read_text(encoding="utf-8"))
-        self.registry_version: str = raw.get("registry_version", "1.1.0")
+        self.registry_version: str = raw.get("registry_version") or raw.get("schema_version") or "1.1.0"
         self.registry_updated_at: str = raw.get("updated_at", "2026-11-10T18:00:00Z")
         self.canonical_models: dict[str, dict[str, Any]] = {}
         self.exact_lookup: dict[str, dict[str, str]] = {
@@ -139,6 +159,7 @@ class EntityResolver:
             if cid in self.canonical_models:
                 raise ValueError(f"Duplicate canonical_id in registry: {cid}")
             self.canonical_models[cid] = entry
+            self.normalized_lookup.setdefault(cid, cid)
             self.normalized_lookup.setdefault(normalize_slug(cid), cid)
             self.normalized_lookup.setdefault(normalize_slug(entry["display_name"]), cid)
 

@@ -123,6 +123,17 @@ export const LeaderboardTable: React.FC<Props> = ({
     });
   };
 
+  const w = filterState.weights;
+  const totalW = w.aa + w.lb + w.ar + w.va;
+  const shareAA = totalW > 0 ? w.aa / totalW : 0.3;
+  const shareLB = totalW > 0 ? w.lb / totalW : 0.3;
+  const shareAR = totalW > 0 ? w.ar / totalW : 0.15;
+  const shareVA = totalW > 0 ? w.va / totalW : 0.25;
+  const pctAA = Math.round(shareAA * 100);
+  const pctLB = Math.round(shareLB * 100);
+  const pctAR = Math.round(shareAR * 100);
+  const pctVA = Math.round(shareVA * 100);
+
   return (
     <div className="space-y-10">
       {/* OmniBench Signature 4-Pillar Stacked Contribution Leaderboard */}
@@ -137,16 +148,16 @@ export const LeaderboardTable: React.FC<Props> = ({
 
           <div className="flex flex-wrap items-center gap-3 text-[10px]">
             <span className="inline-flex items-center gap-1">
-              <span className="h-2 w-2 bg-[#255C99]" /> AA (30%)
+              <span className="h-2 w-2 bg-[#255C99]" /> AA ({pctAA}%)
             </span>
             <span className="inline-flex items-center gap-1">
-              <span className="h-2 w-2 bg-[#C57B18]" /> LiveBench (30%)
+              <span className="h-2 w-2 bg-[#C57B18]" /> LiveBench ({pctLB}%)
             </span>
             <span className="inline-flex items-center gap-1">
-              <span className="h-2 w-2 bg-[#C84B31]" /> Arena (15%)
+              <span className="h-2 w-2 bg-[#C84B31]" /> Arena ({pctAR}%)
             </span>
             <span className="inline-flex items-center gap-1">
-              <span className="h-2 w-2 bg-[#1F7A63]" /> Vals (25%)
+              <span className="h-2 w-2 bg-[#1F7A63]" /> Vals ({pctVA}%)
             </span>
 
             <button
@@ -175,10 +186,10 @@ export const LeaderboardTable: React.FC<Props> = ({
         <div className="divide-y divide-[#EBE8E0] p-4 space-y-1 max-h-[560px] overflow-y-auto">
           {topStackModels.map((m, idx) => {
             const p = m.normalized_pillars ?? {};
-            const segAA = (p.aa ?? 0) * 0.3;
-            const segLB = (p.lb ?? 0) * 0.3;
-            const segAR = (p.ar ?? 0) * 0.15;
-            const segVA = (p.va ?? 0) * 0.25;
+            const segAA = (p.aa ?? 0) * shareAA;
+            const segLB = (p.lb ?? 0) * shareLB;
+            const segAR = (p.ar ?? 0) * shareAR;
+            const segVA = (p.va ?? 0) * shareVA;
             const labStyle = getLabStyle(m.provider);
             const isCompared = comparedIds.includes(m.id);
 
@@ -261,7 +272,7 @@ export const LeaderboardTable: React.FC<Props> = ({
 
         <div className="border-t border-[#D8D4C8] bg-[#F4F2ED] px-4 py-2 font-mono text-[10px] text-[#68707C] flex justify-between">
           <span>Showing {topStackModels.length} models • Click any row to compare head-to-head</span>
-          <span>Weights: 30% AA · 30% LiveBench · 15% Arena · 25% Vals</span>
+          <span>Weights: {pctAA}% AA · {pctLB}% LiveBench · {pctAR}% Arena · {pctVA}% Vals</span>
         </div>
       </div>
 

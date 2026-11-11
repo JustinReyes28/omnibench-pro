@@ -12,6 +12,11 @@ ALIASES_PATH = ROOT_DIR / "data" / "registry" / "model_aliases.json"
 UNMATCHED_PATH = ROOT_DIR / "data" / "registry" / "unmatched_models.json"
 
 _DATE_SUFFIX_RE = re.compile(r"-(?:202\d{3,5}|\d{4})$")
+_INLINE_DATE_RE = re.compile(r"-(?:202\d-\d{2}-\d{2}|202\d{5})(?=-|$)")
+_EFFORT_NOISE_RE = re.compile(
+    r"-(?:thinking-auto|thinking-\d+k|effort|preview)(?=-|$)",
+    re.IGNORECASE,
+)
 _WITH_FALLBACK_RE = re.compile(r"\s+with\s+fallback\b", re.IGNORECASE)
 _REASONING_TAG_RE = re.compile(
     r"\s*\((?:reasoning|thinking|preview|with fallback)\)\s*",
@@ -63,8 +68,11 @@ def normalize_slug(raw_name: str) -> str:
     cleaned = _VENDOR_PREFIX_RE.sub("", cleaned)
     cleaned = _WITH_FALLBACK_RE.sub("", cleaned)
     cleaned = _REASONING_TAG_RE.sub("", cleaned)
-    cleaned = _DATE_SUFFIX_RE.sub("", cleaned)
     slug = re.sub(r"[^a-z0-9]+", "-", cleaned.lower()).strip("-")
+    slug = _INLINE_DATE_RE.sub("", slug)
+    slug = _EFFORT_NOISE_RE.sub("", slug)
+    slug = _DATE_SUFFIX_RE.sub("", slug)
+    slug = re.sub(r"-+", "-", slug).strip("-")
     return slug
 
 
@@ -156,6 +164,28 @@ class EntityResolver:
         if raw_name not in src_list:
             src_list.append(raw_name)
 
+    def _infer_release_date(self, auto_cid: str, raw_name: str) -> str:
+        m_iso = re.search(r"(202\d-\d{2}-\d{2})", raw_name)
+        if m_iso:
+            return m_iso.group(1)
+        m_8 = re.search(r"(202\d)(\d{2})(\d{2})", raw_name)
+        if m_8:
+            return f"{m_8.group(1)}-{m_8.group(2)}-{m_8.group(3)}"
+        base_prefix = re.sub(
+            r"-(?:max|xhigh|high|medium|low|minimal|none|non-reasoning|standard)$",
+            "",
+            auto_cid,
+        )
+        for cid, entry in self.canonical_models.items():
+            cand_base = re.sub(
+                r"-(?:max|xhigh|high|medium|low|minimal|none|non-reasoning|standard)$",
+                "",
+                cid,
+            )
+            if cand_base == base_prefix and entry.get("release_date"):
+                return str(entry["release_date"])
+        return "2026-11-10"
+
     def resolve(
         self,
         source_key: str,
@@ -207,11 +237,16 @@ class EntityResolver:
                 effective_provider = first_word.capitalize() if first_word else "Independent"
             prov_slug = re.sub(r"[^a-z0-9]+", "-", effective_provider.lower()).strip("-")
             auto_cid = norm_slug if norm_slug.startswith(prov_slug) else f"{prov_slug}-{norm_slug}"
+            if auto_cid in self.canonical_models:
+                self._record_alias(auto_cid, source_key, raw_name)
+                self.exact_lookup.setdefault(source_key, {})[lowered] = auto_cid
+                return auto_cid, "tier2_normalized", self.canonical_models[auto_cid]
+            inferred_release = self._infer_release_date(auto_cid, raw_name)
             auto_meta: dict[str, Any] = {
                 "canonical_id": auto_cid,
                 "display_name": clean_display,
                 "provider": effective_provider,
-                "release_date": "2026-11-10",
+                "release_date": inferred_release,
                 "license": "Proprietary",
                 "is_open_weights": False,
                 "context_window": 128000,

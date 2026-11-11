@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { WEIGHT_PRESETS, type PillarWeights } from "../lib/scoring";
 
+export type ActivePage = "leaderboard" | "timeline";
+export type ParetoScaleMode = "log" | "linear";
+
 export interface DashboardFilterState {
+  activePage: ActivePage;
+  paretoScale: ParetoScaleMode;
   weights: PillarWeights;
   searchQuery: string;
   openWeightsOnly: boolean;
@@ -23,7 +28,15 @@ export function useUrlFilterState() {
       }
     }
     const compareParam = params.get("compare");
+    const pageParam = params.get("page");
+    const hashPage = window.location.hash.replace(/^#\/?/, "").toLowerCase();
+    const activePage: ActivePage =
+      pageParam === "timeline" || hashPage === "timeline" ? "timeline" : "leaderboard";
+    const paretoScale: ParetoScaleMode = params.get("scale") === "linear" ? "linear" : "log";
+
     return {
+      activePage,
+      paretoScale,
       weights,
       searchQuery: params.get("q") || "",
       openWeightsOnly: params.get("open") === "1",
@@ -43,6 +56,8 @@ export function useUrlFilterState() {
 
   useEffect(() => {
     const params = new URLSearchParams();
+    if (state.activePage === "timeline") params.set("page", "timeline");
+    if (state.paretoScale === "linear") params.set("scale", "linear");
     const { aa, lb, ar, va } = state.weights;
     params.set("weights", `${aa},${lb},${ar},${va}`);
     if (state.searchQuery) params.set("q", state.searchQuery);

@@ -854,7 +854,8 @@
         ],
         "livebench": [
           "anthropic-claude-fable-5-xhigh",
-          "claude-fable-5-(xhigh)"
+          "claude-fable-5-(xhigh)",
+          "claude-fable-5-xhigh-effort"
         ],
         "arena": [
           "anthropic-claude-fable-5-xhigh-202610",
@@ -882,7 +883,8 @@
         ],
         "livebench": [
           "anthropic-claude-sonnet-5-xhigh",
-          "claude-sonnet-5-(xhigh)"
+          "claude-sonnet-5-(xhigh)",
+          "claude-sonnet-5-xhigh-effort"
         ],
         "arena": [
           "anthropic-claude-sonnet-5-xhigh-202610",
@@ -910,7 +912,8 @@
         ],
         "livebench": [
           "anthropic-claude-opus-4-8-xhigh",
-          "claude-opus-4.8-(xhigh)"
+          "claude-opus-4.8-(xhigh)",
+          "claude-opus-4-8-xhigh-effort"
         ],
         "arena": [
           "anthropic-claude-opus-4-8-xhigh-202610",
@@ -938,7 +941,8 @@
         ],
         "livebench": [
           "anthropic-claude-opus-4-7-xhigh",
-          "claude-opus-4.7-(xhigh)"
+          "claude-opus-4.7-(xhigh)",
+          "claude-opus-4-7-xhigh-effort"
         ],
         "arena": [
           "anthropic-claude-opus-4-7-xhigh-202610",
@@ -966,7 +970,8 @@
         ],
         "livebench": [
           "anthropic-claude-opus-4-6-high",
-          "claude-opus-4.6-(high)"
+          "claude-opus-4.6-(high)",
+          "claude-opus-4-6-thinking-auto-high-effort"
         ],
         "arena": [
           "anthropic-claude-opus-4-6-high-202610",
@@ -994,7 +999,8 @@
         ],
         "livebench": [
           "anthropic-claude-sonnet-4-6-medium",
-          "claude-sonnet-4.6-(medium)"
+          "claude-sonnet-4.6-(medium)",
+          "claude-sonnet-4-6-thinking-auto-medium-effort"
         ],
         "arena": [
           "anthropic-claude-sonnet-4-6-medium-202610",
@@ -1022,7 +1028,8 @@
         ],
         "livebench": [
           "anthropic-claude-opus-4-5-high",
-          "claude-opus-4.5-(high)"
+          "claude-opus-4.5-(high)",
+          "claude-opus-4-5-20251101-thinking-64k-high-effort"
         ],
         "arena": [
           "anthropic-claude-opus-4-5-high-202610",
@@ -1923,7 +1930,8 @@
         ],
         "livebench": [
           "openai-gpt-5-2-high",
-          "gpt-5.2-(high)"
+          "gpt-5.2-(high)",
+          "gpt-5.2-2025-12-11-high"
         ],
         "arena": [
           "openai-gpt-5-2-high-202610",
@@ -2287,7 +2295,8 @@
         ],
         "livebench": [
           "google-gemini-3-1-pro-high",
-          "gemini-3.1-pro-(high)"
+          "gemini-3.1-pro-(high)",
+          "gemini-3.1-pro-preview-high"
         ],
         "arena": [
           "google-gemini-3-1-pro-high-202610",
@@ -2694,38 +2703,49 @@
       "canonical_id": "deepseek-v4-1-flash-1017",
       "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
       "provider": "DeepSeek",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-17",
       "license": "MIT",
       "is_open_weights": true,
       "context_window": 128000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "aliases": {
-        "artificial_analysis": [],
+        "artificial_analysis": [
+          "DeepSeek V4.1 Flash 1017 (max)"
+        ],
         "livebench": [],
         "arena": [
           "deepseek-v4-1-flash-1017-202610"
         ],
-        "vals": []
+        "vals": [
+          "DeepSeek V4.1 Flash 1017 (Max)",
+          "DeepSeek V4.1 Flash 1017",
+          "DeepSeek V4.1 Flash 1017"
+        ]
       }
     },
     {
       "canonical_id": "deepseek-v4-pro-0813",
       "display_name": "DeepSeek V4 Pro 0813 (Max)",
       "provider": "DeepSeek",
-      "release_date": "2026-11-10",
+      "release_date": "2026-08-13",
       "license": "MIT",
       "is_open_weights": true,
       "context_window": 128000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "aliases": {
-        "artificial_analysis": [],
+        "artificial_analysis": [
+          "DeepSeek V4 Pro 0813 (max)"
+        ],
         "livebench": [],
         "arena": [
           "deepseek-v4-pro-0813-202610"
         ],
-        "vals": []
+        "vals": [
+          "DeepSeek V4 Pro 0813 (Max)",
+          "DeepSeek V4 Pro 0813"
+        ]
       }
     },
     {
@@ -3902,9 +3922,9 @@
     },
     {
       "canonical_id": "stealth-lab-stealth-nebula-v1-preview",
-      "display_name": "stealth-nebula-v1-preview-20261027",
+      "display_name": "Stealth Nebula v1 Preview",
       "provider": "Stealth Lab",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-27",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -3921,9 +3941,9 @@
     },
     {
       "canonical_id": "google-gemini-4-carbon-medium",
-      "display_name": "Gemini 4 Carbon (medium)",
+      "display_name": "Gemini 4 Carbon (Medium)",
       "provider": "Google",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-28",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -3940,9 +3960,9 @@
     },
     {
       "canonical_id": "google-gemini-4-carbon-low",
-      "display_name": "Gemini 4 Carbon (low)",
+      "display_name": "Gemini 4 Carbon (Low)",
       "provider": "Google",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-28",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -3959,9 +3979,9 @@
     },
     {
       "canonical_id": "meta-muse-wonder-high",
-      "display_name": "Muse Wonder (high)",
+      "display_name": "Muse Wonder (High)",
       "provider": "Meta",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-16",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -3978,9 +3998,9 @@
     },
     {
       "canonical_id": "meta-muse-ember-xhigh",
-      "display_name": "Muse Ember (xhigh)",
+      "display_name": "Muse Ember (xHigh)",
       "provider": "Meta",
-      "release_date": "2026-11-10",
+      "release_date": "2026-11-09",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -3997,9 +4017,9 @@
     },
     {
       "canonical_id": "deepseek-v4-1-flash-1017-high",
-      "display_name": "DeepSeek V4.1 Flash 1017 (high)",
+      "display_name": "DeepSeek V4.1 Flash 1017 (High)",
       "provider": "DeepSeek",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-17",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -4016,9 +4036,9 @@
     },
     {
       "canonical_id": "mistral-large-4-high",
-      "display_name": "Mistral Large 4 (high)",
+      "display_name": "Mistral Large 4 (High)",
       "provider": "Mistral",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-02",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -4037,7 +4057,7 @@
       "canonical_id": "sapiens-ai-agnes-2-5-pro-theta",
       "display_name": "Agnes 2.5 Pro Theta",
       "provider": "Sapiens AI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-22",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -4054,9 +4074,9 @@
     },
     {
       "canonical_id": "mistral-large-4-medium",
-      "display_name": "Mistral Large 4 (medium)",
+      "display_name": "Mistral Large 4 (Medium)",
       "provider": "Mistral",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-02",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -4073,9 +4093,9 @@
     },
     {
       "canonical_id": "nanbeige4-3-33b",
-      "display_name": "Nanbeige4.3-33B",
+      "display_name": "Nanbeige 4.3 33B",
       "provider": "Nanbeige",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-16",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 524000,
@@ -4092,9 +4112,9 @@
     },
     {
       "canonical_id": "deepseek-v4-1-flash-1017-non-reasoning",
-      "display_name": "DeepSeek V4.1 Flash 1017 (non-reasoning)",
+      "display_name": "DeepSeek V4.1 Flash 1017 (Non-Reasoning)",
       "provider": "DeepSeek",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-17",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -4111,9 +4131,9 @@
     },
     {
       "canonical_id": "alibaba-qwen3-8-27b-medium",
-      "display_name": "Qwen3.8 27B (medium)",
+      "display_name": "Qwen3.8 27B (Medium)",
       "provider": "Alibaba",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-02",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 256000,
@@ -4130,9 +4150,9 @@
     },
     {
       "canonical_id": "alibaba-qwen3-8-27b-low",
-      "display_name": "Qwen3.8 27B (low)",
+      "display_name": "Qwen3.8 27B (Low)",
       "provider": "Alibaba",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-02",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 256000,
@@ -4151,7 +4171,7 @@
       "canonical_id": "apodex-1-1",
       "display_name": "Apodex 1.1",
       "provider": "Apodex",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-14",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 256000,
@@ -4168,9 +4188,9 @@
     },
     {
       "canonical_id": "deepseek-v4-pro-0813-non-reasoning",
-      "display_name": "DeepSeek V4 Pro 0813 (non-reasoning)",
+      "display_name": "DeepSeek V4 Pro 0813 (Non-Reasoning)",
       "provider": "DeepSeek",
-      "release_date": "2026-11-10",
+      "release_date": "2026-08-13",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -4187,9 +4207,9 @@
     },
     {
       "canonical_id": "alibaba-qwen3-8-27b-non-reasoning",
-      "display_name": "Qwen3.8 27B (non-reasoning)",
+      "display_name": "Qwen3.8 27B (Non-Reasoning)",
       "provider": "Alibaba",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-02",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 256000,
@@ -4206,9 +4226,9 @@
     },
     {
       "canonical_id": "openai-gpt-6-luna-non-reasoning",
-      "display_name": "GPT-6 Luna (non-reasoning)",
+      "display_name": "GPT-6 Luna (Non-Reasoning)",
       "provider": "OpenAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-14",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -4227,7 +4247,7 @@
       "canonical_id": "lg-ai-research-k-exaone-2-0",
       "display_name": "K-EXAONE 2.0",
       "provider": "LG AI Research",
-      "release_date": "2026-11-10",
+      "release_date": "2026-08-29",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 262000,
@@ -4246,7 +4266,7 @@
       "canonical_id": "nvidia-nemotron-3-5-lightning",
       "display_name": "Nemotron 3.5 Lightning",
       "provider": "NVIDIA",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-25",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -4265,7 +4285,7 @@
       "canonical_id": "ibm-granite-4-2-8b",
       "display_name": "Granite 4.2 8B",
       "provider": "IBM",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-09",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 131000,
@@ -4284,7 +4304,7 @@
       "canonical_id": "ibm-granite-4-2-3b",
       "display_name": "Granite 4.2 3B",
       "provider": "IBM",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-09",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 131000,
@@ -4303,7 +4323,7 @@
       "canonical_id": "mistral-medium-3-5",
       "display_name": "Mistral Medium 3.5",
       "provider": "Mistral",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-18",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 256000,
@@ -4322,7 +4342,7 @@
       "canonical_id": "mistral-small-4",
       "display_name": "Mistral Small 4",
       "provider": "Mistral",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-05",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 256000,
@@ -4339,9 +4359,9 @@
     },
     {
       "canonical_id": "openai-gpt-oss-120b-high",
-      "display_name": "gpt-oss-120b (high)",
+      "display_name": "GPT-OSS 120B (High)",
       "provider": "OpenAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-08-05",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 131000,
@@ -4360,7 +4380,7 @@
       "canonical_id": "cohere-north-mini-code",
       "display_name": "North Mini Code",
       "provider": "Cohere",
-      "release_date": "2026-11-10",
+      "release_date": "2026-08-11",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 256000,
@@ -4379,7 +4399,7 @@
       "canonical_id": "nvidia-nemotron-3-nano-4b",
       "display_name": "Nemotron 3 Nano 4B",
       "provider": "NVIDIA",
-      "release_date": "2026-11-10",
+      "release_date": "2026-05-19",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 262000,
@@ -4396,9 +4416,9 @@
     },
     {
       "canonical_id": "google-gemini-4-carbon",
-      "display_name": "Gemini 4 Carbon",
+      "display_name": "Gemini 4 Carbon (Standard)",
       "provider": "Google",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-28",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4417,7 +4437,7 @@
       "canonical_id": "wonder-full",
       "display_name": "Wonder Full",
       "provider": "Wonder",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-16",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4434,9 +4454,9 @@
     },
     {
       "canonical_id": "openai-gpt-6-astra",
-      "display_name": "GPT-6 Astra",
+      "display_name": "GPT-6 Astra (Standard)",
       "provider": "OpenAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-08",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4453,9 +4473,9 @@
     },
     {
       "canonical_id": "wonder",
-      "display_name": "Wonder",
+      "display_name": "Muse Wonder (Standard)",
       "provider": "Wonder",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-16",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4472,9 +4492,9 @@
     },
     {
       "canonical_id": "openai-gpt-6-1-sol",
-      "display_name": "GPT-6.1 Sol",
+      "display_name": "GPT-6.1 Sol (Standard)",
       "provider": "OpenAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-19",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4491,9 +4511,9 @@
     },
     {
       "canonical_id": "z-ai-glm-5-3",
-      "display_name": "GLM 5.3",
+      "display_name": "GLM-5.3 (Standard)",
       "provider": "Z.AI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-04",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4510,9 +4530,9 @@
     },
     {
       "canonical_id": "anthropic-claude-haiku-5-5",
-      "display_name": "Claude Haiku 5.5",
+      "display_name": "Claude Haiku 5.5 (Standard)",
       "provider": "Anthropic",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-12",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4529,9 +4549,9 @@
     },
     {
       "canonical_id": "xai-grok-4-7",
-      "display_name": "Grok 4.7",
+      "display_name": "Grok 4.7 (Standard)",
       "provider": "xAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-10-12",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4548,9 +4568,9 @@
     },
     {
       "canonical_id": "google-gemini-3-8-flash",
-      "display_name": "Gemini 3.8 Flash",
+      "display_name": "Gemini 3.8 Flash (Standard)",
       "provider": "Google",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-22",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4567,9 +4587,9 @@
     },
     {
       "canonical_id": "moonshot-ai-kimi-k3",
-      "display_name": "Kimi K3",
+      "display_name": "Kimi K3 (Standard)",
       "provider": "Moonshot AI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-08-18",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4586,9 +4606,9 @@
     },
     {
       "canonical_id": "openai-gpt-6-luna",
-      "display_name": "GPT-6 Luna",
+      "display_name": "GPT-6 Luna (Standard)",
       "provider": "OpenAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-14",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4605,9 +4625,9 @@
     },
     {
       "canonical_id": "meta-muse-spark-open",
-      "display_name": "Muse Spark Open",
+      "display_name": "Muse Spark Open (Standard)",
       "provider": "Meta",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-28",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4624,9 +4644,9 @@
     },
     {
       "canonical_id": "mercury-3",
-      "display_name": "Mercury 3",
+      "display_name": "Mercury 3 (Standard)",
       "provider": "Mercury",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-30",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4643,9 +4663,9 @@
     },
     {
       "canonical_id": "thinking-machines-inkling",
-      "display_name": "Inkling",
+      "display_name": "Inkling (Standard)",
       "provider": "Thinking Machines",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-15",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4661,185 +4681,10 @@
       }
     },
     {
-      "canonical_id": "deepseek-v4-1-flash-1017-max",
-      "display_name": "DeepSeek V4.1 Flash 1017 (max)",
-      "provider": "DeepSeek",
-      "release_date": "2026-10-17",
-      "license": "MIT",
-      "is_open_weights": false,
-      "context_window": 1000000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "max",
-      "aliases": {
-        "artificial_analysis": [
-          "DeepSeek V4.1 Flash 1017 (max)"
-        ],
-        "livebench": [],
-        "arena": [],
-        "vals": [
-          "DeepSeek V4.1 Flash 1017 (Max)"
-        ]
-      }
-    },
-    {
-      "canonical_id": "deepseek-v4-pro-0813-max",
-      "display_name": "DeepSeek V4 Pro 0813 (max)",
-      "provider": "DeepSeek",
-      "release_date": "2026-08-13",
-      "license": "MIT",
-      "is_open_weights": false,
-      "context_window": 1000000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "max",
-      "aliases": {
-        "artificial_analysis": [
-          "DeepSeek V4 Pro 0813 (max)"
-        ],
-        "livebench": [],
-        "arena": [],
-        "vals": [
-          "DeepSeek V4 Pro 0813 (Max)"
-        ]
-      }
-    },
-    {
-      "canonical_id": "anthropic-claude-opus-4-5-20251101-thinking-64k-high-effort",
-      "display_name": "claude-opus-4-5-20251101-thinking-64k-high-effort",
-      "provider": "Anthropic",
-      "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
-      "aliases": {
-        "artificial_analysis": [],
-        "livebench": [
-          "claude-opus-4-5-20251101-thinking-64k-high-effort"
-        ],
-        "arena": [],
-        "vals": []
-      }
-    },
-    {
-      "canonical_id": "anthropic-claude-opus-4-6-thinking-auto-high-effort",
-      "display_name": "claude-opus-4-6-thinking-auto-high-effort",
-      "provider": "Anthropic",
-      "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
-      "aliases": {
-        "artificial_analysis": [],
-        "livebench": [
-          "claude-opus-4-6-thinking-auto-high-effort"
-        ],
-        "arena": [],
-        "vals": []
-      }
-    },
-    {
-      "canonical_id": "anthropic-claude-opus-4-7-xhigh-effort",
-      "display_name": "claude-opus-4-7-xhigh-effort",
-      "provider": "Anthropic",
-      "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "xhigh",
-      "aliases": {
-        "artificial_analysis": [],
-        "livebench": [
-          "claude-opus-4-7-xhigh-effort"
-        ],
-        "arena": [],
-        "vals": []
-      }
-    },
-    {
-      "canonical_id": "anthropic-claude-opus-4-8-xhigh-effort",
-      "display_name": "claude-opus-4-8-xhigh-effort",
-      "provider": "Anthropic",
-      "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "xhigh",
-      "aliases": {
-        "artificial_analysis": [],
-        "livebench": [
-          "claude-opus-4-8-xhigh-effort"
-        ],
-        "arena": [],
-        "vals": []
-      }
-    },
-    {
-      "canonical_id": "anthropic-claude-sonnet-4-6-thinking-auto-medium-effort",
-      "display_name": "claude-sonnet-4-6-thinking-auto-medium-effort",
-      "provider": "Anthropic",
-      "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "medium",
-      "aliases": {
-        "artificial_analysis": [],
-        "livebench": [
-          "claude-sonnet-4-6-thinking-auto-medium-effort"
-        ],
-        "arena": [],
-        "vals": []
-      }
-    },
-    {
-      "canonical_id": "anthropic-claude-sonnet-5-xhigh-effort",
-      "display_name": "claude-sonnet-5-xhigh-effort",
-      "provider": "Anthropic",
-      "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "xhigh",
-      "aliases": {
-        "artificial_analysis": [],
-        "livebench": [
-          "claude-sonnet-5-xhigh-effort"
-        ],
-        "arena": [],
-        "vals": []
-      }
-    },
-    {
-      "canonical_id": "google-gemini-3-1-pro-preview-high",
-      "display_name": "gemini-3.1-pro-preview-high",
-      "provider": "Google",
-      "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
-      "aliases": {
-        "artificial_analysis": [],
-        "livebench": [
-          "gemini-3.1-pro-preview-high"
-        ],
-        "arena": [],
-        "vals": []
-      }
-    },
-    {
       "canonical_id": "z-ai-glm-5-2",
-      "display_name": "glm-5.2",
+      "display_name": "GLM-5.2",
       "provider": "Z.AI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-08-22",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4855,29 +4700,10 @@
       }
     },
     {
-      "canonical_id": "openai-gpt-5-2-2025-12-11-high",
-      "display_name": "gpt-5.2-2025-12-11-high",
-      "provider": "OpenAI",
-      "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
-      "aliases": {
-        "artificial_analysis": [],
-        "livebench": [
-          "gpt-5.2-2025-12-11-high"
-        ],
-        "arena": [],
-        "vals": []
-      }
-    },
-    {
       "canonical_id": "openai-gpt-5-2-codex",
-      "display_name": "gpt-5.2-codex",
+      "display_name": "GPT-5.2 Codex",
       "provider": "OpenAI",
-      "release_date": "2026-11-10",
+      "release_date": "2025-12-18",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4894,9 +4720,9 @@
     },
     {
       "canonical_id": "openai-gpt-5-5",
-      "display_name": "gpt-5.5",
+      "display_name": "GPT-5.5 (Standard)",
       "provider": "OpenAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-03-10",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4913,9 +4739,9 @@
     },
     {
       "canonical_id": "openai-gpt-5-5-high",
-      "display_name": "gpt-5.5-high",
+      "display_name": "GPT-5.5 (High)",
       "provider": "OpenAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-03-10",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4932,9 +4758,9 @@
     },
     {
       "canonical_id": "xai-grok-4-3",
-      "display_name": "grok-4.3",
+      "display_name": "Grok 4.3",
       "provider": "xAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-04-12",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4951,9 +4777,9 @@
     },
     {
       "canonical_id": "xai-grok-build-0-1",
-      "display_name": "grok-build-0.1",
+      "display_name": "Grok Build 0.1",
       "provider": "xAI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-09-20",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4970,9 +4796,9 @@
     },
     {
       "canonical_id": "moonshot-ai-kimi-k2-7-code",
-      "display_name": "kimi-k2.7-code",
+      "display_name": "Kimi K2.7 Code",
       "provider": "Moonshot AI",
-      "release_date": "2026-11-10",
+      "release_date": "2026-07-08",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4989,9 +4815,9 @@
     },
     {
       "canonical_id": "alibaba-qwen3-6-27b",
-      "display_name": "qwen3.6-27b",
+      "display_name": "Qwen3.6 27B",
       "provider": "Alibaba",
-      "release_date": "2026-11-10",
+      "release_date": "2026-06-15",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -5001,25 +4827,6 @@
         "artificial_analysis": [],
         "livebench": [
           "qwen3.6-27b"
-        ],
-        "arena": [],
-        "vals": []
-      }
-    },
-    {
-      "canonical_id": "anthropic-claude-fable-5-xhigh-effort",
-      "display_name": "claude-fable-5-xhigh-effort",
-      "provider": "Anthropic",
-      "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "xhigh",
-      "aliases": {
-        "artificial_analysis": [],
-        "livebench": [
-          "claude-fable-5-xhigh-effort"
         ],
         "arena": [],
         "vals": []

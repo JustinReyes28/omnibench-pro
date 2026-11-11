@@ -47,8 +47,8 @@ export const LeaderboardTable: React.FC<Props> = ({
     });
 
     if (showAllInStack) return pool;
-    return pool.slice(0, bestPerLabOnly ? 21 : 25);
-  }, [models, bestPerLabOnly, showAllInStack]);
+    return pool.slice(0, bestPerLabOnly ? Math.max(21, allProviders.length) : 25);
+  }, [models, bestPerLabOnly, showAllInStack, allProviders.length]);
 
   // Master Table sorted models
   const sortedModels = useMemo(() => {
@@ -157,7 +157,7 @@ export const LeaderboardTable: React.FC<Props> = ({
               }}
               className="border border-[#D8D4C8]/40 bg-[#FFFFFF]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white transition hover:bg-[#C84B31]"
             >
-              {bestPerLabOnly ? 'Filter: Best Model Per Lab (21 Labs)' : 'Filter: All Ranked Models'}
+              {bestPerLabOnly ? `Filter: Best Model Per Lab (${allProviders.length} Labs)` : 'Filter: All Ranked Models'}
             </button>
 
             {!bestPerLabOnly && (

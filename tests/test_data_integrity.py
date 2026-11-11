@@ -85,6 +85,27 @@ class TestDataIntegrity(unittest.TestCase):
         trends = json.loads(TRENDS_PATH.read_text(encoding="utf-8"))
         self.assertGreaterEqual(len(trends.get("timeline", [])), 4)
 
+    def test_frontend_features_and_loading_text(self) -> None:
+        app_tsx = (ROOT_DIR / "src" / "App.tsx").read_text(encoding="utf-8")
+        pareto_tsx = (ROOT_DIR / "src" / "components" / "ParetoChart.tsx").read_text(encoding="utf-8")
+        timeline_tsx_path = ROOT_DIR / "src" / "components" / "ReleaseTimelinePage.tsx"
+
+        # 1. Loading screen is simple and does not hardcode "132 models"
+        self.assertNotIn("132 models", app_tsx)
+        self.assertIn("Loading benchmarks...", app_tsx)
+
+        # 2. Pareto chart supports Log and Linear scale toggle
+        self.assertIn("pareto-scale-log", pareto_tsx)
+        self.assertIn("pareto-scale-linear", pareto_tsx)
+        self.assertIn("LINEAR_X_TICKS", pareto_tsx)
+
+        # 3. Separate Release Timeline page exists and is wired into App navigation
+        self.assertTrue(timeline_tsx_path.exists())
+        timeline_tsx = timeline_tsx_path.read_text(encoding="utf-8")
+        self.assertIn("Model Release Timeline", timeline_tsx)
+        self.assertIn("ReleaseTimelinePage", app_tsx)
+        self.assertIn("nav-release-timeline", app_tsx)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,13 +1,13 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-11T04:25:07Z",
+  "updated_at": "2026-11-11T04:31:58Z",
   "entries": [
     {
       "date": "2026-11-11",
       "type": "release_sync",
-      "summary": "Autonomous 12-hour sync expanded the verified fleet to 179 models.",
+      "summary": "Autonomous 12-hour sync expanded the verified fleet to 198 models.",
       "highlights": [
-        "Newly indexed models include: Gemini 4 Carbon, Gemini 4 Carbon (medium), Wonder Full, Gemini 4 Carbon (low), GPT-6 Astra, Wonder."
+        "Newly indexed models include: Gemini 4 Carbon, Gemini 4 Carbon (medium), Wonder Full, claude-fable-5-xhigh-effort, Gemini 4 Carbon (low), claude-opus-4-8-xhigh-effort."
       ]
     },
     {

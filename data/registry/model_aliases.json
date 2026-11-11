@@ -2692,40 +2692,40 @@
     },
     {
       "canonical_id": "deepseek-v4-1-flash-1017",
-      "display_name": "DeepSeek V4.1 Flash 1017",
+      "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
       "provider": "DeepSeek",
       "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "license": "MIT",
+      "is_open_weights": true,
       "context_window": 128000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "aliases": {
         "artificial_analysis": [],
         "livebench": [],
-        "arena": [],
-        "vals": [
-          "DeepSeek V4.1 Flash 1017"
-        ]
+        "arena": [
+          "deepseek-v4-1-flash-1017-202610"
+        ],
+        "vals": []
       }
     },
     {
       "canonical_id": "deepseek-v4-pro-0813",
-      "display_name": "DeepSeek V4 Pro 0813",
+      "display_name": "DeepSeek V4 Pro 0813 (Max)",
       "provider": "DeepSeek",
       "release_date": "2026-11-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "license": "MIT",
+      "is_open_weights": true,
       "context_window": 128000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "aliases": {
         "artificial_analysis": [],
         "livebench": [],
-        "arena": [],
-        "vals": [
-          "DeepSeek V4 Pro 0813"
-        ]
+        "arena": [
+          "deepseek-v4-pro-0813-202610"
+        ],
+        "vals": []
       }
     },
     {
@@ -4658,6 +4658,371 @@
         "vals": [
           "Inkling"
         ]
+      }
+    },
+    {
+      "canonical_id": "deepseek-v4-1-flash-1017-max",
+      "display_name": "DeepSeek V4.1 Flash 1017 (max)",
+      "provider": "DeepSeek",
+      "release_date": "2026-10-17",
+      "license": "MIT",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "DeepSeek V4.1 Flash 1017 (max)"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": [
+          "DeepSeek V4.1 Flash 1017 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "deepseek-v4-pro-0813-max",
+      "display_name": "DeepSeek V4 Pro 0813 (max)",
+      "provider": "DeepSeek",
+      "release_date": "2026-08-13",
+      "license": "MIT",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "aliases": {
+        "artificial_analysis": [
+          "DeepSeek V4 Pro 0813 (max)"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": [
+          "DeepSeek V4 Pro 0813 (Max)"
+        ]
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-4-5-20251101-thinking-64k-high-effort",
+      "display_name": "claude-opus-4-5-20251101-thinking-64k-high-effort",
+      "provider": "Anthropic",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "claude-opus-4-5-20251101-thinking-64k-high-effort"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-4-6-thinking-auto-high-effort",
+      "display_name": "claude-opus-4-6-thinking-auto-high-effort",
+      "provider": "Anthropic",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "claude-opus-4-6-thinking-auto-high-effort"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-4-7-xhigh-effort",
+      "display_name": "claude-opus-4-7-xhigh-effort",
+      "provider": "Anthropic",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "claude-opus-4-7-xhigh-effort"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-opus-4-8-xhigh-effort",
+      "display_name": "claude-opus-4-8-xhigh-effort",
+      "provider": "Anthropic",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "claude-opus-4-8-xhigh-effort"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-4-6-thinking-auto-medium-effort",
+      "display_name": "claude-sonnet-4-6-thinking-auto-medium-effort",
+      "provider": "Anthropic",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "medium",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "claude-sonnet-4-6-thinking-auto-medium-effort"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-5-xhigh-effort",
+      "display_name": "claude-sonnet-5-xhigh-effort",
+      "provider": "Anthropic",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "claude-sonnet-5-xhigh-effort"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "google-gemini-3-1-pro-preview-high",
+      "display_name": "gemini-3.1-pro-preview-high",
+      "provider": "Google",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "gemini-3.1-pro-preview-high"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "z-ai-glm-5-2",
+      "display_name": "glm-5.2",
+      "provider": "Z.AI",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "glm-5.2"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-2-2025-12-11-high",
+      "display_name": "gpt-5.2-2025-12-11-high",
+      "provider": "OpenAI",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "gpt-5.2-2025-12-11-high"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-2-codex",
+      "display_name": "gpt-5.2-codex",
+      "provider": "OpenAI",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "gpt-5.2-codex"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-5",
+      "display_name": "gpt-5.5",
+      "provider": "OpenAI",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "gpt-5.5"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-5-high",
+      "display_name": "gpt-5.5-high",
+      "provider": "OpenAI",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "gpt-5.5-high"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "xai-grok-4-3",
+      "display_name": "grok-4.3",
+      "provider": "xAI",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "grok-4.3"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "xai-grok-build-0-1",
+      "display_name": "grok-build-0.1",
+      "provider": "xAI",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "grok-build-0.1"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "moonshot-ai-kimi-k2-7-code",
+      "display_name": "kimi-k2.7-code",
+      "provider": "Moonshot AI",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "kimi-k2.7-code"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "alibaba-qwen3-6-27b",
+      "display_name": "qwen3.6-27b",
+      "provider": "Alibaba",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "qwen3.6-27b"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-fable-5-xhigh-effort",
+      "display_name": "claude-fable-5-xhigh-effort",
+      "provider": "Anthropic",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "claude-fable-5-xhigh-effort"
+        ],
+        "arena": [],
+        "vals": []
       }
     }
   ]

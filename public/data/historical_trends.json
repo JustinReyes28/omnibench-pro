@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-11T04:25:07Z",
+  "updated_at": "2026-11-11T04:31:58Z",
   "timeline": [
     {
       "date": "2026-07-15",
@@ -10,99 +10,99 @@
           "model_id": "anthropic-claude-fable-5-2-max",
           "display_name": "Claude Fable 5.2 (Max)",
           "provider": "Anthropic",
-          "unified_quality_score": 92.82,
+          "unified_quality_score": 92.81,
           "blended_per_1m_usd": 19.75
         },
         {
           "model_id": "google-gemini-4-carbon-high",
           "display_name": "Gemini 4 Carbon (High)",
           "provider": "Google",
-          "unified_quality_score": 88.74,
+          "unified_quality_score": 88.76,
           "blended_per_1m_usd": 5.77
         },
         {
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 84.52,
+          "unified_quality_score": 84.53,
           "blended_per_1m_usd": 4.64
         },
         {
           "model_id": "meta-muse-wonder-full-max",
           "display_name": "Muse Wonder Full (Max)",
           "provider": "Meta",
-          "unified_quality_score": 78.24,
+          "unified_quality_score": 78.21,
           "blended_per_1m_usd": 1.12
         },
         {
           "model_id": "wonder-full",
           "display_name": "Wonder Full",
           "provider": "Wonder",
-          "unified_quality_score": 76.83,
+          "unified_quality_score": 76.86,
           "blended_per_1m_usd": 1.24
         },
         {
           "model_id": "moonshot-kimi-k3-1-pro",
           "display_name": "Kimi K3.1 Pro (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 69.22,
+          "unified_quality_score": 68.86,
           "blended_per_1m_usd": 3.91
-        },
-        {
-          "model_id": "z-ai-glm-5-3",
-          "display_name": "GLM 5.3",
-          "provider": "Z.AI",
-          "unified_quality_score": 63.82,
-          "blended_per_1m_usd": 1.24
         },
         {
           "model_id": "deepseek-v4-1-flash-1017",
           "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
           "provider": "DeepSeek",
-          "unified_quality_score": 63.01,
-          "blended_per_1m_usd": 0.45
+          "unified_quality_score": 67.33,
+          "blended_per_1m_usd": 1.24
+        },
+        {
+          "model_id": "z-ai-glm-5-2",
+          "display_name": "glm-5.2",
+          "provider": "Z.AI",
+          "unified_quality_score": 63.95,
+          "blended_per_1m_usd": 1.24
         },
         {
           "model_id": "zai-glm-5-3-max",
           "display_name": "GLM-5.3 (Max)",
           "provider": "Z.AI",
-          "unified_quality_score": 57.35,
+          "unified_quality_score": 56.89,
           "blended_per_1m_usd": 3.73
         },
         {
           "model_id": "xiaomi-mimo-v2-6-pro",
           "display_name": "MiMo-V2.6-Pro",
           "provider": "Xiaomi",
-          "unified_quality_score": 56.92,
+          "unified_quality_score": 56.57,
           "blended_per_1m_usd": 0.19
         },
         {
           "model_id": "tencent-hy4",
           "display_name": "Tencent Hy4",
           "provider": "Tencent",
-          "unified_quality_score": 55.4,
+          "unified_quality_score": 54.96,
           "blended_per_1m_usd": 0.77
+        },
+        {
+          "model_id": "deepseek-v4-pro-0813",
+          "display_name": "DeepSeek V4 Pro 0813 (Max)",
+          "provider": "DeepSeek",
+          "unified_quality_score": 51.94,
+          "blended_per_1m_usd": 1.24
         },
         {
           "model_id": "moonshot-kimi-k3-base",
           "display_name": "Kimi K3 (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 51.52,
+          "unified_quality_score": 51.09,
           "blended_per_1m_usd": 5.57
         },
         {
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 49.81,
+          "unified_quality_score": 49.36,
           "blended_per_1m_usd": 0.36
-        },
-        {
-          "model_id": "xiaomi-mimo-v2-6-flash",
-          "display_name": "MiMo-V2.6-Flash",
-          "provider": "Xiaomi",
-          "unified_quality_score": 47.77,
-          "blended_per_1m_usd": 0.1
         }
       ]
     },
@@ -114,99 +114,99 @@
           "model_id": "anthropic-claude-fable-5-2-max",
           "display_name": "Claude Fable 5.2 (Max)",
           "provider": "Anthropic",
-          "unified_quality_score": 93.77,
+          "unified_quality_score": 93.76,
           "blended_per_1m_usd": 19.11
         },
         {
           "model_id": "google-gemini-4-carbon-high",
           "display_name": "Gemini 4 Carbon (High)",
           "provider": "Google",
-          "unified_quality_score": 89.69,
+          "unified_quality_score": 89.71,
           "blended_per_1m_usd": 5.59
         },
         {
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 85.47,
+          "unified_quality_score": 85.48,
           "blended_per_1m_usd": 4.49
         },
         {
           "model_id": "meta-muse-wonder-full-max",
           "display_name": "Muse Wonder Full (Max)",
           "provider": "Meta",
-          "unified_quality_score": 79.19,
+          "unified_quality_score": 79.16,
           "blended_per_1m_usd": 1.08
         },
         {
           "model_id": "wonder-full",
           "display_name": "Wonder Full",
           "provider": "Wonder",
-          "unified_quality_score": 77.78,
+          "unified_quality_score": 77.81,
           "blended_per_1m_usd": 1.2
         },
         {
           "model_id": "moonshot-kimi-k3-1-pro",
           "display_name": "Kimi K3.1 Pro (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 70.17,
+          "unified_quality_score": 69.81,
           "blended_per_1m_usd": 3.78
-        },
-        {
-          "model_id": "z-ai-glm-5-3",
-          "display_name": "GLM 5.3",
-          "provider": "Z.AI",
-          "unified_quality_score": 64.77,
-          "blended_per_1m_usd": 1.2
         },
         {
           "model_id": "deepseek-v4-1-flash-1017",
           "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
           "provider": "DeepSeek",
-          "unified_quality_score": 63.96,
-          "blended_per_1m_usd": 0.43
+          "unified_quality_score": 68.28,
+          "blended_per_1m_usd": 1.2
+        },
+        {
+          "model_id": "z-ai-glm-5-2",
+          "display_name": "glm-5.2",
+          "provider": "Z.AI",
+          "unified_quality_score": 64.9,
+          "blended_per_1m_usd": 1.2
         },
         {
           "model_id": "zai-glm-5-3-max",
           "display_name": "GLM-5.3 (Max)",
           "provider": "Z.AI",
-          "unified_quality_score": 58.3,
+          "unified_quality_score": 57.84,
           "blended_per_1m_usd": 3.61
         },
         {
           "model_id": "xiaomi-mimo-v2-6-pro",
           "display_name": "MiMo-V2.6-Pro",
           "provider": "Xiaomi",
-          "unified_quality_score": 57.87,
+          "unified_quality_score": 57.52,
           "blended_per_1m_usd": 0.19
         },
         {
           "model_id": "tencent-hy4",
           "display_name": "Tencent Hy4",
           "provider": "Tencent",
-          "unified_quality_score": 56.35,
+          "unified_quality_score": 55.91,
           "blended_per_1m_usd": 0.74
+        },
+        {
+          "model_id": "deepseek-v4-pro-0813",
+          "display_name": "DeepSeek V4 Pro 0813 (Max)",
+          "provider": "DeepSeek",
+          "unified_quality_score": 52.89,
+          "blended_per_1m_usd": 1.2
         },
         {
           "model_id": "moonshot-kimi-k3-base",
           "display_name": "Kimi K3 (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 52.47,
+          "unified_quality_score": 52.04,
           "blended_per_1m_usd": 5.39
         },
         {
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 50.76,
+          "unified_quality_score": 50.31,
           "blended_per_1m_usd": 0.35
-        },
-        {
-          "model_id": "xiaomi-mimo-v2-6-flash",
-          "display_name": "MiMo-V2.6-Flash",
-          "provider": "Xiaomi",
-          "unified_quality_score": 48.72,
-          "blended_per_1m_usd": 0.09
         }
       ]
     },
@@ -218,99 +218,99 @@
           "model_id": "anthropic-claude-fable-5-2-max",
           "display_name": "Claude Fable 5.2 (Max)",
           "provider": "Anthropic",
-          "unified_quality_score": 94.72,
+          "unified_quality_score": 94.71,
           "blended_per_1m_usd": 18.47
         },
         {
           "model_id": "google-gemini-4-carbon-high",
           "display_name": "Gemini 4 Carbon (High)",
           "provider": "Google",
-          "unified_quality_score": 90.64,
+          "unified_quality_score": 90.66,
           "blended_per_1m_usd": 5.4
         },
         {
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 86.42,
+          "unified_quality_score": 86.43,
           "blended_per_1m_usd": 4.34
         },
         {
           "model_id": "meta-muse-wonder-full-max",
           "display_name": "Muse Wonder Full (Max)",
           "provider": "Meta",
-          "unified_quality_score": 80.14,
+          "unified_quality_score": 80.11,
           "blended_per_1m_usd": 1.04
         },
         {
           "model_id": "wonder-full",
           "display_name": "Wonder Full",
           "provider": "Wonder",
-          "unified_quality_score": 78.73,
+          "unified_quality_score": 78.76,
           "blended_per_1m_usd": 1.16
         },
         {
           "model_id": "moonshot-kimi-k3-1-pro",
           "display_name": "Kimi K3.1 Pro (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 71.12,
+          "unified_quality_score": 70.76,
           "blended_per_1m_usd": 3.65
-        },
-        {
-          "model_id": "z-ai-glm-5-3",
-          "display_name": "GLM 5.3",
-          "provider": "Z.AI",
-          "unified_quality_score": 65.72,
-          "blended_per_1m_usd": 1.16
         },
         {
           "model_id": "deepseek-v4-1-flash-1017",
           "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
           "provider": "DeepSeek",
-          "unified_quality_score": 64.91,
-          "blended_per_1m_usd": 0.42
+          "unified_quality_score": 69.23,
+          "blended_per_1m_usd": 1.16
+        },
+        {
+          "model_id": "z-ai-glm-5-2",
+          "display_name": "glm-5.2",
+          "provider": "Z.AI",
+          "unified_quality_score": 65.85,
+          "blended_per_1m_usd": 1.16
         },
         {
           "model_id": "zai-glm-5-3-max",
           "display_name": "GLM-5.3 (Max)",
           "provider": "Z.AI",
-          "unified_quality_score": 59.25,
+          "unified_quality_score": 58.79,
           "blended_per_1m_usd": 3.49
         },
         {
           "model_id": "xiaomi-mimo-v2-6-pro",
           "display_name": "MiMo-V2.6-Pro",
           "provider": "Xiaomi",
-          "unified_quality_score": 58.82,
+          "unified_quality_score": 58.47,
           "blended_per_1m_usd": 0.18
         },
         {
           "model_id": "tencent-hy4",
           "display_name": "Tencent Hy4",
           "provider": "Tencent",
-          "unified_quality_score": 57.3,
+          "unified_quality_score": 56.86,
           "blended_per_1m_usd": 0.72
+        },
+        {
+          "model_id": "deepseek-v4-pro-0813",
+          "display_name": "DeepSeek V4 Pro 0813 (Max)",
+          "provider": "DeepSeek",
+          "unified_quality_score": 53.84,
+          "blended_per_1m_usd": 1.16
         },
         {
           "model_id": "moonshot-kimi-k3-base",
           "display_name": "Kimi K3 (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 53.42,
+          "unified_quality_score": 52.99,
           "blended_per_1m_usd": 5.21
         },
         {
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 51.71,
+          "unified_quality_score": 51.26,
           "blended_per_1m_usd": 0.34
-        },
-        {
-          "model_id": "xiaomi-mimo-v2-6-flash",
-          "display_name": "MiMo-V2.6-Flash",
-          "provider": "Xiaomi",
-          "unified_quality_score": 49.67,
-          "blended_per_1m_usd": 0.09
         }
       ]
     },
@@ -322,99 +322,99 @@
           "model_id": "anthropic-claude-fable-5-2-max",
           "display_name": "Claude Fable 5.2 (Max)",
           "provider": "Anthropic",
-          "unified_quality_score": 95.67,
+          "unified_quality_score": 95.66,
           "blended_per_1m_usd": 17.83
         },
         {
           "model_id": "google-gemini-4-carbon-high",
           "display_name": "Gemini 4 Carbon (High)",
           "provider": "Google",
-          "unified_quality_score": 91.59,
+          "unified_quality_score": 91.61,
           "blended_per_1m_usd": 5.21
         },
         {
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 87.37,
+          "unified_quality_score": 87.38,
           "blended_per_1m_usd": 4.19
         },
         {
           "model_id": "meta-muse-wonder-full-max",
           "display_name": "Muse Wonder Full (Max)",
           "provider": "Meta",
-          "unified_quality_score": 81.09,
+          "unified_quality_score": 81.06,
           "blended_per_1m_usd": 1.01
         },
         {
           "model_id": "wonder-full",
           "display_name": "Wonder Full",
           "provider": "Wonder",
-          "unified_quality_score": 79.68,
+          "unified_quality_score": 79.71,
           "blended_per_1m_usd": 1.12
         },
         {
           "model_id": "moonshot-kimi-k3-1-pro",
           "display_name": "Kimi K3.1 Pro (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 72.07,
+          "unified_quality_score": 71.71,
           "blended_per_1m_usd": 3.53
-        },
-        {
-          "model_id": "z-ai-glm-5-3",
-          "display_name": "GLM 5.3",
-          "provider": "Z.AI",
-          "unified_quality_score": 66.67,
-          "blended_per_1m_usd": 1.12
         },
         {
           "model_id": "deepseek-v4-1-flash-1017",
           "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
           "provider": "DeepSeek",
-          "unified_quality_score": 65.86,
-          "blended_per_1m_usd": 0.4
+          "unified_quality_score": 70.18,
+          "blended_per_1m_usd": 1.12
+        },
+        {
+          "model_id": "z-ai-glm-5-2",
+          "display_name": "glm-5.2",
+          "provider": "Z.AI",
+          "unified_quality_score": 66.8,
+          "blended_per_1m_usd": 1.12
         },
         {
           "model_id": "zai-glm-5-3-max",
           "display_name": "GLM-5.3 (Max)",
           "provider": "Z.AI",
-          "unified_quality_score": 60.2,
+          "unified_quality_score": 59.74,
           "blended_per_1m_usd": 3.37
         },
         {
           "model_id": "xiaomi-mimo-v2-6-pro",
           "display_name": "MiMo-V2.6-Pro",
           "provider": "Xiaomi",
-          "unified_quality_score": 59.77,
+          "unified_quality_score": 59.42,
           "blended_per_1m_usd": 0.17
         },
         {
           "model_id": "tencent-hy4",
           "display_name": "Tencent Hy4",
           "provider": "Tencent",
-          "unified_quality_score": 58.25,
+          "unified_quality_score": 57.81,
           "blended_per_1m_usd": 0.69
+        },
+        {
+          "model_id": "deepseek-v4-pro-0813",
+          "display_name": "DeepSeek V4 Pro 0813 (Max)",
+          "provider": "DeepSeek",
+          "unified_quality_score": 54.79,
+          "blended_per_1m_usd": 1.12
         },
         {
           "model_id": "moonshot-kimi-k3-base",
           "display_name": "Kimi K3 (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 54.37,
+          "unified_quality_score": 53.94,
           "blended_per_1m_usd": 5.03
         },
         {
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 52.66,
+          "unified_quality_score": 52.21,
           "blended_per_1m_usd": 0.33
-        },
-        {
-          "model_id": "xiaomi-mimo-v2-6-flash",
-          "display_name": "MiMo-V2.6-Flash",
-          "provider": "Xiaomi",
-          "unified_quality_score": 50.62,
-          "blended_per_1m_usd": 0.09
         }
       ]
     },
@@ -426,99 +426,99 @@
           "model_id": "anthropic-claude-fable-5-2-max",
           "display_name": "Claude Fable 5.2 (Max)",
           "provider": "Anthropic",
-          "unified_quality_score": 96.62,
+          "unified_quality_score": 96.61,
           "blended_per_1m_usd": 17.2
         },
         {
           "model_id": "google-gemini-4-carbon-high",
           "display_name": "Gemini 4 Carbon (High)",
           "provider": "Google",
-          "unified_quality_score": 92.54,
+          "unified_quality_score": 92.56,
           "blended_per_1m_usd": 5.03
         },
         {
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 88.32,
+          "unified_quality_score": 88.33,
           "blended_per_1m_usd": 4.04
         },
         {
           "model_id": "meta-muse-wonder-full-max",
           "display_name": "Muse Wonder Full (Max)",
           "provider": "Meta",
-          "unified_quality_score": 82.04,
+          "unified_quality_score": 82.01,
           "blended_per_1m_usd": 0.97
         },
         {
           "model_id": "wonder-full",
           "display_name": "Wonder Full",
           "provider": "Wonder",
-          "unified_quality_score": 80.63,
+          "unified_quality_score": 80.66,
           "blended_per_1m_usd": 1.08
         },
         {
           "model_id": "moonshot-kimi-k3-1-pro",
           "display_name": "Kimi K3.1 Pro (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 73.02,
+          "unified_quality_score": 72.66,
           "blended_per_1m_usd": 3.4
-        },
-        {
-          "model_id": "z-ai-glm-5-3",
-          "display_name": "GLM 5.3",
-          "provider": "Z.AI",
-          "unified_quality_score": 67.62,
-          "blended_per_1m_usd": 1.08
         },
         {
           "model_id": "deepseek-v4-1-flash-1017",
           "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
           "provider": "DeepSeek",
-          "unified_quality_score": 66.81,
-          "blended_per_1m_usd": 0.39
+          "unified_quality_score": 71.13,
+          "blended_per_1m_usd": 1.08
+        },
+        {
+          "model_id": "z-ai-glm-5-2",
+          "display_name": "glm-5.2",
+          "provider": "Z.AI",
+          "unified_quality_score": 67.75,
+          "blended_per_1m_usd": 1.08
         },
         {
           "model_id": "zai-glm-5-3-max",
           "display_name": "GLM-5.3 (Max)",
           "provider": "Z.AI",
-          "unified_quality_score": 61.15,
+          "unified_quality_score": 60.69,
           "blended_per_1m_usd": 3.25
         },
         {
           "model_id": "xiaomi-mimo-v2-6-pro",
           "display_name": "MiMo-V2.6-Pro",
           "provider": "Xiaomi",
-          "unified_quality_score": 60.72,
+          "unified_quality_score": 60.37,
           "blended_per_1m_usd": 0.17
         },
         {
           "model_id": "tencent-hy4",
           "display_name": "Tencent Hy4",
           "provider": "Tencent",
-          "unified_quality_score": 59.2,
+          "unified_quality_score": 58.76,
           "blended_per_1m_usd": 0.67
+        },
+        {
+          "model_id": "deepseek-v4-pro-0813",
+          "display_name": "DeepSeek V4 Pro 0813 (Max)",
+          "provider": "DeepSeek",
+          "unified_quality_score": 55.74,
+          "blended_per_1m_usd": 1.08
         },
         {
           "model_id": "moonshot-kimi-k3-base",
           "display_name": "Kimi K3 (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 55.32,
+          "unified_quality_score": 54.89,
           "blended_per_1m_usd": 4.85
         },
         {
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 53.61,
+          "unified_quality_score": 53.16,
           "blended_per_1m_usd": 0.32
-        },
-        {
-          "model_id": "xiaomi-mimo-v2-6-flash",
-          "display_name": "MiMo-V2.6-Flash",
-          "provider": "Xiaomi",
-          "unified_quality_score": 51.57,
-          "blended_per_1m_usd": 0.08
         }
       ]
     },
@@ -530,99 +530,99 @@
           "model_id": "anthropic-claude-fable-5-2-max",
           "display_name": "Claude Fable 5.2 (Max)",
           "provider": "Anthropic",
-          "unified_quality_score": 97.57,
+          "unified_quality_score": 97.56,
           "blended_per_1m_usd": 16.56
         },
         {
           "model_id": "google-gemini-4-carbon-high",
           "display_name": "Gemini 4 Carbon (High)",
           "provider": "Google",
-          "unified_quality_score": 93.49,
+          "unified_quality_score": 93.51,
           "blended_per_1m_usd": 4.84
         },
         {
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 89.27,
+          "unified_quality_score": 89.28,
           "blended_per_1m_usd": 3.89
         },
         {
           "model_id": "meta-muse-wonder-full-max",
           "display_name": "Muse Wonder Full (Max)",
           "provider": "Meta",
-          "unified_quality_score": 82.99,
+          "unified_quality_score": 82.96,
           "blended_per_1m_usd": 0.94
         },
         {
           "model_id": "wonder-full",
           "display_name": "Wonder Full",
           "provider": "Wonder",
-          "unified_quality_score": 81.58,
+          "unified_quality_score": 81.61,
           "blended_per_1m_usd": 1.04
         },
         {
           "model_id": "moonshot-kimi-k3-1-pro",
           "display_name": "Kimi K3.1 Pro (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 73.97,
+          "unified_quality_score": 73.61,
           "blended_per_1m_usd": 3.28
-        },
-        {
-          "model_id": "z-ai-glm-5-3",
-          "display_name": "GLM 5.3",
-          "provider": "Z.AI",
-          "unified_quality_score": 68.57,
-          "blended_per_1m_usd": 1.04
         },
         {
           "model_id": "deepseek-v4-1-flash-1017",
           "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
           "provider": "DeepSeek",
-          "unified_quality_score": 67.76,
-          "blended_per_1m_usd": 0.37
+          "unified_quality_score": 72.08,
+          "blended_per_1m_usd": 1.04
+        },
+        {
+          "model_id": "z-ai-glm-5-2",
+          "display_name": "glm-5.2",
+          "provider": "Z.AI",
+          "unified_quality_score": 68.7,
+          "blended_per_1m_usd": 1.04
         },
         {
           "model_id": "zai-glm-5-3-max",
           "display_name": "GLM-5.3 (Max)",
           "provider": "Z.AI",
-          "unified_quality_score": 62.1,
+          "unified_quality_score": 61.64,
           "blended_per_1m_usd": 3.13
         },
         {
           "model_id": "xiaomi-mimo-v2-6-pro",
           "display_name": "MiMo-V2.6-Pro",
           "provider": "Xiaomi",
-          "unified_quality_score": 61.67,
+          "unified_quality_score": 61.32,
           "blended_per_1m_usd": 0.16
         },
         {
           "model_id": "tencent-hy4",
           "display_name": "Tencent Hy4",
           "provider": "Tencent",
-          "unified_quality_score": 60.15,
+          "unified_quality_score": 59.71,
           "blended_per_1m_usd": 0.64
+        },
+        {
+          "model_id": "deepseek-v4-pro-0813",
+          "display_name": "DeepSeek V4 Pro 0813 (Max)",
+          "provider": "DeepSeek",
+          "unified_quality_score": 56.69,
+          "blended_per_1m_usd": 1.04
         },
         {
           "model_id": "moonshot-kimi-k3-base",
           "display_name": "Kimi K3 (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 56.27,
+          "unified_quality_score": 55.84,
           "blended_per_1m_usd": 4.67
         },
         {
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 54.56,
+          "unified_quality_score": 54.11,
           "blended_per_1m_usd": 0.31
-        },
-        {
-          "model_id": "xiaomi-mimo-v2-6-flash",
-          "display_name": "MiMo-V2.6-Flash",
-          "provider": "Xiaomi",
-          "unified_quality_score": 52.52,
-          "blended_per_1m_usd": 0.08
         }
       ]
     },
@@ -634,99 +634,99 @@
           "model_id": "anthropic-claude-fable-5-2-max",
           "display_name": "Claude Fable 5.2 (Max)",
           "provider": "Anthropic",
-          "unified_quality_score": 98.52,
+          "unified_quality_score": 98.51,
           "blended_per_1m_usd": 15.92
         },
         {
           "model_id": "google-gemini-4-carbon-high",
           "display_name": "Gemini 4 Carbon (High)",
           "provider": "Google",
-          "unified_quality_score": 94.44,
+          "unified_quality_score": 94.46,
           "blended_per_1m_usd": 4.66
         },
         {
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 90.22,
+          "unified_quality_score": 90.23,
           "blended_per_1m_usd": 3.74
         },
         {
           "model_id": "meta-muse-wonder-full-max",
           "display_name": "Muse Wonder Full (Max)",
           "provider": "Meta",
-          "unified_quality_score": 83.94,
+          "unified_quality_score": 83.91,
           "blended_per_1m_usd": 0.9
         },
         {
           "model_id": "wonder-full",
           "display_name": "Wonder Full",
           "provider": "Wonder",
-          "unified_quality_score": 82.53,
+          "unified_quality_score": 82.56,
           "blended_per_1m_usd": 1.0
         },
         {
           "model_id": "moonshot-kimi-k3-1-pro",
           "display_name": "Kimi K3.1 Pro (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 74.92,
+          "unified_quality_score": 74.56,
           "blended_per_1m_usd": 3.15
-        },
-        {
-          "model_id": "z-ai-glm-5-3",
-          "display_name": "GLM 5.3",
-          "provider": "Z.AI",
-          "unified_quality_score": 69.52,
-          "blended_per_1m_usd": 1.0
         },
         {
           "model_id": "deepseek-v4-1-flash-1017",
           "display_name": "DeepSeek V4.1 Flash 1017 (Max)",
           "provider": "DeepSeek",
-          "unified_quality_score": 68.71,
-          "blended_per_1m_usd": 0.36
+          "unified_quality_score": 73.03,
+          "blended_per_1m_usd": 1.0
+        },
+        {
+          "model_id": "z-ai-glm-5-2",
+          "display_name": "glm-5.2",
+          "provider": "Z.AI",
+          "unified_quality_score": 69.65,
+          "blended_per_1m_usd": 1.0
         },
         {
           "model_id": "zai-glm-5-3-max",
           "display_name": "GLM-5.3 (Max)",
           "provider": "Z.AI",
-          "unified_quality_score": 63.05,
+          "unified_quality_score": 62.59,
           "blended_per_1m_usd": 3.01
         },
         {
           "model_id": "xiaomi-mimo-v2-6-pro",
           "display_name": "MiMo-V2.6-Pro",
           "provider": "Xiaomi",
-          "unified_quality_score": 62.62,
+          "unified_quality_score": 62.27,
           "blended_per_1m_usd": 0.16
         },
         {
           "model_id": "tencent-hy4",
           "display_name": "Tencent Hy4",
           "provider": "Tencent",
-          "unified_quality_score": 61.1,
+          "unified_quality_score": 60.66,
           "blended_per_1m_usd": 0.62
+        },
+        {
+          "model_id": "deepseek-v4-pro-0813",
+          "display_name": "DeepSeek V4 Pro 0813 (Max)",
+          "provider": "DeepSeek",
+          "unified_quality_score": 57.64,
+          "blended_per_1m_usd": 1.0
         },
         {
           "model_id": "moonshot-kimi-k3-base",
           "display_name": "Kimi K3 (Max)",
           "provider": "Moonshot AI",
-          "unified_quality_score": 57.22,
+          "unified_quality_score": 56.79,
           "blended_per_1m_usd": 4.49
         },
         {
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 55.51,
+          "unified_quality_score": 55.06,
           "blended_per_1m_usd": 0.29
-        },
-        {
-          "model_id": "xiaomi-mimo-v2-6-flash",
-          "display_name": "MiMo-V2.6-Flash",
-          "provider": "Xiaomi",
-          "unified_quality_score": 53.47,
-          "blended_per_1m_usd": 0.08
         }
       ]
     }

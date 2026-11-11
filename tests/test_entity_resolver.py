@@ -55,6 +55,18 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
         self.assertEqual(meta_f53["provider"], "Anthropic")
         self.assertEqual(meta_f53["thinking_effort"], "max")
 
+        # Autonomous promotion (auto_promote=True) assigns a clean canonical ID and links across sources
+        auto_cid_1, auto_tier_1, _ = self.resolver.resolve(
+            "artificial_analysis", "Claude Fable 5.4 (Max)", "Anthropic", auto_promote=True
+        )
+        auto_cid_2, auto_tier_2, _ = self.resolver.resolve(
+            "vals", "Claude Fable 5.4 (Max)", "Unknown", auto_promote=True
+        )
+        self.assertEqual(auto_cid_1, "anthropic-claude-fable-5-4-max")
+        self.assertEqual(auto_tier_1, "tier2_auto_promoted")
+        self.assertEqual(auto_cid_2, "anthropic-claude-fable-5-4-max")
+        self.assertEqual(auto_tier_2, "tier2_normalized")
+
     def test_pareto_frontier_calculation(self) -> None:
         sample_models = [
             {"id": "cheap-good", "pricing": {"blended_per_1m_usd": 0.50}, "composite": {"unified_quality_score": 80.0}},

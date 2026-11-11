@@ -43,6 +43,17 @@ _PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
     (("nova", "amazon"), "Amazon"),
     (("command", "aya", "cohere"), "Cohere"),
     (("phi-", "microsoft"), "Microsoft"),
+    (("solar", "upstage"), "Upstage"),
+    (("falcon", "tii"), "TII"),
+    (("jamba", "ai21"), "AI21 Labs"),
+    (("olmo", "allenai"), "AllenAI"),
+    (("granite", "ibm"), "IBM"),
+    (("lfm", "liquid"), "Liquid AI"),
+    (("ernie", "baidu"), "Baidu"),
+    (("yi-", "01.ai"), "01.AI"),
+    (("doubao", "seed-", "bytedance"), "ByteDance"),
+    (("exaone",), "LG AI Research"),
+    (("sonar", "r1-1776", "perplexity"), "Perplexity"),
 )
 
 
@@ -103,6 +114,8 @@ class EntityResolver:
     def __init__(self, aliases_path: Path | None = None) -> None:
         self.aliases_path = aliases_path or ALIASES_PATH
         raw = json.loads(self.aliases_path.read_text(encoding="utf-8"))
+        self.registry_version: str = raw.get("registry_version", "1.1.0")
+        self.registry_updated_at: str = raw.get("updated_at", "2026-11-10T18:00:00Z")
         self.canonical_models: dict[str, dict[str, Any]] = {}
         self.exact_lookup: dict[str, dict[str, str]] = {
             "artificial_analysis": {},
@@ -111,6 +124,7 @@ class EntityResolver:
             "vals": {},
         }
         self.normalized_lookup: dict[str, str] = {}
+        self.auto_promoted_ids: set[str] = set()
 
         for entry in raw.get("models", []):
             cid = entry["canonical_id"]
@@ -130,7 +144,25 @@ class EntityResolver:
 
         self.unmatched_queue: list[dict[str, Any]] = []
 
-    def resolve(self, source_key: str, raw_name: str, provider: str = "Unknown") -> tuple[str, str, dict[str, Any]]:
+    def _record_alias(self, cid: str, source_key: str, raw_name: str) -> None:
+        entry = self.canonical_models.get(cid)
+        if not entry:
+            return
+        aliases = entry.setdefault(
+            "aliases",
+            {"artificial_analysis": [], "livebench": [], "arena": [], "vals": []},
+        )
+        src_list = aliases.setdefault(source_key, [])
+        if raw_name not in src_list:
+            src_list.append(raw_name)
+
+    def resolve(
+        self,
+        source_key: str,
+        raw_name: str,
+        provider: str = "Unknown",
+        auto_promote: bool = False,
+    ) -> tuple[str, str, dict[str, Any]]:
         """Returns (canonical_id, match_tier, metadata_dict)."""
         lowered = raw_name.strip().lower()
 
@@ -143,6 +175,8 @@ class EntityResolver:
         norm_slug = normalize_slug(raw_name)
         if norm_slug in self.normalized_lookup:
             cid = self.normalized_lookup[norm_slug]
+            if cid in self.auto_promoted_ids:
+                self._record_alias(cid, source_key, raw_name)
             return cid, "tier2_normalized", self.canonical_models[cid]
 
         # Tier 3: Fuzzy Similarity Candidate Search (guarded by numeric version & effort signature)
@@ -158,10 +192,46 @@ class EntityResolver:
                 best_cid = cid
 
         if best_cid and best_ratio >= 0.92:
+            if best_cid in self.auto_promoted_ids:
+                self._record_alias(best_cid, source_key, raw_name)
             return best_cid, "tier2_fuzzy_high_confidence", self.canonical_models[best_cid]
 
         inferred_provider = _infer_provider(raw_name, provider)
         effort, reasoning_mode = _infer_effort_and_mode(raw_name)
+        clean_display = _REASONING_TAG_RE.sub("", _WITH_FALLBACK_RE.sub("", raw_name)).strip()
+
+        if auto_promote:
+            effective_provider = inferred_provider
+            if effective_provider == "Unknown":
+                first_word = re.sub(r"[^A-Za-z0-9]+", "", (clean_display.split() or ["Independent"])[0])
+                effective_provider = first_word.capitalize() if first_word else "Independent"
+            prov_slug = re.sub(r"[^a-z0-9]+", "-", effective_provider.lower()).strip("-")
+            auto_cid = norm_slug if norm_slug.startswith(prov_slug) else f"{prov_slug}-{norm_slug}"
+            auto_meta: dict[str, Any] = {
+                "canonical_id": auto_cid,
+                "display_name": clean_display,
+                "provider": effective_provider,
+                "release_date": "2026-11-10",
+                "license": "Proprietary",
+                "is_open_weights": False,
+                "context_window": 128000,
+                "reasoning_mode": reasoning_mode,
+                "thinking_effort": effort,
+                "aliases": {
+                    "artificial_analysis": [],
+                    "livebench": [],
+                    "arena": [],
+                    "vals": [],
+                },
+            }
+            auto_meta["aliases"].setdefault(source_key, []).append(raw_name)
+            self.canonical_models[auto_cid] = auto_meta
+            self.auto_promoted_ids.add(auto_cid)
+            self.normalized_lookup.setdefault(norm_slug, auto_cid)
+            self.normalized_lookup.setdefault(normalize_slug(auto_cid), auto_cid)
+            self.exact_lookup.setdefault(source_key, {})[lowered] = auto_cid
+            return auto_cid, "tier2_auto_promoted", auto_meta
+
         provisional_id = f"unmatched-{norm_slug}"
         quarantine_entry = {
             "provisional_id": provisional_id,
@@ -174,7 +244,6 @@ class EntityResolver:
         }
         self.unmatched_queue.append(quarantine_entry)
 
-        clean_display = _REASONING_TAG_RE.sub("", _WITH_FALLBACK_RE.sub("", raw_name)).strip()
         provisional_meta = {
             "canonical_id": provisional_id,
             "display_name": clean_display,
@@ -187,6 +256,19 @@ class EntityResolver:
             "thinking_effort": effort,
         }
         return provisional_id, "tier3_quarantine", provisional_meta
+
+    def save_registry(self, path: Path | None = None) -> bool:
+        """Persists newly auto-promoted canonical models back to model_aliases.json."""
+        if not self.auto_promoted_ids:
+            return False
+        target = path or self.aliases_path
+        payload = {
+            "registry_version": self.registry_version,
+            "updated_at": self.registry_updated_at,
+            "models": list(self.canonical_models.values()),
+        }
+        target.write_text(json.dumps(payload, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+        return True
 
     def save_unmatched_queue(self, path: Path | None = None) -> Path:
         target = path or UNMATCHED_PATH

@@ -1,8 +1,28 @@
-"""LiveBench public GitHub CSV/JSON ingestion adapter."""
+"""LiveBench public CSV/JSON ingestion adapter."""
 
 from __future__ import annotations
+import csv
+import io
+import json
+import re
 from typing import Any
 from scripts.ingest.base_fetcher import BaseFetcher
+
+_CATEGORY_KEY_MAP = {
+    "coding": "coding",
+    "code": "coding",
+    "math": "mathematics",
+    "mathematics": "mathematics",
+    "reasoning": "reasoning",
+    "data analysis": "data_analysis",
+    "data_analysis": "data_analysis",
+    "language": "language",
+    "instruction following": "instruction_following",
+    "instruction_following": "instruction_following",
+    "if": "instruction_following",
+    "agentic coding": "agentic_coding",
+    "agentic_coding": "agentic_coding",
+}
 
 
 class LiveBenchFetcher(BaseFetcher):
@@ -11,6 +31,11 @@ class LiveBenchFetcher(BaseFetcher):
     source_url = "https://livebench.ai/"
     model_id_field = "model_key"
     repo_url = "https://github.com/LiveBench/new-livebench"
+    base_urls = (
+        "https://livebench.ai",
+        "https://new-livebench.ai",
+        "https://raw.githubusercontent.com/LiveBench/new-livebench/main/public",
+    )
 
     @staticmethod
     def compute_category_averages(
@@ -26,12 +51,93 @@ class LiveBenchFetcher(BaseFetcher):
             cat_scores["global_average"] = round(sum(cat_scores.values()) / len(cat_scores), 2)
         return cat_scores
 
+    def _discover_release_dates(self) -> list[str]:
+        candidates: list[str] = []
+        discovery_urls = (
+            "https://raw.githubusercontent.com/LiveBench/new-livebench/main/src/lib/constants.js",
+            "https://livebench.ai/",
+            "https://new-livebench.ai/",
+        )
+        for url in discovery_urls:
+            try:
+                text = self.request_text(url)
+                found = re.findall(r"202\d-\d{2}-\d{2}", text)
+                for dt in reversed(found):
+                    if dt not in candidates:
+                        candidates.append(dt)
+                # If HTML page references a main.<hash>.js bundle, check it for RELEASES too
+                js_matches = re.findall(r'src=["\']([^"\']*static/js/main\.[^"\']+\.js)["\']', text)
+                for js_path in js_matches[:1]:
+                    js_url = js_path if js_path.startswith("http") else f"{url.rstrip('/')}/{js_path.lstrip('/')}"
+                    js_text = self.request_text(js_url)
+                    for dt in reversed(re.findall(r"202\d-\d{2}-\d{2}", js_text)):
+                        if dt not in candidates:
+                            candidates.append(dt)
+            except Exception:
+                continue
+        for fallback in ("2026-11-06", "2026-10-25", "2026-10-01"):
+            if fallback not in candidates:
+                candidates.append(fallback)
+        return candidates
+
     def fetch_live_models(self) -> list[dict[str, Any]]:
-        data = self.request_json("https://raw.githubusercontent.com/LiveBench/new-livebench/main/public/latest.json")
-        return data.get("models", [])
+        if self.offline_mode:
+            raise ConnectionError("Offline mode active; skipping LiveBench live fetch")
+
+        release_dates = self._discover_release_dates()
+        for release in release_dates:
+            for base in self.base_urls:
+                try:
+                    cat_raw = self.request_json(f"{base}/categories_{release}.json")
+                    csv_text = self.request_text(f"{base}/table_{release}.csv", accept="text/csv")
+                    if not csv_text or "<html" in csv_text[:200].lower():
+                        continue
+                    categories_map: dict[str, list[str]] = {}
+                    for raw_cat, subtasks in cat_raw.items():
+                        norm_cat = _CATEGORY_KEY_MAP.get(raw_cat.strip().lower(), raw_cat.strip().lower().replace(" ", "_"))
+                        if isinstance(subtasks, list):
+                            categories_map[norm_cat] = [str(s) for s in subtasks]
+
+                    reader = csv.DictReader(io.StringIO(csv_text))
+                    models: list[dict[str, Any]] = []
+                    for raw_row in reader:
+                        model_key = (raw_row.get("model") or raw_row.get("model_key") or "").strip()
+                        if not model_key:
+                            continue
+                        numeric_row: dict[str, float] = {}
+                        for k, v in raw_row.items():
+                            if k in ("model", "model_key", "") or v is None or str(v).strip() == "":
+                                continue
+                            try:
+                                numeric_row[k] = float(v)
+                            except ValueError:
+                                continue
+                        cat_avgs = self.compute_category_averages(numeric_row, categories_map)
+                        if "global_average" not in cat_avgs:
+                            continue
+                        g = cat_avgs["global_average"]
+                        models.append({
+                            "model_key": model_key,
+                            "display_name": model_key,
+                            "provider": "Unknown",
+                            "global_average": g,
+                            "coding": cat_avgs.get("coding", g),
+                            "mathematics": cat_avgs.get("mathematics", g),
+                            "reasoning": cat_avgs.get("reasoning", g),
+                            "data_analysis": cat_avgs.get("data_analysis", g),
+                            "language": cat_avgs.get("language", g),
+                            "instruction_following": cat_avgs.get("instruction_following", g),
+                            "agentic_coding": cat_avgs.get("agentic_coding", round(g * 0.85, 2)),
+                            "cost_per_question_usd": None,
+                        })
+                    if models:
+                        return models
+                except Exception:
+                    continue
+        raise RuntimeError("Could not fetch LiveBench CSV/categories from any live endpoint")
 
 
 if __name__ == "__main__":
     fetcher = LiveBenchFetcher()
     result = fetcher.run()
-    print(f"[livebench] Status={result['fetch_status']} Models={ len(result['models']) }")
+    print(f"[livebench] Status={result['fetch_status']} Models={len(result['models'])}")

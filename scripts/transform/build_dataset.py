@@ -62,17 +62,23 @@ def build_unified_dataset() -> dict[str, Any]:
 
     # 1. Artificial Analysis
     for item in aa_raw.get("models", []):
-        cid, _, meta = resolver.resolve("artificial_analysis", item["model_name"], item.get("provider", "Unknown"))
+        cid, tier, meta = resolver.resolve(
+            "artificial_analysis", item["model_name"], item.get("provider", "Unknown"), auto_promote=True
+        )
         rec = ensure_record(cid, meta)
-        if cid.startswith("unmatched-"):
+        if tier in ("tier2_auto_promoted", "tier3_quarantine"):
             if item.get("release_date"):
                 rec["release_date"] = item["release_date"]
+                meta["release_date"] = item["release_date"]
             if item.get("license"):
                 rec["license"] = item["license"]
+                meta["license"] = item["license"]
             if "open_weights" in item:
                 rec["is_open_weights"] = bool(item["open_weights"])
+                meta["is_open_weights"] = bool(item["open_weights"])
             if item.get("context_window"):
                 rec["context_window"] = int(item["context_window"])
+                meta["context_window"] = int(item["context_window"])
         rec["pricing"] = {
             "input_per_1m_usd": round(float(item["input_price_per_1m"]), 3),
             "output_per_1m_usd": round(float(item["output_price_per_1m"]), 3),
@@ -90,10 +96,13 @@ def build_unified_dataset() -> dict[str, Any]:
 
     # 2. LiveBench
     for item in lb_raw.get("models", []):
-        cid, _, meta = resolver.resolve("livebench", item.get("model_key") or item["display_name"], item.get("provider", "Unknown"))
+        cid, tier, meta = resolver.resolve(
+            "livebench", item.get("model_key") or item["display_name"], item.get("provider", "Unknown"), auto_promote=True
+        )
         rec = ensure_record(cid, meta)
-        if cid.startswith("unmatched-") and item.get("display_name"):
+        if tier in ("tier2_auto_promoted", "tier3_quarantine") and item.get("display_name"):
             rec["display_name"] = item["display_name"]
+            meta["display_name"] = item["display_name"]
         rec["benchmarks"]["livebench"] = {
             "global_average": round(float(item["global_average"]), 2),
             "coding": round(float(item["coding"]), 2),
@@ -108,13 +117,18 @@ def build_unified_dataset() -> dict[str, Any]:
 
     # 3. Arena.ai
     for item in ar_raw.get("models", []):
-        cid, _, meta = resolver.resolve("arena", item.get("arena_model_id") or item["display_name"], item.get("organization", "Unknown"))
+        cid, tier, meta = resolver.resolve(
+            "arena", item.get("arena_model_id") or item["display_name"], item.get("organization", "Unknown"), auto_promote=True
+        )
         rec = ensure_record(cid, meta)
-        if cid.startswith("unmatched-") and item.get("display_name"):
+        if tier in ("tier2_auto_promoted", "tier3_quarantine") and item.get("display_name"):
             rec["display_name"] = item["display_name"]
-        if cid.startswith("unmatched-") and item.get("license"):
+            meta["display_name"] = item["display_name"]
+        if tier in ("tier2_auto_promoted", "tier3_quarantine") and item.get("license"):
             rec["license"] = item["license"]
             rec["is_open_weights"] = item["license"].lower() not in ("proprietary", "commercial")
+            meta["license"] = rec["license"]
+            meta["is_open_weights"] = rec["is_open_weights"]
         rec["benchmarks"]["arena"] = {
             "text_elo": int(item["text_elo"]),
             "text_ci_lower": int(item["text_ci_lower"]),
@@ -126,7 +140,9 @@ def build_unified_dataset() -> dict[str, Any]:
 
     # 4. Vals.ai
     for item in va_raw.get("models", []):
-        cid, _, meta = resolver.resolve("vals", item["vals_model_name"], item.get("provider", "Unknown"))
+        cid, _, meta = resolver.resolve(
+            "vals", item["vals_model_name"], item.get("provider", "Unknown"), auto_promote=True
+        )
         rec = ensure_record(cid, meta)
         rec["benchmarks"]["vals"] = {
             "vals_index": round(float(item["vals_index"]), 2),
@@ -137,6 +153,7 @@ def build_unified_dataset() -> dict[str, Any]:
             "cost_per_test_usd": round(float(item["cost_per_test_usd"]), 2) if item.get("cost_per_test_usd") is not None else None,
         }
 
+    resolver.save_registry()
     resolver.save_unmatched_queue()
 
     # Compute calibrated normalized scores across all 4 sources
@@ -220,7 +237,7 @@ def build_unified_dataset() -> dict[str, Any]:
         rec["composite"] = {
             "sources_present": sources_present,
             "coverage_ratio": coverage_ratio,
-            "provisional_ranking": sources_present < 2,
+            "provisional_ranking": cid.startswith("unmatched-"),
             "unified_quality_score": unified_q,
             "coding_composite_score": coding_comp,
             "enterprise_agent_score": enterprise_comp,

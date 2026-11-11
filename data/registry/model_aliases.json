@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1.0",
+  "registry_version": "1.1.0",
   "updated_at": "2026-11-10T06:00:00Z",
   "models": [
     {
@@ -3916,6 +3916,25 @@
         "vals": [
           "Command A+"
         ]
+      }
+    },
+    {
+      "canonical_id": "stealth-lab-stealth-nebula-v1-preview",
+      "display_name": "stealth-nebula-v1-preview-20261027",
+      "provider": "Stealth Lab",
+      "release_date": "2026-11-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "stealth-nebula-v1-preview-20261027"
+        ],
+        "vals": []
       }
     }
   ]

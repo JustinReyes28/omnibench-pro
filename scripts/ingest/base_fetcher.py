@@ -1,6 +1,7 @@
 """Resilient base fetcher with exponential backoff and Last-Known-Good (LKG) snapshot fallback."""
 
 from __future__ import annotations
+from html.parser import HTMLParser
 import json
 import logging
 import os
@@ -14,6 +15,55 @@ from typing import Any, Callable
 logger = logging.getLogger("omnibench.ingest")
 ROOT_DIR = Path(__file__).resolve().parents[2]
 RAW_DATA_DIR = ROOT_DIR / "data" / "raw"
+
+
+class _SimpleTableParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.tables: list[list[list[str]]] = []
+        self._in_table = False
+        self._in_row = False
+        self._in_cell = False
+        self._cur_table: list[list[str]] = []
+        self._cur_row: list[str] = []
+        self._cur_cell: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        t = tag.lower()
+        if t == "table":
+            self._in_table = True
+            self._cur_table = []
+        elif t == "tr" and self._in_table:
+            self._in_row = True
+            self._cur_row = []
+        elif t in ("td", "th") and self._in_row:
+            self._in_cell = True
+            self._cur_cell = []
+
+    def handle_endtag(self, tag: str) -> None:
+        t = tag.lower()
+        if t in ("td", "th") and self._in_cell:
+            self._in_cell = False
+            self._cur_row.append(" ".join("".join(self._cur_cell).split()))
+        elif t == "tr" and self._in_row:
+            self._in_row = False
+            if self._cur_row:
+                self._cur_table.append(self._cur_row)
+        elif t == "table" and self._in_table:
+            self._in_table = False
+            if self._cur_table:
+                self.tables.append(self._cur_table)
+
+    def handle_data(self, data: str) -> None:
+        if self._in_cell:
+            self._cur_cell.append(data)
+
+
+def extract_html_tables(html: str) -> list[list[list[str]]]:
+    """Parses HTML tables into a list of tables -> rows -> cell strings using stdlib HTMLParser."""
+    parser = _SimpleTableParser()
+    parser.feed(html)
+    return parser.tables
 
 
 class BaseFetcher:
@@ -65,12 +115,12 @@ class BaseFetcher:
         except Exception:
             return False
 
-    def request_json(self, url: str, headers: dict[str, str] | None = None) -> dict[str, Any]:
-        """Performs an HTTP GET with exponential backoff (1s, 4s, 16s)."""
+    def request_text(self, url: str, headers: dict[str, str] | None = None, accept: str = "*/*") -> str:
+        """Performs an HTTP GET returning decoded UTF-8 text with exponential backoff."""
         if self.offline_mode:
             raise ConnectionError(f"Offline mode active; skipping live HTTP GET to {url}")
 
-        req_headers = {"User-Agent": self.user_agent, "Accept": "application/json"}
+        req_headers = {"User-Agent": self.user_agent, "Accept": accept}
         if headers:
             req_headers.update(headers)
 
@@ -81,8 +131,19 @@ class BaseFetcher:
                 with urllib.request.urlopen(req, timeout=self.default_timeout) as resp:
                     if resp.status in (429, 502, 503, 504):
                         raise urllib.error.HTTPError(url, resp.status, "Transient upstream error", resp.headers, None)
-                    payload = resp.read().decode("utf-8")
-                    return json.loads(payload)
+                    return resp.read().decode("utf-8", errors="replace")
+            except urllib.error.HTTPError as exc:
+                last_err = exc
+                # Do not retry deterministic 401/403/404 client errors
+                if exc.code in (401, 403, 404):
+                    break
+                wait_sec = self.backoff_schedule[min(attempt, len(self.backoff_schedule) - 1)]
+                logger.warning(
+                    "[%s] Attempt %d/%d failed (%s). Backing off %.1fs...",
+                    self.source_key, attempt + 1, self.max_retries, exc, wait_sec
+                )
+                if attempt + 1 < self.max_retries and not self.offline_mode:
+                    time.sleep(wait_sec)
             except Exception as exc:
                 last_err = exc
                 wait_sec = self.backoff_schedule[min(attempt, len(self.backoff_schedule) - 1)]
@@ -92,7 +153,12 @@ class BaseFetcher:
                 )
                 if attempt + 1 < self.max_retries and not self.offline_mode:
                     time.sleep(wait_sec)
-        raise RuntimeError(f"[{self.source_key}] Exhausted {self.max_retries} retries: {last_err}")
+        raise RuntimeError(f"[{self.source_key}] HTTP GET failed for {url}: {last_err}")
+
+    def request_json(self, url: str, headers: dict[str, str] | None = None) -> dict[str, Any]:
+        """Performs an HTTP GET and parses JSON response."""
+        payload = self.request_text(url, headers=headers, accept="application/json")
+        return json.loads(payload)
 
     def load_lkg_snapshot(self) -> dict[str, Any]:
         """Loads the Last-Known-Good snapshot from disk and marks status as cached_fallback."""

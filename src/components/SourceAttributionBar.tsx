@@ -13,7 +13,7 @@ export const SourceAttributionBar: React.FC<Props> = ({ metadata, generatedAt })
         <div className="flex flex-wrap items-center gap-3">
           <span className="inline-flex items-center gap-1.5 font-semibold text-[#C84B31]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#C84B31]" />
-            4-SOURCE SYNTHESIS ENGINE
+            BENCHMARK SOURCES
           </span>
           <a href={metadata.artificial_analysis.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[#D8D4C8] hover:text-white">
             <span className="inline-block h-2 w-2 bg-[#255C99]" /> AA Intelligence v5.0

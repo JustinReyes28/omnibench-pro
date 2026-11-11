@@ -204,7 +204,7 @@ export const ParetoChart: React.FC<Props> = ({
           <div className="flex items-center gap-2">
             <span className="inline-block h-2.5 w-2.5 bg-[#C84B31]" />
             <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#C84B31]">
-              // PARETO EFFICIENCY OBSERVATORY
+              PARETO EFFICIENCY FRONTIER
             </span>
           </div>
           <h3 className="mt-0.5 font-heading text-lg font-bold text-[#111317]">
@@ -254,7 +254,7 @@ export const ParetoChart: React.FC<Props> = ({
           <div className="flex flex-wrap items-center gap-4 font-mono text-[11px] text-[#373C44]">
             <span className="inline-flex items-center gap-1.5">
               <span className="h-0.5 w-5 bg-[#C84B31]" />
-              <span className="font-bold text-[#C84B31]">Vermilion Line = Pareto Frontier</span>
+              <span className="font-bold text-[#C84B31]">Pareto Frontier</span>
             </span>
             <span className="inline-flex items-center gap-1.5">
               <span className="h-3.5 w-3.5 rounded-full border-2 border-[#C84B31] bg-[#111317]" />
@@ -311,7 +311,7 @@ export const ParetoChart: React.FC<Props> = ({
           height={CHART_HEIGHT}
           className="block select-none"
           role="img"
-          aria-label={`Scatter plot of blended token price (${activeScale} scale) versus unified quality score with Vermilion Pareto frontier`}
+          aria-label={`Scatter plot of blended token price (${activeScale} scale) versus unified quality score with Pareto frontier`}
         >
           {/* Architectural Axis Grid Lines */}
           <g className="grid-lines">
@@ -360,7 +360,7 @@ export const ParetoChart: React.FC<Props> = ({
             />
           )}
 
-          {/* Vermilion Pareto Frontier Line */}
+          {/* Pareto Frontier Line */}
           {frontierLinePath && (
             <path
               d={frontierLinePath}
@@ -618,10 +618,10 @@ export const ParetoChart: React.FC<Props> = ({
       {/* Chart Footer Note */}
       <div className="flex flex-wrap items-center justify-between gap-2 border-t-2 border-[#111317] bg-[#F4F2ED] px-5 py-2 font-mono text-[10px] text-[#68707C]">
         <span>
-          // SWISS ARCHIVAL TELEMETRY: Vermilion frontier connects models where no cheaper alternative achieves equal or higher quality.
+          Pareto frontier connects models where no cheaper alternative achieves equal or higher quality.
         </span>
         <span className="font-semibold text-[#111317]">
-          {frontier.length} Frontier Models · {priced.length} Benchmark Evaluations
+          {frontier.length} Frontier Models · {priced.length} Evaluated Models
         </span>
       </div>
     </div>

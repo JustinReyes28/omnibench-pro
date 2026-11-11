@@ -226,15 +226,15 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
             <div className="flex items-center gap-2">
               <span className="inline-block h-2.5 w-2.5 bg-[#C84B31]" />
               <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#C84B31]">
-                // CHRONOLOGICAL MODEL RELEASE LEDGER
+                MODEL RELEASE TIMELINE
               </span>
             </div>
             <h1 className="mt-1 font-display text-4xl font-normal leading-tight text-[#111317] sm:text-5xl">
               Model Release Timeline
             </h1>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#373C44]">
-              A clean chronological view of when each frontier and open-weights AI model was released across{' '}
-              {allProviders.length} research labs, paired with its consensus quality score and token pricing.
+              A chronological view of when each frontier and open-weights AI model was released across{' '}
+              {allProviders.length} research labs, paired with its quality score and token pricing.
             </p>
           </div>
 
@@ -495,7 +495,7 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                               </div>
                             </div>
 
-                            {/* Right Score & Pricing Telemetry */}
+                            {/* Right Score & Pricing Overview */}
                             <div className="flex shrink-0 items-center gap-4 border-t border-[#D8D4C8] pt-2 font-mono sm:border-t-0 sm:pt-0">
                               <div className="text-left sm:text-right">
                                 <div className="text-[9px] uppercase tracking-wider text-[#68707C]">

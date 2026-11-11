@@ -131,7 +131,7 @@ export const LeaderboardTable: React.FC<Props> = ({
           <div className="flex items-center gap-2">
             <span className="inline-block h-2.5 w-2.5 bg-[#C84B31]" />
             <span className="font-bold uppercase tracking-widest">
-              4-PILLAR STACKED CONTRIBUTION LEADERBOARD
+              BENCHMARK SCORE CONTRIBUTION BREAKDOWN
             </span>
           </div>
 
@@ -260,8 +260,8 @@ export const LeaderboardTable: React.FC<Props> = ({
         </div>
 
         <div className="border-t border-[#D8D4C8] bg-[#F4F2ED] px-4 py-2 font-mono text-[10px] text-[#68707C] flex justify-between">
-          <span>Showing {topStackModels.length} models • Click any row to add/remove from Head-to-Head Radar</span>
-          <span>Consensus Weights: 30% AA · 30% LiveBench · 15% Arena · 25% Vals</span>
+          <span>Showing {topStackModels.length} models • Click any row to compare head-to-head</span>
+          <span>Weights: 30% AA · 30% LiveBench · 15% Arena · 25% Vals</span>
         </div>
       </div>
 
@@ -272,11 +272,11 @@ export const LeaderboardTable: React.FC<Props> = ({
             <div className="flex items-center gap-2">
               <span className="inline-block h-2.5 w-2.5 bg-[#C84B31]" />
               <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#C84B31]">
-                // MASTER TELEMETRY LEDGER
+                MODEL BENCHMARK LEADERBOARD
               </span>
             </div>
             <h2 className="font-display text-3xl font-normal text-[#111317]">
-              Complete Evaluation Matrix &amp; Multi-Effort Ledger
+              Complete Benchmark Leaderboard &amp; Model Rankings
             </h2>
           </div>
           <p className="font-mono text-xs text-[#68707C]">

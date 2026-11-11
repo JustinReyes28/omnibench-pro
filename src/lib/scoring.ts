@@ -9,28 +9,28 @@ export interface PillarWeights {
 
 export const WEIGHT_PRESETS: Record<string, { label: string; description: string; weights: PillarWeights }> = {
   frontier: {
-    label: "Calibrated Frontier (30/30/15/25)",
-    description: "Default objective frontier synthesis: 30% AA v5.0, 30% LiveBench 2.0, 25% Vals v2.2, 15% Arena Text+Coding Elo.",
+    label: "Default Balance (30/30/15/25)",
+    description: "Default balanced weights: 30% AA v5.0, 30% LiveBench 2.0, 25% Vals v2.2, 15% Arena Elo.",
     weights: { aa: 30, lb: 30, ar: 15, va: 25 },
   },
   balanced: {
-    label: "Equal Pillars (25/25/25/25)",
+    label: "Equal Weights (25/25/25/25)",
     description: "Equal weight across Artificial Analysis, LiveBench, Arena.ai, and Vals.ai.",
     weights: { aa: 25, lb: 25, ar: 25, va: 25 },
   },
   coding: {
-    label: "Coding & Agentic Engineering",
-    description: "Emphasizes contamination-free LiveBench & Artificial Analysis coding/agentic tasks.",
+    label: "Coding & Agents",
+    description: "Emphasizes LiveBench and Artificial Analysis coding benchmarks.",
     weights: { aa: 35, lb: 40, ar: 10, va: 15 },
   },
   enterprise: {
-    label: "Enterprise Legal, Finance & Tax",
-    description: "Prioritizes Vals.ai real-world GDP-weighted agent tasks and AA Briefcase.",
+    label: "Enterprise Tasks",
+    description: "Prioritizes Vals.ai enterprise benchmarks and AA Briefcase.",
     weights: { aa: 25, lb: 20, ar: 5, va: 50 },
   },
   human_chat: {
-    label: "Human Preference & Conversational",
-    description: "Prioritizes blind pairwise human Elo battles on Arena.ai alongside LiveBench.",
+    label: "Human Preference",
+    description: "Prioritizes human evaluation on Arena.ai alongside LiveBench.",
     weights: { aa: 15, lb: 25, ar: 50, va: 10 },
   },
 };

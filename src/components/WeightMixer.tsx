@@ -22,10 +22,10 @@ export const WeightMixer: React.FC<Props> = ({ weights, onChange }) => {
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D8D4C8] pb-3">
         <div className="flex items-center gap-2">
           <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#111317]">
-            Interactive 4-Pillar Weight Mixer
+            Interactive Weight Mixer
           </span>
           <span className="font-mono text-[11px] text-[#68707C]">
-            — Drag sliders or apply a task profile to recompute scores &amp; Pareto frontier
+            — Adjust sliders or apply a preset to recompute scores &amp; Pareto frontier
           </span>
         </div>
         <div className="flex flex-wrap gap-1.5">

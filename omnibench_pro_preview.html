@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OmniBench — Multi-Source AI Benchmark Synthesis &amp; Pareto Observatory</title>
+  <title>OmniBench — AI Benchmark Aggregator &amp; Pareto Leaderboard</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -173,7 +173,7 @@
           <div class="flex flex-col justify-between border-b border-[#D8D4C8] bg-[#F4F2ED] p-6 lg:col-span-5 lg:border-b-0 lg:border-r">
             <div>
               <div class="inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-widest text-[#C84B31]">
-                <span>// MULTI-BENCHMARK META-INDEX</span>
+                <span>COMPOSITE BENCHMARK INDEX</span>
               </div>
               <h1 class="mt-2 font-display text-4xl font-normal leading-[1.08] tracking-tight text-[#111317] sm:text-5xl">
                 Four Independent Benchmarks. One Weighted Frontier.
@@ -383,10 +383,10 @@
         <div class="border border-[#111317] bg-[#FFFFFF] lg:col-span-7">
           <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#D8D4C8] bg-[#F4F2ED] px-4 py-3">
             <div>
-              <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#C84B31]">// PARETO EFFICIENCY OBSERVATORY</span>
+              <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#C84B31]">PARETO EFFICIENCY FRONTIER</span>
               <h3 class="font-heading text-base font-bold text-[#111317]">Blended Token Price ($/1M Log) vs. Weighted Quality</h3>
             </div>
-            <span class="font-mono text-[10px] text-[#68707C]">Vermilion Curve = Pareto Frontier</span>
+            <span class="font-mono text-[10px] text-[#68707C]">Pareto Frontier Line</span>
           </div>
 
           <div id="scatterLabLegend" class="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-[#D8D4C8] bg-[#FFFFFF] px-4 py-2 font-mono text-[10px] text-[#373C44]"></div>
@@ -407,7 +407,7 @@
           <div>
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#D8D4C8] bg-[#F4F2ED] px-4 py-3">
               <div>
-                <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#255C99]">// LONGITUDINAL TRAJECTORY</span>
+                <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#255C99]">HISTORICAL SCORE TRAJECTORY</span>
                 <h3 class="font-heading text-base font-bold text-[#111317]">Score Velocity (Jul – Oct 2026)</h3>
               </div>
               <div class="inline-flex border border-[#111317] bg-[#EBE8E0] p-0.5 font-mono text-[10px]">
@@ -431,7 +431,7 @@
       <section id="latestReportsSection" class="border border-[#111317] bg-[#FFFFFF]">
         <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#D8D4C8] bg-[#F4F2ED] px-5 py-4">
           <div>
-            <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#1F7A63]">// CROSS-BENCHMARK DOMAIN DRILLDOWN</span>
+            <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#1F7A63]">DOMAIN BENCHMARK BREAKDOWN</span>
             <h2 class="font-display text-3xl font-normal text-[#111317]">Where the Four Benchmarks Agree &amp; Diverge</h2>
           </div>
           <!-- Domain Pillar Tabs -->
@@ -502,7 +502,7 @@
       <section id="fullMatrixSection" class="space-y-4">
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#C84B31]">// MASTER TELEMETRY LEDGER</span>
+            <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#C84B31]">MODEL BENCHMARK LEADERBOARD</span>
             <h2 class="font-display text-3xl font-normal text-[#111317]">Complete 132-Model & Multi-Effort Evaluation Matrix</h2>
           </div>
           <p class="font-mono text-xs text-[#68707C]">Click <strong>Subtasks</strong> on any row to inspect 7-pillar LiveBench &amp; Vals vertical breakdowns.</p>
@@ -624,7 +624,7 @@
     <!-- VIEW 3: ETL PIPELINE, QUARANTINE QUEUE & CHANGELOG -->
     <div id="viewEtl" class="hidden space-y-6">
       <div class="border-b-2 border-[#111317] pb-4">
-        <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#255C99]">// AUTOMATED INGESTION &amp; ENTITY RESOLUTION</span>
+        <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-[#255C99]">AUTOMATED INGESTION &amp; ENTITY RESOLUTION</span>
         <h2 class="font-display text-3xl font-normal text-[#111317]">Pipeline Provenance &amp; Quarantine Ledger</h2>
         <p class="mt-1 text-sm text-[#373C44]">Zero-backend GitHub Actions ETL status, 3-tier entity resolution quarantine queue, and semantic release diffs.</p>
       </div>
@@ -652,7 +652,7 @@
   <footer class="mt-16 border-t-2 border-[#111317] bg-[#EBE8E0] py-8 text-xs text-[#373C44]">
     <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 sm:px-6">
       <div class="font-mono text-xs text-[#111317]">
-        <strong>OMNIBENCH</strong> &mdash; Open-Source Multi-Benchmark Synthesis Observatory (Static GitHub Pages Architecture)
+        <strong>OMNIBENCH</strong> &mdash; Open-Source AI Benchmark Leaderboard &amp; Pareto Frontier
       </div>
       <div class="font-mono text-[11px]">
         Upstream Feeds:

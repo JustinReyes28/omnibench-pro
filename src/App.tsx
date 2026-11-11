@@ -122,7 +122,7 @@ export const App: React.FC = () => {
 
           <div className="flex flex-wrap items-center gap-4">
             <span className="hidden font-mono text-[11px] uppercase tracking-wider text-[#68707C] lg:inline">
-              Multi-Source AI Benchmark Synthesis Observatory ({payload.models.length} Models · {allProviders.length} Labs)
+              {payload.models.length} Models · {allProviders.length} Labs
             </span>
 
             <nav
@@ -172,14 +172,14 @@ export const App: React.FC = () => {
             <section className="border-2 border-[#111317] bg-[#FFFFFF] shadow-[4px_4px_0_#111317]">
               <div className="p-6 bg-[#F4F2ED]">
                 <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#C84B31]">
-                  // MULTI-BENCHMARK META-INDEX
+                  COMPOSITE BENCHMARK INDEX
                 </div>
                 <h1 className="mt-1 font-display text-4xl font-normal leading-tight text-[#111317] sm:text-5xl">
                   Four Independent Benchmarks. One Weighted Frontier.
                 </h1>
                 <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#373C44]">
-                  OmniBench synthesizes Artificial Analysis, LiveBench 2.0, Arena.ai, and Vals.ai across{' '}
-                  {payload.models.length} models and thinking effort tiers into a calibrated 0–100 consensus score.
+                  OmniBench aggregates Artificial Analysis, LiveBench 2.0, Arena.ai, and Vals.ai across{' '}
+                  {payload.models.length} models and thinking effort tiers into a calibrated 0–100 quality score.
                 </p>
               </div>
               <WeightMixer
@@ -188,7 +188,7 @@ export const App: React.FC = () => {
               />
             </section>
 
-            {/* Pareto Observatory with Frontier Line, Log/Linear Scale Switcher, and Lab Palette */}
+            {/* Pareto Chart with Frontier Line, Log/Linear Scale Switcher, and Lab Palette */}
             <ParetoChart
               models={allScoredModels}
               selectedProvider={state.providerFilter}
@@ -200,7 +200,7 @@ export const App: React.FC = () => {
             {/* Head-to-Head Comparison Drawer */}
             <ModelComparisonModal models={comparedModels} onRemove={toggleCompare} />
 
-            {/* Master Telemetry Ledger & 4-Pillar Stacked Contribution Table */}
+            {/* Model Leaderboard & Stacked Contribution Table */}
             <LeaderboardTable
               models={filteredModels}
               totalModelsCount={payload.models.length}

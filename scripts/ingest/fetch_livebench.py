@@ -30,11 +30,10 @@ class LiveBenchFetcher(BaseFetcher):
     source_name = "LiveBench"
     source_url = "https://livebench.ai/"
     model_id_field = "model_key"
-    repo_url = "https://github.com/LiveBench/new-livebench"
+    repo_url = "https://github.com/LiveBench/livebench.github.io"
     base_urls = (
+        "https://raw.githubusercontent.com/LiveBench/livebench.github.io/main/public",
         "https://livebench.ai",
-        "https://new-livebench.ai",
-        "https://raw.githubusercontent.com/LiveBench/new-livebench/main/public",
     )
 
     @staticmethod
@@ -53,29 +52,22 @@ class LiveBenchFetcher(BaseFetcher):
 
     def _discover_release_dates(self) -> list[str]:
         candidates: list[str] = []
-        discovery_urls = (
-            "https://raw.githubusercontent.com/LiveBench/new-livebench/main/src/lib/constants.js",
-            "https://livebench.ai/",
-            "https://new-livebench.ai/",
-        )
-        for url in discovery_urls:
-            try:
-                text = self.request_text(url)
-                found = re.findall(r"202\d-\d{2}-\d{2}", text)
-                for dt in reversed(found):
-                    if dt not in candidates:
-                        candidates.append(dt)
-                # If HTML page references a main.<hash>.js bundle, check it for RELEASES too
-                js_matches = re.findall(r'src=["\']([^"\']*static/js/main\.[^"\']+\.js)["\']', text)
-                for js_path in js_matches[:1]:
-                    js_url = js_path if js_path.startswith("http") else f"{url.rstrip('/')}/{js_path.lstrip('/')}"
-                    js_text = self.request_text(js_url)
-                    for dt in reversed(re.findall(r"202\d-\d{2}-\d{2}", js_text)):
-                        if dt not in candidates:
-                            candidates.append(dt)
-            except Exception:
-                continue
-        for fallback in ("2026-11-06", "2026-10-25", "2026-10-01"):
+        try:
+            listing = self.request_json("https://api.github.com/repos/LiveBench/livebench.github.io/contents/public")
+            if isinstance(listing, list):
+                found_tables = sorted(
+                    (
+                        m.group(1)
+                        for item in listing
+                        if isinstance(item, dict)
+                        and (m := re.match(r"^table_(202\d[_-]\d{2}[_-]\d{2})\.csv$", str(item.get("name", ""))))
+                    ),
+                    reverse=True,
+                )
+                candidates.extend(found_tables[:3])
+        except Exception:
+            pass
+        for fallback in ("2026_06_25", "2026_01_08", "2025_12_23"):
             if fallback not in candidates:
                 candidates.append(fallback)
         return candidates

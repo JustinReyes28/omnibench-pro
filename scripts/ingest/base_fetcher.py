@@ -134,8 +134,8 @@ class BaseFetcher:
                     return resp.read().decode("utf-8", errors="replace")
             except urllib.error.HTTPError as exc:
                 last_err = exc
-                # Do not retry deterministic 401/403/404 client errors
-                if exc.code in (401, 403, 404):
+                # Do not retry deterministic 400/401/403/404/410 client errors
+                if exc.code in (400, 401, 403, 404, 410):
                     break
                 wait_sec = self.backoff_schedule[min(attempt, len(self.backoff_schedule) - 1)]
                 logger.warning(
@@ -146,6 +146,8 @@ class BaseFetcher:
                     time.sleep(wait_sec)
             except Exception as exc:
                 last_err = exc
+                if "Name or service not known" in str(exc):
+                    break
                 wait_sec = self.backoff_schedule[min(attempt, len(self.backoff_schedule) - 1)]
                 logger.warning(
                     "[%s] Attempt %d/%d failed (%s). Backing off %.1fs...",

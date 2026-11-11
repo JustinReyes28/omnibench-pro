@@ -2,7 +2,7 @@
   "source_key": "vals",
   "source_name": "Vals.ai",
   "source_url": "https://www.vals.ai/benchmarks",
-  "fetched_at": "2026-11-10T06:00:00Z",
+  "fetched_at": "2026-11-11T18:57:17Z",
   "status": "live",
   "fetch_status": "live",
   "methodology_version": "Vals Index v2.2",
@@ -11,12 +11,362 @@
     {
       "vals_model_name": "Claude Fable 5.2 (Max)",
       "provider": "Anthropic",
-      "vals_index": 71.85,
-      "finance_agent": 70.1,
-      "legal_bench": 54.2,
-      "tax_agent": 47.5,
-      "vibe_code": 94.2,
-      "cost_per_test_usd": 24.5
+      "vals_index": 71.31,
+      "finance_agent": 69.5,
+      "legal_bench": 85.8,
+      "tax_agent": 46.2,
+      "vibe_code": 65.2,
+      "cost_per_test_usd": 17.94
+    },
+    {
+      "vals_model_name": "Claude Sonnet 5.5 (Max)",
+      "provider": "Anthropic",
+      "vals_index": 70.85,
+      "finance_agent": 67.3,
+      "legal_bench": 87.4,
+      "tax_agent": 48.1,
+      "vibe_code": 64.1,
+      "cost_per_test_usd": 16.18
+    },
+    {
+      "vals_model_name": "Gemini 4 Carbon (High)",
+      "provider": "Google",
+      "vals_index": 70.45,
+      "finance_agent": 67.2,
+      "legal_bench": 80.1,
+      "tax_agent": 55.8,
+      "vibe_code": 63.1,
+      "cost_per_test_usd": 10.51
+    },
+    {
+      "vals_model_name": "Claude Opus 5.5 (Max)",
+      "provider": "Anthropic",
+      "vals_index": 70.14,
+      "finance_agent": 67.8,
+      "legal_bench": 80.5,
+      "tax_agent": 50.5,
+      "vibe_code": 65.2,
+      "cost_per_test_usd": 24.77
+    },
+    {
+      "vals_model_name": "Gemini 4 Argon (High)",
+      "provider": "Google",
+      "vals_index": 69.39,
+      "finance_agent": 67.7,
+      "legal_bench": 74.4,
+      "tax_agent": 54.8,
+      "vibe_code": 57.6,
+      "cost_per_test_usd": 13.37
+    },
+    {
+      "vals_model_name": "Muse Wonder Full (Max)",
+      "provider": "Meta",
+      "vals_index": 66.79,
+      "finance_agent": 67.6,
+      "legal_bench": 61.7,
+      "tax_agent": 53.4,
+      "vibe_code": 58.1,
+      "cost_per_test_usd": 6.81
+    },
+    {
+      "vals_model_name": "GPT-6 Astra (Max)",
+      "provider": "OpenAI",
+      "vals_index": 65.02,
+      "finance_agent": 60.4,
+      "legal_bench": 78.0,
+      "tax_agent": 39.4,
+      "vibe_code": 59.6,
+      "cost_per_test_usd": 21.28
+    },
+    {
+      "vals_model_name": "Muse Wonder 1.0 (Max)",
+      "provider": "Meta",
+      "vals_index": 64.88,
+      "finance_agent": 65.5,
+      "legal_bench": 69.8,
+      "tax_agent": 50.5,
+      "vibe_code": 49.5,
+      "cost_per_test_usd": 10.65
+    },
+    {
+      "vals_model_name": "GPT-6.1 Sol (Max)",
+      "provider": "OpenAI",
+      "vals_index": 63.94,
+      "finance_agent": 61.8,
+      "legal_bench": 75.1,
+      "tax_agent": 38.5,
+      "vibe_code": 55.1,
+      "cost_per_test_usd": 3.61
+    },
+    {
+      "vals_model_name": "Kimi K3.1 Pro (Max)",
+      "provider": "Moonshot AI",
+      "vals_index": 62.52,
+      "finance_agent": 61.5,
+      "legal_bench": 59.7,
+      "tax_agent": 37.5,
+      "vibe_code": 63.6,
+      "cost_per_test_usd": 6.44
+    },
+    {
+      "vals_model_name": "DeepSeek V4.1 Flash 1017 (Max)",
+      "provider": "DeepSeek",
+      "vals_index": 61.26,
+      "finance_agent": 62.9,
+      "legal_bench": 68.5,
+      "tax_agent": 45.2,
+      "vibe_code": 31.8,
+      "cost_per_test_usd": 0.66
+    },
+    {
+      "vals_model_name": "GPT-6.1 Terra (Max)",
+      "provider": "OpenAI",
+      "vals_index": 60.54,
+      "finance_agent": 56.0,
+      "legal_bench": 72.2,
+      "tax_agent": 26.0,
+      "vibe_code": 49.5,
+      "cost_per_test_usd": 2.94
+    },
+    {
+      "vals_model_name": "Muse Ember (Max)",
+      "provider": "Meta",
+      "vals_index": 60.48,
+      "finance_agent": 63.8,
+      "legal_bench": 47.1,
+      "tax_agent": 49.0,
+      "vibe_code": 39.4,
+      "cost_per_test_usd": 0.15
+    },
+    {
+      "vals_model_name": "GLM-5.3 (Max)",
+      "provider": "Z.AI",
+      "vals_index": 59.85,
+      "finance_agent": 65.0,
+      "legal_bench": 54.1,
+      "tax_agent": 49.0,
+      "vibe_code": 38.9,
+      "cost_per_test_usd": 8.52
+    },
+    {
+      "vals_model_name": "Tencent Hy4",
+      "provider": "Tencent",
+      "vals_index": 59.35,
+      "finance_agent": 64.7,
+      "legal_bench": 59.1,
+      "tax_agent": 41.3,
+      "vibe_code": 39.4,
+      "cost_per_test_usd": 1.72
+    },
+    {
+      "vals_model_name": "Qwen3.8 Max (0902)",
+      "provider": "Alibaba",
+      "vals_index": 59.05,
+      "finance_agent": 56.69,
+      "legal_bench": 46.06,
+      "tax_agent": 34.25,
+      "vibe_code": 75.58,
+      "cost_per_test_usd": 8.73
+    },
+    {
+      "vals_model_name": "Claude Haiku 5.5 (Max)",
+      "provider": "Anthropic",
+      "vals_index": 58.73,
+      "finance_agent": 56.38,
+      "legal_bench": 45.81,
+      "tax_agent": 34.06,
+      "vibe_code": 75.17,
+      "cost_per_test_usd": 3.17
+    },
+    {
+      "vals_model_name": "Grok 4.7 (xHigh)",
+      "provider": "xAI",
+      "vals_index": 58.62,
+      "finance_agent": 56.28,
+      "legal_bench": 45.72,
+      "tax_agent": 34.0,
+      "vibe_code": 75.03,
+      "cost_per_test_usd": 11.63
+    },
+    {
+      "vals_model_name": "MiMo-V2.6-Pro",
+      "provider": "Xiaomi",
+      "vals_index": 57.81,
+      "finance_agent": 55.5,
+      "legal_bench": 45.09,
+      "tax_agent": 33.53,
+      "vibe_code": 74.0,
+      "cost_per_test_usd": 0.43
+    },
+    {
+      "vals_model_name": "Mistral Large 4",
+      "provider": "Unknown",
+      "vals_index": 56.53,
+      "finance_agent": 54.27,
+      "legal_bench": 44.09,
+      "tax_agent": 32.79,
+      "vibe_code": 72.36,
+      "cost_per_test_usd": 3.72
+    },
+    {
+      "vals_model_name": "Inkling 2 Small",
+      "provider": "Unknown",
+      "vals_index": 56.08,
+      "finance_agent": 53.84,
+      "legal_bench": 43.74,
+      "tax_agent": 32.53,
+      "vibe_code": 71.78,
+      "cost_per_test_usd": 3.51
+    },
+    {
+      "vals_model_name": "Gemini 3.8 Flash (High)",
+      "provider": "Google",
+      "vals_index": 55.95,
+      "finance_agent": 53.71,
+      "legal_bench": 43.64,
+      "tax_agent": 32.45,
+      "vibe_code": 71.62,
+      "cost_per_test_usd": 5.03
+    },
+    {
+      "vals_model_name": "MiMo-V2.6-Flash",
+      "provider": "Xiaomi",
+      "vals_index": 54.83,
+      "finance_agent": 52.64,
+      "legal_bench": 42.77,
+      "tax_agent": 31.8,
+      "vibe_code": 70.18,
+      "cost_per_test_usd": 0.22
+    },
+    {
+      "vals_model_name": "Step 5 Preview",
+      "provider": "Unknown",
+      "vals_index": 54.76,
+      "finance_agent": 52.57,
+      "legal_bench": 42.71,
+      "tax_agent": 31.76,
+      "vibe_code": 70.09,
+      "cost_per_test_usd": 2.73
+    },
+    {
+      "vals_model_name": "MiniMax-M3.1-Flash",
+      "provider": "Unknown",
+      "vals_index": 53.78,
+      "finance_agent": 51.63,
+      "legal_bench": 41.95,
+      "tax_agent": 31.19,
+      "vibe_code": 68.84,
+      "cost_per_test_usd": 0.66
+    },
+    {
+      "vals_model_name": "Hy4 Preview",
+      "provider": "Unknown",
+      "vals_index": 53.21,
+      "finance_agent": 51.08,
+      "legal_bench": 41.5,
+      "tax_agent": 30.86,
+      "vibe_code": 68.11,
+      "cost_per_test_usd": 1.57
+    },
+    {
+      "vals_model_name": "DeepSeek V4 Pro 0813 (Max)",
+      "provider": "DeepSeek",
+      "vals_index": 52.97,
+      "finance_agent": 50.85,
+      "legal_bench": 41.32,
+      "tax_agent": 30.72,
+      "vibe_code": 67.8,
+      "cost_per_test_usd": 2.5
+    },
+    {
+      "vals_model_name": "Kimi K3 (Max)",
+      "provider": "Moonshot AI",
+      "vals_index": 52.95,
+      "finance_agent": 50.83,
+      "legal_bench": 41.3,
+      "tax_agent": 30.71,
+      "vibe_code": 67.78,
+      "cost_per_test_usd": 7.17
+    },
+    {
+      "vals_model_name": "GPT-6 Luna (Max)",
+      "provider": "OpenAI",
+      "vals_index": 52.32,
+      "finance_agent": 50.23,
+      "legal_bench": 40.81,
+      "tax_agent": 30.35,
+      "vibe_code": 66.97,
+      "cost_per_test_usd": 0.45
+    },
+    {
+      "vals_model_name": "GLM-5.3 Flash (Max)",
+      "provider": "Z.AI",
+      "vals_index": 50.86,
+      "finance_agent": 48.83,
+      "legal_bench": 39.67,
+      "tax_agent": 29.5,
+      "vibe_code": 65.1,
+      "cost_per_test_usd": 2.05
+    },
+    {
+      "vals_model_name": "Muse Spark Open (xHigh)",
+      "provider": "Meta",
+      "vals_index": 48.57,
+      "finance_agent": 46.63,
+      "legal_bench": 37.88,
+      "tax_agent": 28.17,
+      "vibe_code": 62.17,
+      "cost_per_test_usd": 4.72
+    },
+    {
+      "vals_model_name": "Mercury 3 (High)",
+      "provider": "Inception",
+      "vals_index": 43.66,
+      "finance_agent": 41.91,
+      "legal_bench": 34.05,
+      "tax_agent": 25.32,
+      "vibe_code": 55.88,
+      "cost_per_test_usd": 0.48
+    },
+    {
+      "vals_model_name": "Beam 1.0",
+      "provider": "Unknown",
+      "vals_index": 43.42,
+      "finance_agent": 41.68,
+      "legal_bench": 33.87,
+      "tax_agent": 25.18,
+      "vibe_code": 55.58,
+      "cost_per_test_usd": null
+    },
+    {
+      "vals_model_name": "Nemotron 3.5 Super VL",
+      "provider": "Unknown",
+      "vals_index": 29.78,
+      "finance_agent": 28.59,
+      "legal_bench": 23.23,
+      "tax_agent": 17.27,
+      "vibe_code": 38.12,
+      "cost_per_test_usd": 0.63
+    },
+    {
+      "vals_model_name": "Inkling (xHigh)",
+      "provider": "Thinking Machines",
+      "vals_index": 28.96,
+      "finance_agent": 27.8,
+      "legal_bench": 22.59,
+      "tax_agent": 16.8,
+      "vibe_code": 37.07,
+      "cost_per_test_usd": 1.85
+    },
+    {
+      "vals_model_name": "Inkling Small",
+      "provider": "Unknown",
+      "vals_index": 27.59,
+      "finance_agent": 26.49,
+      "legal_bench": 21.52,
+      "tax_agent": 16.0,
+      "vibe_code": 35.32,
+      "cost_per_test_usd": 0.4
     },
     {
       "vals_model_name": "Claude Fable 5.2 (xHigh)",
@@ -57,46 +407,6 @@
       "tax_agent": 28.5,
       "vibe_code": 86.8,
       "cost_per_test_usd": 6.1
-    },
-    {
-      "vals_model_name": "Inkling 2 Small",
-      "provider": "Thinking Machines",
-      "vals_index": 56.08,
-      "finance_agent": 67.54,
-      "legal_bench": 73.89,
-      "tax_agent": 38.91,
-      "vibe_code": 81.55,
-      "cost_per_test_usd": 3.51
-    },
-    {
-      "vals_model_name": "Muse Ember (Max)",
-      "provider": "Meta",
-      "vals_index": 60.48,
-      "finance_agent": 63.83,
-      "legal_bench": 75.69,
-      "tax_agent": 38.23,
-      "vibe_code": 83.7,
-      "cost_per_test_usd": 0.15
-    },
-    {
-      "vals_model_name": "Tencent Hy4",
-      "provider": "Tencent",
-      "vals_index": 59.35,
-      "finance_agent": 64.7,
-      "legal_bench": 41.35,
-      "tax_agent": 34.4,
-      "vibe_code": 81.01,
-      "cost_per_test_usd": 1.72
-    },
-    {
-      "vals_model_name": "Claude Opus 5.5 (Max)",
-      "provider": "Anthropic",
-      "vals_index": 70.18,
-      "finance_agent": 67.8,
-      "legal_bench": 50.5,
-      "tax_agent": 45.6,
-      "vibe_code": 90.3,
-      "cost_per_test_usd": 28.12
     },
     {
       "vals_model_name": "Claude Opus 5.5 (xHigh)",
@@ -189,16 +499,6 @@
       "cost_per_test_usd": 7.4
     },
     {
-      "vals_model_name": "Claude Sonnet 5.5 (Max)",
-      "provider": "Anthropic",
-      "vals_index": 70.85,
-      "finance_agent": 67.3,
-      "legal_bench": 48.1,
-      "tax_agent": 42.0,
-      "vibe_code": 92.4,
-      "cost_per_test_usd": 18.7
-    },
-    {
       "vals_model_name": "Claude Sonnet 5.5 (xHigh)",
       "provider": "Anthropic",
       "vals_index": 69.1,
@@ -237,16 +537,6 @@
       "tax_agent": 32.6,
       "vibe_code": 79.5,
       "cost_per_test_usd": 1.95
-    },
-    {
-      "vals_model_name": "Claude Haiku 5.5 (Max)",
-      "provider": "Anthropic",
-      "vals_index": 58.73,
-      "finance_agent": 65.4,
-      "legal_bench": 43.8,
-      "tax_agent": 31.9,
-      "vibe_code": 90.4,
-      "cost_per_test_usd": 3.17
     },
     {
       "vals_model_name": "Claude Haiku 5.5 (xHigh)",
@@ -389,16 +679,6 @@
       "cost_per_test_usd": 5.4
     },
     {
-      "vals_model_name": "GPT-6 Astra (Max)",
-      "provider": "OpenAI",
-      "vals_index": 65.02,
-      "finance_agent": 60.4,
-      "legal_bench": 39.4,
-      "tax_agent": 20.7,
-      "vibe_code": 89.6,
-      "cost_per_test_usd": 21.28
-    },
-    {
       "vals_model_name": "GPT-6 Astra (xHigh)",
       "provider": "OpenAI",
       "vals_index": 64.1,
@@ -439,16 +719,6 @@
       "cost_per_test_usd": 4.8
     },
     {
-      "vals_model_name": "GPT-6.1 Sol (Max)",
-      "provider": "OpenAI",
-      "vals_index": 63.94,
-      "finance_agent": 61.8,
-      "legal_bench": 38.5,
-      "tax_agent": 21.8,
-      "vibe_code": 88.9,
-      "cost_per_test_usd": 3.61
-    },
-    {
       "vals_model_name": "GPT-6.1 Sol (xHigh)",
       "provider": "OpenAI",
       "vals_index": 62.8,
@@ -487,16 +757,6 @@
       "tax_agent": 17.2,
       "vibe_code": 78.1,
       "cost_per_test_usd": 0.82
-    },
-    {
-      "vals_model_name": "GPT-6.1 Terra (Max)",
-      "provider": "OpenAI",
-      "vals_index": 60.47,
-      "finance_agent": 56.0,
-      "legal_bench": 26.0,
-      "tax_agent": 15.2,
-      "vibe_code": 84.0,
-      "cost_per_test_usd": 2.92
     },
     {
       "vals_model_name": "GPT-6.1 Terra (xHigh)",
@@ -557,16 +817,6 @@
       "tax_agent": 19.8,
       "vibe_code": 84.2,
       "cost_per_test_usd": 4.1
-    },
-    {
-      "vals_model_name": "GPT-6 Luna (Max)",
-      "provider": "OpenAI",
-      "vals_index": 52.32,
-      "finance_agent": 50.4,
-      "legal_bench": 31.2,
-      "tax_agent": 16.5,
-      "vibe_code": 76.8,
-      "cost_per_test_usd": 0.45
     },
     {
       "vals_model_name": "GPT-6 Luna (xHigh)",
@@ -719,36 +969,6 @@
       "cost_per_test_usd": 2.8
     },
     {
-      "vals_model_name": "Gemini 4 Carbon (High)",
-      "provider": "Google",
-      "vals_index": 70.36,
-      "finance_agent": 67.2,
-      "legal_bench": 55.8,
-      "tax_agent": 48.9,
-      "vibe_code": 89.1,
-      "cost_per_test_usd": 10.51
-    },
-    {
-      "vals_model_name": "Gemini 4 Argon (High)",
-      "provider": "Google",
-      "vals_index": 69.24,
-      "finance_agent": 67.7,
-      "legal_bench": 54.8,
-      "tax_agent": 44.6,
-      "vibe_code": 91.9,
-      "cost_per_test_usd": 13.37
-    },
-    {
-      "vals_model_name": "Gemini 3.8 Flash (High)",
-      "provider": "Google",
-      "vals_index": 55.95,
-      "finance_agent": 54.8,
-      "legal_bench": 41.2,
-      "tax_agent": 34.5,
-      "vibe_code": 78.4,
-      "cost_per_test_usd": 5.03
-    },
-    {
       "vals_model_name": "Gemini 3.8 Flash (Medium)",
       "provider": "Google",
       "vals_index": 54.2,
@@ -849,26 +1069,6 @@
       "cost_per_test_usd": 0.16
     },
     {
-      "vals_model_name": "Muse Wonder Full (Max)",
-      "provider": "Meta",
-      "vals_index": 66.79,
-      "finance_agent": 67.6,
-      "legal_bench": 53.4,
-      "tax_agent": 43.0,
-      "vibe_code": 86.0,
-      "cost_per_test_usd": 6.81
-    },
-    {
-      "vals_model_name": "Muse Wonder 1.0 (Max)",
-      "provider": "Meta",
-      "vals_index": 64.88,
-      "finance_agent": 65.5,
-      "legal_bench": 50.5,
-      "tax_agent": 36.3,
-      "vibe_code": 83.1,
-      "cost_per_test_usd": 10.65
-    },
-    {
       "vals_model_name": "Muse Spark 1.3 (High)",
       "provider": "Meta",
       "vals_index": 58.4,
@@ -897,16 +1097,6 @@
       "tax_agent": 29.4,
       "vibe_code": 77.4,
       "cost_per_test_usd": 3.6
-    },
-    {
-      "vals_model_name": "Muse Spark Open (xHigh)",
-      "provider": "Meta",
-      "vals_index": 48.57,
-      "finance_agent": 47.4,
-      "legal_bench": 35.2,
-      "tax_agent": 26.1,
-      "vibe_code": 71.8,
-      "cost_per_test_usd": 4.72
     },
     {
       "vals_model_name": "Muse Glimmer (High)",
@@ -959,26 +1149,6 @@
       "cost_per_test_usd": 1.9
     },
     {
-      "vals_model_name": "DeepSeek V4.1 Flash 1017 (Max)",
-      "provider": "DeepSeek",
-      "vals_index": 61.26,
-      "finance_agent": 62.9,
-      "legal_bench": 45.2,
-      "tax_agent": 44.4,
-      "vibe_code": 87.7,
-      "cost_per_test_usd": 0.66
-    },
-    {
-      "vals_model_name": "DeepSeek V4 Pro 0813 (Max)",
-      "provider": "DeepSeek",
-      "vals_index": 52.97,
-      "finance_agent": 54.2,
-      "legal_bench": 38.9,
-      "tax_agent": 38.2,
-      "vibe_code": 78.4,
-      "cost_per_test_usd": 2.5
-    },
-    {
       "vals_model_name": "DeepSeek V4 Pro 0423",
       "provider": "DeepSeek",
       "vals_index": 51.2,
@@ -1027,16 +1197,6 @@
       "tax_agent": 32.5,
       "vibe_code": 69.8,
       "cost_per_test_usd": 1.95
-    },
-    {
-      "vals_model_name": "Qwen3.8 Max (0902)",
-      "provider": "Alibaba",
-      "vals_index": 59.05,
-      "finance_agent": 58.8,
-      "legal_bench": 46.2,
-      "tax_agent": 49.7,
-      "vibe_code": 77.1,
-      "cost_per_test_usd": 8.73
     },
     {
       "vals_model_name": "Qwen3.8-Flash-Next",
@@ -1119,26 +1279,6 @@
       "cost_per_test_usd": 0.95
     },
     {
-      "vals_model_name": "Kimi K3.1 Pro (Max)",
-      "provider": "Moonshot AI",
-      "vals_index": 62.52,
-      "finance_agent": 61.5,
-      "legal_bench": 37.5,
-      "tax_agent": 24.9,
-      "vibe_code": 84.9,
-      "cost_per_test_usd": 6.44
-    },
-    {
-      "vals_model_name": "Kimi K3 (Max)",
-      "provider": "Moonshot AI",
-      "vals_index": 52.95,
-      "finance_agent": 52.4,
-      "legal_bench": 32.1,
-      "tax_agent": 21.2,
-      "vibe_code": 76.4,
-      "cost_per_test_usd": 7.17
-    },
-    {
       "vals_model_name": "Kimi K2.6 Thinking",
       "provider": "Moonshot AI",
       "vals_index": 48.6,
@@ -1147,16 +1287,6 @@
       "tax_agent": 19.4,
       "vibe_code": 71.8,
       "cost_per_test_usd": 2.85
-    },
-    {
-      "vals_model_name": "Grok 4.7 (xHigh)",
-      "provider": "xAI",
-      "vals_index": 58.56,
-      "finance_agent": 60.6,
-      "legal_bench": 47.1,
-      "tax_agent": 34.2,
-      "vibe_code": 86.2,
-      "cost_per_test_usd": 11.63
     },
     {
       "vals_model_name": "Grok 4.7 (High)",
@@ -1199,16 +1329,6 @@
       "cost_per_test_usd": 5.9
     },
     {
-      "vals_model_name": "GLM-5.3 (Max)",
-      "provider": "Z.AI",
-      "vals_index": 59.73,
-      "finance_agent": 65.0,
-      "legal_bench": 49.0,
-      "tax_agent": 39.7,
-      "vibe_code": 78.1,
-      "cost_per_test_usd": 8.52
-    },
-    {
       "vals_model_name": "GLM-5.3 (Low)",
       "provider": "Z.AI",
       "vals_index": 53.4,
@@ -1219,46 +1339,6 @@
       "cost_per_test_usd": 2.65
     },
     {
-      "vals_model_name": "GLM-5.3 Flash (Max)",
-      "provider": "Z.AI",
-      "vals_index": 50.86,
-      "finance_agent": 55.4,
-      "legal_bench": 41.8,
-      "tax_agent": 33.8,
-      "vibe_code": 69.4,
-      "cost_per_test_usd": 1.13
-    },
-    {
-      "vals_model_name": "MiMo-V2.6-Pro",
-      "provider": "Xiaomi",
-      "vals_index": 57.81,
-      "finance_agent": 59.2,
-      "legal_bench": 44.8,
-      "tax_agent": 36.4,
-      "vibe_code": 81.2,
-      "cost_per_test_usd": 0.43
-    },
-    {
-      "vals_model_name": "MiMo-V2.6-Flash",
-      "provider": "Xiaomi",
-      "vals_index": 54.83,
-      "finance_agent": 56.1,
-      "legal_bench": 42.4,
-      "tax_agent": 34.5,
-      "vibe_code": 78.4,
-      "cost_per_test_usd": 0.22
-    },
-    {
-      "vals_model_name": "MiniMax-M3.1-Flash",
-      "provider": "MiniMax",
-      "vals_index": 53.78,
-      "finance_agent": 55.1,
-      "legal_bench": 41.6,
-      "tax_agent": 33.8,
-      "vibe_code": 77.2,
-      "cost_per_test_usd": 0.66
-    },
-    {
       "vals_model_name": "MiniMax-M3",
       "provider": "MiniMax",
       "vals_index": 47.6,
@@ -1267,36 +1347,6 @@
       "tax_agent": 29.9,
       "vibe_code": 70.4,
       "cost_per_test_usd": 1.29
-    },
-    {
-      "vals_model_name": "Mistral Large 4",
-      "provider": "Mistral AI",
-      "vals_index": 50.4,
-      "finance_agent": 51.6,
-      "legal_bench": 39.2,
-      "tax_agent": 31.8,
-      "vibe_code": 73.8,
-      "cost_per_test_usd": 5.54
-    },
-    {
-      "vals_model_name": "Step 5 Preview",
-      "provider": "StepFun",
-      "vals_index": 52.4,
-      "finance_agent": 53.6,
-      "legal_bench": 40.5,
-      "tax_agent": 32.9,
-      "vibe_code": 76.1,
-      "cost_per_test_usd": 2.35
-    },
-    {
-      "vals_model_name": "Hy4 Preview",
-      "provider": "Tencent",
-      "vals_index": 53.21,
-      "finance_agent": 54.5,
-      "legal_bench": 41.2,
-      "tax_agent": 33.4,
-      "vibe_code": 76.8,
-      "cost_per_test_usd": 1.57
     },
     {
       "vals_model_name": "Ling 3.1 Flash 1019",
@@ -1319,16 +1369,6 @@
       "cost_per_test_usd": 0.52
     },
     {
-      "vals_model_name": "Nemotron 3.5 Super VL",
-      "provider": "NVIDIA",
-      "vals_index": 44.1,
-      "finance_agent": 45.1,
-      "legal_bench": 34.0,
-      "tax_agent": 27.6,
-      "vibe_code": 67.2,
-      "cost_per_test_usd": 0.56
-    },
-    {
       "vals_model_name": "Nemotron 3 Ultra",
       "provider": "NVIDIA",
       "vals_index": 43.5,
@@ -1339,26 +1379,6 @@
       "cost_per_test_usd": 2.23
     },
     {
-      "vals_model_name": "Mercury 3 (High)",
-      "provider": "Inception",
-      "vals_index": 43.66,
-      "finance_agent": 44.8,
-      "legal_bench": 33.8,
-      "tax_agent": 27.4,
-      "vibe_code": 68.1,
-      "cost_per_test_usd": 0.48
-    },
-    {
-      "vals_model_name": "Beam 1.0",
-      "provider": "Reflection AI",
-      "vals_index": 43.42,
-      "finance_agent": 44.5,
-      "legal_bench": 33.6,
-      "tax_agent": 27.2,
-      "vibe_code": 67.4,
-      "cost_per_test_usd": 0.28
-    },
-    {
       "vals_model_name": "K2 Horizon 375B A23B",
       "provider": "IFM",
       "vals_index": 42.8,
@@ -1367,26 +1387,6 @@
       "tax_agent": 26.8,
       "vibe_code": 66.2,
       "cost_per_test_usd": 0.15
-    },
-    {
-      "vals_model_name": "Inkling (xHigh)",
-      "provider": "Thinking Machines",
-      "vals_index": 28.96,
-      "finance_agent": 30.2,
-      "legal_bench": 22.4,
-      "tax_agent": 18.2,
-      "vibe_code": 52.4,
-      "cost_per_test_usd": 1.85
-    },
-    {
-      "vals_model_name": "Inkling Small",
-      "provider": "Thinking Machines",
-      "vals_index": 27.59,
-      "finance_agent": 28.8,
-      "legal_bench": 21.4,
-      "tax_agent": 17.4,
-      "vibe_code": 50.2,
-      "cost_per_test_usd": 0.4
     },
     {
       "vals_model_name": "Command A+",

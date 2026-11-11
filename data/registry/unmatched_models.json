@@ -1,6 +1,294 @@
 {
-  "unmatched_count": 1,
+  "unmatched_count": 33,
   "unmatched_models": [
+    {
+      "provisional_id": "unmatched-google-gemini-4-carbon-medium",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Gemini 4 Carbon (medium)",
+      "provider": "Google",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-google-gemini-4-carbon-low",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Gemini 4 Carbon (low)",
+      "provider": "Google",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-meta-muse-wonder-high",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Muse Wonder (high)",
+      "provider": "Meta",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-meta-muse-ember-xhigh",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Muse Ember (xhigh)",
+      "provider": "Meta",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-deepseek-v4-1-flash-1017-high",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "DeepSeek V4.1 Flash 1017 (high)",
+      "provider": "DeepSeek",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-sapiens-ai-agnes-2-5-pro-theta",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Agnes 2.5 Pro Theta",
+      "provider": "Sapiens AI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-mistral-ai-mistral-large-4-medium",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Mistral Large 4 (medium)",
+      "provider": "Mistral AI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-nanbeige4-3-33b",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Nanbeige4.3-33B",
+      "provider": "Nanbeige",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-deepseek-v4-1-flash-1017-non-reasoning",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "DeepSeek V4.1 Flash 1017 (non-reasoning)",
+      "provider": "DeepSeek",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-alibaba-qwen3-8-27b-medium",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Qwen3.8 27B (medium)",
+      "provider": "Alibaba",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-alibaba-qwen3-8-27b-low",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Qwen3.8 27B (low)",
+      "provider": "Alibaba",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-apodex-1-1",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Apodex 1.1",
+      "provider": "Apodex",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-deepseek-v4-pro-0813-non-reasoning",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "DeepSeek V4 Pro 0813 (non-reasoning)",
+      "provider": "DeepSeek",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-alibaba-qwen3-8-27b-non-reasoning",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Qwen3.8 27B (non-reasoning)",
+      "provider": "Alibaba",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-openai-gpt-6-luna-non-reasoning",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "GPT-6 Luna (non-reasoning)",
+      "provider": "OpenAI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-lg-ai-research-k-exaone-2-0",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "K-EXAONE 2.0",
+      "provider": "LG AI Research",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-nvidia-nemotron-3-5-lightning",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Nemotron 3.5 Lightning",
+      "provider": "NVIDIA",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-ibm-granite-4-2-8b",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Granite 4.2 8B",
+      "provider": "IBM",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-ibm-granite-4-2-3b",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Granite 4.2 3B",
+      "provider": "IBM",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-mistral-ai-mistral-medium-3-5",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Mistral Medium 3.5",
+      "provider": "Mistral AI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-mistral-ai-mistral-small-4",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Mistral Small 4",
+      "provider": "Mistral AI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-openai-gpt-oss-120b-high",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "gpt-oss-120b (high)",
+      "provider": "OpenAI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-cohere-north-mini-code",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "North Mini Code",
+      "provider": "Cohere",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-nvidia-nemotron-3-nano-4b",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Nemotron 3 Nano 4B",
+      "provider": "NVIDIA",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-z-ai-glm-5-2",
+      "source_keys": [
+        "livebench"
+      ],
+      "raw_name": "glm-5.2",
+      "provider": "Z.AI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-openai-gpt-5-2-codex",
+      "source_keys": [
+        "livebench"
+      ],
+      "raw_name": "gpt-5.2-codex",
+      "provider": "OpenAI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-openai-gpt-5-5",
+      "source_keys": [
+        "livebench"
+      ],
+      "raw_name": "gpt-5.5",
+      "provider": "OpenAI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-openai-gpt-5-5-high",
+      "source_keys": [
+        "livebench"
+      ],
+      "raw_name": "gpt-5.5-high",
+      "provider": "OpenAI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-xai-grok-4-3",
+      "source_keys": [
+        "livebench"
+      ],
+      "raw_name": "grok-4.3",
+      "provider": "xAI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-xai-grok-build-0-1",
+      "source_keys": [
+        "livebench"
+      ],
+      "raw_name": "grok-build-0.1",
+      "provider": "xAI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-moonshot-ai-kimi-k2-7-code",
+      "source_keys": [
+        "livebench"
+      ],
+      "raw_name": "kimi-k2.7-code",
+      "provider": "Moonshot AI",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-alibaba-qwen3-6-27b",
+      "source_keys": [
+        "livebench"
+      ],
+      "raw_name": "qwen3.6-27b",
+      "provider": "Alibaba",
+      "sources_present": 1
+    },
     {
       "provisional_id": "unmatched-stealth-lab-stealth-nebula-v1",
       "source_keys": [

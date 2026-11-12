@@ -2,11 +2,11 @@
   "source_key": "artificial_analysis",
   "source_name": "Artificial Analysis",
   "source_url": "https://artificialanalysis.ai/",
-  "fetched_at": "2026-11-11T18:57:11Z",
+  "fetched_at": "2026-11-12T04:39:15Z",
   "status": "live",
   "fetch_status": "live",
   "methodology_version": "Intelligence Index v5.0",
-  "model_count": 163,
+  "model_count": 165,
   "models": [
     {
       "model_name": "Claude Fable 5.2 (Max)",
@@ -1015,6 +1015,24 @@
       "blended_price_per_1m": 0.276
     },
     {
+      "model_name": "Qwen3.8-Flash-Next",
+      "provider": "Alibaba",
+      "release_date": "2026-09-18",
+      "license": "Apache-2.0",
+      "open_weights": true,
+      "context_window": 256000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "intelligence_index": 29.0,
+      "coding_index": 38.4,
+      "math_index": 44.8,
+      "output_tokens_per_second": 118.0,
+      "ttft_seconds": 0.68,
+      "input_price_per_1m": 0.25,
+      "output_price_per_1m": 0.8,
+      "blended_price_per_1m": 0.39
+    },
+    {
       "model_name": "Step 5 Preview",
       "provider": "StepFun",
       "release_date": "2026-10-08",
@@ -1309,6 +1327,20 @@
       "blended_price_per_1m": 0.6
     },
     {
+      "model_name": "JT-4.1 Flash 236B A21B",
+      "provider": "China Mobile",
+      "context_window": 262000,
+      "open_weights": false,
+      "intelligence_index": 19.0,
+      "coding_index": 21.28,
+      "math_index": 23.56,
+      "output_tokens_per_second": 85.0,
+      "ttft_seconds": 1.1,
+      "input_price_per_1m": 0.45,
+      "output_price_per_1m": 2.25,
+      "blended_price_per_1m": 0.9
+    },
+    {
       "model_name": "MiniMax-M3",
       "provider": "MiniMax",
       "release_date": "2026-07-22",
@@ -1439,6 +1471,20 @@
       "input_price_per_1m": 0.573,
       "output_price_per_1m": 2.865,
       "blended_price_per_1m": 1.146
+    },
+    {
+      "model_name": "Solar Pro 4",
+      "provider": "Upstage",
+      "context_window": 512000,
+      "open_weights": false,
+      "intelligence_index": 14.0,
+      "coding_index": 15.68,
+      "math_index": 17.36,
+      "output_tokens_per_second": 85.0,
+      "ttft_seconds": 1.1,
+      "input_price_per_1m": 0.288,
+      "output_price_per_1m": 1.44,
+      "blended_price_per_1m": 0.576
     },
     {
       "model_name": "Apodex 1.1",
@@ -2593,24 +2639,6 @@
       "input_price_per_1m": 0.55,
       "output_price_per_1m": 2.19,
       "blended_price_per_1m": 0.96
-    },
-    {
-      "model_name": "Qwen3.8-Flash-Next",
-      "provider": "Alibaba",
-      "release_date": "2026-09-18",
-      "license": "Apache-2.0",
-      "open_weights": true,
-      "context_window": 262000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
-      "intelligence_index": 26.5,
-      "coding_index": 38.4,
-      "math_index": 44.8,
-      "output_tokens_per_second": 118.0,
-      "ttft_seconds": 0.68,
-      "input_price_per_1m": 0.25,
-      "output_price_per_1m": 0.8,
-      "blended_price_per_1m": 0.39
     },
     {
       "model_name": "Qwen3.7 Max",

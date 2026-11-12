@@ -1,5 +1,5 @@
 {
-  "unmatched_count": 33,
+  "unmatched_count": 35,
   "unmatched_models": [
     {
       "provisional_id": "unmatched-google-gemini-4-carbon-medium",
@@ -74,6 +74,15 @@
       "sources_present": 1
     },
     {
+      "provisional_id": "unmatched-china-mobile-jt-4-1-flash-236b-a21b",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "JT-4.1 Flash 236B A21B",
+      "provider": "China Mobile",
+      "sources_present": 1
+    },
+    {
       "provisional_id": "unmatched-deepseek-v4-1-flash-1017-non-reasoning",
       "source_keys": [
         "artificial_analysis"
@@ -98,6 +107,15 @@
       ],
       "raw_name": "Qwen3.8 27B (low)",
       "provider": "Alibaba",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-upstage-solar-pro-4",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Solar Pro 4",
+      "provider": "Upstage",
       "sources_present": 1
     },
     {

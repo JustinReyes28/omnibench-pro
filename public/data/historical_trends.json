@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-11T18:57:18Z",
+  "updated_at": "2026-11-12T04:39:17Z",
   "timeline": [
     {
       "date": "2026-07-15",
@@ -24,7 +24,7 @@
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 84.54,
+          "unified_quality_score": 84.53,
           "blended_per_1m_usd": 27.13
         },
         {
@@ -94,14 +94,14 @@
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 48.58,
+          "unified_quality_score": 48.55,
           "blended_per_1m_usd": 0.32
         },
         {
           "model_id": "xiaomi-mimo-v2-6-flash",
           "display_name": "MiMo-V2.6-Flash",
           "provider": "Xiaomi",
-          "unified_quality_score": 46.54,
+          "unified_quality_score": 46.49,
           "blended_per_1m_usd": 0.15
         }
       ]
@@ -128,7 +128,7 @@
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 85.49,
+          "unified_quality_score": 85.48,
           "blended_per_1m_usd": 26.26
         },
         {
@@ -198,14 +198,14 @@
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 49.53,
+          "unified_quality_score": 49.5,
           "blended_per_1m_usd": 0.31
         },
         {
           "model_id": "xiaomi-mimo-v2-6-flash",
           "display_name": "MiMo-V2.6-Flash",
           "provider": "Xiaomi",
-          "unified_quality_score": 47.49,
+          "unified_quality_score": 47.44,
           "blended_per_1m_usd": 0.14
         }
       ]
@@ -232,7 +232,7 @@
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 86.44,
+          "unified_quality_score": 86.43,
           "blended_per_1m_usd": 25.38
         },
         {
@@ -302,14 +302,14 @@
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 50.48,
+          "unified_quality_score": 50.45,
           "blended_per_1m_usd": 0.3
         },
         {
           "model_id": "xiaomi-mimo-v2-6-flash",
           "display_name": "MiMo-V2.6-Flash",
           "provider": "Xiaomi",
-          "unified_quality_score": 48.44,
+          "unified_quality_score": 48.39,
           "blended_per_1m_usd": 0.14
         }
       ]
@@ -336,7 +336,7 @@
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 87.39,
+          "unified_quality_score": 87.38,
           "blended_per_1m_usd": 24.51
         },
         {
@@ -406,14 +406,14 @@
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 51.43,
+          "unified_quality_score": 51.4,
           "blended_per_1m_usd": 0.29
         },
         {
           "model_id": "xiaomi-mimo-v2-6-flash",
           "display_name": "MiMo-V2.6-Flash",
           "provider": "Xiaomi",
-          "unified_quality_score": 49.39,
+          "unified_quality_score": 49.34,
           "blended_per_1m_usd": 0.13
         }
       ]
@@ -440,7 +440,7 @@
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 88.34,
+          "unified_quality_score": 88.33,
           "blended_per_1m_usd": 23.63
         },
         {
@@ -510,14 +510,14 @@
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 52.38,
+          "unified_quality_score": 52.35,
           "blended_per_1m_usd": 0.28
         },
         {
           "model_id": "xiaomi-mimo-v2-6-flash",
           "display_name": "MiMo-V2.6-Flash",
           "provider": "Xiaomi",
-          "unified_quality_score": 50.34,
+          "unified_quality_score": 50.29,
           "blended_per_1m_usd": 0.13
         }
       ]
@@ -544,7 +544,7 @@
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 89.29,
+          "unified_quality_score": 89.28,
           "blended_per_1m_usd": 22.76
         },
         {
@@ -614,20 +614,20 @@
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 53.33,
+          "unified_quality_score": 53.3,
           "blended_per_1m_usd": 0.27
         },
         {
           "model_id": "xiaomi-mimo-v2-6-flash",
           "display_name": "MiMo-V2.6-Flash",
           "provider": "Xiaomi",
-          "unified_quality_score": 51.29,
+          "unified_quality_score": 51.24,
           "blended_per_1m_usd": 0.12
         }
       ]
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-12",
       "label": "Nov 2026 (Current)",
       "models": [
         {
@@ -648,7 +648,7 @@
           "model_id": "openai-gpt-6-astra-max",
           "display_name": "GPT-6 Astra (Max)",
           "provider": "OpenAI",
-          "unified_quality_score": 90.24,
+          "unified_quality_score": 90.23,
           "blended_per_1m_usd": 21.88
         },
         {
@@ -718,14 +718,14 @@
           "model_id": "minimax-m3-1-flash",
           "display_name": "MiniMax-M3.1-Flash",
           "provider": "MiniMax",
-          "unified_quality_score": 54.28,
+          "unified_quality_score": 54.25,
           "blended_per_1m_usd": 0.26
         },
         {
           "model_id": "xiaomi-mimo-v2-6-flash",
           "display_name": "MiMo-V2.6-Flash",
           "provider": "Xiaomi",
-          "unified_quality_score": 52.24,
+          "unified_quality_score": 52.19,
           "blended_per_1m_usd": 0.12
         }
       ]

@@ -1,15 +1,15 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-11-11T18:57:18Z",
+  "generated_at": "2026-11-12T04:39:17Z",
   "sources_metadata": {
     "artificial_analysis": {
-      "last_updated": "2026-11-11T18:57:11Z",
+      "last_updated": "2026-11-12T04:39:15Z",
       "status": "live",
       "url": "https://artificialanalysis.ai/",
       "methodology_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "livebench": {
-      "last_updated": "2026-11-11T18:57:12Z",
+      "last_updated": "2026-11-12T04:39:16Z",
       "release": "2026-11-06",
       "status": "live",
       "url": "https://livebench.ai/",
@@ -22,7 +22,7 @@
       "hf_url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard"
     },
     "vals": {
-      "last_updated": "2026-11-11T18:57:17Z",
+      "last_updated": "2026-11-12T04:39:16Z",
       "status": "live",
       "url": "https://www.vals.ai/benchmarks",
       "methodology_url": "https://www.vals.ai/methodology"
@@ -83,7 +83,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 99.24,
+        "aa": 99.23,
         "lb": 97.92,
         "ar": 98.45,
         "va": 97.71
@@ -433,7 +433,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 89.12,
+        "aa": 89.11,
         "lb": 92.33,
         "ar": 90.75,
         "va": 93.84
@@ -442,7 +442,7 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 91.51,
+        "unified_quality_score": 91.5,
         "coding_composite_score": 91.4,
         "enterprise_agent_score": 92.2,
         "value_efficiency_score": 37.03,
@@ -573,7 +573,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 89.12,
+        "aa": 89.11,
         "lb": 96.52,
         "ar": 88.59,
         "va": 85.03
@@ -582,10 +582,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 90.24,
+        "unified_quality_score": 90.23,
         "coding_composite_score": 82.78,
         "enterprise_agent_score": 88.53,
-        "value_efficiency_score": 36.95,
+        "value_efficiency_score": 36.94,
         "is_pareto_optimal": false
       }
     },
@@ -3653,7 +3653,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 60.63,
+        "aa": 60.62,
         "lb": 52.06,
         "ar": 80.18,
         "va": 69.19
@@ -3933,7 +3933,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 46.55,
+        "aa": 46.54,
         "lb": 63.34,
         "ar": 78.22,
         "va": 67.53
@@ -4213,7 +4213,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 53.92,
+        "aa": 53.91,
         "lb": 49.16,
         "ar": 76.75,
         "va": 71.5
@@ -4493,7 +4493,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 54.33,
+        "aa": 54.32,
         "lb": 48.37,
         "ar": 75.77,
         "va": 63.25
@@ -4502,7 +4502,7 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 57.99,
+        "unified_quality_score": 57.98,
         "coding_composite_score": 68.44,
         "enterprise_agent_score": 58.67,
         "value_efficiency_score": 34.46,
@@ -4633,7 +4633,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 45.78,
+        "aa": 45.77,
         "lb": 56.38,
         "ar": 76.02,
         "va": 60.0
@@ -4843,7 +4843,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 46.55,
+        "aa": 46.54,
         "lb": 62.39,
         "ar": 52.1,
         "va": 61.82
@@ -4913,7 +4913,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 45.78,
+        "aa": 45.77,
         "lb": 75.62,
         "ar": 45.55,
         "va": 50.13
@@ -5053,7 +5053,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 32.31,
+        "aa": 32.3,
         "lb": 75.82,
         "ar": 70.85,
         "va": 47.21
@@ -5193,7 +5193,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 44.05,
+        "aa": 43.95,
         "lb": 60.37,
         "ar": 59.35,
         "va": 56.2
@@ -5202,10 +5202,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 54.28,
+        "unified_quality_score": 54.25,
         "coding_composite_score": 59.23,
-        "enterprise_agent_score": 54.15,
-        "value_efficiency_score": 50.86,
+        "enterprise_agent_score": 54.13,
+        "value_efficiency_score": 50.83,
         "is_pareto_optimal": false
       }
     },
@@ -5333,7 +5333,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 39.09,
+        "aa": 39.08,
         "lb": 58.92,
         "ar": 52.7,
         "va": 65.85
@@ -5344,7 +5344,7 @@
         "provisional_ranking": false,
         "unified_quality_score": 53.77,
         "coding_composite_score": 54.22,
-        "enterprise_agent_score": 57.12,
+        "enterprise_agent_score": 57.11,
         "value_efficiency_score": 26.35,
         "is_pareto_optimal": false
       }
@@ -5473,7 +5473,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 43.0,
+        "aa": 42.82,
         "lb": 51.18,
         "ar": 71.4,
         "va": 54.29
@@ -5482,10 +5482,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 52.54,
+        "unified_quality_score": 52.48,
         "coding_composite_score": 52.16,
-        "enterprise_agent_score": 51.7,
-        "value_efficiency_score": 32.18,
+        "enterprise_agent_score": 51.66,
+        "value_efficiency_score": 32.14,
         "is_pareto_optimal": false
       }
     },
@@ -5543,7 +5543,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 40.68,
+        "aa": 40.5,
         "lb": 53.03,
         "ar": 60.49,
         "va": 60.23
@@ -5552,10 +5552,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 52.24,
+        "unified_quality_score": 52.19,
         "coding_composite_score": 51.46,
-        "enterprise_agent_score": 53.92,
-        "value_efficiency_score": 63.14,
+        "enterprise_agent_score": 53.87,
+        "value_efficiency_score": 63.08,
         "is_pareto_optimal": true
       }
     },
@@ -5613,7 +5613,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 46.55,
+        "aa": 46.54,
         "lb": 41.01,
         "ar": 74.05,
         "va": 57.95
@@ -5624,7 +5624,7 @@
         "provisional_ranking": false,
         "unified_quality_score": 51.86,
         "coding_composite_score": 58.86,
-        "enterprise_agent_score": 52.52,
+        "enterprise_agent_score": 52.51,
         "value_efficiency_score": 31.17,
         "is_pareto_optimal": false
       }
@@ -5696,6 +5696,76 @@
         "coding_composite_score": 56.41,
         "enterprise_agent_score": 54.27,
         "value_efficiency_score": 29.04,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "qwen-3-8-flash-next",
+      "display_name": "Qwen3.8-Flash-Next",
+      "provider": "Alibaba",
+      "release_date": "2026-09-18",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "pricing": {
+        "input_per_1m_usd": 0.25,
+        "output_per_1m_usd": 0.8,
+        "blended_per_1m_usd": 0.39
+      },
+      "performance": {
+        "output_tokens_per_sec": 118.0,
+        "ttft_seconds": 0.68
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 29.0,
+          "coding_index": 38.4,
+          "math_index": 44.8
+        },
+        "livebench": {
+          "global_average": 59.8,
+          "coding": 72.4,
+          "mathematics": 68.5,
+          "reasoning": 76.4,
+          "data_analysis": 66.2,
+          "language": 58.4,
+          "instruction_following": 69.8,
+          "agentic_coding": 26.9,
+          "cost_per_question_usd": 0.0042
+        },
+        "arena": {
+          "text_elo": 1458,
+          "text_ci_lower": 1452,
+          "text_ci_upper": 1464,
+          "coding_elo": 1464,
+          "vision_elo": 1372,
+          "votes": 34200
+        },
+        "vals": {
+          "vals_index": 54.2,
+          "finance_agent": 53.8,
+          "legal_bench": 42.1,
+          "tax_agent": 45.2,
+          "vibe_code": 73.4,
+          "cost_per_test_usd": 1.45
+        }
+      },
+      "normalized_pillars": {
+        "aa": 43.95,
+        "lb": 45.93,
+        "ar": 65.55,
+        "va": 57.95
+      },
+      "composite": {
+        "sources_present": 4,
+        "coverage_ratio": 1.0,
+        "provisional_ranking": false,
+        "unified_quality_score": 51.28,
+        "coding_composite_score": 49.21,
+        "enterprise_agent_score": 52.43,
+        "value_efficiency_score": 42.98,
         "is_pareto_optimal": false
       }
     },
@@ -5823,7 +5893,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 32.72,
+        "aa": 32.71,
         "lb": 67.79,
         "ar": 63.04,
         "va": 43.12
@@ -5893,7 +5963,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 42.27,
+        "aa": 42.09,
         "lb": 50.08,
         "ar": 69.9,
         "va": 48.63
@@ -5902,10 +5972,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 50.35,
+        "unified_quality_score": 50.29,
         "coding_composite_score": 54.41,
-        "enterprise_agent_score": 48.39,
-        "value_efficiency_score": 53.82,
+        "enterprise_agent_score": 48.35,
+        "value_efficiency_score": 53.76,
         "is_pareto_optimal": false
       }
     },
@@ -5963,7 +6033,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 42.27,
+        "aa": 42.09,
         "lb": 55.85,
         "ar": 51.16,
         "va": 52.05
@@ -5972,80 +6042,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 50.12,
+        "unified_quality_score": 50.07,
         "coding_composite_score": 57.26,
-        "enterprise_agent_score": 50.32,
-        "value_efficiency_score": 46.96,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "qwen-3-8-flash-next",
-      "display_name": "Qwen3.8-Flash-Next",
-      "provider": "Alibaba",
-      "release_date": "2026-09-18",
-      "license": "Apache-2.0",
-      "is_open_weights": true,
-      "context_window": 262000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
-      "pricing": {
-        "input_per_1m_usd": 0.25,
-        "output_per_1m_usd": 0.8,
-        "blended_per_1m_usd": 0.39
-      },
-      "performance": {
-        "output_tokens_per_sec": 118.0,
-        "ttft_seconds": 0.68
-      },
-      "benchmarks": {
-        "artificial_analysis": {
-          "intelligence_index": 26.5,
-          "coding_index": 38.4,
-          "math_index": 44.8
-        },
-        "livebench": {
-          "global_average": 59.8,
-          "coding": 72.4,
-          "mathematics": 68.5,
-          "reasoning": 76.4,
-          "data_analysis": 66.2,
-          "language": 58.4,
-          "instruction_following": 69.8,
-          "agentic_coding": 26.9,
-          "cost_per_question_usd": 0.0042
-        },
-        "arena": {
-          "text_elo": 1458,
-          "text_ci_lower": 1452,
-          "text_ci_upper": 1464,
-          "coding_elo": 1464,
-          "vision_elo": 1372,
-          "votes": 34200
-        },
-        "vals": {
-          "vals_index": 54.2,
-          "finance_agent": 53.8,
-          "legal_bench": 42.1,
-          "tax_agent": 45.2,
-          "vibe_code": 73.4,
-          "cost_per_test_usd": 1.45
-        }
-      },
-      "normalized_pillars": {
-        "aa": 39.93,
-        "lb": 45.93,
-        "ar": 65.55,
-        "va": 57.95
-      },
-      "composite": {
-        "sources_present": 4,
-        "coverage_ratio": 1.0,
-        "provisional_ranking": false,
-        "unified_quality_score": 50.08,
-        "coding_composite_score": 49.21,
-        "enterprise_agent_score": 51.42,
-        "value_efficiency_score": 41.98,
+        "enterprise_agent_score": 50.28,
+        "value_efficiency_score": 46.91,
         "is_pareto_optimal": false
       }
     },
@@ -6103,7 +6103,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 44.05,
+        "aa": 43.95,
         "lb": 43.65,
         "ar": 57.51,
         "va": 59.75
@@ -6112,10 +6112,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 49.87,
+        "unified_quality_score": 49.84,
         "coding_composite_score": 60.59,
-        "enterprise_agent_score": 52.49,
-        "value_efficiency_score": 32.57,
+        "enterprise_agent_score": 52.47,
+        "value_efficiency_score": 32.55,
         "is_pareto_optimal": false
       }
     },
@@ -6243,7 +6243,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 41.43,
+        "aa": 41.25,
         "lb": 46.63,
         "ar": 58.04,
         "va": 54.92
@@ -6252,10 +6252,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 48.85,
+        "unified_quality_score": 48.8,
         "coding_composite_score": 52.49,
-        "enterprise_agent_score": 50.05,
-        "value_efficiency_score": 35.54,
+        "enterprise_agent_score": 50.0,
+        "value_efficiency_score": 35.5,
         "is_pareto_optimal": false
       }
     },
@@ -6453,7 +6453,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 44.05,
+        "aa": 43.95,
         "lb": 53.43,
         "ar": 43.95,
         "va": 44.55
@@ -6462,10 +6462,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 46.97,
+        "unified_quality_score": 46.94,
         "coding_composite_score": 47.81,
-        "enterprise_agent_score": 46.17,
-        "value_efficiency_score": 27.38,
+        "enterprise_agent_score": 46.15,
+        "value_efficiency_score": 27.37,
         "is_pareto_optimal": false
       }
     },
@@ -6593,7 +6593,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 28.76,
+        "aa": 28.75,
         "lb": 57.63,
         "ar": 57.28,
         "va": 46.12
@@ -6663,7 +6663,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 46.55,
+        "aa": 46.54,
         "lb": 40.57,
         "ar": 47.33,
         "va": 49.44
@@ -6672,7 +6672,7 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 45.6,
+        "unified_quality_score": 45.59,
         "coding_composite_score": 52.09,
         "enterprise_agent_score": 46.84,
         "value_efficiency_score": 32.29,
@@ -6803,7 +6803,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 35.63,
+        "aa": 35.62,
         "lb": 59.32,
         "ar": 43.58,
         "va": 41.93
@@ -6814,7 +6814,7 @@
         "provisional_ranking": false,
         "unified_quality_score": 45.5,
         "coding_composite_score": 44.04,
-        "enterprise_agent_score": 43.92,
+        "enterprise_agent_score": 43.91,
         "value_efficiency_score": 26.89,
         "is_pareto_optimal": false
       }
@@ -7293,7 +7293,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 39.09,
+        "aa": 39.08,
         "lb": 19.56,
         "ar": 52.39,
         "va": 64.57
@@ -7302,7 +7302,7 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 41.6,
+        "unified_quality_score": 41.59,
         "coding_composite_score": 39.01,
         "enterprise_agent_score": 48.59,
         "value_efficiency_score": 24.58,
@@ -7433,7 +7433,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 27.6,
+        "aa": 27.59,
         "lb": 65.47,
         "ar": 30.52,
         "va": 33.67
@@ -7442,7 +7442,7 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 40.92,
+        "unified_quality_score": 40.91,
         "coding_composite_score": 37.37,
         "enterprise_agent_score": 38.35,
         "value_efficiency_score": 31.62,
@@ -7573,7 +7573,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 31.15,
+        "aa": 31.14,
         "lb": 50.74,
         "ar": 37.39,
         "va": 37.38
@@ -7584,7 +7584,7 @@
         "provisional_ranking": false,
         "unified_quality_score": 39.52,
         "coding_composite_score": 38.05,
-        "enterprise_agent_score": 38.5,
+        "enterprise_agent_score": 38.49,
         "value_efficiency_score": 23.24,
         "is_pareto_optimal": false
       }
@@ -8063,7 +8063,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 24.62,
+        "aa": 24.61,
         "lb": 41.71,
         "ar": 36.52,
         "va": 38.22
@@ -8203,7 +8203,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 25.85,
+        "aa": 25.84,
         "lb": 34.7,
         "ar": 31.79,
         "va": 41.93
@@ -8212,10 +8212,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 33.42,
+        "unified_quality_score": 33.41,
         "coding_composite_score": 44.42,
-        "enterprise_agent_score": 35.96,
-        "value_efficiency_score": 18.08,
+        "enterprise_agent_score": 35.95,
+        "value_efficiency_score": 18.07,
         "is_pareto_optimal": false
       }
     },
@@ -8483,7 +8483,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 24.62,
+        "aa": 24.61,
         "lb": 25.85,
         "ar": 48.18,
         "va": 31.31
@@ -8492,7 +8492,7 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 30.2,
+        "unified_quality_score": 30.19,
         "coding_composite_score": 33.81,
         "enterprise_agent_score": 29.39,
         "value_efficiency_score": 24.54,
@@ -8693,7 +8693,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 24.62,
+        "aa": 24.61,
         "lb": 24.76,
         "ar": 39.19,
         "va": 30.04
@@ -8704,7 +8704,7 @@
         "provisional_ranking": false,
         "unified_quality_score": 28.2,
         "coding_composite_score": 34.25,
-        "enterprise_agent_score": 28.09,
+        "enterprise_agent_score": 28.08,
         "value_efficiency_score": 38.2,
         "is_pareto_optimal": true
       }
@@ -9043,7 +9043,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 18.25,
+        "aa": 18.24,
         "lb": 29.34,
         "ar": 43.16,
         "va": 6.97
@@ -9113,7 +9113,7 @@
         }
       },
       "normalized_pillars": {
-        "aa": 4.67,
+        "aa": 4.66,
         "lb": 11.93,
         "ar": 52.92,
         "va": 34.1

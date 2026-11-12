@@ -2,11 +2,11 @@
   "source_key": "artificial_analysis",
   "source_name": "Artificial Analysis",
   "source_url": "https://artificialanalysis.ai/",
-  "fetched_at": "2026-11-12T04:39:15Z",
+  "fetched_at": "2026-11-12T19:15:34Z",
   "status": "live",
   "fetch_status": "live",
   "methodology_version": "Intelligence Index v5.0",
-  "model_count": 165,
+  "model_count": 169,
   "models": [
     {
       "model_name": "Claude Fable 5.2 (Max)",
@@ -271,6 +271,20 @@
       "blended_price_per_1m": 16.0
     },
     {
+      "model_name": "Gemini 4 Hydrogen (xhigh)",
+      "provider": "Google",
+      "context_window": 1000000,
+      "open_weights": false,
+      "intelligence_index": 54.0,
+      "coding_index": 60.48,
+      "math_index": 66.96,
+      "output_tokens_per_second": 85.0,
+      "ttft_seconds": 1.1,
+      "input_price_per_1m": 0.948,
+      "output_price_per_1m": 4.74,
+      "blended_price_per_1m": 1.896
+    },
+    {
       "model_name": "GPT-6.1 Sol (xHigh)",
       "provider": "OpenAI",
       "release_date": "2026-10-19",
@@ -341,6 +355,20 @@
       "input_price_per_1m": 1.2,
       "output_price_per_1m": 4.8,
       "blended_price_per_1m": 2.1
+    },
+    {
+      "model_name": "Gemini 4 Hydrogen (high)",
+      "provider": "Google",
+      "context_window": 1000000,
+      "open_weights": false,
+      "intelligence_index": 51.0,
+      "coding_index": 57.12,
+      "math_index": 63.24,
+      "output_tokens_per_second": 85.0,
+      "ttft_seconds": 1.1,
+      "input_price_per_1m": 0.561,
+      "output_price_per_1m": 2.805,
+      "blended_price_per_1m": 1.122
     },
     {
       "model_name": "Gemini 4 Argon (High)",
@@ -557,6 +585,20 @@
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 15.0,
       "blended_price_per_1m": 6.0
+    },
+    {
+      "model_name": "Gemini 4 Hydrogen (medium)",
+      "provider": "Google",
+      "context_window": 1000000,
+      "open_weights": false,
+      "intelligence_index": 41.0,
+      "coding_index": 45.92,
+      "math_index": 50.84,
+      "output_tokens_per_second": 85.0,
+      "ttft_seconds": 1.1,
+      "input_price_per_1m": 0.24,
+      "output_price_per_1m": 1.2,
+      "blended_price_per_1m": 0.48
     },
     {
       "model_name": "Muse Wonder (high)",
@@ -1085,6 +1127,20 @@
       "input_price_per_1m": 0.1,
       "output_price_per_1m": 0.38,
       "blended_price_per_1m": 0.17
+    },
+    {
+      "model_name": "Gemini 4 Hydrogen (low)",
+      "provider": "Google",
+      "context_window": 1000000,
+      "open_weights": false,
+      "intelligence_index": 27.0,
+      "coding_index": 30.24,
+      "math_index": 33.48,
+      "output_tokens_per_second": 85.0,
+      "ttft_seconds": 1.1,
+      "input_price_per_1m": 0.087,
+      "output_price_per_1m": 0.435,
+      "blended_price_per_1m": 0.174
     },
     {
       "model_name": "MiMo-V2.6-Flash",

@@ -1,15 +1,15 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-11-12T04:39:17Z",
+  "generated_at": "2026-11-12T19:15:40Z",
   "sources_metadata": {
     "artificial_analysis": {
-      "last_updated": "2026-11-12T04:39:15Z",
+      "last_updated": "2026-11-12T19:15:34Z",
       "status": "live",
       "url": "https://artificialanalysis.ai/",
       "methodology_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "livebench": {
-      "last_updated": "2026-11-12T04:39:16Z",
+      "last_updated": "2026-11-12T19:15:34Z",
       "release": "2026-11-06",
       "status": "live",
       "url": "https://livebench.ai/",
@@ -22,7 +22,7 @@
       "hf_url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard"
     },
     "vals": {
-      "last_updated": "2026-11-12T04:39:16Z",
+      "last_updated": "2026-11-12T19:15:40Z",
       "status": "live",
       "url": "https://www.vals.ai/benchmarks",
       "methodology_url": "https://www.vals.ai/methodology"
@@ -93,7 +93,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 98.34,
-        "coding_composite_score": 90.72,
+        "coding_composite_score": 90.68,
         "enterprise_agent_score": 98.17,
         "value_efficiency_score": 41.93,
         "is_pareto_optimal": true
@@ -163,7 +163,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 96.33,
-        "coding_composite_score": 82.66,
+        "coding_composite_score": 82.67,
         "enterprise_agent_score": 96.95,
         "value_efficiency_score": 41.08,
         "is_pareto_optimal": false
@@ -233,7 +233,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 94.51,
-        "coding_composite_score": 84.81,
+        "coding_composite_score": 84.77,
         "enterprise_agent_score": 94.9,
         "value_efficiency_score": 46.16,
         "is_pareto_optimal": true
@@ -303,7 +303,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 94.32,
-        "coding_composite_score": 92.47,
+        "coding_composite_score": 92.48,
         "enterprise_agent_score": 95.65,
         "value_efficiency_score": 40.22,
         "is_pareto_optimal": false
@@ -373,7 +373,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 94.07,
-        "coding_composite_score": 86.78,
+        "coding_composite_score": 86.75,
         "enterprise_agent_score": 94.34,
         "value_efficiency_score": 37.03,
         "is_pareto_optimal": false
@@ -513,7 +513,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 91.15,
-        "coding_composite_score": 92.27,
+        "coding_composite_score": 92.28,
         "enterprise_agent_score": 91.33,
         "value_efficiency_score": 35.6,
         "is_pareto_optimal": false
@@ -583,7 +583,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 90.23,
-        "coding_composite_score": 82.78,
+        "coding_composite_score": 82.74,
         "enterprise_agent_score": 88.53,
         "value_efficiency_score": 36.94,
         "is_pareto_optimal": false
@@ -653,7 +653,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 88.8,
-        "coding_composite_score": 83.03,
+        "coding_composite_score": 82.99,
         "enterprise_agent_score": 91.47,
         "value_efficiency_score": 43.51,
         "is_pareto_optimal": true
@@ -793,7 +793,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 87.33,
-        "coding_composite_score": 82.13,
+        "coding_composite_score": 82.09,
         "enterprise_agent_score": 85.66,
         "value_efficiency_score": 44.94,
         "is_pareto_optimal": true
@@ -1003,7 +1003,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 86.47,
-        "coding_composite_score": 75.76,
+        "coding_composite_score": 75.72,
         "enterprise_agent_score": 88.11,
         "value_efficiency_score": 44.5,
         "is_pareto_optimal": false
@@ -1213,7 +1213,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 83.66,
-        "coding_composite_score": 74.29,
+        "coding_composite_score": 74.25,
         "enterprise_agent_score": 84.8,
         "value_efficiency_score": 37.78,
         "is_pareto_optimal": false
@@ -1563,7 +1563,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 80.61,
-        "coding_composite_score": 84.5,
+        "coding_composite_score": 84.51,
         "enterprise_agent_score": 79.7,
         "value_efficiency_score": 41.48,
         "is_pareto_optimal": false
@@ -1703,7 +1703,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 80.27,
-        "coding_composite_score": 74.08,
+        "coding_composite_score": 74.04,
         "enterprise_agent_score": 78.62,
         "value_efficiency_score": 46.8,
         "is_pareto_optimal": true
@@ -1913,7 +1913,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 78.09,
-        "coding_composite_score": 78.5,
+        "coding_composite_score": 78.51,
         "enterprise_agent_score": 77.87,
         "value_efficiency_score": 32.91,
         "is_pareto_optimal": false
@@ -1983,7 +1983,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 77.09,
-        "coding_composite_score": 66.67,
+        "coding_composite_score": 66.63,
         "enterprise_agent_score": 78.79,
         "value_efficiency_score": 35.72,
         "is_pareto_optimal": false
@@ -2123,7 +2123,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 75.91,
-        "coding_composite_score": 78.37,
+        "coding_composite_score": 78.38,
         "enterprise_agent_score": 79.43,
         "value_efficiency_score": 37.19,
         "is_pareto_optimal": false
@@ -2263,7 +2263,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 74.44,
-        "coding_composite_score": 67.71,
+        "coding_composite_score": 67.67,
         "enterprise_agent_score": 75.52,
         "value_efficiency_score": 40.43,
         "is_pareto_optimal": false
@@ -2473,7 +2473,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 70.67,
-        "coding_composite_score": 64.47,
+        "coding_composite_score": 64.46,
         "enterprise_agent_score": 69.6,
         "value_efficiency_score": 27.82,
         "is_pareto_optimal": false
@@ -3173,7 +3173,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 65.78,
-        "coding_composite_score": 72.73,
+        "coding_composite_score": 72.7,
         "enterprise_agent_score": 67.05,
         "value_efficiency_score": 40.33,
         "is_pareto_optimal": false
@@ -3243,7 +3243,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 65.13,
-        "coding_composite_score": 66.13,
+        "coding_composite_score": 66.1,
         "enterprise_agent_score": 66.0,
         "value_efficiency_score": 34.76,
         "is_pareto_optimal": false
@@ -3453,7 +3453,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 63.46,
-        "coding_composite_score": 55.71,
+        "coding_composite_score": 55.7,
         "enterprise_agent_score": 60.59,
         "value_efficiency_score": 31.74,
         "is_pareto_optimal": false
@@ -3523,7 +3523,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 63.43,
-        "coding_composite_score": 62.14,
+        "coding_composite_score": 62.13,
         "enterprise_agent_score": 65.24,
         "value_efficiency_score": 28.84,
         "is_pareto_optimal": false
@@ -3733,7 +3733,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 62.4,
-        "coding_composite_score": 46.84,
+        "coding_composite_score": 46.8,
         "enterprise_agent_score": 66.64,
         "value_efficiency_score": 63.29,
         "is_pareto_optimal": false
@@ -3803,7 +3803,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 62.11,
-        "coding_composite_score": 55.32,
+        "coding_composite_score": 55.3,
         "enterprise_agent_score": 64.79,
         "value_efficiency_score": 46.64,
         "is_pareto_optimal": false
@@ -3943,7 +3943,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 61.58,
-        "coding_composite_score": 61.44,
+        "coding_composite_score": 61.41,
         "enterprise_agent_score": 61.98,
         "value_efficiency_score": 51.97,
         "is_pareto_optimal": false
@@ -4223,7 +4223,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 60.31,
-        "coding_composite_score": 48.78,
+        "coding_composite_score": 48.75,
         "enterprise_agent_score": 62.9,
         "value_efficiency_score": 33.03,
         "is_pareto_optimal": false
@@ -4275,10 +4275,10 @@
         },
         "vals": {
           "vals_index": 59.35,
-          "finance_agent": 64.7,
-          "legal_bench": 59.1,
-          "tax_agent": 41.3,
-          "vibe_code": 39.4,
+          "finance_agent": 56.98,
+          "legal_bench": 46.29,
+          "tax_agent": 34.42,
+          "vibe_code": 75.97,
           "cost_per_test_usd": 1.72
         }
       },
@@ -4293,7 +4293,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 60.14,
-        "coding_composite_score": 44.21,
+        "coding_composite_score": 52.55,
         "enterprise_agent_score": 64.27,
         "value_efficiency_score": 38.7,
         "is_pareto_optimal": false
@@ -4433,7 +4433,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 58.11,
-        "coding_composite_score": 56.99,
+        "coding_composite_score": 56.96,
         "enterprise_agent_score": 55.77,
         "value_efficiency_score": 22.88,
         "is_pareto_optimal": false
@@ -4713,7 +4713,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 56.25,
-        "coding_composite_score": 49.26,
+        "coding_composite_score": 49.23,
         "enterprise_agent_score": 54.35,
         "value_efficiency_score": 32.02,
         "is_pareto_optimal": false
@@ -4783,7 +4783,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 56.18,
-        "coding_composite_score": 43.32,
+        "coding_composite_score": 43.29,
         "enterprise_agent_score": 54.13,
         "value_efficiency_score": 28.8,
         "is_pareto_optimal": false
@@ -4923,7 +4923,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 55.78,
-        "coding_composite_score": 52.35,
+        "coding_composite_score": 52.32,
         "enterprise_agent_score": 53.91,
         "value_efficiency_score": 27.24,
         "is_pareto_optimal": false
@@ -4993,7 +4993,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 55.7,
-        "coding_composite_score": 61.01,
+        "coding_composite_score": 60.98,
         "enterprise_agent_score": 56.4,
         "value_efficiency_score": 33.47,
         "is_pareto_optimal": false
@@ -5063,7 +5063,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 54.87,
-        "coding_composite_score": 49.99,
+        "coding_composite_score": 49.96,
         "enterprise_agent_score": 50.39,
         "value_efficiency_score": 34.97,
         "is_pareto_optimal": false
@@ -5133,7 +5133,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 54.66,
-        "coding_composite_score": 46.24,
+        "coding_composite_score": 46.21,
         "enterprise_agent_score": 52.71,
         "value_efficiency_score": 37.72,
         "is_pareto_optimal": false
@@ -5203,7 +5203,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 54.25,
-        "coding_composite_score": 59.23,
+        "coding_composite_score": 59.2,
         "enterprise_agent_score": 54.13,
         "value_efficiency_score": 50.83,
         "is_pareto_optimal": false
@@ -5483,7 +5483,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 52.48,
-        "coding_composite_score": 52.16,
+        "coding_composite_score": 52.13,
         "enterprise_agent_score": 51.66,
         "value_efficiency_score": 32.14,
         "is_pareto_optimal": false
@@ -5553,7 +5553,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 52.19,
-        "coding_composite_score": 51.46,
+        "coding_composite_score": 51.43,
         "enterprise_agent_score": 53.87,
         "value_efficiency_score": 63.08,
         "is_pareto_optimal": true
@@ -5763,7 +5763,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 51.28,
-        "coding_composite_score": 49.21,
+        "coding_composite_score": 49.18,
         "enterprise_agent_score": 52.43,
         "value_efficiency_score": 42.98,
         "is_pareto_optimal": false
@@ -5833,7 +5833,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 50.58,
-        "coding_composite_score": 41.07,
+        "coding_composite_score": 41.04,
         "enterprise_agent_score": 54.69,
         "value_efficiency_score": 40.33,
         "is_pareto_optimal": false
@@ -5903,7 +5903,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 50.39,
-        "coding_composite_score": 50.25,
+        "coding_composite_score": 50.21,
         "enterprise_agent_score": 46.45,
         "value_efficiency_score": 31.32,
         "is_pareto_optimal": false
@@ -5973,7 +5973,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 50.29,
-        "coding_composite_score": 54.41,
+        "coding_composite_score": 54.37,
         "enterprise_agent_score": 48.35,
         "value_efficiency_score": 53.76,
         "is_pareto_optimal": false
@@ -6043,7 +6043,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 50.07,
-        "coding_composite_score": 57.26,
+        "coding_composite_score": 57.22,
         "enterprise_agent_score": 50.28,
         "value_efficiency_score": 46.91,
         "is_pareto_optimal": false
@@ -6113,7 +6113,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 49.84,
-        "coding_composite_score": 60.59,
+        "coding_composite_score": 60.56,
         "enterprise_agent_score": 52.47,
         "value_efficiency_score": 32.55,
         "is_pareto_optimal": false
@@ -6183,7 +6183,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 49.57,
-        "coding_composite_score": 49.82,
+        "coding_composite_score": 49.78,
         "enterprise_agent_score": 48.52,
         "value_efficiency_score": 28.9,
         "is_pareto_optimal": false
@@ -6253,7 +6253,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 48.8,
-        "coding_composite_score": 52.49,
+        "coding_composite_score": 52.46,
         "enterprise_agent_score": 50.0,
         "value_efficiency_score": 35.5,
         "is_pareto_optimal": false
@@ -6323,7 +6323,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 48.08,
-        "coding_composite_score": 47.52,
+        "coding_composite_score": 47.49,
         "enterprise_agent_score": 46.09,
         "value_efficiency_score": 32.51,
         "is_pareto_optimal": false
@@ -6463,7 +6463,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 46.94,
-        "coding_composite_score": 47.81,
+        "coding_composite_score": 47.78,
         "enterprise_agent_score": 46.15,
         "value_efficiency_score": 27.37,
         "is_pareto_optimal": false
@@ -6603,7 +6603,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 46.04,
-        "coding_composite_score": 44.36,
+        "coding_composite_score": 44.33,
         "enterprise_agent_score": 44.64,
         "value_efficiency_score": 49.22,
         "is_pareto_optimal": false
@@ -6673,7 +6673,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 45.59,
-        "coding_composite_score": 52.09,
+        "coding_composite_score": 52.06,
         "enterprise_agent_score": 46.84,
         "value_efficiency_score": 32.29,
         "is_pareto_optimal": false
@@ -6743,7 +6743,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 45.57,
-        "coding_composite_score": 47.91,
+        "coding_composite_score": 47.88,
         "enterprise_agent_score": 44.24,
         "value_efficiency_score": 35.38,
         "is_pareto_optimal": false
@@ -6813,7 +6813,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 45.5,
-        "coding_composite_score": 44.04,
+        "coding_composite_score": 44.01,
         "enterprise_agent_score": 43.91,
         "value_efficiency_score": 26.89,
         "is_pareto_optimal": false
@@ -6883,7 +6883,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 45.49,
-        "coding_composite_score": 46.46,
+        "coding_composite_score": 46.43,
         "enterprise_agent_score": 47.65,
         "value_efficiency_score": 34.16,
         "is_pareto_optimal": false
@@ -6953,7 +6953,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 43.96,
-        "coding_composite_score": 38.43,
+        "coding_composite_score": 38.39,
         "enterprise_agent_score": 41.55,
         "value_efficiency_score": 34.13,
         "is_pareto_optimal": false
@@ -7023,7 +7023,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 43.61,
-        "coding_composite_score": 42.19,
+        "coding_composite_score": 42.16,
         "enterprise_agent_score": 44.81,
         "value_efficiency_score": 26.8,
         "is_pareto_optimal": false
@@ -7093,7 +7093,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 43.6,
-        "coding_composite_score": 52.57,
+        "coding_composite_score": 52.54,
         "enterprise_agent_score": 44.17,
         "value_efficiency_score": 40.85,
         "is_pareto_optimal": false
@@ -7163,7 +7163,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 42.9,
-        "coding_composite_score": 57.28,
+        "coding_composite_score": 57.25,
         "enterprise_agent_score": 44.11,
         "value_efficiency_score": 32.34,
         "is_pareto_optimal": false
@@ -7233,7 +7233,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 42.32,
-        "coding_composite_score": 42.45,
+        "coding_composite_score": 42.41,
         "enterprise_agent_score": 41.08,
         "value_efficiency_score": 22.59,
         "is_pareto_optimal": false
@@ -7303,7 +7303,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 41.59,
-        "coding_composite_score": 39.01,
+        "coding_composite_score": 38.98,
         "enterprise_agent_score": 48.59,
         "value_efficiency_score": 24.58,
         "is_pareto_optimal": false
@@ -7373,7 +7373,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 41.58,
-        "coding_composite_score": 45.25,
+        "coding_composite_score": 45.22,
         "enterprise_agent_score": 42.2,
         "value_efficiency_score": 24.99,
         "is_pareto_optimal": false
@@ -7443,7 +7443,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 40.91,
-        "coding_composite_score": 37.37,
+        "coding_composite_score": 37.33,
         "enterprise_agent_score": 38.35,
         "value_efficiency_score": 31.62,
         "is_pareto_optimal": false
@@ -7513,7 +7513,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 39.93,
-        "coding_composite_score": 48.12,
+        "coding_composite_score": 48.09,
         "enterprise_agent_score": 40.5,
         "value_efficiency_score": 37.41,
         "is_pareto_optimal": false
@@ -7583,7 +7583,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 39.52,
-        "coding_composite_score": 38.05,
+        "coding_composite_score": 38.02,
         "enterprise_agent_score": 38.49,
         "value_efficiency_score": 23.24,
         "is_pareto_optimal": false
@@ -7653,7 +7653,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 39.15,
-        "coding_composite_score": 44.2,
+        "coding_composite_score": 44.16,
         "enterprise_agent_score": 39.66,
         "value_efficiency_score": 27.08,
         "is_pareto_optimal": false
@@ -7723,7 +7723,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 38.94,
-        "coding_composite_score": 45.14,
+        "coding_composite_score": 45.11,
         "enterprise_agent_score": 38.27,
         "value_efficiency_score": 48.65,
         "is_pareto_optimal": true
@@ -7863,7 +7863,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 37.1,
-        "coding_composite_score": 37.39,
+        "coding_composite_score": 37.36,
         "enterprise_agent_score": 36.83,
         "value_efficiency_score": 25.67,
         "is_pareto_optimal": false
@@ -7933,7 +7933,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 35.78,
-        "coding_composite_score": 41.02,
+        "coding_composite_score": 40.99,
         "enterprise_agent_score": 35.19,
         "value_efficiency_score": 35.74,
         "is_pareto_optimal": false
@@ -8003,7 +8003,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 35.09,
-        "coding_composite_score": 33.63,
+        "coding_composite_score": 33.59,
         "enterprise_agent_score": 36.06,
         "value_efficiency_score": 22.08,
         "is_pareto_optimal": false
@@ -8073,7 +8073,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 34.93,
-        "coding_composite_score": 41.92,
+        "coding_composite_score": 41.88,
         "enterprise_agent_score": 35.43,
         "value_efficiency_score": 32.73,
         "is_pareto_optimal": false
@@ -8143,7 +8143,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 34.47,
-        "coding_composite_score": 38.78,
+        "coding_composite_score": 38.74,
         "enterprise_agent_score": 33.3,
         "value_efficiency_score": 23.41,
         "is_pareto_optimal": false
@@ -8213,7 +8213,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 33.41,
-        "coding_composite_score": 44.42,
+        "coding_composite_score": 44.39,
         "enterprise_agent_score": 35.95,
         "value_efficiency_score": 18.07,
         "is_pareto_optimal": false
@@ -8283,7 +8283,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 31.64,
-        "coding_composite_score": 37.66,
+        "coding_composite_score": 37.62,
         "enterprise_agent_score": 31.23,
         "value_efficiency_score": 27.29,
         "is_pareto_optimal": false
@@ -8353,7 +8353,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 31.2,
-        "coding_composite_score": 39.16,
+        "coding_composite_score": 39.12,
         "enterprise_agent_score": 31.38,
         "value_efficiency_score": 29.23,
         "is_pareto_optimal": false
@@ -8423,7 +8423,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 30.43,
-        "coding_composite_score": 30.2,
+        "coding_composite_score": 30.17,
         "enterprise_agent_score": 29.3,
         "value_efficiency_score": 16.24,
         "is_pareto_optimal": false
@@ -8493,7 +8493,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 30.19,
-        "coding_composite_score": 33.81,
+        "coding_composite_score": 33.77,
         "enterprise_agent_score": 29.39,
         "value_efficiency_score": 24.54,
         "is_pareto_optimal": false
@@ -8563,7 +8563,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 29.83,
-        "coding_composite_score": 28.41,
+        "coding_composite_score": 28.38,
         "enterprise_agent_score": 29.92,
         "value_efficiency_score": 27.65,
         "is_pareto_optimal": false
@@ -8633,7 +8633,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 28.84,
-        "coding_composite_score": 33.81,
+        "coding_composite_score": 33.77,
         "enterprise_agent_score": 27.68,
         "value_efficiency_score": 19.22,
         "is_pareto_optimal": false
@@ -8703,7 +8703,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 28.2,
-        "coding_composite_score": 34.25,
+        "coding_composite_score": 34.22,
         "enterprise_agent_score": 28.08,
         "value_efficiency_score": 38.2,
         "is_pareto_optimal": true
@@ -8773,7 +8773,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 27.85,
-        "coding_composite_score": 25.71,
+        "coding_composite_score": 25.67,
         "enterprise_agent_score": 26.91,
         "value_efficiency_score": 26.1,
         "is_pareto_optimal": false
@@ -8843,7 +8843,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 27.38,
-        "coding_composite_score": 27.72,
+        "coding_composite_score": 27.68,
         "enterprise_agent_score": 27.51,
         "value_efficiency_score": 13.42,
         "is_pareto_optimal": false
@@ -8913,7 +8913,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 23.93,
-        "coding_composite_score": 28.56,
+        "coding_composite_score": 28.53,
         "enterprise_agent_score": 24.03,
         "value_efficiency_score": 22.42,
         "is_pareto_optimal": false
@@ -8983,7 +8983,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 23.76,
-        "coding_composite_score": 21.21,
+        "coding_composite_score": 21.17,
         "enterprise_agent_score": 24.12,
         "value_efficiency_score": 27.15,
         "is_pareto_optimal": false
@@ -9053,7 +9053,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 22.49,
-        "coding_composite_score": 30.43,
+        "coding_composite_score": 30.4,
         "enterprise_agent_score": 16.07,
         "value_efficiency_score": 19.87,
         "is_pareto_optimal": false
@@ -9123,7 +9123,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 21.44,
-        "coding_composite_score": 25.8,
+        "coding_composite_score": 25.76,
         "enterprise_agent_score": 23.25,
         "value_efficiency_score": 22.49,
         "is_pareto_optimal": false
@@ -9263,7 +9263,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 20.42,
-        "coding_composite_score": 21.22,
+        "coding_composite_score": 21.18,
         "enterprise_agent_score": 22.72,
         "value_efficiency_score": 16.6,
         "is_pareto_optimal": false
@@ -9403,7 +9403,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 16.68,
-        "coding_composite_score": 14.63,
+        "coding_composite_score": 14.59,
         "enterprise_agent_score": 17.56,
         "value_efficiency_score": 22.6,
         "is_pareto_optimal": false
@@ -9473,7 +9473,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 16.68,
-        "coding_composite_score": 17.08,
+        "coding_composite_score": 17.04,
         "enterprise_agent_score": 18.79,
         "value_efficiency_score": 15.63,
         "is_pareto_optimal": false
@@ -9543,7 +9543,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 14.73,
-        "coding_composite_score": 14.68,
+        "coding_composite_score": 14.64,
         "enterprise_agent_score": 16.51,
         "value_efficiency_score": 10.0,
         "is_pareto_optimal": false
@@ -9613,7 +9613,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 14.4,
-        "coding_composite_score": 14.85,
+        "coding_composite_score": 14.81,
         "enterprise_agent_score": 16.57,
         "value_efficiency_score": 10.0,
         "is_pareto_optimal": false
@@ -9683,7 +9683,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 12.66,
-        "coding_composite_score": 12.47,
+        "coding_composite_score": 12.43,
         "enterprise_agent_score": 14.33,
         "value_efficiency_score": 13.53,
         "is_pareto_optimal": false
@@ -9753,7 +9753,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 11.19,
-        "coding_composite_score": 12.36,
+        "coding_composite_score": 12.32,
         "enterprise_agent_score": 12.43,
         "value_efficiency_score": 11.74,
         "is_pareto_optimal": false

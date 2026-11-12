@@ -2,11 +2,11 @@
   "source_key": "vals",
   "source_name": "Vals.ai",
   "source_url": "https://www.vals.ai/benchmarks",
-  "fetched_at": "2026-11-12T04:39:16Z",
+  "fetched_at": "2026-11-12T19:15:40Z",
   "status": "live",
   "fetch_status": "live",
   "methodology_version": "Vals Index v2.2",
-  "model_count": 139,
+  "model_count": 140,
   "models": [
     {
       "vals_model_name": "Claude Fable 5.2 (Max)",
@@ -57,6 +57,16 @@
       "tax_agent": 54.8,
       "vibe_code": 57.6,
       "cost_per_test_usd": 13.37
+    },
+    {
+      "vals_model_name": "Gemini 4 Hydrogen",
+      "provider": "Unknown",
+      "vals_index": 68.49,
+      "finance_agent": 65.1,
+      "legal_bench": 82.7,
+      "tax_agent": 53.8,
+      "vibe_code": 54.0,
+      "cost_per_test_usd": 9.84
     },
     {
       "vals_model_name": "Muse Wonder Full (Max)",
@@ -152,10 +162,10 @@
       "vals_model_name": "Tencent Hy4",
       "provider": "Tencent",
       "vals_index": 59.35,
-      "finance_agent": 64.7,
-      "legal_bench": 59.1,
-      "tax_agent": 41.3,
-      "vibe_code": 39.4,
+      "finance_agent": 56.98,
+      "legal_bench": 46.29,
+      "tax_agent": 34.42,
+      "vibe_code": 75.97,
       "cost_per_test_usd": 1.72
     },
     {

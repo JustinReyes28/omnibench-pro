@@ -1,5 +1,5 @@
 {
-  "unmatched_count": 35,
+  "unmatched_count": 40,
   "unmatched_models": [
     {
       "provisional_id": "unmatched-google-gemini-4-carbon-medium",
@@ -16,6 +16,33 @@
         "artificial_analysis"
       ],
       "raw_name": "Gemini 4 Carbon (low)",
+      "provider": "Google",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-google-gemini-4-hydrogen-xhigh",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Gemini 4 Hydrogen (xhigh)",
+      "provider": "Google",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-google-gemini-4-hydrogen-high",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Gemini 4 Hydrogen (high)",
+      "provider": "Google",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-google-gemini-4-hydrogen-medium",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Gemini 4 Hydrogen (medium)",
       "provider": "Google",
       "sources_present": 1
     },
@@ -44,6 +71,15 @@
       ],
       "raw_name": "DeepSeek V4.1 Flash 1017 (high)",
       "provider": "DeepSeek",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-google-gemini-4-hydrogen-low",
+      "source_keys": [
+        "artificial_analysis"
+      ],
+      "raw_name": "Gemini 4 Hydrogen (low)",
+      "provider": "Google",
       "sources_present": 1
     },
     {
@@ -314,6 +350,15 @@
       ],
       "raw_name": "stealth-nebula-v1-preview-20261027",
       "provider": "Stealth Lab",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-google-gemini-4-hydrogen",
+      "source_keys": [
+        "vals"
+      ],
+      "raw_name": "Gemini 4 Hydrogen",
+      "provider": "Google",
       "sources_present": 1
     }
   ]

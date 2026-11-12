@@ -93,13 +93,16 @@ def compute_weighted_composite(
     return round(raw_mean, 2)
 
 
-def mark_pareto_frontier(models: list[dict[str, Any]]) -> None:
-    """Marks is_pareto_optimal=True for models where no other model has higher quality AND lower/equal price."""
+def mark_pareto_frontier(models: list[dict[str, Any]], min_sources_for_pareto: int = 2) -> None:
+    """Marks is_pareto_optimal=True for multi-source corroborated models where no cheaper model has equal/higher quality."""
     candidates = []
     for m in models:
+        comp = m.get("composite") or {}
         price = (m.get("pricing") or {}).get("blended_per_1m_usd")
-        qual = (m.get("composite") or {}).get("unified_quality_score")
-        if price is not None and price > 0 and qual is not None and not (m.get("composite") or {}).get("provisional_ranking"):
+        qual = comp.get("unified_quality_score")
+        sources_present = comp.get("sources_present")
+        corroborated = sources_present is None or int(sources_present) >= min_sources_for_pareto
+        if price is not None and price > 0 and qual is not None and not comp.get("provisional_ranking") and corroborated:
             candidates.append((m["id"], float(price), float(qual)))
 
     pareto_ids: set[str] = set()

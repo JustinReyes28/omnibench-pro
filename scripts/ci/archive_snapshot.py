@@ -97,16 +97,31 @@ def build_historical_and_changelog() -> None:
         }
     ]
 
-    if len(all_models) > 140:
-        newer = [m["display_name"] for m in all_models if m.get("release_date", "") >= "2026-11-10"][:6]
+    newer_models = [
+        m for m in all_models if m.get("release_date", "") > "2026-11-10"
+    ]
+    if newer_models or len(all_models) != 139:
+        newer_names = [m["display_name"] for m in newer_models[:6]]
+        full_count = sum(1 for m in all_models if m["composite"]["sources_present"] == 4)
+        partial_count = len(all_models) - full_count
+        sync_date = max(
+            [current_date, *(m.get("release_date", "") for m in newer_models)]
+        )
         entries.insert(
             0,
             {
-                "date": current_date,
+                "date": sync_date,
                 "type": "release_sync",
-                "summary": f"Autonomous 12-hour sync expanded the verified fleet to {len(all_models)} models.",
+                "summary": (
+                    f"Autonomous 12-hour sync expanded the verified fleet to {len(all_models)} models "
+                    f"({full_count} full 4/4 coverage, {partial_count} early partial-source releases)."
+                ),
                 "highlights": [
-                    f"Newly indexed models include: {', '.join(newer)}." if newer else f"Indexed {len(all_models)} canonical models across all 4 benchmark pillars.",
+                    (
+                        f"Newly indexed flagship releases include: {', '.join(newer_names)}."
+                        if newer_names
+                        else f"Indexed {len(all_models)} canonical models across active benchmark sources."
+                    ),
                 ],
             },
         )

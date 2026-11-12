@@ -177,7 +177,9 @@ export const LeaderboardTable: React.FC<Props> = ({
                 onClick={() => setShowAllInStack(!showAllInStack)}
                 className="border border-[#D8D4C8]/40 bg-[#FFFFFF]/10 px-2 py-1 text-[10px] uppercase text-white hover:bg-white hover:text-[#111317]"
               >
-                {showAllInStack ? 'Show Top 25' : `Show All (${models.length})`}
+                {showAllInStack
+                  ? 'Show Top 25'
+                  : `Show All (${models.filter((m) => !m.composite.provisional_ranking).length})`}
               </button>
             )}
           </div>
@@ -186,10 +188,16 @@ export const LeaderboardTable: React.FC<Props> = ({
         <div className="divide-y divide-[#EBE8E0] p-4 space-y-1 max-h-[560px] overflow-y-auto">
           {topStackModels.map((m, idx) => {
             const p = m.normalized_pillars ?? {};
-            const segAA = (p.aa ?? 0) * shareAA;
-            const segLB = (p.lb ?? 0) * shareLB;
-            const segAR = (p.ar ?? 0) * shareAR;
-            const segVA = (p.va ?? 0) * shareVA;
+            const rawAA = (p.aa ?? 0) * shareAA;
+            const rawLB = (p.lb ?? 0) * shareLB;
+            const rawAR = (p.ar ?? 0) * shareAR;
+            const rawVA = (p.va ?? 0) * shareVA;
+            const rawSum = rawAA + rawLB + rawAR + rawVA;
+            const barScale = rawSum > 0 ? m.dynamicScore / rawSum : 0;
+            const segAA = rawAA * barScale;
+            const segLB = rawLB * barScale;
+            const segAR = rawAR * barScale;
+            const segVA = rawVA * barScale;
             const labStyle = getLabStyle(m.provider);
             const isCompared = comparedIds.includes(m.id);
 
@@ -217,6 +225,14 @@ export const LeaderboardTable: React.FC<Props> = ({
                       <span className="truncate font-heading text-xs font-bold text-[#111317]">
                         {m.display_name}
                       </span>
+                      {m.composite.sources_present < 4 && (
+                        <span
+                          className="shrink-0 border border-[#68707C] bg-[#EBE8E0] px-1 font-mono text-[8px] font-semibold text-[#373C44]"
+                          title={`Evaluated on ${m.composite.sources_present} of 4 benchmark sources`}
+                        >
+                          {m.composite.sources_present}/4 SRC
+                        </span>
+                      )}
                       {m.isDynamicPareto && (
                         <span className="border border-[#C84B31] bg-[#C84B31]/10 px-1 font-mono text-[8px] font-bold text-[#C84B31]">
                           PARETO
@@ -232,7 +248,7 @@ export const LeaderboardTable: React.FC<Props> = ({
                       {m.provider} • {(m.thinking_effort || 'standard').toUpperCase()} •{' '}
                       {m.pricing.blended_per_1m_usd !== null
                         ? `$${m.pricing.blended_per_1m_usd.toFixed(2)}/1M`
-                        : 'Free'}
+                        : 'Price N/A'}
                     </div>
                   </div>
                 </div>
@@ -476,6 +492,14 @@ export const LeaderboardTable: React.FC<Props> = ({
                             <span className="border border-[#255C99] bg-[#255C99]/10 px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase text-[#255C99]">
                               {effort}
                             </span>
+                            {m.composite.sources_present < 4 && (
+                              <span
+                                className="border border-[#68707C] bg-[#EBE8E0] px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase text-[#373C44]"
+                                title={`Evaluated on ${m.composite.sources_present} of 4 benchmark sources`}
+                              >
+                                {m.composite.sources_present}/4 SRC
+                              </span>
+                            )}
                             {m.isDynamicPareto && (
                               <span className="border border-[#C84B31] bg-[#C84B31]/10 px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase text-[#C84B31]">
                                 PARETO
@@ -552,7 +576,7 @@ export const LeaderboardTable: React.FC<Props> = ({
                                     <div>Index: {va.vals_index}%</div>
                                     <div>Finance: {va.finance_agent}% • Legal: {va.legal_bench}%</div>
                                     <div>Tax: {va.tax_agent}% • Vibe Code: {va.vibe_code}%</div>
-                                    <div>Cost/Test: ${va.cost_per_test_usd}</div>
+                                    <div>Cost/Test: {va.cost_per_test_usd !== null ? `$${va.cost_per_test_usd}` : '—'}</div>
                                   </div>
                                 ) : (
                                   <div className="text-[#68707C]">Not evaluated</div>
@@ -566,8 +590,13 @@ export const LeaderboardTable: React.FC<Props> = ({
                                   <div className="space-y-1 text-[#111317]">
                                     <div>Intell: {aa.intelligence_index}%</div>
                                     <div>Coding: {aa.coding_index}% • Math: {aa.math_index}%</div>
-                                    <div>TTFT: {m.performance.ttft_seconds}s</div>
-                                    <div>In/Out: ${m.pricing.input_per_1m_usd}/${m.pricing.output_per_1m_usd}</div>
+                                    <div>TTFT: {m.performance.ttft_seconds !== null ? `${m.performance.ttft_seconds}s` : '—'}</div>
+                                    <div>
+                                      In/Out:{' '}
+                                      {m.pricing.input_per_1m_usd !== null && m.pricing.output_per_1m_usd !== null
+                                        ? `$${m.pricing.input_per_1m_usd}/$${m.pricing.output_per_1m_usd}`
+                                        : '—'}
+                                    </div>
                                   </div>
                                 ) : (
                                   <div className="text-[#68707C]">Not evaluated</div>

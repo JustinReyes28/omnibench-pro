@@ -67,11 +67,29 @@ export function computeDynamicCompositeScore(
 export const computeDynamicScore = computeDynamicCompositeScore;
 
 export function recomputeParetoFrontier(
-  models: Array<{ id: string; dynamicScore?: number; score?: number; blendedPrice: number | null; provisional?: boolean }>
+  models: Array<{
+    id: string;
+    dynamicScore?: number;
+    score?: number;
+    blendedPrice: number | null;
+    provisional?: boolean;
+    sourcesPresent?: number;
+  }>,
+  minSourcesForPareto = 2
 ): Set<string> {
   const valid = models.filter(
-    (m): m is { id: string; dynamicScore?: number; score?: number; blendedPrice: number; provisional?: boolean } =>
-      typeof m.blendedPrice === "number" && m.blendedPrice > 0 && !m.provisional
+    (m): m is {
+      id: string;
+      dynamicScore?: number;
+      score?: number;
+      blendedPrice: number;
+      provisional?: boolean;
+      sourcesPresent?: number;
+    } =>
+      typeof m.blendedPrice === "number" &&
+      m.blendedPrice > 0 &&
+      !m.provisional &&
+      (m.sourcesPresent === undefined || m.sourcesPresent >= minSourcesForPareto)
   );
   const pareto = new Set<string>();
   for (const cand of valid) {
@@ -91,9 +109,16 @@ export function recomputeParetoFrontier(
 }
 
 export function recomputeParetoFlags(
-  models: Array<{ id: string; score: number; blendedPrice: number | null; provisional?: boolean }>
+  models: Array<{
+    id: string;
+    score: number;
+    blendedPrice: number | null;
+    provisional?: boolean;
+    sourcesPresent?: number;
+  }>,
+  minSourcesForPareto = 2
 ): Record<string, boolean> {
-  const set = recomputeParetoFrontier(models);
+  const set = recomputeParetoFrontier(models, minSourcesForPareto);
   const out: Record<string, boolean> = {};
   for (const m of models) {
     out[m.id] = set.has(m.id);
@@ -117,6 +142,7 @@ export function scoreModelsWithWeights(models: CanonicalModel[], weights: Pillar
       dynamicScore: m.dynamicScore,
       blendedPrice: m.pricing.blended_per_1m_usd,
       provisional: Boolean(m.composite.provisional_ranking),
+      sourcesPresent: m.composite.sources_present,
     }))
   );
   return scored

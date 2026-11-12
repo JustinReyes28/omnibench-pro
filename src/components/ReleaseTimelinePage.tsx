@@ -443,6 +443,9 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                       {dateBucket.items.map((item) => {
                         const labStyle = getLabStyle(item.provider);
                         const m = item.topModel;
+                        const maxSources = Math.max(
+                          ...item.variants.map((v) => v.composite.sources_present)
+                        );
                         const efforts = Array.from(
                           new Set(item.variants.map((v) => (v.thinking_effort || 'standard').toUpperCase()))
                         );
@@ -463,6 +466,14 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                                 <span className="font-heading text-sm font-bold text-[#111317]">
                                   {item.baseName}
                                 </span>
+                                {maxSources < 4 && (
+                                  <span
+                                    className="border border-[#68707C] bg-[#EBE8E0] px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase text-[#373C44]"
+                                    title={`Evaluated on ${maxSources} of 4 benchmark sources`}
+                                  >
+                                    {maxSources}/4 SRC
+                                  </span>
+                                )}
                                 {item.isPareto && (
                                   <span className="border border-[#C84B31] bg-[#C84B31]/10 px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase text-[#C84B31]">
                                     PARETO

@@ -40,7 +40,7 @@ class TestDataIntegrity(unittest.TestCase):
         for req_effort in ("max", "xhigh", "high", "medium", "low", "standard"):
             self.assertIn(req_effort, efforts)
 
-        # Ensure latest Nov 2026 frontier and open-weights releases exist
+        # Ensure latest Nov 2026 frontier, flagship, and open-weights releases exist
         for latest_model in (
             "Claude Fable 5.2 (Max)",
             "Claude Fable 5.2 (xHigh)",
@@ -48,6 +48,10 @@ class TestDataIntegrity(unittest.TestCase):
             "Inkling 2 Small",
             "Muse Ember (Max)",
             "Tencent Hy4",
+            "Gemini 4 Hydrogen (xhigh)",
+            "Gemini 4 Hydrogen (high)",
+            "Gemini 4 Hydrogen (medium)",
+            "Gemini 4 Hydrogen (low)",
         ):
             self.assertIn(latest_model, names)
 
@@ -72,26 +76,68 @@ class TestDataIntegrity(unittest.TestCase):
 
     def test_all_models_have_complete_four_source_benchmarks_and_pricing(self) -> None:
         models = self.data.get("models", [])
-        forbidden_providers = {"Wonder", "Mercury", "Mistral", "Stealth Lab", "Agnes", "Nanbeige", "Unknown"}
+        forbidden_providers = {"Wonder", "Mercury", "Mistral", "Stealth Lab", "Agnes", "Anonymous", "Unknown"}
+        source_pillar_pairs = (
+            ("artificial_analysis", "aa"),
+            ("livebench", "lb"),
+            ("arena", "ar"),
+            ("vals", "va"),
+        )
         for m in models:
             mid = m["id"]
             self.assertNotIn(m["provider"], forbidden_providers, f"Invalid provider on {mid}: {m['provider']}")
-            self.assertEqual(m["composite"]["sources_present"], 4, f"Incomplete benchmark sources on {mid}")
-            self.assertEqual(m["composite"]["coverage_ratio"], 1.0, f"Incomplete coverage_ratio on {mid}")
+            sources_present = m["composite"]["sources_present"]
+            self.assertGreaterEqual(sources_present, 1, f"Model {mid} has 0 benchmark sources")
+            self.assertLessEqual(sources_present, 4, f"Model {mid} has invalid source count")
+            self.assertEqual(
+                m["composite"]["coverage_ratio"],
+                round(sources_present / 4.0, 2),
+                f"Mismatched coverage_ratio on {mid}",
+            )
             self.assertFalse(m["composite"]["provisional_ranking"], f"Unexpected provisional model in unified dataset: {mid}")
-            for src in ("artificial_analysis", "livebench", "arena", "vals"):
-                self.assertIsNotNone(m["benchmarks"].get(src), f"Missing {src} benchmark on {mid}")
-            for pillar in ("aa", "lb", "ar", "va"):
+
+            actual_sources = sum(1 for src, _ in source_pillar_pairs if m["benchmarks"].get(src) is not None)
+            self.assertEqual(actual_sources, sources_present, f"Mismatched sources_present on {mid}")
+
+            for src, pillar in source_pillar_pairs:
                 val = m["normalized_pillars"].get(pillar)
-                self.assertIsNotNone(val, f"Missing normalized pillar {pillar} on {mid}")
-                self.assertGreater(val, 0.0, f"Zero normalized pillar {pillar} on {mid}")
-            self.assertIsNotNone(m["pricing"].get("blended_per_1m_usd"), f"Missing blended pricing on {mid}")
-            self.assertGreater(m["pricing"]["blended_per_1m_usd"], 0.0, f"Non-positive pricing on {mid}")
-            self.assertIsNotNone(m["performance"].get("output_tokens_per_sec"), f"Missing speed on {mid}")
+                if m["benchmarks"].get(src) is not None:
+                    self.assertIsNotNone(val, f"Missing normalized pillar {pillar} on {mid}")
+                    self.assertGreater(val, 0.0, f"Zero normalized pillar {pillar} on {mid}")
+                else:
+                    self.assertIsNone(val, f"Unexpected non-null pillar {pillar} without {src} on {mid}")
+
+            if m["benchmarks"].get("artificial_analysis") is not None:
+                self.assertIsNotNone(m["pricing"].get("blended_per_1m_usd"), f"Missing blended pricing on {mid}")
+                self.assertGreater(m["pricing"]["blended_per_1m_usd"], 0.0, f"Non-positive pricing on {mid}")
+                self.assertIsNotNone(m["performance"].get("output_tokens_per_sec"), f"Missing speed on {mid}")
+
+            if sources_present < 2:
+                self.assertFalse(
+                    m["composite"]["is_pareto_optimal"],
+                    f"Single-source model {mid} must not claim Pareto frontier",
+                )
+
+            if "non-reasoning" in m["display_name"].lower():
+                self.assertEqual(m.get("thinking_effort"), "standard", f"Invalid effort on {mid}")
 
         by_id = {m["id"]: m for m in models}
         self.assertAlmostEqual(by_id["openai-gpt-6-astra-max"]["pricing"]["blended_per_1m_usd"], 21.88, places=2)
         self.assertAlmostEqual(by_id["meta-muse-wonder-full-max"]["pricing"]["blended_per_1m_usd"], 10.50, places=2)
+
+        # Gemini 4 Hydrogen flagship coalesces Vals + AA without orphan duplicate
+        self.assertNotIn("google-gemini-4-hydrogen", by_id)
+        h_xhigh = by_id["google-gemini-4-hydrogen-xhigh"]
+        self.assertEqual(h_xhigh["provider"], "Google")
+        self.assertEqual(h_xhigh["release_date"], "2026-11-12")
+        self.assertEqual(h_xhigh["thinking_effort"], "xhigh")
+        self.assertGreaterEqual(h_xhigh["composite"]["sources_present"], 2)
+        self.assertIsNotNone(h_xhigh["benchmarks"]["artificial_analysis"])
+        self.assertIsNotNone(h_xhigh["benchmarks"]["vals"])
+
+        # Series names containing effort words must not misclassify as reasoning effort
+        self.assertEqual(by_id["mistral-medium-3-5"]["thinking_effort"], "standard")
+        self.assertNotIn("unmatched-stealth-nebula-v1", by_id)
 
     def test_semantic_diff_ignores_volatile_timestamps(self) -> None:
         clone = copy.deepcopy(self.data)

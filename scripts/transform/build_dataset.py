@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from scripts.transform.entity_resolver import EntityResolver
+from scripts.transform.entity_resolver import EntityResolver, is_stealth_model, model_family_key
 from scripts.transform.normalizer import (
     compute_percentile_ranks,
     compute_weighted_composite,
@@ -19,16 +19,40 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 RAW_DIR = ROOT_DIR / "data" / "raw"
 PUBLIC_DATA_DIR = ROOT_DIR / "public" / "data"
 
+_ALL_SOURCES = ("artificial_analysis", "livebench", "arena", "vals")
+_FLAGSHIP_EFFORT_ORDER = {"max": 0, "xhigh": 1, "high": 2}
 
-def build_unified_dataset() -> dict[str, Any]:
-    resolver = EntityResolver()
 
-    aa_raw = json.loads((RAW_DIR / "artificial_analysis" / "latest.json").read_text(encoding="utf-8"))
-    lb_raw = json.loads((RAW_DIR / "livebench" / "latest.json").read_text(encoding="utf-8"))
-    ar_raw = json.loads((RAW_DIR / "arena" / "latest.json").read_text(encoding="utf-8"))
-    va_raw = json.loads((RAW_DIR / "vals" / "latest.json").read_text(encoding="utf-8"))
+def build_unified_dataset(
+    aliases_path: Path | None = None,
+    raw_dir: Path | None = None,
+    public_data_dir: Path | None = None,
+    unmatched_path: Path | None = None,
+) -> dict[str, Any]:
+    resolver = EntityResolver(aliases_path=aliases_path)
+    src_root = raw_dir or RAW_DIR
+    out_dir = public_data_dir or PUBLIC_DATA_DIR
+
+    aa_raw = json.loads((src_root / "artificial_analysis" / "latest.json").read_text(encoding="utf-8"))
+    lb_raw = json.loads((src_root / "livebench" / "latest.json").read_text(encoding="utf-8"))
+    ar_raw = json.loads((src_root / "arena" / "latest.json").read_text(encoding="utf-8"))
+    va_raw = json.loads((src_root / "vals" / "latest.json").read_text(encoding="utf-8"))
+
+    aa_default_date = str(aa_raw.get("fetched_at") or "")[:10] or None
+    lb_default_date = (
+        str(lb_raw.get("release") or "").replace("_", "-")[:10]
+        or str(lb_raw.get("fetched_at") or "")[:10]
+        or None
+    )
+    ar_default_date = str(ar_raw.get("fetched_at") or "")[:10] or None
+    va_default_date = str(va_raw.get("fetched_at") or "")[:10] or None
 
     merged: dict[str, dict[str, Any]] = {}
+    source_family_counts: dict[tuple[str, str, str], int] = {}
+
+    def record_source_family(source_key: str, cid: str, meta: dict[str, Any]) -> None:
+        fk = (source_key, meta["provider"], model_family_key(cid, meta["provider"]))
+        source_family_counts[fk] = source_family_counts.get(fk, 0) + 1
 
     def ensure_record(cid: str, meta: dict[str, Any]) -> dict[str, Any]:
         if cid not in merged:
@@ -63,8 +87,15 @@ def build_unified_dataset() -> dict[str, Any]:
     # 1. Artificial Analysis
     for item in aa_raw.get("models", []):
         cid, tier, meta = resolver.resolve(
-            "artificial_analysis", item["model_name"], item.get("provider", "Unknown"), auto_promote=True
+            "artificial_analysis",
+            item["model_name"],
+            item.get("provider", "Unknown"),
+            auto_promote=True,
+            default_release_date=aa_default_date,
         )
+        if tier == "tier3_quarantine" or cid.startswith("unmatched-"):
+            continue
+        record_source_family("artificial_analysis", cid, meta)
         rec = ensure_record(cid, meta)
         if tier in ("tier2_auto_promoted", "tier3_quarantine"):
             if item.get("release_date"):
@@ -80,13 +111,13 @@ def build_unified_dataset() -> dict[str, Any]:
                 rec["context_window"] = int(item["context_window"])
                 meta["context_window"] = int(item["context_window"])
         rec["pricing"] = {
-            "input_per_1m_usd": round(float(item["input_price_per_1m"]), 3),
-            "output_per_1m_usd": round(float(item["output_price_per_1m"]), 3),
-            "blended_per_1m_usd": round(float(item["blended_price_per_1m"]), 3),
+            "input_per_1m_usd": round(float(item["input_price_per_1m"]), 3) if item.get("input_price_per_1m") is not None else None,
+            "output_per_1m_usd": round(float(item["output_price_per_1m"]), 3) if item.get("output_price_per_1m") is not None else None,
+            "blended_per_1m_usd": round(float(item["blended_price_per_1m"]), 3) if item.get("blended_price_per_1m") is not None else None,
         }
         rec["performance"] = {
-            "output_tokens_per_sec": round(float(item["output_tokens_per_second"]), 1),
-            "ttft_seconds": round(float(item["ttft_seconds"]), 2),
+            "output_tokens_per_sec": round(float(item["output_tokens_per_second"]), 1) if item.get("output_tokens_per_second") is not None else None,
+            "ttft_seconds": round(float(item["ttft_seconds"]), 2) if item.get("ttft_seconds") is not None else None,
         }
         rec["benchmarks"]["artificial_analysis"] = {
             "intelligence_index": round(float(item["intelligence_index"]), 2),
@@ -97,8 +128,15 @@ def build_unified_dataset() -> dict[str, Any]:
     # 2. LiveBench
     for item in lb_raw.get("models", []):
         cid, tier, meta = resolver.resolve(
-            "livebench", item.get("model_key") or item["display_name"], item.get("provider", "Unknown"), auto_promote=True
+            "livebench",
+            item.get("model_key") or item["display_name"],
+            item.get("provider", "Unknown"),
+            auto_promote=True,
+            default_release_date=lb_default_date,
         )
+        if tier == "tier3_quarantine" or cid.startswith("unmatched-"):
+            continue
+        record_source_family("livebench", cid, meta)
         rec = ensure_record(cid, meta)
         if tier in ("tier2_auto_promoted", "tier3_quarantine") and item.get("display_name"):
             rec["display_name"] = item["display_name"]
@@ -118,13 +156,23 @@ def build_unified_dataset() -> dict[str, Any]:
     # 3. Arena.ai
     for item in ar_raw.get("models", []):
         cid, tier, meta = resolver.resolve(
-            "arena", item.get("arena_model_id") or item["display_name"], item.get("organization", "Unknown"), auto_promote=True
+            "arena",
+            item.get("arena_model_id") or item["display_name"],
+            item.get("organization", "Unknown"),
+            auto_promote=True,
+            default_release_date=ar_default_date,
         )
+        if tier == "tier3_quarantine" or cid.startswith("unmatched-"):
+            continue
+        record_source_family("arena", cid, meta)
         rec = ensure_record(cid, meta)
         if tier in ("tier2_auto_promoted", "tier3_quarantine") and item.get("display_name"):
             rec["display_name"] = item["display_name"]
             meta["display_name"] = item["display_name"]
-        if tier in ("tier2_auto_promoted", "tier3_quarantine") and item.get("license"):
+        if item.get("license") and (
+            tier in ("tier2_auto_promoted", "tier3_quarantine")
+            or (cid in resolver.auto_promoted_ids and rec["license"] == "Proprietary")
+        ):
             rec["license"] = item["license"]
             rec["is_open_weights"] = item["license"].lower() not in ("proprietary", "commercial")
             meta["license"] = rec["license"]
@@ -140,9 +188,16 @@ def build_unified_dataset() -> dict[str, Any]:
 
     # 4. Vals.ai
     for item in va_raw.get("models", []):
-        cid, _, meta = resolver.resolve(
-            "vals", item["vals_model_name"], item.get("provider", "Unknown"), auto_promote=True
+        cid, tier, meta = resolver.resolve(
+            "vals",
+            item["vals_model_name"],
+            item.get("provider", "Unknown"),
+            auto_promote=True,
+            default_release_date=va_default_date,
         )
+        if tier == "tier3_quarantine" or cid.startswith("unmatched-"):
+            continue
+        record_source_family("vals", cid, meta)
         rec = ensure_record(cid, meta)
         rec["benchmarks"]["vals"] = {
             "vals_index": round(float(item["vals_index"]), 2),
@@ -153,18 +208,70 @@ def build_unified_dataset() -> dict[str, Any]:
             "cost_per_test_usd": round(float(item["cost_per_test_usd"]), 2) if item.get("cost_per_test_usd") is not None else None,
         }
 
-    # Quarantine any incomplete models (fewer than 4 benchmark sources) so single-source
-    # upstream scrapes never pollute the canonical registry or render broken single-bar rows.
-    incomplete_cids = [
+    # 5. Bidirectional Cross-Source Flagship Effort Coalescing:
+    # When sources like Vals/Arena omit effort tiers (e.g. "Gemini 4 Hydrogen") while AA splits
+    # explicit tiers (xhigh/high/medium/low), link the untagged record onto the highest flagship tier.
+    by_family: dict[tuple[str, str], list[str]] = {}
+    for cid, rec in merged.items():
+        fk = (rec["provider"], model_family_key(cid, rec["provider"]))
+        by_family.setdefault(fk, []).append(cid)
+
+    for fk, cids in by_family.items():
+        if len(cids) < 2:
+            continue
+        targets = sorted(
+            (c for c in cids if merged[c].get("thinking_effort") in _FLAGSHIP_EFFORT_ORDER),
+            key=lambda c: _FLAGSHIP_EFFORT_ORDER[merged[c]["thinking_effort"]],
+        )
+        if not targets:
+            continue
+
+        for std_cid in cids:
+            if std_cid not in merged:
+                continue
+            std_rec = merged[std_cid]
+            if std_rec.get("thinking_effort", "standard") != "standard":
+                continue
+            if std_rec.get("reasoning_mode") == "non_reasoning" or "non-reasoning" in std_rec.get("display_name", "").lower():
+                continue
+            std_sources = {s for s in _ALL_SOURCES if std_rec["benchmarks"].get(s) is not None}
+            if not std_sources:
+                continue
+            if not all(source_family_counts.get((s, fk[0], fk[1]), 0) == 1 for s in std_sources):
+                continue
+
+            for tgt_cid in targets:
+                if tgt_cid == std_cid or tgt_cid not in merged:
+                    continue
+                tgt_rec = merged[tgt_cid]
+                tgt_sources = {s for s in _ALL_SOURCES if tgt_rec["benchmarks"].get(s) is not None}
+                if std_sources.isdisjoint(tgt_sources):
+                    merged.pop(std_cid)
+                    for s in _ALL_SOURCES:
+                        if std_rec["benchmarks"].get(s) is not None and tgt_rec["benchmarks"].get(s) is None:
+                            tgt_rec["benchmarks"][s] = std_rec["benchmarks"][s]
+                    if tgt_rec["pricing"]["blended_per_1m_usd"] is None and std_rec["pricing"]["blended_per_1m_usd"] is not None:
+                        tgt_rec["pricing"] = std_rec["pricing"]
+                    if tgt_rec["performance"]["output_tokens_per_sec"] is None and std_rec["performance"]["output_tokens_per_sec"] is not None:
+                        tgt_rec["performance"] = std_rec["performance"]
+                    if std_rec["context_window"] > tgt_rec["context_window"]:
+                        tgt_rec["context_window"] = std_rec["context_window"]
+                    if not tgt_rec.get("is_open_weights") and std_rec.get("is_open_weights"):
+                        tgt_rec["is_open_weights"] = True
+                        tgt_rec["license"] = std_rec["license"]
+                    resolver.merge_and_retire_canonical(std_cid, tgt_cid)
+                    break
+
+    # 6. Quarantine stealth/unattributable or empty-benchmark records so invalid placeholders never publish
+    invalid_cids = [
         cid
         for cid, rec in merged.items()
-        if sum(1 for k in ("artificial_analysis", "livebench", "arena", "vals") if rec["benchmarks"].get(k) is not None) < 4
+        if is_stealth_model(rec["provider"], rec["display_name"])
+        or sum(1 for k in _ALL_SOURCES if rec["benchmarks"].get(k) is not None) < 1
     ]
-    for cid in incomplete_cids:
+    for cid in invalid_cids:
         rec = merged.pop(cid)
-        present_sources = [
-            k for k in ("artificial_analysis", "livebench", "arena", "vals") if rec["benchmarks"].get(k) is not None
-        ]
+        present_sources = [k for k in _ALL_SOURCES if rec["benchmarks"].get(k) is not None]
         if cid in resolver.auto_promoted_ids:
             resolver.auto_promoted_ids.discard(cid)
             resolver.canonical_models.pop(cid, None)
@@ -176,8 +283,8 @@ def build_unified_dataset() -> dict[str, Any]:
             "sources_present": len(present_sources),
         })
 
-    resolver.save_registry()
-    resolver.save_unmatched_queue()
+    resolver.save_registry(path=aliases_path)
+    resolver.save_unmatched_queue(path=unmatched_path)
 
     # Compute calibrated normalized scores across all 4 sources
     aa_map = {
@@ -315,8 +422,8 @@ def build_unified_dataset() -> dict[str, Any]:
         "models": models_list,
     }
 
-    PUBLIC_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = PUBLIC_DATA_DIR / "models_unified.json"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / "models_unified.json"
     serialized = json.dumps(payload, indent=2, allow_nan=False)
     out_path.write_text(serialized + "\n", encoding="utf-8")
     size_kb = out_path.stat().st_size / 1024.0

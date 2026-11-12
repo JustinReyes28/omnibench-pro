@@ -605,6 +605,14 @@ export const ParetoChart: React.FC<Props> = ({
                   <span>{hoveredModel.performance.output_tokens_per_sec.toFixed(0)} tok/s</span>
                 </div>
               )}
+              {hoveredModel.composite.sources_present < 4 && (
+                <div className="flex justify-between">
+                  <span>Coverage:</span>
+                  <span className="font-semibold text-[#68707C]">
+                    {hoveredModel.composite.sources_present}/4 sources
+                  </span>
+                </div>
+              )}
               {hoveredModel.isDynamicPareto && (
                 <div className="mt-1 border-t border-[#D8D4C8] pt-1 font-bold uppercase text-[#C84B31]">
                   ★ Pareto Frontier Optimal

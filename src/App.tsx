@@ -43,6 +43,7 @@ export const App: React.FC = () => {
         score: m.dynamicScore,
         blendedPrice: m.pricing.blended_per_1m_usd,
         provisional: Boolean(m.composite.provisional_ranking),
+        sourcesPresent: m.composite.sources_present,
       }))
     );
 

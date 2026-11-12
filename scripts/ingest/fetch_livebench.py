@@ -36,6 +36,15 @@ class LiveBenchFetcher(BaseFetcher):
         "https://livebench.ai",
     )
 
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        self._latest_release: str | None = None
+
+    def get_extra_meta(self) -> dict[str, Any] | None:
+        if self._latest_release:
+            return {"release": self._latest_release}
+        return None
+
     @staticmethod
     def compute_category_averages(
         row: dict[str, float], categories_map: dict[str, list[str]]
@@ -123,6 +132,7 @@ class LiveBenchFetcher(BaseFetcher):
                             "cost_per_question_usd": None,
                         })
                     if models:
+                        self._latest_release = release.replace("_", "-")
                         return models
                 except Exception:
                     continue

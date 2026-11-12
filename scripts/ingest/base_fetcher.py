@@ -298,6 +298,10 @@ class BaseFetcher:
         self.latest_path.write_text(serialized + "\n", encoding="utf-8")
         return payload
 
+    def get_extra_meta(self) -> dict[str, Any] | None:
+        """Optional hook for concrete fetchers to attach extra snapshot metadata (e.g., release dates)."""
+        return None
+
     def fetch_live_models(self) -> list[dict[str, Any]]:
         """Implemented by concrete source adapters."""
         raise NotImplementedError
@@ -312,7 +316,7 @@ class BaseFetcher:
             if not live_models:
                 raise ValueError("Upstream returned 0 models")
             merged_models = self.merge_with_lkg(live_models)
-            return self.save_snapshot(merged_models, status="live")
+            return self.save_snapshot(merged_models, status="live", extra_meta=self.get_extra_meta())
         except Exception as exc:
             logger.warning("[%s] Live fetch unavailable (%s); using Last-Known-Good snapshot.", self.source_key, exc)
             return self.load_lkg_snapshot()

@@ -30,19 +30,26 @@ export const ModelComparisonModal: React.FC<Props> = ({ models, onRemove }) => {
             <div className="mt-2 space-y-1 font-mono text-[11px] text-[#373C44]">
               <div className="flex justify-between">
                 <span>Unified Score:</span>
-                <span className="font-bold text-[#C84B31]">{m.dynamicScore.toFixed(2)}</span>
+                <span className="font-bold text-[#C84B31]">
+                  {m.dynamicScore.toFixed(2)}
+                  {m.composite.sources_present < 4 ? ` (${m.composite.sources_present}/4)` : ''}
+                </span>
               </div>
               <div className="flex justify-between">
                 <span>Vals Index:</span>
-                <span>{m.benchmarks.vals?.vals_index ?? '—'}%</span>
+                <span>{m.benchmarks.vals ? `${m.benchmarks.vals.vals_index}%` : '—'}</span>
               </div>
               <div className="flex justify-between">
                 <span>AA Intelligence:</span>
-                <span>{m.benchmarks.artificial_analysis?.intelligence_index ?? '—'}%</span>
+                <span>
+                  {m.benchmarks.artificial_analysis
+                    ? `${m.benchmarks.artificial_analysis.intelligence_index}%`
+                    : '—'}
+                </span>
               </div>
               <div className="flex justify-between">
                 <span>LiveBench Avg:</span>
-                <span>{m.benchmarks.livebench?.global_average ?? '—'}%</span>
+                <span>{m.benchmarks.livebench ? `${m.benchmarks.livebench.global_average}%` : '—'}</span>
               </div>
               <div className="flex justify-between">
                 <span>Arena Text Elo:</span>

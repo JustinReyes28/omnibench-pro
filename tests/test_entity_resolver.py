@@ -10,6 +10,9 @@ from scripts.transform.entity_resolver import (
     ALIASES_PATH,
     EntityResolver,
     _infer_effort_and_mode,
+    _infer_provider,
+    format_display_name,
+    model_family_key,
     normalize_slug,
 )
 from scripts.transform.normalizer import mark_pareto_frontier
@@ -96,6 +99,42 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
                 "artificial_analysis", "FutureModel Omega 9", "OpenAI", auto_promote=True, default_release_date="2026-12-01"
             )
             self.assertEqual(meta_new["release_date"], "2026-12-01")
+
+    def test_format_display_name_and_family_inheritance(self) -> None:
+        self.assertEqual(format_display_name("gpt-5.2-codex"), "GPT-5.2-Codex")
+        self.assertEqual(format_display_name("glm-5.2"), "GLM-5.2")
+        self.assertEqual(format_display_name("kimi-k2.7-code"), "Kimi K2.7 Code")
+        self.assertEqual(format_display_name("grok-build-0.1"), "Grok Build 0.1")
+        self.assertEqual(format_display_name("qwen3.6-27b"), "Qwen3.6-27B")
+        self.assertEqual(format_display_name("grok-4.3"), "Grok 4.3")
+        self.assertEqual(format_display_name("gpt-5.5"), "GPT-5.5")
+        self.assertEqual(format_display_name("gpt-5.5-high"), "GPT-5.5 (High)")
+        self.assertEqual(format_display_name("gpt-oss-120b (high)"), "gpt-oss-120b (high)")
+        self.assertEqual(_infer_provider("North Mini Code", "Unknown"), "Cohere")
+
+        # Qwen-3-8 canonical family key matches human-formatted Qwen3.8 siblings
+        self.assertEqual(
+            model_family_key("qwen-3-8-27b-xhigh", "Alibaba"),
+            model_family_key("Qwen3.8 27B (medium)", "Alibaba"),
+        )
+
+        # Future effort variant inherits open-weights, license, release_date, and context_window from curated sibling
+        with tempfile.TemporaryDirectory() as tmpdir:
+            aliases_copy = Path(tmpdir) / "model_aliases.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+            res = EntityResolver(aliases_path=aliases_copy)
+
+            _, tier_q, meta_q = res.resolve("artificial_analysis", "Qwen3.8 27B (minimal)", "Alibaba", auto_promote=True)
+            self.assertEqual(tier_q, "tier2_auto_promoted")
+            self.assertTrue(meta_q["is_open_weights"])
+            self.assertEqual(meta_q["license"], "Apache-2.0")
+            self.assertEqual(meta_q["release_date"], "2026-09-02")
+
+            _, tier_d, meta_d = res.resolve("artificial_analysis", "DeepSeek V4.1 Flash 1017 (minimal)", "DeepSeek", auto_promote=True)
+            self.assertEqual(tier_d, "tier2_auto_promoted")
+            self.assertTrue(meta_d["is_open_weights"])
+            self.assertEqual(meta_d["license"], "MIT")
+            self.assertEqual(meta_d["release_date"], "2026-10-17")
 
     def test_stealth_model_never_auto_promoted(self) -> None:
         cid, tier, _ = self.resolver.resolve(
@@ -202,6 +241,77 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
             self.assertIn("openai-gpt-5-5", by_id)
             self.assertIn("openai-gpt-5-5-high", by_id)
             self.assertIn("openai-gpt-5-5-xhigh", by_id)
+
+    def test_livebench_snapshot_release_ignored_and_auto_metadata_upgraded(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            raw_dir = tmp / "raw"
+            pub_dir = tmp / "public_data"
+            aliases_copy = tmp / "model_aliases.json"
+            unmatched_copy = tmp / "unmatched_models.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                (raw_dir / src).mkdir(parents=True, exist_ok=True)
+                (raw_dir / src / "latest.json").write_text(
+                    json.dumps({"fetched_at": "2026-12-05T00:00:00Z", "release": "2026-12-05", "models": []}),
+                    encoding="utf-8",
+                )
+
+            # LiveBench snapshot filename release ("2026-12-05") must NOT override item's first_seen ("2026-12-03")
+            lb_path = raw_dir / "livebench" / "latest.json"
+            lb_path.write_text(json.dumps({
+                "fetched_at": "2026-12-05T00:00:00Z",
+                "release": "2026-12-05",
+                "models": [
+                    {
+                        "model_key": "grok-build-9.9",
+                        "display_name": "grok-build-9.9",
+                        "provider": "Unknown",
+                        "first_seen": "2026-12-03",
+                        "global_average": 75.0,
+                        "coding": 80.0,
+                        "mathematics": 75.0,
+                        "reasoning": 75.0,
+                        "data_analysis": 75.0,
+                        "language": 75.0,
+                        "instruction_following": 75.0,
+                        "agentic_coding": 75.0,
+                    }
+                ],
+            }), encoding="utf-8")
+
+            build1 = build_unified_dataset(
+                aliases_path=aliases_copy,
+                raw_dir=raw_dir,
+                public_data_dir=pub_dir,
+                unmatched_path=unmatched_copy,
+            )
+            by_id1 = {m["id"]: m for m in build1["models"]}
+            g = by_id1["xai-grok-build-9-9"]
+            self.assertEqual(g["display_name"], "Grok Build 9.9")
+            self.assertEqual(g["release_date"], "2026-12-03")
+
+            # Later, enricher fills in true upstream release_date, context_window, and open_weights
+            lb_data = json.loads(lb_path.read_text(encoding="utf-8"))
+            lb_data["models"][0]["release_date"] = "2026-08-19"
+            lb_data["models"][0]["context_window"] = 256000
+            lb_data["models"][0]["open_weights"] = True
+            lb_data["models"][0]["license"] = "Apache-2.0"
+            lb_path.write_text(json.dumps(lb_data), encoding="utf-8")
+
+            build2 = build_unified_dataset(
+                aliases_path=aliases_copy,
+                raw_dir=raw_dir,
+                public_data_dir=pub_dir,
+                unmatched_path=unmatched_copy,
+            )
+            by_id2 = {m["id"]: m for m in build2["models"]}
+            g2 = by_id2["xai-grok-build-9-9"]
+            self.assertEqual(g2["release_date"], "2026-08-19")
+            self.assertEqual(g2["context_window"], 256000)
+            self.assertTrue(g2["is_open_weights"])
+            self.assertEqual(g2["license"], "Apache-2.0")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-"""Runs all 4 Phase 1 ingestion adapters with Last-Known-Good fallback."""
+"""Runs all 4 Phase 1 ingestion adapters with Last-Known-Good fallback and metadata enrichment."""
 
 from __future__ import annotations
 import sys
@@ -6,6 +6,7 @@ from scripts.ingest.fetch_artificial_analysis import ArtificialAnalysisFetcher
 from scripts.ingest.fetch_livebench import LiveBenchFetcher
 from scripts.ingest.fetch_arena import ArenaFetcher
 from scripts.ingest.fetch_vals import ValsFetcher
+from scripts.ingest.metadata_enricher import enrich_snapshots
 
 
 def run_all(offline_mode: bool | None = None) -> dict[str, dict]:
@@ -22,6 +23,9 @@ def run_all(offline_mode: bool | None = None) -> dict[str, dict]:
         print(
             f"[ingest] {adapter.source_name:<22} | status={snap['fetch_status']:<15} | models={len(snap['models'])}"
         )
+    enrich_res = enrich_snapshots(offline_mode=offline_mode)
+    if not enrich_res.get("skipped"):
+        print(f"[ingest] Metadata Enricher      | newly_enriched={enrich_res.get('enriched_count', 0)}")
     return results
 
 

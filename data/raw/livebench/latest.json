@@ -20,7 +20,8 @@
       "language": 81.26,
       "instruction_following": 62.55,
       "agentic_coding": 39.7,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-opus-4-6-high",
@@ -34,7 +35,8 @@
       "language": 83.27,
       "instruction_following": 63.31,
       "agentic_coding": 48.99,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-opus-4-7-xhigh",
@@ -48,7 +50,8 @@
       "language": 77.91,
       "instruction_following": 66.74,
       "agentic_coding": 50.66,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-opus-4-8-xhigh",
@@ -62,7 +65,8 @@
       "language": 81.42,
       "instruction_following": 72.37,
       "agentic_coding": 56.06,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-sonnet-4-6-medium",
@@ -76,7 +80,8 @@
       "language": 76.1,
       "instruction_following": 63.22,
       "agentic_coding": 42.63,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-sonnet-5-xhigh",
@@ -90,7 +95,8 @@
       "language": 74.97,
       "instruction_following": 63.86,
       "agentic_coding": 51.06,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "deepseek-v4-flash-0731",
@@ -104,7 +110,8 @@
       "language": 70.12,
       "instruction_following": 63.14,
       "agentic_coding": 37.63,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "deepseek-v4-pro-0813",
@@ -118,7 +125,8 @@
       "language": 78.13,
       "instruction_following": 62.35,
       "agentic_coding": 42.63,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-3-1-pro-high",
@@ -132,7 +140,8 @@
       "language": 85.38,
       "instruction_following": 79.1,
       "agentic_coding": 45.4,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-3-5-flash-high",
@@ -146,12 +155,13 @@
       "language": 84.58,
       "instruction_following": 75.6,
       "agentic_coding": 48.99,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "glm-5.2",
-      "display_name": "glm-5.2",
-      "provider": "Unknown",
+      "display_name": "GLM-5.2",
+      "provider": "Z.AI",
       "global_average": 73.18,
       "coding": 79.65,
       "mathematics": 89.78,
@@ -160,7 +170,13 @@
       "language": 76.24,
       "instruction_following": 62.29,
       "agentic_coding": 51.92,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "release_date": "2026-06-16",
+      "open_weights": true,
+      "license": "MIT",
+      "context_window": 1000000,
+      "metadata_verified": true,
+      "first_seen": "2026-11-12"
     },
     {
       "model_key": "openai-gpt-5-2-high",
@@ -174,12 +190,13 @@
       "language": 79.81,
       "instruction_following": 61.77,
       "agentic_coding": 50.25,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "gpt-5.2-codex",
-      "display_name": "gpt-5.2-codex",
-      "provider": "Unknown",
+      "display_name": "GPT-5.2-Codex",
+      "provider": "OpenAI",
       "global_average": 73.97,
       "coding": 83.62,
       "mathematics": 88.77,
@@ -188,7 +205,13 @@
       "language": 73.68,
       "instruction_following": 66.45,
       "agentic_coding": 49.39,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "release_date": "2025-12-18",
+      "open_weights": false,
+      "license": "Proprietary",
+      "context_window": 400000,
+      "metadata_verified": true,
+      "first_seen": "2026-11-12"
     },
     {
       "model_key": "openai-gpt-5-4-mini-xhigh",
@@ -202,7 +225,8 @@
       "language": 70.95,
       "instruction_following": 59.8,
       "agentic_coding": 41.67,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-5-4-nano-xhigh",
@@ -216,7 +240,8 @@
       "language": 62.51,
       "instruction_following": 67.2,
       "agentic_coding": 46.77,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-5-4-xhigh",
@@ -230,12 +255,13 @@
       "language": 82.63,
       "instruction_following": 70.22,
       "agentic_coding": 53.84,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "gpt-5.5",
-      "display_name": "gpt-5.5",
-      "provider": "Unknown",
+      "display_name": "GPT-5.5",
+      "provider": "OpenAI",
       "global_average": 72.15,
       "coding": 78.63,
       "mathematics": 69.77,
@@ -244,12 +270,18 @@
       "language": 85.57,
       "instruction_following": 65.74,
       "agentic_coding": 41.11,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "release_date": "2026-03-10",
+      "open_weights": false,
+      "license": "Proprietary",
+      "context_window": 1050000,
+      "metadata_verified": true,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "gpt-5.5-high",
-      "display_name": "gpt-5.5-high",
-      "provider": "Unknown",
+      "display_name": "GPT-5.5 (High)",
+      "provider": "OpenAI",
       "global_average": 78.75,
       "coding": 80.04,
       "mathematics": 95.19,
@@ -258,7 +290,13 @@
       "language": 87.76,
       "instruction_following": 71.38,
       "agentic_coding": 46.77,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "release_date": "2026-03-10",
+      "open_weights": false,
+      "license": "Proprietary",
+      "context_window": 1050000,
+      "metadata_verified": true,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-5-5-xhigh",
@@ -272,12 +310,13 @@
       "language": 87.36,
       "instruction_following": 70.73,
       "agentic_coding": 52.07,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "grok-4.3",
-      "display_name": "grok-4.3",
-      "provider": "Unknown",
+      "display_name": "Grok 4.3",
+      "provider": "xAI",
       "global_average": 62.25,
       "coding": 69.93,
       "mathematics": 84.34,
@@ -286,12 +325,18 @@
       "language": 73.58,
       "instruction_following": 62.75,
       "agentic_coding": 18.54,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "release_date": "2026-04-30",
+      "open_weights": false,
+      "license": "Proprietary",
+      "context_window": 1000000,
+      "metadata_verified": true,
+      "first_seen": "2026-11-12"
     },
     {
       "model_key": "grok-build-0.1",
-      "display_name": "grok-build-0.1",
-      "provider": "Unknown",
+      "display_name": "Grok Build 0.1",
+      "provider": "xAI",
       "global_average": 67.78,
       "coding": 65.39,
       "mathematics": 78.43,
@@ -300,7 +345,13 @@
       "language": 72.46,
       "instruction_following": 65.22,
       "agentic_coding": 45.81,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "release_date": "2026-05-20",
+      "open_weights": false,
+      "license": "Proprietary",
+      "context_window": 256000,
+      "metadata_verified": true,
+      "first_seen": "2026-11-12"
     },
     {
       "model_key": "moonshot-kimi-k2-6-thinking",
@@ -314,12 +365,13 @@
       "language": 75.14,
       "instruction_following": 64.36,
       "agentic_coding": 46.92,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "kimi-k2.7-code",
-      "display_name": "kimi-k2.7-code",
-      "provider": "Unknown",
+      "display_name": "Kimi K2.7 Code",
+      "provider": "Moonshot AI",
       "global_average": 68.41,
       "coding": 73.96,
       "mathematics": 79.6,
@@ -328,7 +380,13 @@
       "language": 77.91,
       "instruction_following": 56.29,
       "agentic_coding": 45.66,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "release_date": "2026-06-12",
+      "open_weights": true,
+      "license": "Modified MIT",
+      "context_window": 262000,
+      "metadata_verified": true,
+      "first_seen": "2026-11-12"
     },
     {
       "model_key": "minimax-m3",
@@ -342,12 +400,13 @@
       "language": 76.84,
       "instruction_following": 57.51,
       "agentic_coding": 40.66,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "qwen3.6-27b",
-      "display_name": "qwen3.6-27b",
-      "provider": "Unknown",
+      "display_name": "Qwen3.6-27B",
+      "provider": "Alibaba",
       "global_average": 64.03,
       "coding": 71.78,
       "mathematics": 79.87,
@@ -356,7 +415,13 @@
       "language": 63.3,
       "instruction_following": 53.23,
       "agentic_coding": 39.29,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "release_date": "2026-04-21",
+      "open_weights": true,
+      "license": "Apache-2.0",
+      "context_window": 262000,
+      "metadata_verified": true,
+      "first_seen": "2026-11-12"
     },
     {
       "model_key": "qwen-3-6-plus",
@@ -370,7 +435,8 @@
       "language": 74.99,
       "instruction_following": 58.34,
       "agentic_coding": 41.36,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "qwen-3-7-max",
@@ -384,7 +450,8 @@
       "language": 79.74,
       "instruction_following": 74.04,
       "agentic_coding": 43.59,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-xhigh",
@@ -398,7 +465,8 @@
       "language": 89.46,
       "instruction_following": 72.0,
       "agentic_coding": 50.66,
-      "cost_per_question_usd": null
+      "cost_per_question_usd": null,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-2-max",
@@ -412,7 +480,8 @@
       "language": 84.1,
       "instruction_following": 85.0,
       "agentic_coding": 82.9,
-      "cost_per_question_usd": 0.058
+      "cost_per_question_usd": 0.058,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-2-xhigh",
@@ -426,7 +495,8 @@
       "language": 85.1,
       "instruction_following": 86.9,
       "agentic_coding": 82.9,
-      "cost_per_question_usd": 0.049
+      "cost_per_question_usd": 0.049,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-2-high",
@@ -440,7 +510,8 @@
       "language": 82.5,
       "instruction_following": 84.1,
       "agentic_coding": 78.4,
-      "cost_per_question_usd": 0.034
+      "cost_per_question_usd": 0.034,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-2-medium",
@@ -454,7 +525,8 @@
       "language": 79.4,
       "instruction_following": 80.8,
       "agentic_coding": 72.1,
-      "cost_per_question_usd": 0.019
+      "cost_per_question_usd": 0.019,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-2-low",
@@ -468,7 +540,8 @@
       "language": 75.6,
       "instruction_following": 76.9,
       "agentic_coding": 65.9,
-      "cost_per_question_usd": 0.012
+      "cost_per_question_usd": 0.012,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "thinking-machines-inkling-2-small",
@@ -482,7 +555,8 @@
       "language": 54.2,
       "instruction_following": 56.8,
       "agentic_coding": 41.3,
-      "cost_per_question_usd": 0.0052
+      "cost_per_question_usd": 0.0052,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-muse-ember-max",
@@ -496,7 +570,8 @@
       "language": 64.5,
       "instruction_following": 66.2,
       "agentic_coding": 46.8,
-      "cost_per_question_usd": 0.0028
+      "cost_per_question_usd": 0.0028,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "tencent-hy4",
@@ -510,7 +585,8 @@
       "language": 63.8,
       "instruction_following": 65.0,
       "agentic_coding": 43.5,
-      "cost_per_question_usd": 0.0085
+      "cost_per_question_usd": 0.0085,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-opus-5-5",
@@ -524,7 +600,8 @@
       "language": 85.0,
       "instruction_following": 86.9,
       "agentic_coding": 72.8,
-      "cost_per_question_usd": 0.0429
+      "cost_per_question_usd": 0.0429,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-opus-5-5-xhigh",
@@ -538,7 +615,8 @@
       "language": 83.4,
       "instruction_following": 85.1,
       "agentic_coding": 70.6,
-      "cost_per_question_usd": 0.0315
+      "cost_per_question_usd": 0.0315,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-opus-5-5-high",
@@ -552,7 +630,8 @@
       "language": 81.2,
       "instruction_following": 83.0,
       "agentic_coding": 67.4,
-      "cost_per_question_usd": 0.021
+      "cost_per_question_usd": 0.021,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-opus-5-5-medium",
@@ -566,7 +645,8 @@
       "language": 78.0,
       "instruction_following": 79.4,
       "agentic_coding": 62.1,
-      "cost_per_question_usd": 0.0145
+      "cost_per_question_usd": 0.0145,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-opus-5-5-low",
@@ -580,7 +660,8 @@
       "language": 71.0,
       "instruction_following": 72.4,
       "agentic_coding": 51.8,
-      "cost_per_question_usd": 0.0068
+      "cost_per_question_usd": 0.0068,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-1-max",
@@ -594,7 +675,8 @@
       "language": 82.0,
       "instruction_following": 83.4,
       "agentic_coding": 77.9,
-      "cost_per_question_usd": 0.069
+      "cost_per_question_usd": 0.069,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-1-xhigh",
@@ -608,7 +690,8 @@
       "language": 80.2,
       "instruction_following": 81.8,
       "agentic_coding": 74.5,
-      "cost_per_question_usd": 0.054
+      "cost_per_question_usd": 0.054,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-1-high",
@@ -622,7 +705,8 @@
       "language": 77.9,
       "instruction_following": 79.2,
       "agentic_coding": 70.1,
-      "cost_per_question_usd": 0.038
+      "cost_per_question_usd": 0.038,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-1-medium",
@@ -636,7 +720,8 @@
       "language": 74.5,
       "instruction_following": 76.1,
       "agentic_coding": 64.8,
-      "cost_per_question_usd": 0.026
+      "cost_per_question_usd": 0.026,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-fable-5-1-low",
@@ -650,7 +735,8 @@
       "language": 70.4,
       "instruction_following": 72.0,
       "agentic_coding": 58.4,
-      "cost_per_question_usd": 0.018
+      "cost_per_question_usd": 0.018,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-sonnet-5-5",
@@ -664,7 +750,8 @@
       "language": 83.6,
       "instruction_following": 85.0,
       "agentic_coding": 63.4,
-      "cost_per_question_usd": 0.0372
+      "cost_per_question_usd": 0.0372,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-sonnet-5-5-xhigh",
@@ -678,7 +765,8 @@
       "language": 81.2,
       "instruction_following": 82.8,
       "agentic_coding": 60.8,
-      "cost_per_question_usd": 0.0245
+      "cost_per_question_usd": 0.0245,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-sonnet-5-5-high",
@@ -692,7 +780,8 @@
       "language": 79.0,
       "instruction_following": 80.5,
       "agentic_coding": 58.2,
-      "cost_per_question_usd": 0.0152
+      "cost_per_question_usd": 0.0152,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-sonnet-5-5-medium",
@@ -706,7 +795,8 @@
       "language": 74.2,
       "instruction_following": 75.6,
       "agentic_coding": 52.4,
-      "cost_per_question_usd": 0.0085
+      "cost_per_question_usd": 0.0085,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-sonnet-5-5-low",
@@ -720,7 +810,8 @@
       "language": 70.4,
       "instruction_following": 71.8,
       "agentic_coding": 48.0,
-      "cost_per_question_usd": 0.0052
+      "cost_per_question_usd": 0.0052,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-haiku-5-5-max",
@@ -734,7 +825,8 @@
       "language": 78.2,
       "instruction_following": 83.1,
       "agentic_coding": 42.0,
-      "cost_per_question_usd": 0.0091
+      "cost_per_question_usd": 0.0091,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-haiku-5-5-xhigh",
@@ -748,7 +840,8 @@
       "language": 76.4,
       "instruction_following": 81.2,
       "agentic_coding": 40.0,
-      "cost_per_question_usd": 0.0068
+      "cost_per_question_usd": 0.0068,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-haiku-5-5-high",
@@ -762,7 +855,8 @@
       "language": 74.1,
       "instruction_following": 78.8,
       "agentic_coding": 38.2,
-      "cost_per_question_usd": 0.0045
+      "cost_per_question_usd": 0.0045,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-haiku-5-5-medium",
@@ -776,7 +870,8 @@
       "language": 70.2,
       "instruction_following": 74.5,
       "agentic_coding": 34.6,
-      "cost_per_question_usd": 0.0028
+      "cost_per_question_usd": 0.0028,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-haiku-5-5-low",
@@ -790,7 +885,8 @@
       "language": 66.0,
       "instruction_following": 69.8,
       "agentic_coding": 30.8,
-      "cost_per_question_usd": 0.0016
+      "cost_per_question_usd": 0.0016,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-opus-5",
@@ -804,7 +900,8 @@
       "language": 79.4,
       "instruction_following": 81.0,
       "agentic_coding": 68.3,
-      "cost_per_question_usd": 0.039
+      "cost_per_question_usd": 0.039,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-haiku-4-5",
@@ -818,7 +915,8 @@
       "language": 62.8,
       "instruction_following": 64.5,
       "agentic_coding": 51.3,
-      "cost_per_question_usd": 0.0038
+      "cost_per_question_usd": 0.0038,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "anthropic-claude-3-7-sonnet",
@@ -832,7 +930,8 @@
       "language": 57.4,
       "instruction_following": 59.2,
       "agentic_coding": 45.3,
-      "cost_per_question_usd": 0.011
+      "cost_per_question_usd": 0.011,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-astra-max",
@@ -846,7 +945,8 @@
       "language": 85.2,
       "instruction_following": 82.0,
       "agentic_coding": 77.5,
-      "cost_per_question_usd": 0.0455
+      "cost_per_question_usd": 0.0455,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-astra-xhigh",
@@ -860,7 +960,8 @@
       "language": 82.1,
       "instruction_following": 79.8,
       "agentic_coding": 73.3,
-      "cost_per_question_usd": 0.0366
+      "cost_per_question_usd": 0.0366,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-astra-high",
@@ -874,7 +975,8 @@
       "language": 80.8,
       "instruction_following": 78.6,
       "agentic_coding": 72.0,
-      "cost_per_question_usd": 0.0324
+      "cost_per_question_usd": 0.0324,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-astra-medium",
@@ -888,7 +990,8 @@
       "language": 77.2,
       "instruction_following": 75.4,
       "agentic_coding": 68.6,
-      "cost_per_question_usd": 0.0273
+      "cost_per_question_usd": 0.0273,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-astra-low",
@@ -902,7 +1005,8 @@
       "language": 71.4,
       "instruction_following": 69.8,
       "agentic_coding": 63.3,
-      "cost_per_question_usd": 0.0142
+      "cost_per_question_usd": 0.0142,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-sol-max",
@@ -916,7 +1020,8 @@
       "language": 83.5,
       "instruction_following": 82.1,
       "agentic_coding": 68.7,
-      "cost_per_question_usd": 0.0076
+      "cost_per_question_usd": 0.0076,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-sol-xhigh",
@@ -930,7 +1035,8 @@
       "language": 81.0,
       "instruction_following": 79.8,
       "agentic_coding": 66.2,
-      "cost_per_question_usd": 0.0062
+      "cost_per_question_usd": 0.0062,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-sol-high",
@@ -944,7 +1050,8 @@
       "language": 80.4,
       "instruction_following": 79.2,
       "agentic_coding": 65.8,
-      "cost_per_question_usd": 0.0059
+      "cost_per_question_usd": 0.0059,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-sol-medium",
@@ -958,7 +1065,8 @@
       "language": 76.2,
       "instruction_following": 75.0,
       "agentic_coding": 62.5,
-      "cost_per_question_usd": 0.0036
+      "cost_per_question_usd": 0.0036,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-sol-low",
@@ -972,7 +1080,8 @@
       "language": 68.9,
       "instruction_following": 67.8,
       "agentic_coding": 56.2,
-      "cost_per_question_usd": 0.0016
+      "cost_per_question_usd": 0.0016,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-terra",
@@ -986,7 +1095,8 @@
       "language": 79.1,
       "instruction_following": 78.0,
       "agentic_coding": 66.8,
-      "cost_per_question_usd": 0.0096
+      "cost_per_question_usd": 0.0096,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-terra-xhigh",
@@ -1000,7 +1110,8 @@
       "language": 75.8,
       "instruction_following": 74.6,
       "agentic_coding": 63.7,
-      "cost_per_question_usd": 0.004
+      "cost_per_question_usd": 0.004,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-terra-high",
@@ -1014,7 +1125,8 @@
       "language": 73.5,
       "instruction_following": 72.4,
       "agentic_coding": 61.9,
-      "cost_per_question_usd": 0.0026
+      "cost_per_question_usd": 0.0026,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-terra-medium",
@@ -1028,7 +1140,8 @@
       "language": 69.9,
       "instruction_following": 68.8,
       "agentic_coding": 59.3,
-      "cost_per_question_usd": 0.0017
+      "cost_per_question_usd": 0.0017,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-terra-non-reasoning",
@@ -1042,7 +1155,8 @@
       "language": 63.8,
       "instruction_following": 62.6,
       "agentic_coding": 54.4,
-      "cost_per_question_usd": 0.0023
+      "cost_per_question_usd": 0.0023,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-1-terra-low",
@@ -1056,7 +1170,8 @@
       "language": 63.1,
       "instruction_following": 61.9,
       "agentic_coding": 53.9,
-      "cost_per_question_usd": 0.0007
+      "cost_per_question_usd": 0.0007,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-sol-max",
@@ -1070,7 +1185,8 @@
       "language": 78.4,
       "instruction_following": 77.2,
       "agentic_coding": 69.3,
-      "cost_per_question_usd": 0.0125
+      "cost_per_question_usd": 0.0125,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-luna-max",
@@ -1084,7 +1200,8 @@
       "language": 43.5,
       "instruction_following": 82.5,
       "agentic_coding": 30.9,
-      "cost_per_question_usd": 0.0013
+      "cost_per_question_usd": 0.0013,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-luna-xhigh",
@@ -1098,7 +1215,8 @@
       "language": 41.8,
       "instruction_following": 79.6,
       "agentic_coding": 29.1,
-      "cost_per_question_usd": 0.001
+      "cost_per_question_usd": 0.001,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-luna-high",
@@ -1112,7 +1230,8 @@
       "language": 40.5,
       "instruction_following": 77.4,
       "agentic_coding": 28.0,
-      "cost_per_question_usd": 0.0007
+      "cost_per_question_usd": 0.0007,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-luna-medium",
@@ -1126,7 +1245,8 @@
       "language": 38.8,
       "instruction_following": 74.1,
       "agentic_coding": 26.5,
-      "cost_per_question_usd": 0.0004
+      "cost_per_question_usd": 0.0004,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-6-luna-low",
@@ -1140,7 +1260,8 @@
       "language": 34.2,
       "instruction_following": 65.8,
       "agentic_coding": 23.4,
-      "cost_per_question_usd": 0.0001
+      "cost_per_question_usd": 0.0001,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-5-6-sol",
@@ -1154,7 +1275,8 @@
       "language": 72.8,
       "instruction_following": 75.6,
       "agentic_coding": 52.0,
-      "cost_per_question_usd": 0.024
+      "cost_per_question_usd": 0.024,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-5-6-terra",
@@ -1168,7 +1290,8 @@
       "language": 60.4,
       "instruction_following": 76.0,
       "agentic_coding": 33.1,
-      "cost_per_question_usd": 0.0196
+      "cost_per_question_usd": 0.0196,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-5-6-luna",
@@ -1182,7 +1305,8 @@
       "language": 58.2,
       "instruction_following": 66.8,
       "agentic_coding": 37.6,
-      "cost_per_question_usd": 0.0028
+      "cost_per_question_usd": 0.0028,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-5-mini-high",
@@ -1196,7 +1320,8 @@
       "language": 59.5,
       "instruction_following": 61.8,
       "agentic_coding": 43.2,
-      "cost_per_question_usd": 0.0029
+      "cost_per_question_usd": 0.0029,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-o3-high",
@@ -1210,7 +1335,8 @@
       "language": 61.6,
       "instruction_following": 64.0,
       "agentic_coding": 44.8,
-      "cost_per_question_usd": 0.0088
+      "cost_per_question_usd": 0.0088,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "openai-gpt-4-1",
@@ -1224,7 +1350,8 @@
       "language": 53.9,
       "instruction_following": 56.0,
       "agentic_coding": 39.0,
-      "cost_per_question_usd": 0.0065
+      "cost_per_question_usd": 0.0065,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-4-carbon-high",
@@ -1238,7 +1365,8 @@
       "language": 83.8,
       "instruction_following": 84.2,
       "agentic_coding": 71.5,
-      "cost_per_question_usd": 0.0245
+      "cost_per_question_usd": 0.0245,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-4-argon",
@@ -1252,7 +1380,8 @@
       "language": 83.1,
       "instruction_following": 73.7,
       "agentic_coding": 61.2,
-      "cost_per_question_usd": 0.0207
+      "cost_per_question_usd": 0.0207,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-3-8-flash-high",
@@ -1266,7 +1395,8 @@
       "language": 79.1,
       "instruction_following": 72.7,
       "agentic_coding": 16.5,
-      "cost_per_question_usd": 0.0166
+      "cost_per_question_usd": 0.0166,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-3-8-flash-medium",
@@ -1280,7 +1410,8 @@
       "language": 76.8,
       "instruction_following": 70.5,
       "agentic_coding": 15.8,
-      "cost_per_question_usd": 0.0128
+      "cost_per_question_usd": 0.0128,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-3-8-flash-low",
@@ -1294,7 +1425,8 @@
       "language": 70.6,
       "instruction_following": 64.8,
       "agentic_coding": 14.2,
-      "cost_per_question_usd": 0.0074
+      "cost_per_question_usd": 0.0074,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-3-7-flash-high",
@@ -1308,7 +1440,8 @@
       "language": 66.8,
       "instruction_following": 65.4,
       "agentic_coding": 40.2,
-      "cost_per_question_usd": 0.0142
+      "cost_per_question_usd": 0.0142,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-3-6-flash-high",
@@ -1322,7 +1455,8 @@
       "language": 64.5,
       "instruction_following": 63.2,
       "agentic_coding": 38.8,
-      "cost_per_question_usd": 0.0125
+      "cost_per_question_usd": 0.0125,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemini-3-5-flash-lite",
@@ -1336,7 +1470,8 @@
       "language": 51.4,
       "instruction_following": 50.2,
       "agentic_coding": 31.0,
-      "cost_per_question_usd": 0.0019
+      "cost_per_question_usd": 0.0019,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemma-4-31b",
@@ -1350,7 +1485,8 @@
       "language": 44.4,
       "instruction_following": 58.4,
       "agentic_coding": 10.7,
-      "cost_per_question_usd": 0.0017
+      "cost_per_question_usd": 0.0017,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemma-4-26b-a4b",
@@ -1364,7 +1500,8 @@
       "language": 41.8,
       "instruction_following": 54.9,
       "agentic_coding": 9.8,
-      "cost_per_question_usd": 0.0012
+      "cost_per_question_usd": 0.0012,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "google-gemma-4-12b",
@@ -1378,7 +1515,8 @@
       "language": 37.6,
       "instruction_following": 49.4,
       "agentic_coding": 8.5,
-      "cost_per_question_usd": 0.0008
+      "cost_per_question_usd": 0.0008,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-muse-wonder-full-max",
@@ -1392,7 +1530,8 @@
       "language": 88.8,
       "instruction_following": 77.6,
       "agentic_coding": 54.6,
-      "cost_per_question_usd": 0.0225
+      "cost_per_question_usd": 0.0225,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-muse-wonder-max",
@@ -1406,7 +1545,8 @@
       "language": 88.0,
       "instruction_following": 75.1,
       "agentic_coding": 52.6,
-      "cost_per_question_usd": 0.0202
+      "cost_per_question_usd": 0.0202,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-muse-spark-1-3",
@@ -1420,7 +1560,8 @@
       "language": 68.6,
       "instruction_following": 74.8,
       "agentic_coding": 25.5,
-      "cost_per_question_usd": 0.0137
+      "cost_per_question_usd": 0.0137,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-muse-spark-1-2",
@@ -1434,7 +1575,8 @@
       "language": 66.4,
       "instruction_following": 72.4,
       "agentic_coding": 24.4,
-      "cost_per_question_usd": 0.0128
+      "cost_per_question_usd": 0.0128,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-muse-spark-1-1-xhigh",
@@ -1448,7 +1590,8 @@
       "language": 64.5,
       "instruction_following": 70.2,
       "agentic_coding": 23.6,
-      "cost_per_question_usd": 0.0118
+      "cost_per_question_usd": 0.0118,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-muse-spark-open-xhigh",
@@ -1462,7 +1605,8 @@
       "language": 80.3,
       "instruction_following": 60.3,
       "agentic_coding": 11.7,
-      "cost_per_question_usd": 0.0094
+      "cost_per_question_usd": 0.0094,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-muse-glimmer-high",
@@ -1476,7 +1620,8 @@
       "language": 48.2,
       "instruction_following": 40.2,
       "agentic_coding": 8.2,
-      "cost_per_question_usd": 0.0016
+      "cost_per_question_usd": 0.0016,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-llama-4-maverick-17b-128e",
@@ -1490,7 +1635,8 @@
       "language": 48.9,
       "instruction_following": 49.2,
       "agentic_coding": 24.3,
-      "cost_per_question_usd": 0.0024
+      "cost_per_question_usd": 0.0024,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-llama-4-scout-17b-16e",
@@ -1504,7 +1650,8 @@
       "language": 45.6,
       "instruction_following": 45.9,
       "agentic_coding": 22.6,
-      "cost_per_question_usd": 0.0016
+      "cost_per_question_usd": 0.0016,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-llama-3-3-70b-instruct",
@@ -1518,7 +1665,8 @@
       "language": 42.1,
       "instruction_following": 42.4,
       "agentic_coding": 20.9,
-      "cost_per_question_usd": 0.0011
+      "cost_per_question_usd": 0.0011,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "meta-llama-3-1-405b-instruct",
@@ -1532,7 +1680,8 @@
       "language": 43.6,
       "instruction_following": 43.9,
       "agentic_coding": 21.6,
-      "cost_per_question_usd": 0.0048
+      "cost_per_question_usd": 0.0048,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "deepseek-v4-1-flash-1017",
@@ -1546,7 +1695,8 @@
       "language": 79.5,
       "instruction_following": 83.4,
       "agentic_coding": 40.9,
-      "cost_per_question_usd": 0.0018
+      "cost_per_question_usd": 0.0018,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "deepseek-v4-pro-0423",
@@ -1560,7 +1710,8 @@
       "language": 65.1,
       "instruction_following": 68.5,
       "agentic_coding": 36.5,
-      "cost_per_question_usd": 0.0058
+      "cost_per_question_usd": 0.0058,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "deepseek-v4-flash-0423",
@@ -1574,7 +1725,8 @@
       "language": 60.6,
       "instruction_following": 63.7,
       "agentic_coding": 36.2,
-      "cost_per_question_usd": 0.0011
+      "cost_per_question_usd": 0.0011,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "deepseek-v3-2",
@@ -1588,7 +1740,8 @@
       "language": 58.2,
       "instruction_following": 61.3,
       "agentic_coding": 35.9,
-      "cost_per_question_usd": 0.0019
+      "cost_per_question_usd": 0.0019,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "deepseek-r1-0528",
@@ -1602,7 +1755,8 @@
       "language": 57.6,
       "instruction_following": 60.5,
       "agentic_coding": 36.0,
-      "cost_per_question_usd": 0.0068
+      "cost_per_question_usd": 0.0068,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "qwen-3-8-max-0902",
@@ -1616,7 +1770,8 @@
       "language": 69.9,
       "instruction_following": 78.6,
       "agentic_coding": 29.9,
-      "cost_per_question_usd": 0.0186
+      "cost_per_question_usd": 0.0186,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "qwen-3-8-flash-next",
@@ -1630,7 +1785,8 @@
       "language": 58.4,
       "instruction_following": 69.8,
       "agentic_coding": 26.9,
-      "cost_per_question_usd": 0.0042
+      "cost_per_question_usd": 0.0042,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "qwen-3-8-27b-xhigh",
@@ -1644,7 +1800,8 @@
       "language": 59.4,
       "instruction_following": 75.9,
       "agentic_coding": 20.6,
-      "cost_per_question_usd": 0.0084
+      "cost_per_question_usd": 0.0084,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "qwen-3-5-397b-a17b",
@@ -1658,7 +1815,8 @@
       "language": 56.4,
       "instruction_following": 66.4,
       "agentic_coding": 25.3,
-      "cost_per_question_usd": 0.0092
+      "cost_per_question_usd": 0.0092,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "qwen-3-5-122b-a10b",
@@ -1672,7 +1830,8 @@
       "language": 52.0,
       "instruction_following": 61.2,
       "agentic_coding": 25.0,
-      "cost_per_question_usd": 0.0052
+      "cost_per_question_usd": 0.0052,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "qwen-3-coder-480b-a35b",
@@ -1686,7 +1845,8 @@
       "language": 49.2,
       "instruction_following": 58.6,
       "agentic_coding": 13.1,
-      "cost_per_question_usd": 0.0085
+      "cost_per_question_usd": 0.0085,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "qwen-3-235b-a22b-2507",
@@ -1700,7 +1860,8 @@
       "language": 48.8,
       "instruction_following": 57.4,
       "agentic_coding": 24.9,
-      "cost_per_question_usd": 0.0021
+      "cost_per_question_usd": 0.0021,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "moonshot-kimi-k3-1-pro",
@@ -1714,7 +1875,8 @@
       "language": 77.9,
       "instruction_following": 77.8,
       "agentic_coding": 39.1,
-      "cost_per_question_usd": 0.0104
+      "cost_per_question_usd": 0.0104,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "moonshot-kimi-k3-base",
@@ -1728,7 +1890,8 @@
       "language": 79.0,
       "instruction_following": 77.2,
       "agentic_coding": 26.4,
-      "cost_per_question_usd": 0.0219
+      "cost_per_question_usd": 0.0219,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "xai-grok-4-7-xhigh",
@@ -1742,7 +1905,8 @@
       "language": 86.4,
       "instruction_following": 78.0,
       "agentic_coding": 46.1,
-      "cost_per_question_usd": 0.0291
+      "cost_per_question_usd": 0.0291,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "xai-grok-4-7-high",
@@ -1756,7 +1920,8 @@
       "language": 85.2,
       "instruction_following": 76.9,
       "agentic_coding": 45.7,
-      "cost_per_question_usd": 0.0242
+      "cost_per_question_usd": 0.0242,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "xai-grok-4-7-low",
@@ -1770,7 +1935,8 @@
       "language": 79.4,
       "instruction_following": 71.8,
       "agentic_coding": 45.2,
-      "cost_per_question_usd": 0.0114
+      "cost_per_question_usd": 0.0114,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "xai-grok-4-6-high",
@@ -1784,7 +1950,8 @@
       "language": 84.5,
       "instruction_following": 79.8,
       "agentic_coding": 28.0,
-      "cost_per_question_usd": 0.0142
+      "cost_per_question_usd": 0.0142,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "xai-grok-4-5-high",
@@ -1798,7 +1965,8 @@
       "language": 80.1,
       "instruction_following": 75.6,
       "agentic_coding": 26.5,
-      "cost_per_question_usd": 0.0128
+      "cost_per_question_usd": 0.0128,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "zai-glm-5-3-max",
@@ -1812,7 +1980,8 @@
       "language": 72.4,
       "instruction_following": 79.2,
       "agentic_coding": 22.4,
-      "cost_per_question_usd": 0.0082
+      "cost_per_question_usd": 0.0082,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "zai-glm-5-3-low",
@@ -1826,7 +1995,8 @@
       "language": 64.2,
       "instruction_following": 70.4,
       "agentic_coding": 19.8,
-      "cost_per_question_usd": 0.0028
+      "cost_per_question_usd": 0.0028,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "zai-glm-5-3-flash",
@@ -1840,7 +2010,8 @@
       "language": 70.1,
       "instruction_following": 77.2,
       "agentic_coding": 19.0,
-      "cost_per_question_usd": 0.0018
+      "cost_per_question_usd": 0.0018,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "xiaomi-mimo-v2-6-pro",
@@ -1854,7 +2025,8 @@
       "language": 76.7,
       "instruction_following": 78.5,
       "agentic_coding": 35.2,
-      "cost_per_question_usd": 0.0018
+      "cost_per_question_usd": 0.0018,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "xiaomi-mimo-v2-6-flash",
@@ -1868,7 +2040,8 @@
       "language": 71.4,
       "instruction_following": 73.1,
       "agentic_coding": 32.1,
-      "cost_per_question_usd": 0.0009
+      "cost_per_question_usd": 0.0009,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "minimax-m3-1-flash",
@@ -1882,7 +2055,8 @@
       "language": 72.7,
       "instruction_following": 74.0,
       "agentic_coding": 28.8,
-      "cost_per_question_usd": 0.0015
+      "cost_per_question_usd": 0.0015,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "mistral-large-4",
@@ -1896,7 +2070,8 @@
       "language": 28.1,
       "instruction_following": 65.6,
       "agentic_coding": 8.8,
-      "cost_per_question_usd": 0.0162
+      "cost_per_question_usd": 0.0162,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "stepfun-step-5-preview",
@@ -1910,7 +2085,8 @@
       "language": 72.8,
       "instruction_following": 76.9,
       "agentic_coding": 19.4,
-      "cost_per_question_usd": 0.0125
+      "cost_per_question_usd": 0.0125,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "tencent-hy4-preview",
@@ -1924,7 +2100,8 @@
       "language": 71.4,
       "instruction_following": 73.6,
       "agentic_coding": 27.8,
-      "cost_per_question_usd": 0.0068
+      "cost_per_question_usd": 0.0068,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "inclusionai-ling-3-1-flash-1019",
@@ -1938,7 +2115,8 @@
       "language": 68.2,
       "instruction_following": 70.4,
       "agentic_coding": 26.4,
-      "cost_per_question_usd": 0.0074
+      "cost_per_question_usd": 0.0074,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "nvidia-smaug-nemotron-3-5-nvfp4",
@@ -1952,7 +2130,8 @@
       "language": 67.8,
       "instruction_following": 62.7,
       "agentic_coding": 8.4,
-      "cost_per_question_usd": 0.0015
+      "cost_per_question_usd": 0.0015,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "nvidia-nemotron-3-5-super-vl",
@@ -1966,7 +2145,8 @@
       "language": 66.7,
       "instruction_following": 62.8,
       "agentic_coding": 11.7,
-      "cost_per_question_usd": 0.003
+      "cost_per_question_usd": 0.003,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "nvidia-nemotron-3-ultra",
@@ -1980,7 +2160,8 @@
       "language": 64.2,
       "instruction_following": 60.4,
       "agentic_coding": 11.2,
-      "cost_per_question_usd": 0.0054
+      "cost_per_question_usd": 0.0054,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "inception-mercury-3-high",
@@ -1994,7 +2175,8 @@
       "language": 62.8,
       "instruction_following": 61.4,
       "agentic_coding": 14.2,
-      "cost_per_question_usd": 0.0018
+      "cost_per_question_usd": 0.0018,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "reflection-beam-1-0",
@@ -2008,7 +2190,8 @@
       "language": 61.2,
       "instruction_following": 59.8,
       "agentic_coding": 13.5,
-      "cost_per_question_usd": 0.0022
+      "cost_per_question_usd": 0.0022,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "ifm-k2-horizon-375b-a23b",
@@ -2022,7 +2205,8 @@
       "language": 60.4,
       "instruction_following": 58.9,
       "agentic_coding": 13.2,
-      "cost_per_question_usd": 0.0005
+      "cost_per_question_usd": 0.0005,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "thinking-machines-inkling-xhigh",
@@ -2036,7 +2220,8 @@
       "language": 59.9,
       "instruction_following": 58.3,
       "agentic_coding": 8.5,
-      "cost_per_question_usd": 0.0179
+      "cost_per_question_usd": 0.0179,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "thinking-machines-inkling-small",
@@ -2050,7 +2235,8 @@
       "language": 52.8,
       "instruction_following": 51.4,
       "agentic_coding": 7.2,
-      "cost_per_question_usd": 0.0042
+      "cost_per_question_usd": 0.0042,
+      "first_seen": "2026-11-10"
     },
     {
       "model_key": "cohere-command-a-plus",
@@ -2064,7 +2250,8 @@
       "language": 52.4,
       "instruction_following": 49.8,
       "agentic_coding": 16.8,
-      "cost_per_question_usd": 0.0035
+      "cost_per_question_usd": 0.0035,
+      "first_seen": "2026-11-10"
     }
   ]
 }

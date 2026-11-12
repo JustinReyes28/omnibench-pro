@@ -16,7 +16,8 @@
       "legal_bench": 85.8,
       "tax_agent": 46.2,
       "vibe_code": 65.2,
-      "cost_per_test_usd": 17.94
+      "cost_per_test_usd": 17.94,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Sonnet 5.5 (Max)",
@@ -26,7 +27,8 @@
       "legal_bench": 87.4,
       "tax_agent": 48.1,
       "vibe_code": 64.1,
-      "cost_per_test_usd": 16.18
+      "cost_per_test_usd": 16.18,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 4 Carbon (High)",
@@ -36,7 +38,8 @@
       "legal_bench": 80.1,
       "tax_agent": 55.8,
       "vibe_code": 63.1,
-      "cost_per_test_usd": 10.51
+      "cost_per_test_usd": 10.51,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 5.5 (Max)",
@@ -46,7 +49,8 @@
       "legal_bench": 80.5,
       "tax_agent": 50.5,
       "vibe_code": 65.2,
-      "cost_per_test_usd": 24.77
+      "cost_per_test_usd": 24.77,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 4 Argon (High)",
@@ -56,7 +60,8 @@
       "legal_bench": 74.4,
       "tax_agent": 54.8,
       "vibe_code": 57.6,
-      "cost_per_test_usd": 13.37
+      "cost_per_test_usd": 13.37,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 4 Hydrogen",
@@ -66,7 +71,8 @@
       "legal_bench": 82.7,
       "tax_agent": 53.8,
       "vibe_code": 54.0,
-      "cost_per_test_usd": 9.84
+      "cost_per_test_usd": 9.84,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Muse Wonder Full (Max)",
@@ -76,7 +82,8 @@
       "legal_bench": 61.7,
       "tax_agent": 53.4,
       "vibe_code": 58.1,
-      "cost_per_test_usd": 6.81
+      "cost_per_test_usd": 6.81,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Astra (Max)",
@@ -86,7 +93,8 @@
       "legal_bench": 78.0,
       "tax_agent": 39.4,
       "vibe_code": 59.6,
-      "cost_per_test_usd": 21.28
+      "cost_per_test_usd": 21.28,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Muse Wonder 1.0 (Max)",
@@ -96,7 +104,8 @@
       "legal_bench": 69.8,
       "tax_agent": 50.5,
       "vibe_code": 49.5,
-      "cost_per_test_usd": 10.65
+      "cost_per_test_usd": 10.65,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Sol (Max)",
@@ -106,7 +115,8 @@
       "legal_bench": 75.1,
       "tax_agent": 38.5,
       "vibe_code": 55.1,
-      "cost_per_test_usd": 3.61
+      "cost_per_test_usd": 3.61,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Kimi K3.1 Pro (Max)",
@@ -116,7 +126,8 @@
       "legal_bench": 59.7,
       "tax_agent": 37.5,
       "vibe_code": 63.6,
-      "cost_per_test_usd": 6.44
+      "cost_per_test_usd": 6.44,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "DeepSeek V4.1 Flash 1017 (Max)",
@@ -126,7 +137,8 @@
       "legal_bench": 68.5,
       "tax_agent": 45.2,
       "vibe_code": 31.8,
-      "cost_per_test_usd": 0.66
+      "cost_per_test_usd": 0.66,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Terra (Max)",
@@ -136,7 +148,8 @@
       "legal_bench": 72.2,
       "tax_agent": 26.0,
       "vibe_code": 49.5,
-      "cost_per_test_usd": 2.94
+      "cost_per_test_usd": 2.94,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Muse Ember (Max)",
@@ -146,7 +159,8 @@
       "legal_bench": 47.1,
       "tax_agent": 49.0,
       "vibe_code": 39.4,
-      "cost_per_test_usd": 0.15
+      "cost_per_test_usd": 0.15,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GLM-5.3 (Max)",
@@ -156,7 +170,8 @@
       "legal_bench": 54.1,
       "tax_agent": 49.0,
       "vibe_code": 38.9,
-      "cost_per_test_usd": 8.52
+      "cost_per_test_usd": 8.52,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Tencent Hy4",
@@ -166,7 +181,8 @@
       "legal_bench": 46.29,
       "tax_agent": 34.42,
       "vibe_code": 75.97,
-      "cost_per_test_usd": 1.72
+      "cost_per_test_usd": 1.72,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Qwen3.8 Max (0902)",
@@ -176,7 +192,8 @@
       "legal_bench": 46.06,
       "tax_agent": 34.25,
       "vibe_code": 75.58,
-      "cost_per_test_usd": 8.73
+      "cost_per_test_usd": 8.73,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Haiku 5.5 (Max)",
@@ -186,7 +203,8 @@
       "legal_bench": 45.81,
       "tax_agent": 34.06,
       "vibe_code": 75.17,
-      "cost_per_test_usd": 3.17
+      "cost_per_test_usd": 3.17,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Grok 4.7 (xHigh)",
@@ -196,7 +214,8 @@
       "legal_bench": 45.72,
       "tax_agent": 34.0,
       "vibe_code": 75.03,
-      "cost_per_test_usd": 11.63
+      "cost_per_test_usd": 11.63,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "MiMo-V2.6-Pro",
@@ -206,7 +225,8 @@
       "legal_bench": 45.09,
       "tax_agent": 33.53,
       "vibe_code": 74.0,
-      "cost_per_test_usd": 0.43
+      "cost_per_test_usd": 0.43,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Mistral Large 4",
@@ -216,7 +236,8 @@
       "legal_bench": 44.09,
       "tax_agent": 32.79,
       "vibe_code": 72.36,
-      "cost_per_test_usd": 3.72
+      "cost_per_test_usd": 3.72,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Inkling 2 Small",
@@ -226,7 +247,8 @@
       "legal_bench": 43.74,
       "tax_agent": 32.53,
       "vibe_code": 71.78,
-      "cost_per_test_usd": 3.51
+      "cost_per_test_usd": 3.51,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 3.8 Flash (High)",
@@ -236,7 +258,8 @@
       "legal_bench": 43.64,
       "tax_agent": 32.45,
       "vibe_code": 71.62,
-      "cost_per_test_usd": 5.03
+      "cost_per_test_usd": 5.03,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "MiMo-V2.6-Flash",
@@ -246,7 +269,8 @@
       "legal_bench": 42.77,
       "tax_agent": 31.8,
       "vibe_code": 70.18,
-      "cost_per_test_usd": 0.22
+      "cost_per_test_usd": 0.22,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Step 5 Preview",
@@ -256,7 +280,8 @@
       "legal_bench": 42.71,
       "tax_agent": 31.76,
       "vibe_code": 70.09,
-      "cost_per_test_usd": 2.73
+      "cost_per_test_usd": 2.73,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "MiniMax-M3.1-Flash",
@@ -266,7 +291,8 @@
       "legal_bench": 41.95,
       "tax_agent": 31.19,
       "vibe_code": 68.84,
-      "cost_per_test_usd": 0.66
+      "cost_per_test_usd": 0.66,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Hy4 Preview",
@@ -276,7 +302,8 @@
       "legal_bench": 41.5,
       "tax_agent": 30.86,
       "vibe_code": 68.11,
-      "cost_per_test_usd": 1.57
+      "cost_per_test_usd": 1.57,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "DeepSeek V4 Pro 0813 (Max)",
@@ -286,7 +313,8 @@
       "legal_bench": 41.32,
       "tax_agent": 30.72,
       "vibe_code": 67.8,
-      "cost_per_test_usd": 2.5
+      "cost_per_test_usd": 2.5,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Kimi K3 (Max)",
@@ -296,7 +324,8 @@
       "legal_bench": 41.3,
       "tax_agent": 30.71,
       "vibe_code": 67.78,
-      "cost_per_test_usd": 7.17
+      "cost_per_test_usd": 7.17,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Luna (Max)",
@@ -306,7 +335,8 @@
       "legal_bench": 40.81,
       "tax_agent": 30.35,
       "vibe_code": 66.97,
-      "cost_per_test_usd": 0.45
+      "cost_per_test_usd": 0.45,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GLM-5.3 Flash (Max)",
@@ -316,7 +346,8 @@
       "legal_bench": 39.67,
       "tax_agent": 29.5,
       "vibe_code": 65.1,
-      "cost_per_test_usd": 2.05
+      "cost_per_test_usd": 2.05,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Muse Spark Open (xHigh)",
@@ -326,7 +357,8 @@
       "legal_bench": 37.88,
       "tax_agent": 28.17,
       "vibe_code": 62.17,
-      "cost_per_test_usd": 4.72
+      "cost_per_test_usd": 4.72,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Mercury 3 (High)",
@@ -336,7 +368,8 @@
       "legal_bench": 34.05,
       "tax_agent": 25.32,
       "vibe_code": 55.88,
-      "cost_per_test_usd": 0.48
+      "cost_per_test_usd": 0.48,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Beam 1.0",
@@ -346,7 +379,8 @@
       "legal_bench": 33.87,
       "tax_agent": 25.18,
       "vibe_code": 55.58,
-      "cost_per_test_usd": null
+      "cost_per_test_usd": null,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Nemotron 3.5 Super VL",
@@ -356,7 +390,8 @@
       "legal_bench": 23.23,
       "tax_agent": 17.27,
       "vibe_code": 38.12,
-      "cost_per_test_usd": 0.63
+      "cost_per_test_usd": 0.63,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Inkling (xHigh)",
@@ -366,7 +401,8 @@
       "legal_bench": 22.59,
       "tax_agent": 16.8,
       "vibe_code": 37.07,
-      "cost_per_test_usd": 1.85
+      "cost_per_test_usd": 1.85,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Inkling Small",
@@ -376,7 +412,8 @@
       "legal_bench": 21.52,
       "tax_agent": 16.0,
       "vibe_code": 35.32,
-      "cost_per_test_usd": 0.4
+      "cost_per_test_usd": 0.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5.2 (xHigh)",
@@ -386,7 +423,8 @@
       "legal_bench": 53.6,
       "tax_agent": 46.8,
       "vibe_code": 93.9,
-      "cost_per_test_usd": 21.1
+      "cost_per_test_usd": 21.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5.2 (High)",
@@ -396,7 +434,8 @@
       "legal_bench": 53.1,
       "tax_agent": 32.09,
       "vibe_code": 93.77,
-      "cost_per_test_usd": 17.94
+      "cost_per_test_usd": 17.94,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5.2 (Medium)",
@@ -406,7 +445,8 @@
       "legal_bench": 49.5,
       "tax_agent": 30.4,
       "vibe_code": 90.2,
-      "cost_per_test_usd": 9.8
+      "cost_per_test_usd": 9.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5.2 (Low)",
@@ -416,7 +456,8 @@
       "legal_bench": 46.2,
       "tax_agent": 28.5,
       "vibe_code": 86.8,
-      "cost_per_test_usd": 6.1
+      "cost_per_test_usd": 6.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 5.5 (xHigh)",
@@ -426,7 +467,8 @@
       "legal_bench": 49.8,
       "tax_agent": 44.8,
       "vibe_code": 89.4,
-      "cost_per_test_usd": 18.4
+      "cost_per_test_usd": 18.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 5.5 (High)",
@@ -436,7 +478,8 @@
       "legal_bench": 48.2,
       "tax_agent": 43.1,
       "vibe_code": 87.9,
-      "cost_per_test_usd": 11.2
+      "cost_per_test_usd": 11.2,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 5.5 (Medium)",
@@ -446,7 +489,8 @@
       "legal_bench": 45.9,
       "tax_agent": 40.4,
       "vibe_code": 85.2,
-      "cost_per_test_usd": 7.6
+      "cost_per_test_usd": 7.6,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 5.5 (Low)",
@@ -456,7 +500,8 @@
       "legal_bench": 41.2,
       "tax_agent": 35.8,
       "vibe_code": 79.4,
-      "cost_per_test_usd": 3.1
+      "cost_per_test_usd": 3.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5.1 (Max)",
@@ -466,7 +511,8 @@
       "legal_bench": 52.4,
       "tax_agent": 46.2,
       "vibe_code": 89.8,
-      "cost_per_test_usd": 29.5
+      "cost_per_test_usd": 29.5,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5.1 (xHigh)",
@@ -476,7 +522,8 @@
       "legal_bench": 51.0,
       "tax_agent": 44.9,
       "vibe_code": 88.5,
-      "cost_per_test_usd": 22.8
+      "cost_per_test_usd": 22.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5.1 (High)",
@@ -486,7 +533,8 @@
       "legal_bench": 48.9,
       "tax_agent": 42.5,
       "vibe_code": 86.4,
-      "cost_per_test_usd": 15.6
+      "cost_per_test_usd": 15.6,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5.1 (Medium)",
@@ -496,7 +544,8 @@
       "legal_bench": 46.1,
       "tax_agent": 39.8,
       "vibe_code": 83.7,
-      "cost_per_test_usd": 10.9
+      "cost_per_test_usd": 10.9,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5.1 (Low)",
@@ -506,7 +555,8 @@
       "legal_bench": 42.8,
       "tax_agent": 36.4,
       "vibe_code": 79.8,
-      "cost_per_test_usd": 7.4
+      "cost_per_test_usd": 7.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Sonnet 5.5 (xHigh)",
@@ -516,7 +566,8 @@
       "legal_bench": 46.8,
       "tax_agent": 40.8,
       "vibe_code": 90.8,
-      "cost_per_test_usd": 11.4
+      "cost_per_test_usd": 11.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Sonnet 5.5 (High)",
@@ -526,7 +577,8 @@
       "legal_bench": 44.5,
       "tax_agent": 38.9,
       "vibe_code": 88.2,
-      "cost_per_test_usd": 6.8
+      "cost_per_test_usd": 6.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Sonnet 5.5 (Medium)",
@@ -536,7 +588,8 @@
       "legal_bench": 41.0,
       "tax_agent": 35.4,
       "vibe_code": 83.6,
-      "cost_per_test_usd": 3.4
+      "cost_per_test_usd": 3.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Sonnet 5.5 (Low)",
@@ -546,7 +599,8 @@
       "legal_bench": 38.1,
       "tax_agent": 32.6,
       "vibe_code": 79.5,
-      "cost_per_test_usd": 1.95
+      "cost_per_test_usd": 1.95,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Haiku 5.5 (xHigh)",
@@ -556,7 +610,8 @@
       "legal_bench": 42.5,
       "tax_agent": 30.8,
       "vibe_code": 88.6,
-      "cost_per_test_usd": 2.25
+      "cost_per_test_usd": 2.25,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Haiku 5.5 (High)",
@@ -566,7 +621,8 @@
       "legal_bench": 40.9,
       "tax_agent": 29.4,
       "vibe_code": 86.2,
-      "cost_per_test_usd": 1.48
+      "cost_per_test_usd": 1.48,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Haiku 5.5 (Medium)",
@@ -576,7 +632,8 @@
       "legal_bench": 38.4,
       "tax_agent": 27.5,
       "vibe_code": 82.4,
-      "cost_per_test_usd": 0.92
+      "cost_per_test_usd": 0.92,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Haiku 5.5 (Low)",
@@ -586,7 +643,8 @@
       "legal_bench": 35.6,
       "tax_agent": 25.2,
       "vibe_code": 78.1,
-      "cost_per_test_usd": 0.54
+      "cost_per_test_usd": 0.54,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 5 (Max)",
@@ -596,7 +654,8 @@
       "legal_bench": 47.4,
       "tax_agent": 41.8,
       "vibe_code": 85.6,
-      "cost_per_test_usd": 22.4
+      "cost_per_test_usd": 22.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Fable 5 (xHigh)",
@@ -606,7 +665,8 @@
       "legal_bench": 46.9,
       "tax_agent": 41.2,
       "vibe_code": 85.0,
-      "cost_per_test_usd": 24.1
+      "cost_per_test_usd": 24.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Sonnet 5 (xHigh)",
@@ -616,7 +676,8 @@
       "legal_bench": 43.1,
       "tax_agent": 37.5,
       "vibe_code": 81.8,
-      "cost_per_test_usd": 9.2
+      "cost_per_test_usd": 9.2,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 4.8 (xHigh)",
@@ -626,7 +687,8 @@
       "legal_bench": 42.4,
       "tax_agent": 36.8,
       "vibe_code": 80.4,
-      "cost_per_test_usd": 19.8
+      "cost_per_test_usd": 19.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 4.7 (xHigh)",
@@ -636,7 +698,8 @@
       "legal_bench": 41.9,
       "tax_agent": 36.2,
       "vibe_code": 79.8,
-      "cost_per_test_usd": 19.2
+      "cost_per_test_usd": 19.2,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 4.6 (High)",
@@ -646,7 +709,8 @@
       "legal_bench": 40.8,
       "tax_agent": 35.1,
       "vibe_code": 78.2,
-      "cost_per_test_usd": 18.5
+      "cost_per_test_usd": 18.5,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Sonnet 4.6 (Medium)",
@@ -656,7 +720,8 @@
       "legal_bench": 39.4,
       "tax_agent": 33.8,
       "vibe_code": 76.4,
-      "cost_per_test_usd": 7.8
+      "cost_per_test_usd": 7.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Opus 4.5 (High)",
@@ -666,7 +731,8 @@
       "legal_bench": 38.2,
       "tax_agent": 32.9,
       "vibe_code": 74.8,
-      "cost_per_test_usd": 17.4
+      "cost_per_test_usd": 17.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude Haiku 4.5",
@@ -676,7 +742,8 @@
       "legal_bench": 33.1,
       "tax_agent": 28.4,
       "vibe_code": 68.2,
-      "cost_per_test_usd": 2.1
+      "cost_per_test_usd": 2.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Claude 3.7 Sonnet (Thinking)",
@@ -686,7 +753,8 @@
       "legal_bench": 29.8,
       "tax_agent": 25.1,
       "vibe_code": 62.4,
-      "cost_per_test_usd": 5.4
+      "cost_per_test_usd": 5.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Astra (xHigh)",
@@ -696,7 +764,8 @@
       "legal_bench": 38.8,
       "tax_agent": 20.1,
       "vibe_code": 88.5,
-      "cost_per_test_usd": 14.8
+      "cost_per_test_usd": 14.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Astra (High)",
@@ -706,7 +775,8 @@
       "legal_bench": 38.1,
       "tax_agent": 19.6,
       "vibe_code": 87.4,
-      "cost_per_test_usd": 12.1
+      "cost_per_test_usd": 12.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Astra (Medium)",
@@ -716,7 +786,8 @@
       "legal_bench": 36.4,
       "tax_agent": 18.5,
       "vibe_code": 84.8,
-      "cost_per_test_usd": 8.9
+      "cost_per_test_usd": 8.9,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Astra (Low)",
@@ -726,7 +797,8 @@
       "legal_bench": 33.8,
       "tax_agent": 16.8,
       "vibe_code": 80.1,
-      "cost_per_test_usd": 4.8
+      "cost_per_test_usd": 4.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Sol (xHigh)",
@@ -736,7 +808,8 @@
       "legal_bench": 37.8,
       "tax_agent": 21.2,
       "vibe_code": 87.6,
-      "cost_per_test_usd": 2.85
+      "cost_per_test_usd": 2.85,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Sol (High)",
@@ -746,7 +819,8 @@
       "legal_bench": 36.9,
       "tax_agent": 20.5,
       "vibe_code": 86.4,
-      "cost_per_test_usd": 2.3
+      "cost_per_test_usd": 2.3,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Sol (Medium)",
@@ -756,7 +830,8 @@
       "legal_bench": 35.1,
       "tax_agent": 19.4,
       "vibe_code": 83.8,
-      "cost_per_test_usd": 1.55
+      "cost_per_test_usd": 1.55,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Sol (Low)",
@@ -766,7 +841,8 @@
       "legal_bench": 31.8,
       "tax_agent": 17.2,
       "vibe_code": 78.1,
-      "cost_per_test_usd": 0.82
+      "cost_per_test_usd": 0.82,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Terra (xHigh)",
@@ -776,7 +852,8 @@
       "legal_bench": 25.1,
       "tax_agent": 14.6,
       "vibe_code": 82.1,
-      "cost_per_test_usd": 1.85
+      "cost_per_test_usd": 1.85,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Terra (High)",
@@ -786,7 +863,8 @@
       "legal_bench": 24.2,
       "tax_agent": 14.0,
       "vibe_code": 80.4,
-      "cost_per_test_usd": 1.32
+      "cost_per_test_usd": 1.32,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Terra (Medium)",
@@ -796,7 +874,8 @@
       "legal_bench": 22.8,
       "tax_agent": 13.1,
       "vibe_code": 77.6,
-      "cost_per_test_usd": 0.88
+      "cost_per_test_usd": 0.88,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Terra (Non-Reasoning)",
@@ -806,7 +885,8 @@
       "legal_bench": 20.5,
       "tax_agent": 11.8,
       "vibe_code": 73.2,
-      "cost_per_test_usd": 0.65
+      "cost_per_test_usd": 0.65,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6.1 Terra (Low)",
@@ -816,7 +896,8 @@
       "legal_bench": 20.1,
       "tax_agent": 11.5,
       "vibe_code": 72.5,
-      "cost_per_test_usd": 0.48
+      "cost_per_test_usd": 0.48,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Sol (Max)",
@@ -826,7 +907,8 @@
       "legal_bench": 35.8,
       "tax_agent": 19.8,
       "vibe_code": 84.2,
-      "cost_per_test_usd": 4.1
+      "cost_per_test_usd": 4.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Luna (xHigh)",
@@ -836,7 +918,8 @@
       "legal_bench": 29.8,
       "tax_agent": 15.6,
       "vibe_code": 74.5,
-      "cost_per_test_usd": 0.34
+      "cost_per_test_usd": 0.34,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Luna (High)",
@@ -846,7 +929,8 @@
       "legal_bench": 28.9,
       "tax_agent": 15.0,
       "vibe_code": 72.8,
-      "cost_per_test_usd": 0.26
+      "cost_per_test_usd": 0.26,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Luna (Medium)",
@@ -856,7 +940,8 @@
       "legal_bench": 27.5,
       "tax_agent": 14.2,
       "vibe_code": 70.4,
-      "cost_per_test_usd": 0.18
+      "cost_per_test_usd": 0.18,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-6 Luna (Low)",
@@ -866,7 +951,8 @@
       "legal_bench": 24.1,
       "tax_agent": 12.4,
       "vibe_code": 64.2,
-      "cost_per_test_usd": 0.09
+      "cost_per_test_usd": 0.09,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-5.6 Sol (xHigh)",
@@ -876,7 +962,8 @@
       "legal_bench": 35.2,
       "tax_agent": 19.1,
       "vibe_code": 82.4,
-      "cost_per_test_usd": 7.1
+      "cost_per_test_usd": 7.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-5.6 Terra (xHigh)",
@@ -886,7 +973,8 @@
       "legal_bench": 33.0,
       "tax_agent": 17.8,
       "vibe_code": 79.2,
-      "cost_per_test_usd": 4.5
+      "cost_per_test_usd": 4.5,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-5.6 Luna (High)",
@@ -896,7 +984,8 @@
       "legal_bench": 29.4,
       "tax_agent": 15.4,
       "vibe_code": 73.1,
-      "cost_per_test_usd": 0.95
+      "cost_per_test_usd": 0.95,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-5.5 (xHigh)",
@@ -906,7 +995,8 @@
       "legal_bench": 33.6,
       "tax_agent": 18.2,
       "vibe_code": 79.8,
-      "cost_per_test_usd": 9.4
+      "cost_per_test_usd": 9.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-5.4 (xHigh)",
@@ -916,7 +1006,8 @@
       "legal_bench": 32.8,
       "tax_agent": 17.6,
       "vibe_code": 78.4,
-      "cost_per_test_usd": 6.2
+      "cost_per_test_usd": 6.2,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-5.4 Mini (xHigh)",
@@ -926,7 +1017,8 @@
       "legal_bench": 29.1,
       "tax_agent": 15.2,
       "vibe_code": 72.4,
-      "cost_per_test_usd": 1.85
+      "cost_per_test_usd": 1.85,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-5.4 Nano (xHigh)",
@@ -936,7 +1028,8 @@
       "legal_bench": 26.8,
       "tax_agent": 13.8,
       "vibe_code": 68.2,
-      "cost_per_test_usd": 0.62
+      "cost_per_test_usd": 0.62,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-5.2 (High)",
@@ -946,7 +1039,8 @@
       "legal_bench": 31.2,
       "tax_agent": 16.4,
       "vibe_code": 75.8,
-      "cost_per_test_usd": 5.1
+      "cost_per_test_usd": 5.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-5 Mini (High)",
@@ -956,7 +1050,8 @@
       "legal_bench": 27.6,
       "tax_agent": 14.2,
       "vibe_code": 69.5,
-      "cost_per_test_usd": 0.95
+      "cost_per_test_usd": 0.95,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "o3 (High)",
@@ -966,7 +1061,8 @@
       "legal_bench": 28.8,
       "tax_agent": 14.9,
       "vibe_code": 71.4,
-      "cost_per_test_usd": 3.2
+      "cost_per_test_usd": 3.2,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GPT-4.1",
@@ -976,7 +1072,8 @@
       "legal_bench": 25.4,
       "tax_agent": 13.1,
       "vibe_code": 65.2,
-      "cost_per_test_usd": 2.8
+      "cost_per_test_usd": 2.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 3.8 Flash (Medium)",
@@ -986,7 +1083,8 @@
       "legal_bench": 39.8,
       "tax_agent": 33.2,
       "vibe_code": 76.5,
-      "cost_per_test_usd": 3.85
+      "cost_per_test_usd": 3.85,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 3.8 Flash (Low)",
@@ -996,7 +1094,8 @@
       "legal_bench": 36.8,
       "tax_agent": 30.5,
       "vibe_code": 72.1,
-      "cost_per_test_usd": 2.15
+      "cost_per_test_usd": 2.15,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 3.7 Flash (High)",
@@ -1006,7 +1105,8 @@
       "legal_bench": 40.2,
       "tax_agent": 33.8,
       "vibe_code": 77.2,
-      "cost_per_test_usd": 4.4
+      "cost_per_test_usd": 4.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 3.6 Flash (High)",
@@ -1016,7 +1116,8 @@
       "legal_bench": 38.9,
       "tax_agent": 32.6,
       "vibe_code": 75.4,
-      "cost_per_test_usd": 3.9
+      "cost_per_test_usd": 3.9,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 3.5 Flash (High)",
@@ -1026,7 +1127,8 @@
       "legal_bench": 36.8,
       "tax_agent": 30.8,
       "vibe_code": 72.4,
-      "cost_per_test_usd": 3.1
+      "cost_per_test_usd": 3.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 3.5 Flash-Lite",
@@ -1036,7 +1138,8 @@
       "legal_bench": 31.2,
       "tax_agent": 25.8,
       "vibe_code": 64.2,
-      "cost_per_test_usd": 0.69
+      "cost_per_test_usd": 0.69,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemini 3.1 Pro (High)",
@@ -1046,7 +1149,8 @@
       "legal_bench": 40.0,
       "tax_agent": 33.6,
       "vibe_code": 76.8,
-      "cost_per_test_usd": 6.4
+      "cost_per_test_usd": 6.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemma 4 31B",
@@ -1056,7 +1160,8 @@
       "legal_bench": 32.4,
       "tax_agent": 26.8,
       "vibe_code": 66.4,
-      "cost_per_test_usd": 0.38
+      "cost_per_test_usd": 0.38,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemma 4 26B A4B",
@@ -1066,7 +1171,8 @@
       "legal_bench": 30.6,
       "tax_agent": 25.2,
       "vibe_code": 63.8,
-      "cost_per_test_usd": 0.26
+      "cost_per_test_usd": 0.26,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Gemma 4 12B (Non-Reasoning)",
@@ -1076,7 +1182,8 @@
       "legal_bench": 27.8,
       "tax_agent": 22.9,
       "vibe_code": 59.4,
-      "cost_per_test_usd": 0.16
+      "cost_per_test_usd": 0.16,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Muse Spark 1.3 (High)",
@@ -1086,7 +1193,8 @@
       "legal_bench": 42.8,
       "tax_agent": 31.8,
       "vibe_code": 81.4,
-      "cost_per_test_usd": 4.2
+      "cost_per_test_usd": 4.2,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Muse Spark 1.2 (High)",
@@ -1096,7 +1204,8 @@
       "legal_bench": 41.1,
       "tax_agent": 30.5,
       "vibe_code": 79.2,
-      "cost_per_test_usd": 3.9
+      "cost_per_test_usd": 3.9,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Muse Spark 1.1 (xHigh)",
@@ -1106,7 +1215,8 @@
       "legal_bench": 39.6,
       "tax_agent": 29.4,
       "vibe_code": 77.4,
-      "cost_per_test_usd": 3.6
+      "cost_per_test_usd": 3.6,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Muse Glimmer (High)",
@@ -1116,7 +1226,8 @@
       "legal_bench": 25.8,
       "tax_agent": 19.1,
       "vibe_code": 56.4,
-      "cost_per_test_usd": 0.45
+      "cost_per_test_usd": 0.45,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Llama 4 Maverick 17B 128E Instruct",
@@ -1126,7 +1237,8 @@
       "legal_bench": 29.2,
       "tax_agent": 21.6,
       "vibe_code": 61.8,
-      "cost_per_test_usd": 1.15
+      "cost_per_test_usd": 1.15,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Llama 4 Scout 17B 16E Instruct",
@@ -1136,7 +1248,8 @@
       "legal_bench": 27.5,
       "tax_agent": 20.4,
       "vibe_code": 59.2,
-      "cost_per_test_usd": 0.78
+      "cost_per_test_usd": 0.78,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Llama 3.3 70B Instruct",
@@ -1146,7 +1259,8 @@
       "legal_bench": 25.4,
       "tax_agent": 18.8,
       "vibe_code": 55.8,
-      "cost_per_test_usd": 0.52
+      "cost_per_test_usd": 0.52,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Llama 3.1 405B Instruct",
@@ -1156,7 +1270,8 @@
       "legal_bench": 26.5,
       "tax_agent": 19.6,
       "vibe_code": 57.4,
-      "cost_per_test_usd": 1.9
+      "cost_per_test_usd": 1.9,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "DeepSeek V4 Pro 0423",
@@ -1166,7 +1281,8 @@
       "legal_bench": 37.6,
       "tax_agent": 36.9,
       "vibe_code": 76.5,
-      "cost_per_test_usd": 2.25
+      "cost_per_test_usd": 2.25,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "DeepSeek V4 Flash 0731 (High)",
@@ -1176,7 +1292,8 @@
       "legal_bench": 36.5,
       "tax_agent": 35.8,
       "vibe_code": 74.9,
-      "cost_per_test_usd": 0.58
+      "cost_per_test_usd": 0.58,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "DeepSeek V4 Flash 0423",
@@ -1186,7 +1303,8 @@
       "legal_bench": 35.1,
       "tax_agent": 34.5,
       "vibe_code": 72.8,
-      "cost_per_test_usd": 0.42
+      "cost_per_test_usd": 0.42,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "DeepSeek V3.2",
@@ -1196,7 +1314,8 @@
       "legal_bench": 34.0,
       "tax_agent": 33.4,
       "vibe_code": 71.1,
-      "cost_per_test_usd": 0.78
+      "cost_per_test_usd": 0.78,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "DeepSeek-R1 (0528)",
@@ -1206,7 +1325,8 @@
       "legal_bench": 33.1,
       "tax_agent": 32.5,
       "vibe_code": 69.8,
-      "cost_per_test_usd": 1.95
+      "cost_per_test_usd": 1.95,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Qwen3.8-Flash-Next",
@@ -1216,7 +1336,8 @@
       "legal_bench": 42.1,
       "tax_agent": 45.2,
       "vibe_code": 73.4,
-      "cost_per_test_usd": 1.45
+      "cost_per_test_usd": 1.45,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Qwen3.8 27B (xHigh)",
@@ -1226,7 +1347,8 @@
       "legal_bench": 40.2,
       "tax_agent": 43.1,
       "vibe_code": 71.8,
-      "cost_per_test_usd": 2.1
+      "cost_per_test_usd": 2.1,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Qwen3.7 Max",
@@ -1236,7 +1358,8 @@
       "legal_bench": 41.2,
       "tax_agent": 44.2,
       "vibe_code": 72.4,
-      "cost_per_test_usd": 4.8
+      "cost_per_test_usd": 4.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Qwen3.6 Plus",
@@ -1246,7 +1369,8 @@
       "legal_bench": 38.4,
       "tax_agent": 41.2,
       "vibe_code": 68.9,
-      "cost_per_test_usd": 2.3
+      "cost_per_test_usd": 2.3,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Qwen3.5 397B A17B (Reasoning)",
@@ -1256,7 +1380,8 @@
       "legal_bench": 39.8,
       "tax_agent": 42.8,
       "vibe_code": 70.8,
-      "cost_per_test_usd": 3.4
+      "cost_per_test_usd": 3.4,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Qwen3.5 122B A10B (Reasoning)",
@@ -1266,7 +1391,8 @@
       "legal_bench": 37.1,
       "tax_agent": 39.8,
       "vibe_code": 67.2,
-      "cost_per_test_usd": 2.15
+      "cost_per_test_usd": 2.15,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Qwen3-Coder 480B A35B Instruct",
@@ -1276,7 +1402,8 @@
       "legal_bench": 35.4,
       "tax_agent": 36.2,
       "vibe_code": 74.5,
-      "cost_per_test_usd": 3.8
+      "cost_per_test_usd": 3.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Qwen3 235B A22B Instruct 2507",
@@ -1286,7 +1413,8 @@
       "legal_bench": 34.5,
       "tax_agent": 37.0,
       "vibe_code": 64.1,
-      "cost_per_test_usd": 0.95
+      "cost_per_test_usd": 0.95,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Kimi K2.6 Thinking",
@@ -1296,7 +1424,8 @@
       "legal_bench": 29.5,
       "tax_agent": 19.4,
       "vibe_code": 71.8,
-      "cost_per_test_usd": 2.85
+      "cost_per_test_usd": 2.85,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Grok 4.7 (High)",
@@ -1306,7 +1435,8 @@
       "legal_bench": 46.6,
       "tax_agent": 33.8,
       "vibe_code": 85.6,
-      "cost_per_test_usd": 9.55
+      "cost_per_test_usd": 9.55,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Grok 4.7 (Low)",
@@ -1316,7 +1446,8 @@
       "legal_bench": 43.4,
       "tax_agent": 31.5,
       "vibe_code": 81.2,
-      "cost_per_test_usd": 4.5
+      "cost_per_test_usd": 4.5,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Grok 4.6 (High)",
@@ -1326,7 +1457,8 @@
       "legal_bench": 45.1,
       "tax_agent": 32.8,
       "vibe_code": 83.8,
-      "cost_per_test_usd": 6.8
+      "cost_per_test_usd": 6.8,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Grok 4.5 (High)",
@@ -1336,7 +1468,8 @@
       "legal_bench": 43.0,
       "tax_agent": 31.2,
       "vibe_code": 81.0,
-      "cost_per_test_usd": 5.9
+      "cost_per_test_usd": 5.9,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "GLM-5.3 (Low)",
@@ -1346,7 +1479,8 @@
       "legal_bench": 43.8,
       "tax_agent": 35.4,
       "vibe_code": 71.8,
-      "cost_per_test_usd": 2.65
+      "cost_per_test_usd": 2.65,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "MiniMax-M3",
@@ -1356,7 +1490,8 @@
       "legal_bench": 36.8,
       "tax_agent": 29.9,
       "vibe_code": 70.4,
-      "cost_per_test_usd": 1.29
+      "cost_per_test_usd": 1.29,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Ling 3.1 Flash 1019",
@@ -1366,7 +1501,8 @@
       "legal_bench": 39.6,
       "tax_agent": 32.1,
       "vibe_code": 74.8,
-      "cost_per_test_usd": 3.19
+      "cost_per_test_usd": 3.19,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Smaug-Nemotron-3.5-NVFP4",
@@ -1376,7 +1512,8 @@
       "legal_bench": 34.8,
       "tax_agent": 28.4,
       "vibe_code": 68.4,
-      "cost_per_test_usd": 0.52
+      "cost_per_test_usd": 0.52,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Nemotron 3 Ultra",
@@ -1386,7 +1523,8 @@
       "legal_bench": 33.6,
       "tax_agent": 27.2,
       "vibe_code": 66.5,
-      "cost_per_test_usd": 2.23
+      "cost_per_test_usd": 2.23,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "K2 Horizon 375B A23B",
@@ -1396,7 +1534,8 @@
       "legal_bench": 33.1,
       "tax_agent": 26.8,
       "vibe_code": 66.2,
-      "cost_per_test_usd": 0.15
+      "cost_per_test_usd": 0.15,
+      "first_seen": "2026-11-12"
     },
     {
       "vals_model_name": "Command A+",
@@ -1406,7 +1545,8 @@
       "legal_bench": 34.2,
       "tax_agent": 25.4,
       "vibe_code": 58.6,
-      "cost_per_test_usd": 1.8
+      "cost_per_test_usd": 1.8,
+      "first_seen": "2026-11-12"
     }
   ]
 }

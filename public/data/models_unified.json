@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-11-12T21:41:37Z",
+  "generated_at": "2026-11-12T22:14:18Z",
   "sources_metadata": {
     "artificial_analysis": {
       "last_updated": "2026-11-12T19:15:34Z",
@@ -1095,8 +1095,8 @@
         "blended_per_1m_usd": 3.954
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -1141,8 +1141,8 @@
         "blended_per_1m_usd": 1.896
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -1824,8 +1824,8 @@
         "blended_per_1m_usd": 4.314
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -1996,12 +1996,12 @@
     },
     {
       "id": "openai-gpt-5-5-high",
-      "display_name": "gpt-5.5-high",
+      "display_name": "GPT-5.5 (High)",
       "provider": "OpenAI",
       "release_date": "2026-03-10",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 128000,
+      "context_window": 1050000,
       "reasoning_mode": "reasoning",
       "thinking_effort": "high",
       "pricing": {
@@ -2202,8 +2202,8 @@
         "blended_per_1m_usd": 1.122
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -2724,12 +2724,12 @@
     },
     {
       "id": "openai-gpt-5-2-codex",
-      "display_name": "gpt-5.2-codex",
+      "display_name": "GPT-5.2-Codex",
       "provider": "OpenAI",
-      "release_date": "2026-11-06",
+      "release_date": "2025-12-18",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 128000,
+      "context_window": 400000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
@@ -2916,12 +2916,12 @@
     },
     {
       "id": "zai-glm-5-2",
-      "display_name": "glm-5.2",
+      "display_name": "GLM-5.2",
       "provider": "Z.AI",
-      "release_date": "2026-11-06",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
+      "release_date": "2026-06-16",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
@@ -3318,12 +3318,12 @@
     },
     {
       "id": "openai-gpt-5-5",
-      "display_name": "gpt-5.5",
+      "display_name": "GPT-5.5",
       "provider": "OpenAI",
       "release_date": "2026-03-10",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 128000,
+      "context_window": 1050000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
@@ -3804,8 +3804,8 @@
         "blended_per_1m_usd": 0.48
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -3850,8 +3850,8 @@
         "blended_per_1m_usd": 2.736
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -4582,12 +4582,12 @@
     },
     {
       "id": "moonshot-kimi-k2-7-code",
-      "display_name": "kimi-k2.7-code",
+      "display_name": "Kimi K2.7 Code",
       "provider": "Moonshot AI",
-      "release_date": "2026-11-06",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
+      "release_date": "2026-06-12",
+      "license": "Modified MIT",
+      "is_open_weights": true,
+      "context_window": 262000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
@@ -4844,12 +4844,12 @@
     },
     {
       "id": "xai-grok-build-0-1",
-      "display_name": "grok-build-0.1",
+      "display_name": "Grok Build 0.1",
       "provider": "xAI",
-      "release_date": "2026-11-06",
+      "release_date": "2026-05-20",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 128000,
+      "context_window": 256000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
@@ -5820,8 +5820,8 @@
         "blended_per_1m_usd": 0.072
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -6062,12 +6062,12 @@
     },
     {
       "id": "alibaba-qwen3-6-27b",
-      "display_name": "qwen3.6-27b",
+      "display_name": "Qwen3.6-27B",
       "provider": "Alibaba",
-      "release_date": "2026-11-06",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
+      "release_date": "2026-04-21",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 262000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
@@ -6884,12 +6884,12 @@
     },
     {
       "id": "xai-grok-4-3",
-      "display_name": "grok-4.3",
+      "display_name": "Grok 4.3",
       "provider": "xAI",
-      "release_date": "2026-11-06",
+      "release_date": "2026-04-30",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 128000,
+      "context_window": 1000000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
@@ -7359,8 +7359,8 @@
       "display_name": "DeepSeek V4.1 Flash 1017 (high)",
       "provider": "DeepSeek",
       "release_date": "2026-10-17",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "license": "MIT",
+      "is_open_weights": true,
       "context_window": 1000000,
       "reasoning_mode": "reasoning",
       "thinking_effort": "high",
@@ -7370,8 +7370,8 @@
         "blended_per_1m_usd": 0.276
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -7906,8 +7906,8 @@
         "blended_per_1m_usd": 0.174
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -8430,7 +8430,7 @@
       "id": "sapiens-ai-agnes-2-5-pro-theta",
       "display_name": "Agnes 2.5 Pro Theta",
       "provider": "Sapiens AI",
-      "release_date": "2026-11-12",
+      "release_date": "2026-11-07",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -8442,8 +8442,8 @@
         "blended_per_1m_usd": 0.342
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -8698,8 +8698,8 @@
         "blended_per_1m_usd": 0.846
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -9152,20 +9152,20 @@
       "id": "nanbeige4-3-33b",
       "display_name": "Nanbeige4.3-33B",
       "provider": "Nanbeige",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-10-24",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 524000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
-        "input_per_1m_usd": 0.45,
-        "output_per_1m_usd": 2.25,
-        "blended_per_1m_usd": 0.9
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -9190,7 +9190,7 @@
         "unified_quality_score": 33.95,
         "coding_composite_score": 29.74,
         "enterprise_agent_score": 34.09,
-        "value_efficiency_score": 23.37,
+        "value_efficiency_score": 25.46,
         "is_pareto_optimal": false
       }
     },
@@ -9268,20 +9268,20 @@
       "id": "china-mobile-jt-4-1-flash-236b-a21b",
       "display_name": "JT-4.1 Flash 236B A21B",
       "provider": "China Mobile",
-      "release_date": "2026-11-12",
+      "release_date": "2026-07-09",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 262000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
-        "input_per_1m_usd": 0.45,
-        "output_per_1m_usd": 2.25,
-        "blended_per_1m_usd": 0.9
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -9306,7 +9306,7 @@
         "unified_quality_score": 32.34,
         "coding_composite_score": 28.57,
         "enterprise_agent_score": 32.5,
-        "value_efficiency_score": 22.27,
+        "value_efficiency_score": 24.26,
         "is_pareto_optimal": false
       }
     },
@@ -9315,8 +9315,8 @@
       "display_name": "DeepSeek V4.1 Flash 1017 (non-reasoning)",
       "provider": "DeepSeek",
       "release_date": "2026-10-17",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "license": "MIT",
+      "is_open_weights": true,
       "context_window": 1000000,
       "reasoning_mode": "non_reasoning",
       "thinking_effort": "standard",
@@ -9326,8 +9326,8 @@
         "blended_per_1m_usd": 0.258
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -9781,8 +9781,8 @@
       "display_name": "Qwen3.8 27B (medium)",
       "provider": "Alibaba",
       "release_date": "2026-09-02",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 256000,
       "reasoning_mode": "reasoning",
       "thinking_effort": "medium",
@@ -9792,8 +9792,8 @@
         "blended_per_1m_usd": 1.296
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -9967,8 +9967,8 @@
       "display_name": "Qwen3.8 27B (low)",
       "provider": "Alibaba",
       "release_date": "2026-09-02",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 256000,
       "reasoning_mode": "hybrid",
       "thinking_effort": "low",
@@ -9978,8 +9978,8 @@
         "blended_per_1m_usd": 1.146
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -10012,7 +10012,7 @@
       "id": "upstage-solar-pro-4",
       "display_name": "Solar Pro 4",
       "provider": "Upstage",
-      "release_date": "2026-11-12",
+      "release_date": "2026-08-06",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 512000,
@@ -10024,8 +10024,8 @@
         "blended_per_1m_usd": 0.576
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -10058,7 +10058,7 @@
       "id": "apodex-1-1",
       "display_name": "Apodex 1.1",
       "provider": "Apodex",
-      "release_date": "2026-11-12",
+      "release_date": "2026-08-30",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 256000,
@@ -10070,8 +10070,8 @@
         "blended_per_1m_usd": 0.456
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -10245,8 +10245,8 @@
       "display_name": "DeepSeek V4 Pro 0813 (non-reasoning)",
       "provider": "DeepSeek",
       "release_date": "2026-08-13",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "license": "MIT",
+      "is_open_weights": true,
       "context_window": 1000000,
       "reasoning_mode": "non_reasoning",
       "thinking_effort": "standard",
@@ -10256,8 +10256,8 @@
         "blended_per_1m_usd": 0.588
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -10571,8 +10571,8 @@
       "display_name": "Qwen3.8 27B (non-reasoning)",
       "provider": "Alibaba",
       "release_date": "2026-09-02",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 256000,
       "reasoning_mode": "non_reasoning",
       "thinking_effort": "standard",
@@ -10582,8 +10582,8 @@
         "blended_per_1m_usd": 2.262
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -10628,8 +10628,8 @@
         "blended_per_1m_usd": 0.05
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -10872,20 +10872,20 @@
       "id": "lg-ai-research-k-exaone-2-0",
       "display_name": "K-EXAONE 2.0",
       "provider": "LG AI Research",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-07-31",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 262000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
-        "input_per_1m_usd": 0.45,
-        "output_per_1m_usd": 2.25,
-        "blended_per_1m_usd": 0.9
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -10910,7 +10910,7 @@
         "unified_quality_score": 17.55,
         "coding_composite_score": 16.13,
         "enterprise_agent_score": 17.86,
-        "value_efficiency_score": 12.08,
+        "value_efficiency_score": 13.16,
         "is_pareto_optimal": false
       }
     },
@@ -11058,9 +11058,9 @@
       "id": "nvidia-nemotron-3-5-lightning",
       "display_name": "Nemotron 3.5 Lightning",
       "provider": "NVIDIA",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-08-11",
+      "license": "OpenMDW-1.1",
+      "is_open_weights": true,
       "context_window": 1000000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
@@ -11070,8 +11070,8 @@
         "blended_per_1m_usd": 0.186
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -11104,9 +11104,9 @@
       "id": "ibm-granite-4-2-8b",
       "display_name": "Granite 4.2 8B",
       "provider": "IBM",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-08-25",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 131000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
@@ -11116,8 +11116,8 @@
         "blended_per_1m_usd": 0.05
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -11150,20 +11150,20 @@
       "id": "ibm-granite-4-2-3b",
       "display_name": "Granite 4.2 3B",
       "provider": "IBM",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-08-25",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 131000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
-        "input_per_1m_usd": 0.45,
-        "output_per_1m_usd": 2.25,
-        "blended_per_1m_usd": 0.9
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -11188,7 +11188,7 @@
         "unified_quality_score": 14.02,
         "coding_composite_score": 12.83,
         "enterprise_agent_score": 14.37,
-        "value_efficiency_score": 10.0,
+        "value_efficiency_score": 10.52,
         "is_pareto_optimal": false
       }
     },
@@ -11196,9 +11196,9 @@
       "id": "mistral-medium-3-5",
       "display_name": "Mistral Medium 3.5",
       "provider": "Mistral AI",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-04-28",
+      "license": "Modified MIT",
+      "is_open_weights": true,
       "context_window": 256000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
@@ -11208,8 +11208,8 @@
         "blended_per_1m_usd": 0.624
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -11312,9 +11312,9 @@
       "id": "mistral-small-4",
       "display_name": "Mistral Small 4",
       "provider": "Mistral AI",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-03-16",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 256000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
@@ -11324,8 +11324,8 @@
         "blended_per_1m_usd": 0.05
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -11358,9 +11358,9 @@
       "id": "openai-gpt-oss-120b-high",
       "display_name": "gpt-oss-120b (high)",
       "provider": "OpenAI",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2025-08-05",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 131000,
       "reasoning_mode": "reasoning",
       "thinking_effort": "high",
@@ -11370,8 +11370,8 @@
         "blended_per_1m_usd": 0.21
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -11474,9 +11474,9 @@
       "id": "cohere-north-mini-code",
       "display_name": "North Mini Code",
       "provider": "Cohere",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-06-09",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 256000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
@@ -11486,8 +11486,8 @@
         "blended_per_1m_usd": 0.05
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -11520,20 +11520,20 @@
       "id": "nvidia-nemotron-3-nano-4b",
       "display_name": "Nemotron 3 Nano 4B",
       "provider": "NVIDIA",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-03-16",
+      "license": "NVIDIA Open",
+      "is_open_weights": true,
       "context_window": 262000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
-        "input_per_1m_usd": 0.45,
-        "output_per_1m_usd": 2.25,
-        "blended_per_1m_usd": 0.9
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
       },
       "performance": {
-        "output_tokens_per_sec": 85.0,
-        "ttft_seconds": 1.1
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
       },
       "benchmarks": {
         "artificial_analysis": {
@@ -11558,7 +11558,7 @@
         "unified_quality_score": 10.36,
         "coding_composite_score": 9.26,
         "enterprise_agent_score": 10.74,
-        "value_efficiency_score": 10.0,
+        "value_efficiency_score": 7.77,
         "is_pareto_optimal": false
       }
     }

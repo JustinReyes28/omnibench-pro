@@ -29,6 +29,13 @@ export const LAB_PALETTE: Record<string, LabStyle> = {
   'Mistral AI': { bg: '#B45B28', text: '#FFFFFF', badgeBg: '#B45B28', badgeText: '#FFFFFF', short: 'MI' },
   'NVIDIA': { bg: '#2E6F40', text: '#FFFFFF', badgeBg: '#2E6F40', badgeText: '#FFFFFF', short: 'NV' },
   'Cohere': { bg: '#8B3A62', text: '#FFFFFF', badgeBg: '#8B3A62', badgeText: '#FFFFFF', short: 'CO' },
+  'IBM': { bg: '#0F62FE', text: '#FFFFFF', badgeBg: '#0F62FE', badgeText: '#FFFFFF', short: 'IB' },
+  'LG AI Research': { bg: '#A50034', text: '#FFFFFF', badgeBg: '#A50034', badgeText: '#FFFFFF', short: 'LG' },
+  'China Mobile': { bg: '#0068B7', text: '#FFFFFF', badgeBg: '#0068B7', badgeText: '#FFFFFF', short: 'CM' },
+  'Upstage': { bg: '#5B21B6', text: '#FFFFFF', badgeBg: '#5B21B6', badgeText: '#FFFFFF', short: 'UP' },
+  'Sapiens AI': { bg: '#9F1239', text: '#FFFFFF', badgeBg: '#9F1239', badgeText: '#FFFFFF', short: 'SA' },
+  'Nanbeige': { bg: '#0E7490', text: '#FFFFFF', badgeBg: '#0E7490', badgeText: '#FFFFFF', short: 'NB' },
+  'Apodex': { bg: '#4338CA', text: '#FFFFFF', badgeBg: '#4338CA', badgeText: '#FFFFFF', short: 'AP' },
 };
 
 export function getLabStyle(provider: string): LabStyle {

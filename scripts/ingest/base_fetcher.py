@@ -21,38 +21,52 @@ class _SimpleTableParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.tables: list[list[list[str]]] = []
+        self.table_links: list[list[list[list[str]]]] = []
         self._in_table = False
         self._in_row = False
         self._in_cell = False
         self._cur_table: list[list[str]] = []
+        self._cur_table_links: list[list[list[str]]] = []
         self._cur_row: list[str] = []
+        self._cur_row_links: list[list[str]] = []
         self._cur_cell: list[str] = []
+        self._cur_cell_links: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         t = tag.lower()
         if t == "table":
             self._in_table = True
             self._cur_table = []
+            self._cur_table_links = []
         elif t == "tr" and self._in_table:
             self._in_row = True
             self._cur_row = []
+            self._cur_row_links = []
         elif t in ("td", "th") and self._in_row:
             self._in_cell = True
             self._cur_cell = []
+            self._cur_cell_links = []
+        elif t == "a" and self._in_cell:
+            for k, v in attrs:
+                if k.lower() == "href" and v:
+                    self._cur_cell_links.append(v.strip())
 
     def handle_endtag(self, tag: str) -> None:
         t = tag.lower()
         if t in ("td", "th") and self._in_cell:
             self._in_cell = False
             self._cur_row.append(" ".join("".join(self._cur_cell).split()))
+            self._cur_row_links.append(list(self._cur_cell_links))
         elif t == "tr" and self._in_row:
             self._in_row = False
             if self._cur_row:
                 self._cur_table.append(self._cur_row)
+                self._cur_table_links.append(self._cur_row_links)
         elif t == "table" and self._in_table:
             self._in_table = False
             if self._cur_table:
                 self.tables.append(self._cur_table)
+                self.table_links.append(self._cur_table_links)
 
     def handle_data(self, data: str) -> None:
         if self._in_cell:
@@ -64,6 +78,19 @@ def extract_html_tables(html: str) -> list[list[list[str]]]:
     parser = _SimpleTableParser()
     parser.feed(html)
     return parser.tables
+
+
+def extract_html_tables_with_links(html: str) -> list[list[list[tuple[str, list[str]]]]]:
+    """Parses HTML tables into (cell_text, [href, ...]) tuples per cell."""
+    parser = _SimpleTableParser()
+    parser.feed(html)
+    combined: list[list[list[tuple[str, list[str]]]]] = []
+    for rows, row_links in zip(parser.tables, parser.table_links):
+        table_out: list[list[tuple[str, list[str]]]] = []
+        for cells, links in zip(rows, row_links):
+            table_out.append(list(zip(cells, links)))
+        combined.append(table_out)
+    return combined
 
 
 class BaseFetcher:
@@ -173,16 +200,19 @@ class BaseFetcher:
 
     def merge_with_lkg(self, live_models: list[dict[str, Any]]) -> list[dict[str, Any]]:
         """Merges newly fetched models with the existing LKG snapshot so partial upstream responses never drop existing models."""
+        today_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         if not self.latest_path.exists():
             cleaned: list[dict[str, Any]] = []
             for m in live_models:
                 c = dict(m)
                 c.pop("_scraped_summary", None)
+                c.setdefault("first_seen", today_utc)
                 cleaned.append(c)
             return cleaned
         try:
             existing_data = json.loads(self.latest_path.read_text(encoding="utf-8"))
             existing_models: list[dict[str, Any]] = existing_data.get("models", [])
+            existing_fetched_date = str(existing_data.get("fetched_at") or "")[:10] or today_utc
         except Exception:
             return live_models
 
@@ -245,12 +275,52 @@ class BaseFetcher:
                     continue
                 seen_existing_keys.add(ex_key)
                 combined = dict(matched_existing)
+                preserved_first_seen = matched_existing.get("first_seen") or existing_fetched_date
                 if is_scraped_summary:
-                    for field in ("intelligence_index", "context_window"):
-                        if field in clean_item and clean_item[field] is not None:
+                    if clean_item.get("intelligence_index") is not None:
+                        combined["intelligence_index"] = clean_item["intelligence_index"]
+                    if not matched_existing.get("release_date"):
+                        for field in ("coding_index", "math_index"):
+                            if clean_item.get(field) is not None:
+                                combined[field] = clean_item[field]
+                    else:
+                        for field in ("coding_index", "math_index"):
+                            if combined.get(field) is None and clean_item.get(field) is not None:
+                                combined[field] = clean_item[field]
+                    if clean_item.get("context_window") and (
+                        clean_item["context_window"] > (combined.get("context_window") or 0)
+                        or not combined.get("context_window")
+                    ):
+                        combined["context_window"] = clean_item["context_window"]
+                    if clean_item.get("aa_slug"):
+                        combined["aa_slug"] = clean_item["aa_slug"]
+                    for field in (
+                        "input_price_per_1m",
+                        "output_price_per_1m",
+                        "blended_price_per_1m",
+                        "output_tokens_per_second",
+                        "ttft_seconds",
+                    ):
+                        if clean_item.get(field) is not None:
                             combined[field] = clean_item[field]
+                    if clean_item.get("open_weights") is True:
+                        combined["open_weights"] = True
+                    combined["first_seen"] = preserved_first_seen
                 else:
                     combined.update(clean_item)
+                    combined["first_seen"] = clean_item.get("first_seen") or preserved_first_seen
+                    if not combined.get("release_date") and matched_existing.get("release_date"):
+                        combined["release_date"] = matched_existing["release_date"]
+                    if (not combined.get("license") or combined.get("license") == "Proprietary") and matched_existing.get("license") not in (None, "", "Proprietary"):
+                        combined["license"] = matched_existing["license"]
+                    if "open_weights" not in clean_item and matched_existing.get("open_weights"):
+                        combined["open_weights"] = True
+                    if (clean_item.get("context_window") or 128000) == 128000 and (matched_existing.get("context_window") or 0) > 128000:
+                        combined["context_window"] = matched_existing["context_window"]
+                    if clean_item.get("display_name") == rid and matched_existing.get("display_name") and matched_existing["display_name"] != rid:
+                        combined["display_name"] = matched_existing["display_name"]
+                    if clean_item.get("provider") in (None, "", "Unknown") and matched_existing.get("provider") not in (None, "", "Unknown"):
+                        combined["provider"] = matched_existing["provider"]
                     if k != ex_key:
                         for id_f in (self.model_id_field, "model_name", "model_key", "arena_model_id", "vals_model_name", "display_name", "provider", "organization"):
                             if id_f in matched_existing:
@@ -260,12 +330,15 @@ class BaseFetcher:
                 if k in seen_live_keys:
                     continue
                 seen_live_keys.add(k)
+                clean_item.setdefault("first_seen", today_utc)
                 merged.append(clean_item)
 
         for item in existing_models:
             k = _key_for(item)
             if k and k not in seen_existing_keys:
-                merged.append(item)
+                ex_copy = dict(item)
+                ex_copy.setdefault("first_seen", existing_fetched_date)
+                merged.append(ex_copy)
 
         return merged
 

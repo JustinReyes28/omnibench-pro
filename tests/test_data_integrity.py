@@ -107,10 +107,19 @@ class TestDataIntegrity(unittest.TestCase):
                 else:
                     self.assertIsNone(val, f"Unexpected non-null pillar {pillar} without {src} on {mid}")
 
-            if m["benchmarks"].get("artificial_analysis") is not None:
-                self.assertIsNotNone(m["pricing"].get("blended_per_1m_usd"), f"Missing blended pricing on {mid}")
+            if m["pricing"].get("blended_per_1m_usd") is not None:
                 self.assertGreater(m["pricing"]["blended_per_1m_usd"], 0.0, f"Non-positive pricing on {mid}")
-                self.assertIsNotNone(m["performance"].get("output_tokens_per_sec"), f"Missing speed on {mid}")
+            else:
+                self.assertFalse(
+                    m["composite"]["is_pareto_optimal"],
+                    f"Unpriced model {mid} must not claim Pareto frontier",
+                )
+            if m["performance"].get("output_tokens_per_sec") is not None:
+                self.assertGreater(m["performance"]["output_tokens_per_sec"], 0.0, f"Non-positive speed on {mid}")
+
+            if sources_present == 4:
+                self.assertIsNotNone(m["pricing"].get("blended_per_1m_usd"), f"Missing pricing on 4/4 model {mid}")
+                self.assertIsNotNone(m["performance"].get("output_tokens_per_sec"), f"Missing speed on 4/4 model {mid}")
 
             if sources_present < 2:
                 self.assertFalse(
@@ -138,6 +147,74 @@ class TestDataIntegrity(unittest.TestCase):
         # Series names containing effort words must not misclassify as reasoning effort
         self.assertEqual(by_id["mistral-medium-3-5"]["thinking_effort"], "standard")
         self.assertNotIn("unmatched-stealth-nebula-v1", by_id)
+
+        # LiveBench-only models retain real release dates (never CSV filename date), formatted names, and open-weights metadata
+        expected_lb = {
+            "openai-gpt-5-2-codex": ("GPT-5.2-Codex", "2025-12-18", False, "Proprietary", 400000),
+            "zai-glm-5-2": ("GLM-5.2", "2026-06-16", True, "MIT", 1000000),
+            "moonshot-kimi-k2-7-code": ("Kimi K2.7 Code", "2026-06-12", True, "Modified MIT", 262000),
+            "xai-grok-build-0-1": ("Grok Build 0.1", "2026-05-20", False, "Proprietary", 256000),
+            "alibaba-qwen3-6-27b": ("Qwen3.6-27B", "2026-04-21", True, "Apache-2.0", 262000),
+            "xai-grok-4-3": ("Grok 4.3", "2026-04-30", False, "Proprietary", 1000000),
+            "openai-gpt-5-5": ("GPT-5.5", "2026-03-10", False, "Proprietary", 1050000),
+            "openai-gpt-5-5-high": ("GPT-5.5 (High)", "2026-03-10", False, "Proprietary", 1050000),
+        }
+        for mid, (disp, rd, ow, lic, ctx) in expected_lb.items():
+            rec = by_id[mid]
+            self.assertEqual(rec["display_name"], disp)
+            self.assertEqual(rec["release_date"], rd)
+            self.assertEqual(rec["is_open_weights"], ow)
+            self.assertEqual(rec["license"], lic)
+            self.assertEqual(rec["context_window"], ctx)
+
+        # Unpriced "--" AA models never fabricate $0.90/1M or 85.0 t/s, and carry verified release dates + licenses
+        unpriced_aa = {
+            "nanbeige4-3-33b": ("2026-10-24", True, "Apache-2.0"),
+            "china-mobile-jt-4-1-flash-236b-a21b": ("2026-07-09", False, "Proprietary"),
+            "lg-ai-research-k-exaone-2-0": ("2026-07-31", True, "Apache-2.0"),
+            "ibm-granite-4-2-3b": ("2026-08-25", True, "Apache-2.0"),
+            "nvidia-nemotron-3-nano-4b": ("2026-03-16", True, "NVIDIA Open"),
+        }
+        for mid, (rd, ow, lic) in unpriced_aa.items():
+            rec = by_id[mid]
+            self.assertEqual(rec["release_date"], rd)
+            self.assertEqual(rec["is_open_weights"], ow)
+            self.assertEqual(rec["license"], lic)
+            self.assertIsNone(rec["pricing"]["blended_per_1m_usd"])
+            self.assertIsNone(rec["performance"]["output_tokens_per_sec"])
+
+        # AA-scraped priced models carry verified dates, licenses, and no fabricated 85.0 speed
+        aa_verified = {
+            "sapiens-ai-agnes-2-5-pro-theta": ("Sapiens AI", "2026-11-07", False, "Proprietary"),
+            "upstage-solar-pro-4": ("Upstage", "2026-08-06", False, "Proprietary"),
+            "apodex-1-1": ("Apodex", "2026-08-30", False, "Proprietary"),
+            "nvidia-nemotron-3-5-lightning": ("NVIDIA", "2026-08-11", True, "OpenMDW-1.1"),
+            "ibm-granite-4-2-8b": ("IBM", "2026-08-25", True, "Apache-2.0"),
+            "mistral-medium-3-5": ("Mistral AI", "2026-04-28", True, "Modified MIT"),
+            "mistral-small-4": ("Mistral AI", "2026-03-16", True, "Apache-2.0"),
+            "openai-gpt-oss-120b-high": ("OpenAI", "2025-08-05", True, "Apache-2.0"),
+            "cohere-north-mini-code": ("Cohere", "2026-06-09", True, "Apache-2.0"),
+        }
+        for mid, (prov, rd, ow, lic) in aa_verified.items():
+            rec = by_id[mid]
+            self.assertEqual(rec["provider"], prov)
+            self.assertEqual(rec["release_date"], rd)
+            self.assertEqual(rec["is_open_weights"], ow)
+            self.assertEqual(rec["license"], lic)
+            self.assertIsNone(rec["performance"]["output_tokens_per_sec"])
+
+        # Open-weights sibling consistency
+        for ow_mid, exp_lic in (
+            ("alibaba-qwen3-8-27b-medium", "Apache-2.0"),
+            ("alibaba-qwen3-8-27b-low", "Apache-2.0"),
+            ("alibaba-qwen3-8-27b-non-reasoning", "Apache-2.0"),
+            ("deepseek-v4-1-flash-1017-high", "MIT"),
+            ("deepseek-v4-1-flash-1017-non-reasoning", "MIT"),
+            ("deepseek-v4-pro-0813-non-reasoning", "MIT"),
+        ):
+            self.assertTrue(by_id[ow_mid]["is_open_weights"])
+            self.assertEqual(by_id[ow_mid]["license"], exp_lic)
+
 
     def test_semantic_diff_ignores_volatile_timestamps(self) -> None:
         clone = copy.deepcopy(self.data)

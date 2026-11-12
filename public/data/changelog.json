@@ -1,13 +1,13 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-12T21:41:37Z",
+  "updated_at": "2026-11-12T22:14:18Z",
   "entries": [
     {
       "date": "2026-11-12",
       "type": "release_sync",
       "summary": "Autonomous 12-hour sync expanded the verified fleet to 177 models (139 full 4/4 coverage, 38 early partial-source releases).",
       "highlights": [
-        "Newly indexed flagship releases include: Gemini 4 Hydrogen (xhigh), Gemini 4 Hydrogen (high), Gemini 4 Hydrogen (medium), Gemini 4 Hydrogen (low), Agnes 2.5 Pro Theta, Nanbeige4.3-33B."
+        "Newly indexed flagship releases include: Gemini 4 Hydrogen (xhigh), Gemini 4 Hydrogen (high), Gemini 4 Hydrogen (medium), Gemini 4 Hydrogen (low)."
       ]
     },
     {

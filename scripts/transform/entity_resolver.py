@@ -25,7 +25,7 @@ _REASONING_TAG_RE = re.compile(
     re.IGNORECASE,
 )
 _VENDOR_PREFIX_RE = re.compile(
-    r"^(?:openai|anthropic|google|meta|qwen|alibaba|deepseek|mistral|moonshot|xai|zai|xiaomi|minimax|nvidia|thinking-machines|thinking_machines|tencent|cohere|allenai|microsoft|amazon|stepfun|upstage|liquid|ibm)[/-]",
+    r"^(?:(?:openai|anthropic|google|meta|alibaba|xai|zai|xiaomi|minimax|nvidia|thinking-machines|thinking_machines|tencent|cohere|allenai|microsoft|amazon|stepfun|upstage|liquid|ibm)[/-]|(?:qwen|deepseek|mistral|mistralai|moonshot|moonshotai)/)",
     re.IGNORECASE,
 )
 _ORG_SLUG_PREFIX_RE = re.compile(
@@ -57,7 +57,7 @@ _PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
     (("mercury", "inception"), "Inception"),
     (("step-", "step "), "StepFun"),
     (("nova", "amazon"), "Amazon"),
-    (("command", "aya", "north ", "cohere"), "Cohere"),
+    (("command", "aya", "north ", "north-", "cohere"), "Cohere"),
     (("phi-", "microsoft"), "Microsoft"),
     (("solar", "upstage"), "Upstage"),
     (("agnes", "sapiens"), "Sapiens AI"),
@@ -244,6 +244,154 @@ def _infer_effort_and_mode(raw_name: str) -> tuple[str, str]:
     return "standard", "standard"
 
 
+def _infer_family_metadata(
+    canonical_models: dict[str, dict[str, Any]],
+    auto_cid: str,
+    raw_name: str,
+    provider: str = "",
+    default_date: str | None = None,
+) -> dict[str, Any]:
+    """Infers release date, open-weights/license, and context window from raw name or same-family sibling."""
+    explicit_date: str | None = None
+    m_iso = re.search(r"(202\d-\d{2}-\d{2})", raw_name)
+    if m_iso:
+        explicit_date = m_iso.group(1)
+    else:
+        m_8 = re.search(r"(202\d)(\d{2})(\d{2})", raw_name)
+        if m_8:
+            explicit_date = f"{m_8.group(1)}-{m_8.group(2)}-{m_8.group(3)}"
+
+    target_keys = {model_family_key(raw_name, provider), model_family_key(auto_cid, provider)} - {""}
+    verified_sibling_dates: list[str] = []
+    unverified_sibling_dates: list[str] = []
+    sibling_open_weights = False
+    sibling_licenses: list[str] = []
+    sibling_contexts: list[int] = []
+
+    for cid, entry in canonical_models.items():
+        if provider and entry.get("provider") and entry["provider"] != provider:
+            continue
+        cand_keys = {
+            model_family_key(cid, entry.get("provider", "")),
+            model_family_key(entry.get("display_name", ""), entry.get("provider", "")),
+        }
+        if target_keys & cand_keys:
+            if entry.get("release_date"):
+                is_entry_verified = bool(
+                    entry.get("metadata_verified", not entry.get("auto_promoted", False))
+                )
+                if is_entry_verified:
+                    verified_sibling_dates.append(str(entry["release_date"]))
+                else:
+                    unverified_sibling_dates.append(str(entry["release_date"]))
+            if entry.get("is_open_weights"):
+                sibling_open_weights = True
+                lic = str(entry.get("license") or "").strip()
+                if lic and lic.lower() not in ("proprietary", "commercial"):
+                    sibling_licenses.append(lic)
+            if entry.get("context_window"):
+                sibling_contexts.append(int(entry["context_window"]))
+
+    if explicit_date:
+        release_date: str | None = explicit_date
+        metadata_verified = True
+    elif verified_sibling_dates:
+        release_date = min(verified_sibling_dates)
+        metadata_verified = True
+    elif unverified_sibling_dates:
+        release_date = min(unverified_sibling_dates)
+        metadata_verified = False
+    else:
+        release_date = default_date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        metadata_verified = False
+
+    return {
+        "release_date": release_date,
+        "is_open_weights": sibling_open_weights,
+        "license": sibling_licenses[0] if sibling_open_weights and sibling_licenses else "Proprietary",
+        "context_window": max(sibling_contexts) if sibling_contexts else 128000,
+        "metadata_verified": metadata_verified,
+    }
+
+
+def format_display_name(raw_name: str, provider: str = "") -> str:
+    """Formats raw lowercase slugs (e.g. gpt-5.2-codex, kimi-k2.7-code) cleanly without mutating curated names."""
+    cleaned = _REASONING_TAG_RE.sub("", _WITH_FALLBACK_RE.sub("", (raw_name or "").strip())).strip()
+    if not cleaned:
+        return cleaned
+    lowered = cleaned.lower()
+    if lowered.startswith("gpt-oss"):
+        return cleaned
+    # Preserve names that are already human-formatted (contain whitespace or uppercase characters)
+    if " " in cleaned or cleaned != lowered:
+        return cleaned
+    if "-" not in cleaned and "_" not in cleaned and "/" not in cleaned:
+        return cleaned
+
+    stripped = _VENDOR_PREFIX_RE.sub("", cleaned).replace("_", "-")
+    parts = [p for p in stripped.split("-") if p]
+    if not parts:
+        return cleaned
+
+    effort_suffix = ""
+    effort_labels = {
+        "max": "Max",
+        "xhigh": "xHigh",
+        "high": "High",
+        "low": "Low",
+        "minimal": "Minimal",
+        "non-reasoning": "Non-Reasoning",
+    }
+    if len(parts) >= 2 and parts[-1] in effort_labels:
+        effort_suffix = f" ({effort_labels[parts.pop()]})"
+    elif len(parts) >= 2 and parts[-1] == "medium" and not (len(parts) >= 2 and parts[0] == "mistral" and parts[1] == "medium"):
+        effort_suffix = " (Medium)"
+    elif len(parts) >= 3 and parts[-2:] == ["non", "reasoning"]:
+        parts = parts[:-2]
+        effort_suffix = " (Non-Reasoning)"
+
+    _TOKEN_UPPER = {
+        "gpt": "GPT",
+        "glm": "GLM",
+        "ai": "AI",
+        "vl": "VL",
+        "r1": "R1",
+        "r2": "R2",
+        "jt": "JT",
+        "exaone": "EXAONE",
+        "deepseek": "DeepSeek",
+        "codex": "Codex",
+        "oss": "OSS",
+        "hf": "HF",
+    }
+
+    def _cap_tok(tok: str) -> str:
+        t = tok.lower()
+        if t in _TOKEN_UPPER:
+            return _TOKEN_UPPER[t]
+        if re.match(r"^(?:o\d+|v\d.*)$", t):
+            return t if t.startswith("o") else t.upper()
+        if re.match(r"^a?\d+(?:\.\d+)?[bkm]$", t):
+            return t.upper()
+        if t.startswith("qwen"):
+            return "Qwen" + t[4:]
+        if re.match(r"^k\d", t):
+            return "K" + t[1:]
+        if re.match(r"^\d+(?:\.\d+)?$", t):
+            return t
+        return t.capitalize()
+
+    formatted_tokens = [_cap_tok(p) for p in parts]
+    # Use idiomatic hyphenation for families like GPT-5.2-Codex, GLM-5.2, Qwen3.6-27B
+    if len(formatted_tokens) >= 2 and formatted_tokens[0] in ("GPT", "GLM", "DeepSeek-R1") and re.match(r"^\d", formatted_tokens[1]):
+        body = "-".join(formatted_tokens)
+    elif len(formatted_tokens) >= 2 and formatted_tokens[0].startswith("Qwen") and re.match(r"^\d+(?:\.\d+)?[BKM]$", formatted_tokens[1]):
+        body = "-".join(formatted_tokens[:2]) + (f" {' '.join(formatted_tokens[2:])}" if len(formatted_tokens) > 2 else "")
+    else:
+        body = " ".join(formatted_tokens)
+    return f"{body}{effort_suffix}"
+
+
 class EntityResolver:
     """Resolves heterogeneous source model names into canonical model IDs via a 3-tier pipeline."""
 
@@ -339,25 +487,15 @@ class EntityResolver:
         provider: str = "",
         default_date: str | None = None,
     ) -> str:
-        m_iso = re.search(r"(202\d-\d{2}-\d{2})", raw_name)
-        if m_iso:
-            return m_iso.group(1)
-        m_8 = re.search(r"(202\d)(\d{2})(\d{2})", raw_name)
-        if m_8:
-            return f"{m_8.group(1)}-{m_8.group(2)}-{m_8.group(3)}"
-        target_keys = {model_family_key(raw_name, provider), model_family_key(auto_cid, provider)} - {""}
-        for cid, entry in self.canonical_models.items():
-            if not entry.get("release_date"):
-                continue
-            if provider and entry.get("provider") and entry["provider"] != provider:
-                continue
-            cand_keys = {
-                model_family_key(cid, entry.get("provider", "")),
-                model_family_key(entry.get("display_name", ""), entry.get("provider", "")),
-            }
-            if target_keys & cand_keys:
-                return str(entry["release_date"])
-        return default_date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        return str(
+            _infer_family_metadata(
+                self.canonical_models,
+                auto_cid,
+                raw_name,
+                provider=provider,
+                default_date=default_date,
+            )["release_date"]
+        )
 
     def resolve(
         self,
@@ -402,7 +540,7 @@ class EntityResolver:
 
         inferred_provider = _infer_provider(raw_name, provider)
         effort, reasoning_mode = _infer_effort_and_mode(raw_name)
-        clean_display = _REASONING_TAG_RE.sub("", _WITH_FALLBACK_RE.sub("", raw_name)).strip()
+        clean_display = format_display_name(raw_name, inferred_provider)
 
         if auto_promote and not is_stealth_model(inferred_provider, raw_name):
             effective_provider = inferred_provider
@@ -411,7 +549,8 @@ class EntityResolver:
             if auto_cid in self.canonical_models:
                 self._record_alias(auto_cid, source_key, raw_name)
                 return auto_cid, "tier2_normalized", self.canonical_models[auto_cid]
-            inferred_release = self._infer_release_date(
+            inferred_meta = _infer_family_metadata(
+                self.canonical_models,
                 auto_cid,
                 raw_name,
                 provider=effective_provider,
@@ -421,12 +560,14 @@ class EntityResolver:
                 "canonical_id": auto_cid,
                 "display_name": clean_display,
                 "provider": effective_provider,
-                "release_date": inferred_release,
-                "license": "Proprietary",
-                "is_open_weights": False,
-                "context_window": 128000,
+                "release_date": inferred_meta["release_date"],
+                "license": inferred_meta["license"],
+                "is_open_weights": inferred_meta["is_open_weights"],
+                "context_window": inferred_meta["context_window"],
                 "reasoning_mode": reasoning_mode,
                 "thinking_effort": effort,
+                "auto_promoted": True,
+                "metadata_verified": inferred_meta["metadata_verified"],
                 "aliases": {
                     "artificial_analysis": [],
                     "livebench": [],
@@ -467,6 +608,65 @@ class EntityResolver:
             "thinking_effort": effort,
         }
         return provisional_id, "tier3_quarantine", provisional_meta
+
+    def apply_metadata_update(
+        self,
+        cid: str,
+        *,
+        release_date: str | None = None,
+        open_weights: bool | None = None,
+        license_name: str | None = None,
+        context_window: int | None = None,
+        display_name: str | None = None,
+        metadata_verified: bool = False,
+    ) -> dict[str, Any] | None:
+        """Upgrades metadata on auto-promoted models cleanly without mutating curated entries."""
+        entry = self.canonical_models.get(cid)
+        if not entry:
+            return None
+        is_auto = bool(entry.get("auto_promoted") or cid in self.auto_promoted_ids)
+        if not is_auto:
+            return entry
+
+        if release_date and (not entry.get("metadata_verified") or not entry.get("release_date")):
+            if entry.get("release_date") != release_date:
+                entry["release_date"] = release_date
+                self.registry_dirty = True
+            if metadata_verified and not entry.get("metadata_verified"):
+                entry["metadata_verified"] = True
+                self.registry_dirty = True
+        elif metadata_verified and not entry.get("metadata_verified"):
+            entry["metadata_verified"] = True
+            self.registry_dirty = True
+
+        if open_weights is True and not entry.get("is_open_weights"):
+            entry["is_open_weights"] = True
+            self.registry_dirty = True
+
+        if license_name and license_name.strip().lower() not in ("proprietary", "commercial"):
+            clean_lic = license_name.strip()
+            if entry.get("license") != clean_lic and entry.get("license") in (None, "", "Proprietary", "Commercial", "other"):
+                entry["license"] = clean_lic
+                entry["is_open_weights"] = True
+                self.registry_dirty = True
+
+        if context_window and int(context_window) > 128000:
+            cur_ctx = int(entry.get("context_window") or 128000)
+            new_ctx = int(context_window)
+            if cur_ctx == 128000 or new_ctx > cur_ctx:
+                entry["context_window"] = new_ctx
+                self.registry_dirty = True
+
+        if display_name:
+            formatted = format_display_name(display_name, entry.get("provider", ""))
+            cur_disp = str(entry.get("display_name") or "")
+            if formatted and cur_disp != formatted:
+                # Only upgrade raw lowercase slugs or exact case-folded improvements; never clobber human names
+                if (cur_disp == cur_disp.lower() and formatted != formatted.lower()) or cur_disp == formatted.lower():
+                    entry["display_name"] = formatted
+                    self.registry_dirty = True
+
+        return entry
 
     def save_registry(self, path: Path | None = None) -> bool:
         """Persists newly auto-promoted canonical models and alias updates back to model_aliases.json."""

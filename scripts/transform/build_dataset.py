@@ -38,14 +38,17 @@ def build_unified_dataset(
     ar_raw = json.loads((src_root / "arena" / "latest.json").read_text(encoding="utf-8"))
     va_raw = json.loads((src_root / "vals" / "latest.json").read_text(encoding="utf-8"))
 
-    aa_default_date = str(aa_raw.get("fetched_at") or "")[:10] or None
-    lb_default_date = (
-        str(lb_raw.get("release") or "").replace("_", "-")[:10]
-        or str(lb_raw.get("fetched_at") or "")[:10]
-        or None
-    )
-    ar_default_date = str(ar_raw.get("fetched_at") or "")[:10] or None
-    va_default_date = str(va_raw.get("fetched_at") or "")[:10] or None
+    aa_fetched_date = str(aa_raw.get("fetched_at") or "")[:10] or None
+    lb_fetched_date = str(lb_raw.get("fetched_at") or "")[:10] or None
+    ar_fetched_date = str(ar_raw.get("fetched_at") or "")[:10] or None
+    va_fetched_date = str(va_raw.get("fetched_at") or "")[:10] or None
+
+    def _item_default_date(item: dict[str, Any], fetched_date: str | None) -> str | None:
+        return (
+            str(item.get("release_date") or "")[:10]
+            or str(item.get("first_seen") or "")[:10]
+            or fetched_date
+        )
 
     merged: dict[str, dict[str, Any]] = {}
     source_family_counts: dict[tuple[str, str, str], int] = {}
@@ -84,6 +87,38 @@ def build_unified_dataset(
             }
         return merged[cid]
 
+    def sync_auto_metadata(
+        cid: str,
+        tier: str,
+        meta: dict[str, Any],
+        rec: dict[str, Any],
+        item: dict[str, Any],
+    ) -> None:
+        if tier not in ("tier2_auto_promoted", "tier3_quarantine") and not meta.get("auto_promoted"):
+            return
+        item_rd = str(item.get("release_date") or "")[:10] or None
+        item_lic = str(item.get("license") or "").strip() or None
+        item_ow = item.get("open_weights") if "open_weights" in item else None
+        if item_ow is None and item_lic:
+            item_ow = item_lic.lower() not in ("proprietary", "commercial")
+        item_ctx = int(item["context_window"]) if item.get("context_window") else None
+        item_disp = str(item.get("display_name") or "").strip() or None
+        updated_meta = resolver.apply_metadata_update(
+            cid,
+            release_date=item_rd,
+            open_weights=item_ow,
+            license_name=item_lic,
+            context_window=item_ctx,
+            display_name=item_disp,
+            metadata_verified=bool(item.get("metadata_verified") or item_rd),
+        )
+        target_meta = updated_meta or meta
+        rec["release_date"] = target_meta["release_date"]
+        rec["license"] = target_meta["license"]
+        rec["is_open_weights"] = bool(target_meta["is_open_weights"])
+        rec["context_window"] = int(target_meta["context_window"])
+        rec["display_name"] = target_meta["display_name"]
+
     # 1. Artificial Analysis
     for item in aa_raw.get("models", []):
         cid, tier, meta = resolver.resolve(
@@ -91,25 +126,13 @@ def build_unified_dataset(
             item["model_name"],
             item.get("provider", "Unknown"),
             auto_promote=True,
-            default_release_date=aa_default_date,
+            default_release_date=_item_default_date(item, aa_fetched_date),
         )
         if tier == "tier3_quarantine" or cid.startswith("unmatched-"):
             continue
         record_source_family("artificial_analysis", cid, meta)
         rec = ensure_record(cid, meta)
-        if tier in ("tier2_auto_promoted", "tier3_quarantine"):
-            if item.get("release_date"):
-                rec["release_date"] = item["release_date"]
-                meta["release_date"] = item["release_date"]
-            if item.get("license"):
-                rec["license"] = item["license"]
-                meta["license"] = item["license"]
-            if "open_weights" in item:
-                rec["is_open_weights"] = bool(item["open_weights"])
-                meta["is_open_weights"] = bool(item["open_weights"])
-            if item.get("context_window"):
-                rec["context_window"] = int(item["context_window"])
-                meta["context_window"] = int(item["context_window"])
+        sync_auto_metadata(cid, tier, meta, rec, item)
         rec["pricing"] = {
             "input_per_1m_usd": round(float(item["input_price_per_1m"]), 3) if item.get("input_price_per_1m") is not None else None,
             "output_per_1m_usd": round(float(item["output_price_per_1m"]), 3) if item.get("output_price_per_1m") is not None else None,
@@ -132,15 +155,13 @@ def build_unified_dataset(
             item.get("model_key") or item["display_name"],
             item.get("provider", "Unknown"),
             auto_promote=True,
-            default_release_date=lb_default_date,
+            default_release_date=_item_default_date(item, lb_fetched_date),
         )
         if tier == "tier3_quarantine" or cid.startswith("unmatched-"):
             continue
         record_source_family("livebench", cid, meta)
         rec = ensure_record(cid, meta)
-        if tier in ("tier2_auto_promoted", "tier3_quarantine") and item.get("display_name"):
-            rec["display_name"] = item["display_name"]
-            meta["display_name"] = item["display_name"]
+        sync_auto_metadata(cid, tier, meta, rec, item)
         rec["benchmarks"]["livebench"] = {
             "global_average": round(float(item["global_average"]), 2),
             "coding": round(float(item["coding"]), 2),
@@ -160,23 +181,13 @@ def build_unified_dataset(
             item.get("arena_model_id") or item["display_name"],
             item.get("organization", "Unknown"),
             auto_promote=True,
-            default_release_date=ar_default_date,
+            default_release_date=_item_default_date(item, ar_fetched_date),
         )
         if tier == "tier3_quarantine" or cid.startswith("unmatched-"):
             continue
         record_source_family("arena", cid, meta)
         rec = ensure_record(cid, meta)
-        if tier in ("tier2_auto_promoted", "tier3_quarantine") and item.get("display_name"):
-            rec["display_name"] = item["display_name"]
-            meta["display_name"] = item["display_name"]
-        if item.get("license") and (
-            tier in ("tier2_auto_promoted", "tier3_quarantine")
-            or (cid in resolver.auto_promoted_ids and rec["license"] == "Proprietary")
-        ):
-            rec["license"] = item["license"]
-            rec["is_open_weights"] = item["license"].lower() not in ("proprietary", "commercial")
-            meta["license"] = rec["license"]
-            meta["is_open_weights"] = rec["is_open_weights"]
+        sync_auto_metadata(cid, tier, meta, rec, item)
         rec["benchmarks"]["arena"] = {
             "text_elo": int(item["text_elo"]),
             "text_ci_lower": int(item["text_ci_lower"]),
@@ -193,12 +204,13 @@ def build_unified_dataset(
             item["vals_model_name"],
             item.get("provider", "Unknown"),
             auto_promote=True,
-            default_release_date=va_default_date,
+            default_release_date=_item_default_date(item, va_fetched_date),
         )
         if tier == "tier3_quarantine" or cid.startswith("unmatched-"):
             continue
         record_source_family("vals", cid, meta)
         rec = ensure_record(cid, meta)
+        sync_auto_metadata(cid, tier, meta, rec, item)
         rec["benchmarks"]["vals"] = {
             "vals_index": round(float(item["vals_index"]), 2),
             "finance_agent": round(float(item["finance_agent"]), 2),

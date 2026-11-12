@@ -24,7 +24,8 @@
       "ttft_seconds": 1.45,
       "input_price_per_1m": 8.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 16.0
+      "blended_price_per_1m": 16.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Fable 5.2 (xHigh)",
@@ -42,7 +43,8 @@
       "ttft_seconds": 1.28,
       "input_price_per_1m": 8.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 16.0
+      "blended_price_per_1m": 16.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Fable 5.2 (High)",
@@ -60,7 +62,8 @@
       "ttft_seconds": 1.12,
       "input_price_per_1m": 8.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 16.0
+      "blended_price_per_1m": 16.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 4 Carbon (High)",
@@ -78,7 +81,8 @@
       "ttft_seconds": 0.88,
       "input_price_per_1m": 3.5,
       "output_price_per_1m": 14.0,
-      "blended_price_per_1m": 6.13
+      "blended_price_per_1m": 6.13,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Opus 5.5 (Max)",
@@ -96,7 +100,8 @@
       "ttft_seconds": 1.15,
       "input_price_per_1m": 15.0,
       "output_price_per_1m": 75.0,
-      "blended_price_per_1m": 30.0
+      "blended_price_per_1m": 30.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 4 Carbon (medium)",
@@ -106,11 +111,15 @@
       "intelligence_index": 58.0,
       "coding_index": 64.96,
       "math_index": 71.92,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 1.977,
       "output_price_per_1m": 9.885,
-      "blended_price_per_1m": 3.954
+      "blended_price_per_1m": 3.954,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-10-28",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "Claude Opus 5.5 (xHigh)",
@@ -128,7 +137,8 @@
       "ttft_seconds": 1.05,
       "input_price_per_1m": 12.0,
       "output_price_per_1m": 60.0,
-      "blended_price_per_1m": 24.0
+      "blended_price_per_1m": 24.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6 Astra (Max)",
@@ -146,7 +156,8 @@
       "ttft_seconds": 1.45,
       "input_price_per_1m": 12.5,
       "output_price_per_1m": 50.0,
-      "blended_price_per_1m": 21.88
+      "blended_price_per_1m": 21.88,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Fable 5.2 (Medium)",
@@ -164,7 +175,8 @@
       "ttft_seconds": 0.94,
       "input_price_per_1m": 8.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 16.0
+      "blended_price_per_1m": 16.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6 Astra (xHigh)",
@@ -182,7 +194,8 @@
       "ttft_seconds": 1.25,
       "input_price_per_1m": 10.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 17.5
+      "blended_price_per_1m": 17.5,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6 Astra (High)",
@@ -200,7 +213,8 @@
       "ttft_seconds": 0.95,
       "input_price_per_1m": 10.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 17.5
+      "blended_price_per_1m": 17.5,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6.1 Sol (Max)",
@@ -218,7 +232,8 @@
       "ttft_seconds": 1.1,
       "input_price_per_1m": 2.5,
       "output_price_per_1m": 10.0,
-      "blended_price_per_1m": 4.38
+      "blended_price_per_1m": 4.38,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Sonnet 5.5 (Max)",
@@ -236,7 +251,8 @@
       "ttft_seconds": 0.85,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 15.0,
-      "blended_price_per_1m": 6.0
+      "blended_price_per_1m": 6.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 4 Carbon (low)",
@@ -246,11 +262,15 @@
       "intelligence_index": 54.0,
       "coding_index": 60.48,
       "math_index": 66.96,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 2.157,
       "output_price_per_1m": 10.785,
-      "blended_price_per_1m": 4.314
+      "blended_price_per_1m": 4.314,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-10-28",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "Claude Fable 5.2 (Low)",
@@ -268,7 +288,8 @@
       "ttft_seconds": 0.78,
       "input_price_per_1m": 8.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 16.0
+      "blended_price_per_1m": 16.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 4 Hydrogen (xhigh)",
@@ -278,11 +299,15 @@
       "intelligence_index": 54.0,
       "coding_index": 60.48,
       "math_index": 66.96,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.948,
       "output_price_per_1m": 4.74,
-      "blended_price_per_1m": 1.896
+      "blended_price_per_1m": 1.896,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-11-12",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "GPT-6.1 Sol (xHigh)",
@@ -300,7 +325,8 @@
       "ttft_seconds": 0.92,
       "input_price_per_1m": 2.5,
       "output_price_per_1m": 10.0,
-      "blended_price_per_1m": 4.38
+      "blended_price_per_1m": 4.38,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Opus 5.5 (High)",
@@ -318,7 +344,8 @@
       "ttft_seconds": 0.92,
       "input_price_per_1m": 10.0,
       "output_price_per_1m": 50.0,
-      "blended_price_per_1m": 20.0
+      "blended_price_per_1m": 20.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6 Astra (Medium)",
@@ -336,7 +363,8 @@
       "ttft_seconds": 0.65,
       "input_price_per_1m": 10.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 17.5
+      "blended_price_per_1m": 17.5,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6.1 Terra (Max)",
@@ -354,7 +382,8 @@
       "ttft_seconds": 0.96,
       "input_price_per_1m": 1.2,
       "output_price_per_1m": 4.8,
-      "blended_price_per_1m": 2.1
+      "blended_price_per_1m": 2.1,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 4 Hydrogen (high)",
@@ -364,11 +393,15 @@
       "intelligence_index": 51.0,
       "coding_index": 57.12,
       "math_index": 63.24,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.561,
       "output_price_per_1m": 2.805,
-      "blended_price_per_1m": 1.122
+      "blended_price_per_1m": 1.122,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-11-12",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "Gemini 4 Argon (High)",
@@ -386,7 +419,8 @@
       "ttft_seconds": 0.76,
       "input_price_per_1m": 2.5,
       "output_price_per_1m": 10.0,
-      "blended_price_per_1m": 4.38
+      "blended_price_per_1m": 4.38,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6.1 Sol (High)",
@@ -404,7 +438,8 @@
       "ttft_seconds": 0.78,
       "input_price_per_1m": 2.5,
       "output_price_per_1m": 10.0,
-      "blended_price_per_1m": 4.38
+      "blended_price_per_1m": 4.38,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Muse Wonder Full (Max)",
@@ -422,7 +457,8 @@
       "ttft_seconds": 0.78,
       "input_price_per_1m": 6.0,
       "output_price_per_1m": 24.0,
-      "blended_price_per_1m": 10.5
+      "blended_price_per_1m": 10.5,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Sonnet 5.5 (xHigh)",
@@ -440,7 +476,8 @@
       "ttft_seconds": 0.74,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 15.0,
-      "blended_price_per_1m": 6.0
+      "blended_price_per_1m": 6.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Opus 5.5 (Medium)",
@@ -458,7 +495,8 @@
       "ttft_seconds": 0.78,
       "input_price_per_1m": 8.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 16.0
+      "blended_price_per_1m": 16.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Kimi K3.1 Pro (Max)",
@@ -476,7 +514,8 @@
       "ttft_seconds": 1.45,
       "input_price_per_1m": 1.8,
       "output_price_per_1m": 7.2,
-      "blended_price_per_1m": 3.15
+      "blended_price_per_1m": 3.15,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6.1 Sol (Medium)",
@@ -494,7 +533,8 @@
       "ttft_seconds": 0.58,
       "input_price_per_1m": 2.5,
       "output_price_per_1m": 10.0,
-      "blended_price_per_1m": 4.38
+      "blended_price_per_1m": 4.38,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6.1 Terra (xHigh)",
@@ -512,7 +552,8 @@
       "ttft_seconds": 0.74,
       "input_price_per_1m": 1.2,
       "output_price_per_1m": 4.8,
-      "blended_price_per_1m": 2.1
+      "blended_price_per_1m": 2.1,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Muse Wonder 1.0 (Max)",
@@ -530,7 +571,8 @@
       "ttft_seconds": 0.72,
       "input_price_per_1m": 5.0,
       "output_price_per_1m": 20.0,
-      "blended_price_per_1m": 8.75
+      "blended_price_per_1m": 8.75,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6 Astra (Low)",
@@ -548,7 +590,8 @@
       "ttft_seconds": 0.45,
       "input_price_per_1m": 10.0,
       "output_price_per_1m": 40.0,
-      "blended_price_per_1m": 17.5
+      "blended_price_per_1m": 17.5,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6.1 Terra (High)",
@@ -566,7 +609,8 @@
       "ttft_seconds": 0.56,
       "input_price_per_1m": 1.2,
       "output_price_per_1m": 4.8,
-      "blended_price_per_1m": 2.1
+      "blended_price_per_1m": 2.1,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Sonnet 5.5 (High)",
@@ -584,7 +628,8 @@
       "ttft_seconds": 0.62,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 15.0,
-      "blended_price_per_1m": 6.0
+      "blended_price_per_1m": 6.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 4 Hydrogen (medium)",
@@ -594,11 +639,15 @@
       "intelligence_index": 41.0,
       "coding_index": 45.92,
       "math_index": 50.84,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.24,
       "output_price_per_1m": 1.2,
-      "blended_price_per_1m": 0.48
+      "blended_price_per_1m": 0.48,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-11-12",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "Muse Wonder (high)",
@@ -608,11 +657,15 @@
       "intelligence_index": 41.0,
       "coding_index": 45.92,
       "math_index": 50.84,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 1.368,
       "output_price_per_1m": 6.84,
-      "blended_price_per_1m": 2.736
+      "blended_price_per_1m": 2.736,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-10-16",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "GPT-6.1 Terra (Medium)",
@@ -630,7 +683,8 @@
       "ttft_seconds": 0.42,
       "input_price_per_1m": 1.2,
       "output_price_per_1m": 4.8,
-      "blended_price_per_1m": 2.1
+      "blended_price_per_1m": 2.1,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Haiku 5.5 (Max)",
@@ -648,7 +702,8 @@
       "ttft_seconds": 0.42,
       "input_price_per_1m": 0.8,
       "output_price_per_1m": 4.0,
-      "blended_price_per_1m": 1.6
+      "blended_price_per_1m": 1.6,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Muse Ember (Max)",
@@ -666,7 +721,8 @@
       "ttft_seconds": 0.62,
       "input_price_per_1m": 0.1,
       "output_price_per_1m": 0.5,
-      "blended_price_per_1m": 0.2
+      "blended_price_per_1m": 0.2,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Grok 4.7 (xHigh)",
@@ -684,7 +740,8 @@
       "ttft_seconds": 0.92,
       "input_price_per_1m": 2.0,
       "output_price_per_1m": 8.0,
-      "blended_price_per_1m": 3.5
+      "blended_price_per_1m": 3.5,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Grok 4.7 (High)",
@@ -702,7 +759,8 @@
       "ttft_seconds": 0.74,
       "input_price_per_1m": 1.5,
       "output_price_per_1m": 6.0,
-      "blended_price_per_1m": 2.63
+      "blended_price_per_1m": 2.63,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6.1 Sol (Low)",
@@ -720,7 +778,8 @@
       "ttft_seconds": 0.42,
       "input_price_per_1m": 2.5,
       "output_price_per_1m": 10.0,
-      "blended_price_per_1m": 4.38
+      "blended_price_per_1m": 4.38,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Opus 5.5 (Low)",
@@ -738,7 +797,8 @@
       "ttft_seconds": 0.55,
       "input_price_per_1m": 5.0,
       "output_price_per_1m": 25.0,
-      "blended_price_per_1m": 10.0
+      "blended_price_per_1m": 10.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Haiku 5.5 (xHigh)",
@@ -756,7 +816,8 @@
       "ttft_seconds": 0.38,
       "input_price_per_1m": 0.8,
       "output_price_per_1m": 4.0,
-      "blended_price_per_1m": 1.6
+      "blended_price_per_1m": 1.6,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Tencent Hy4",
@@ -774,7 +835,8 @@
       "ttft_seconds": 0.88,
       "input_price_per_1m": 0.83,
       "output_price_per_1m": 2.5,
-      "blended_price_per_1m": 1.248
+      "blended_price_per_1m": 1.248,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Muse Ember (xhigh)",
@@ -784,11 +846,15 @@
       "intelligence_index": 34.0,
       "coding_index": 38.08,
       "math_index": 42.16,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.036,
       "output_price_per_1m": 0.18,
-      "blended_price_per_1m": 0.072
+      "blended_price_per_1m": 0.072,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-11-09",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "Qwen3.8 Max (0902)",
@@ -806,7 +872,8 @@
       "ttft_seconds": 1.42,
       "input_price_per_1m": 2.0,
       "output_price_per_1m": 6.0,
-      "blended_price_per_1m": 3.0
+      "blended_price_per_1m": 3.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek V4.1 Flash 1017 (Max)",
@@ -824,7 +891,8 @@
       "ttft_seconds": 1.17,
       "input_price_per_1m": 0.14,
       "output_price_per_1m": 0.38,
-      "blended_price_per_1m": 0.2
+      "blended_price_per_1m": 0.2,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GLM-5.3 (Max)",
@@ -842,7 +910,8 @@
       "ttft_seconds": 1.12,
       "input_price_per_1m": 0.35,
       "output_price_per_1m": 1.4,
-      "blended_price_per_1m": 0.61
+      "blended_price_per_1m": 0.61,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Grok 4.7 (Low)",
@@ -860,7 +929,8 @@
       "ttft_seconds": 0.45,
       "input_price_per_1m": 1.5,
       "output_price_per_1m": 6.0,
-      "blended_price_per_1m": 2.63
+      "blended_price_per_1m": 2.63,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 3.8 Flash (High)",
@@ -878,7 +948,8 @@
       "ttft_seconds": 0.54,
       "input_price_per_1m": 1.0,
       "output_price_per_1m": 4.13,
-      "blended_price_per_1m": 1.78
+      "blended_price_per_1m": 1.78,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Sonnet 5.5 (Medium)",
@@ -896,7 +967,8 @@
       "ttft_seconds": 0.48,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 15.0,
-      "blended_price_per_1m": 6.0
+      "blended_price_per_1m": 6.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Inkling 2 Small",
@@ -914,7 +986,8 @@
       "ttft_seconds": 1.15,
       "input_price_per_1m": 0.3,
       "output_price_per_1m": 1.0,
-      "blended_price_per_1m": 0.475
+      "blended_price_per_1m": 0.475,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6.1 Terra (Non-Reasoning)",
@@ -932,7 +1005,8 @@
       "ttft_seconds": 0.28,
       "input_price_per_1m": 1.2,
       "output_price_per_1m": 4.8,
-      "blended_price_per_1m": 2.1
+      "blended_price_per_1m": 2.1,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 3.8 Flash (Medium)",
@@ -950,7 +1024,8 @@
       "ttft_seconds": 0.42,
       "input_price_per_1m": 1.0,
       "output_price_per_1m": 4.13,
-      "blended_price_per_1m": 1.78
+      "blended_price_per_1m": 1.78,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "MiMo-V2.6-Pro",
@@ -968,7 +1043,8 @@
       "ttft_seconds": 1.18,
       "input_price_per_1m": 0.22,
       "output_price_per_1m": 0.87,
-      "blended_price_per_1m": 0.38
+      "blended_price_per_1m": 0.38,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Haiku 5.5 (High)",
@@ -986,7 +1062,8 @@
       "ttft_seconds": 0.32,
       "input_price_per_1m": 0.8,
       "output_price_per_1m": 4.0,
-      "blended_price_per_1m": 1.6
+      "blended_price_per_1m": 1.6,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Ling 3.1 Flash 1019",
@@ -1004,7 +1081,8 @@
       "ttft_seconds": 0.64,
       "input_price_per_1m": 0.45,
       "output_price_per_1m": 1.8,
-      "blended_price_per_1m": 0.79
+      "blended_price_per_1m": 0.79,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6.1 Terra (Low)",
@@ -1022,7 +1100,8 @@
       "ttft_seconds": 0.31,
       "input_price_per_1m": 1.2,
       "output_price_per_1m": 4.8,
-      "blended_price_per_1m": 2.1
+      "blended_price_per_1m": 2.1,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "MiniMax-M3.1-Flash",
@@ -1040,21 +1119,26 @@
       "ttft_seconds": 0.68,
       "input_price_per_1m": 0.15,
       "output_price_per_1m": 0.6,
-      "blended_price_per_1m": 0.26
+      "blended_price_per_1m": 0.26,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek V4.1 Flash 1017 (high)",
       "provider": "DeepSeek",
       "context_window": 1000000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 29.0,
       "coding_index": 32.48,
       "math_index": 35.96,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.138,
       "output_price_per_1m": 0.69,
-      "blended_price_per_1m": 0.276
+      "blended_price_per_1m": 0.276,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-10-17",
+      "license": "MIT",
+      "metadata_verified": true
     },
     {
       "model_name": "Qwen3.8-Flash-Next",
@@ -1072,7 +1156,8 @@
       "ttft_seconds": 0.68,
       "input_price_per_1m": 0.25,
       "output_price_per_1m": 0.8,
-      "blended_price_per_1m": 0.39
+      "blended_price_per_1m": 0.39,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Step 5 Preview",
@@ -1090,7 +1175,8 @@
       "ttft_seconds": 0.58,
       "input_price_per_1m": 0.65,
       "output_price_per_1m": 2.7,
-      "blended_price_per_1m": 1.16
+      "blended_price_per_1m": 1.16,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6 Luna (Max)",
@@ -1108,7 +1194,8 @@
       "ttft_seconds": 0.65,
       "input_price_per_1m": 0.15,
       "output_price_per_1m": 0.6,
-      "blended_price_per_1m": 0.26
+      "blended_price_per_1m": 0.26,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GLM-5.3 Flash (Max)",
@@ -1126,7 +1213,8 @@
       "ttft_seconds": 0.95,
       "input_price_per_1m": 0.1,
       "output_price_per_1m": 0.38,
-      "blended_price_per_1m": 0.17
+      "blended_price_per_1m": 0.17,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 4 Hydrogen (low)",
@@ -1136,11 +1224,15 @@
       "intelligence_index": 27.0,
       "coding_index": 30.24,
       "math_index": 33.48,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.087,
       "output_price_per_1m": 0.435,
-      "blended_price_per_1m": 0.174
+      "blended_price_per_1m": 0.174,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-11-12",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "MiMo-V2.6-Flash",
@@ -1158,7 +1250,8 @@
       "ttft_seconds": 0.92,
       "input_price_per_1m": 0.07,
       "output_price_per_1m": 0.28,
-      "blended_price_per_1m": 0.12
+      "blended_price_per_1m": 0.12,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Mistral Large 4",
@@ -1176,7 +1269,8 @@
       "ttft_seconds": 0.82,
       "input_price_per_1m": 1.2,
       "output_price_per_1m": 4.18,
-      "blended_price_per_1m": 1.95
+      "blended_price_per_1m": 1.95,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Sonnet 5.5 (Low)",
@@ -1194,7 +1288,8 @@
       "ttft_seconds": 0.36,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 15.0,
-      "blended_price_per_1m": 6.0
+      "blended_price_per_1m": 6.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Muse Spark Open (xHigh)",
@@ -1212,7 +1307,8 @@
       "ttft_seconds": 0.73,
       "input_price_per_1m": 0.5,
       "output_price_per_1m": 2.0,
-      "blended_price_per_1m": 0.88
+      "blended_price_per_1m": 0.88,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Haiku 5.5 (Medium)",
@@ -1230,7 +1326,8 @@
       "ttft_seconds": 0.28,
       "input_price_per_1m": 0.8,
       "output_price_per_1m": 4.0,
-      "blended_price_per_1m": 1.6
+      "blended_price_per_1m": 1.6,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Agnes 2.5 Pro Theta",
@@ -1240,11 +1337,15 @@
       "intelligence_index": 24.0,
       "coding_index": 26.88,
       "math_index": 29.76,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.171,
       "output_price_per_1m": 0.855,
-      "blended_price_per_1m": 0.342
+      "blended_price_per_1m": 0.342,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-11-07",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "GPT-6 Luna (xHigh)",
@@ -1262,7 +1363,8 @@
       "ttft_seconds": 0.52,
       "input_price_per_1m": 0.15,
       "output_price_per_1m": 0.6,
-      "blended_price_per_1m": 0.26
+      "blended_price_per_1m": 0.26,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Mistral Large 4 (medium)",
@@ -1272,11 +1374,15 @@
       "intelligence_index": 23.0,
       "coding_index": 25.76,
       "math_index": 28.52,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.423,
       "output_price_per_1m": 2.115,
-      "blended_price_per_1m": 0.846
+      "blended_price_per_1m": 0.846,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-10-02",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "GLM-5.3 (Low)",
@@ -1294,7 +1400,8 @@
       "ttft_seconds": 0.68,
       "input_price_per_1m": 0.35,
       "output_price_per_1m": 1.4,
-      "blended_price_per_1m": 0.61
+      "blended_price_per_1m": 0.61,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek V4 Pro 0813 (Max)",
@@ -1312,7 +1419,8 @@
       "ttft_seconds": 1.66,
       "input_price_per_1m": 0.55,
       "output_price_per_1m": 1.91,
-      "blended_price_per_1m": 0.89
+      "blended_price_per_1m": 0.89,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 3.8 Flash (Low)",
@@ -1330,7 +1438,8 @@
       "ttft_seconds": 0.31,
       "input_price_per_1m": 1.0,
       "output_price_per_1m": 4.13,
-      "blended_price_per_1m": 1.78
+      "blended_price_per_1m": 1.78,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6 Luna (High)",
@@ -1348,21 +1457,26 @@
       "ttft_seconds": 0.44,
       "input_price_per_1m": 0.15,
       "output_price_per_1m": 0.6,
-      "blended_price_per_1m": 0.26
+      "blended_price_per_1m": 0.26,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Nanbeige4.3-33B",
       "provider": "Nanbeige",
       "context_window": 524000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 20.0,
       "coding_index": 22.4,
       "math_index": 24.8,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
-      "input_price_per_1m": 0.45,
-      "output_price_per_1m": 2.25,
-      "blended_price_per_1m": 0.9
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
+      "input_price_per_1m": null,
+      "output_price_per_1m": null,
+      "blended_price_per_1m": null,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-10-24",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "Qwen3.8 27B (xHigh)",
@@ -1380,7 +1494,8 @@
       "ttft_seconds": 1.35,
       "input_price_per_1m": 0.35,
       "output_price_per_1m": 1.35,
-      "blended_price_per_1m": 0.6
+      "blended_price_per_1m": 0.6,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "JT-4.1 Flash 236B A21B",
@@ -1390,11 +1505,15 @@
       "intelligence_index": 19.0,
       "coding_index": 21.28,
       "math_index": 23.56,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
-      "input_price_per_1m": 0.45,
-      "output_price_per_1m": 2.25,
-      "blended_price_per_1m": 0.9
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
+      "input_price_per_1m": null,
+      "output_price_per_1m": null,
+      "blended_price_per_1m": null,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-07-09",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "MiniMax-M3",
@@ -1412,7 +1531,8 @@
       "ttft_seconds": 0.62,
       "input_price_per_1m": 0.3,
       "output_price_per_1m": 1.2,
-      "blended_price_per_1m": 0.53
+      "blended_price_per_1m": 0.53,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Haiku 5.5 (Low)",
@@ -1430,21 +1550,26 @@
       "ttft_seconds": 0.22,
       "input_price_per_1m": 0.8,
       "output_price_per_1m": 4.0,
-      "blended_price_per_1m": 1.6
+      "blended_price_per_1m": 1.6,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek V4.1 Flash 1017 (non-reasoning)",
       "provider": "DeepSeek",
       "context_window": 1000000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 19.0,
       "coding_index": 21.28,
       "math_index": 23.56,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.129,
       "output_price_per_1m": 0.645,
-      "blended_price_per_1m": 0.258
+      "blended_price_per_1m": 0.258,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-10-17",
+      "license": "MIT",
+      "metadata_verified": true
     },
     {
       "model_name": "GPT-6 Luna (Medium)",
@@ -1462,7 +1587,8 @@
       "ttft_seconds": 0.35,
       "input_price_per_1m": 0.15,
       "output_price_per_1m": 0.6,
-      "blended_price_per_1m": 0.26
+      "blended_price_per_1m": 0.26,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "K2 Horizon 375B A23B",
@@ -1480,7 +1606,8 @@
       "ttft_seconds": 0.24,
       "input_price_per_1m": 0.05,
       "output_price_per_1m": 0.2,
-      "blended_price_per_1m": 0.09
+      "blended_price_per_1m": 0.09,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Beam 1.0",
@@ -1498,35 +1625,44 @@
       "ttft_seconds": 0.36,
       "input_price_per_1m": 0.25,
       "output_price_per_1m": 1.0,
-      "blended_price_per_1m": 0.44
+      "blended_price_per_1m": 0.44,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Qwen3.8 27B (medium)",
       "provider": "Alibaba",
       "context_window": 256000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 17.0,
       "coding_index": 19.04,
       "math_index": 21.08,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.648,
       "output_price_per_1m": 3.24,
-      "blended_price_per_1m": 1.296
+      "blended_price_per_1m": 1.296,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-09-02",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "Qwen3.8 27B (low)",
       "provider": "Alibaba",
       "context_window": 256000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 16.0,
       "coding_index": 17.92,
       "math_index": 19.84,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.573,
       "output_price_per_1m": 2.865,
-      "blended_price_per_1m": 1.146
+      "blended_price_per_1m": 1.146,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-09-02",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "Solar Pro 4",
@@ -1536,11 +1672,15 @@
       "intelligence_index": 14.0,
       "coding_index": 15.68,
       "math_index": 17.36,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.288,
       "output_price_per_1m": 1.44,
-      "blended_price_per_1m": 0.576
+      "blended_price_per_1m": 0.576,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-08-06",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "Apodex 1.1",
@@ -1550,11 +1690,15 @@
       "intelligence_index": 14.0,
       "coding_index": 15.68,
       "math_index": 17.36,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.228,
       "output_price_per_1m": 1.14,
-      "blended_price_per_1m": 0.456
+      "blended_price_per_1m": 0.456,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-08-30",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "Nemotron 3.5 Super VL",
@@ -1572,7 +1716,8 @@
       "ttft_seconds": 0.38,
       "input_price_per_1m": 0.18,
       "output_price_per_1m": 0.72,
-      "blended_price_per_1m": 0.32
+      "blended_price_per_1m": 0.32,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Inkling Small",
@@ -1590,21 +1735,26 @@
       "ttft_seconds": 0.58,
       "input_price_per_1m": 0.3,
       "output_price_per_1m": 1.2,
-      "blended_price_per_1m": 0.53
+      "blended_price_per_1m": 0.53,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek V4 Pro 0813 (non-reasoning)",
       "provider": "DeepSeek",
       "context_window": 1000000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 13.0,
       "coding_index": 14.56,
       "math_index": 16.12,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.294,
       "output_price_per_1m": 1.47,
-      "blended_price_per_1m": 0.588
+      "blended_price_per_1m": 0.588,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-08-13",
+      "license": "MIT",
+      "metadata_verified": true
     },
     {
       "model_name": "Inkling (xHigh)",
@@ -1622,7 +1772,8 @@
       "ttft_seconds": 0.72,
       "input_price_per_1m": 1.0,
       "output_price_per_1m": 4.05,
-      "blended_price_per_1m": 1.76
+      "blended_price_per_1m": 1.76,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Nemotron 3 Ultra",
@@ -1640,7 +1791,8 @@
       "ttft_seconds": 0.66,
       "input_price_per_1m": 0.6,
       "output_price_per_1m": 2.4,
-      "blended_price_per_1m": 1.05
+      "blended_price_per_1m": 1.05,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 3.5 Flash-Lite",
@@ -1658,21 +1810,26 @@
       "ttft_seconds": 0.21,
       "input_price_per_1m": 0.15,
       "output_price_per_1m": 0.6,
-      "blended_price_per_1m": 0.26
+      "blended_price_per_1m": 0.26,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Qwen3.8 27B (non-reasoning)",
       "provider": "Alibaba",
       "context_window": 256000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 10.0,
       "coding_index": 11.2,
       "math_index": 12.4,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 1.131,
       "output_price_per_1m": 5.655,
-      "blended_price_per_1m": 2.262
+      "blended_price_per_1m": 2.262,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-09-02",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "GPT-6 Luna (Low)",
@@ -1690,7 +1847,8 @@
       "ttft_seconds": 0.25,
       "input_price_per_1m": 0.15,
       "output_price_per_1m": 0.6,
-      "blended_price_per_1m": 0.26
+      "blended_price_per_1m": 0.26,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6 Luna (non-reasoning)",
@@ -1700,25 +1858,33 @@
       "intelligence_index": 9.0,
       "coding_index": 10.08,
       "math_index": 11.16,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.025,
       "output_price_per_1m": 0.125,
-      "blended_price_per_1m": 0.05
+      "blended_price_per_1m": 0.05,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-09-14",
+      "license": "Proprietary",
+      "metadata_verified": true
     },
     {
       "model_name": "K-EXAONE 2.0",
       "provider": "LG AI Research",
       "context_window": 262000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 8.0,
       "coding_index": 8.96,
       "math_index": 9.92,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
-      "input_price_per_1m": 0.45,
-      "output_price_per_1m": 2.25,
-      "blended_price_per_1m": 0.9
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
+      "input_price_per_1m": null,
+      "output_price_per_1m": null,
+      "blended_price_per_1m": null,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-07-31",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "Muse Glimmer (High)",
@@ -1736,7 +1902,8 @@
       "ttft_seconds": 0.42,
       "input_price_per_1m": 0.1,
       "output_price_per_1m": 0.4,
-      "blended_price_per_1m": 0.18
+      "blended_price_per_1m": 0.18,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Command A+",
@@ -1754,63 +1921,80 @@
       "ttft_seconds": 0.34,
       "input_price_per_1m": 0.8,
       "output_price_per_1m": 3.2,
-      "blended_price_per_1m": 1.4
+      "blended_price_per_1m": 1.4,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Nemotron 3.5 Lightning",
       "provider": "NVIDIA",
       "context_window": 1000000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 6.0,
       "coding_index": 6.72,
       "math_index": 7.44,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.093,
       "output_price_per_1m": 0.465,
-      "blended_price_per_1m": 0.186
+      "blended_price_per_1m": 0.186,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-08-11",
+      "license": "OpenMDW-1.1",
+      "metadata_verified": true
     },
     {
       "model_name": "Granite 4.2 8B",
       "provider": "IBM",
       "context_window": 131000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 5.0,
       "coding_index": 5.6,
       "math_index": 6.2,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.025,
       "output_price_per_1m": 0.125,
-      "blended_price_per_1m": 0.05
+      "blended_price_per_1m": 0.05,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-08-25",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "Granite 4.2 3B",
       "provider": "IBM",
       "context_window": 131000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 5.0,
       "coding_index": 5.6,
       "math_index": 6.2,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
-      "input_price_per_1m": 0.45,
-      "output_price_per_1m": 2.25,
-      "blended_price_per_1m": 0.9
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
+      "input_price_per_1m": null,
+      "output_price_per_1m": null,
+      "blended_price_per_1m": null,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-08-25",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "Mistral Medium 3.5",
       "provider": "Mistral",
       "context_window": 256000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 5.0,
       "coding_index": 5.6,
       "math_index": 6.2,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.312,
       "output_price_per_1m": 1.56,
-      "blended_price_per_1m": 0.624
+      "blended_price_per_1m": 0.624,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-04-28",
+      "license": "Modified MIT",
+      "metadata_verified": true
     },
     {
       "model_name": "Gemma 4 31B",
@@ -1828,63 +2012,80 @@
       "ttft_seconds": 0.32,
       "input_price_per_1m": 0.1,
       "output_price_per_1m": 0.4,
-      "blended_price_per_1m": 0.18
+      "blended_price_per_1m": 0.18,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Mistral Small 4",
       "provider": "Mistral",
       "context_window": 256000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 4.0,
       "coding_index": 4.48,
       "math_index": 4.96,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.025,
       "output_price_per_1m": 0.125,
-      "blended_price_per_1m": 0.05
+      "blended_price_per_1m": 0.05,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-03-16",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "gpt-oss-120b (high)",
       "provider": "OpenAI",
       "context_window": 131000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 4.0,
       "coding_index": 4.48,
       "math_index": 4.96,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.105,
       "output_price_per_1m": 0.525,
-      "blended_price_per_1m": 0.21
+      "blended_price_per_1m": 0.21,
+      "first_seen": "2026-11-12",
+      "release_date": "2025-08-05",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "North Mini Code",
       "provider": "Cohere",
       "context_window": 256000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 3.0,
       "coding_index": 3.36,
       "math_index": 3.72,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
       "input_price_per_1m": 0.025,
       "output_price_per_1m": 0.125,
-      "blended_price_per_1m": 0.05
+      "blended_price_per_1m": 0.05,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-06-09",
+      "license": "Apache-2.0",
+      "metadata_verified": true
     },
     {
       "model_name": "Nemotron 3 Nano 4B",
       "provider": "NVIDIA",
       "context_window": 262000,
-      "open_weights": false,
+      "open_weights": true,
       "intelligence_index": 2.0,
       "coding_index": 2.24,
       "math_index": 2.48,
-      "output_tokens_per_second": 85.0,
-      "ttft_seconds": 1.1,
-      "input_price_per_1m": 0.45,
-      "output_price_per_1m": 2.25,
-      "blended_price_per_1m": 0.9
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
+      "input_price_per_1m": null,
+      "output_price_per_1m": null,
+      "blended_price_per_1m": null,
+      "first_seen": "2026-11-12",
+      "release_date": "2026-03-16",
+      "license": "NVIDIA Open",
+      "metadata_verified": true
     },
     {
       "model_name": "Claude Fable 5.1 (Max)",
@@ -1902,7 +2103,8 @@
       "ttft_seconds": 1.35,
       "input_price_per_1m": 16.0,
       "output_price_per_1m": 80.0,
-      "blended_price_per_1m": 32.0
+      "blended_price_per_1m": 32.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Fable 5.1 (xHigh)",
@@ -1920,7 +2122,8 @@
       "ttft_seconds": 1.2,
       "input_price_per_1m": 14.0,
       "output_price_per_1m": 70.0,
-      "blended_price_per_1m": 28.0
+      "blended_price_per_1m": 28.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Fable 5.1 (High)",
@@ -1938,7 +2141,8 @@
       "ttft_seconds": 0.98,
       "input_price_per_1m": 11.0,
       "output_price_per_1m": 55.0,
-      "blended_price_per_1m": 22.0
+      "blended_price_per_1m": 22.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Fable 5.1 (Medium)",
@@ -1956,7 +2160,8 @@
       "ttft_seconds": 0.82,
       "input_price_per_1m": 8.5,
       "output_price_per_1m": 42.5,
-      "blended_price_per_1m": 17.0
+      "blended_price_per_1m": 17.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Fable 5.1 (Low)",
@@ -1974,7 +2179,8 @@
       "ttft_seconds": 0.6,
       "input_price_per_1m": 6.0,
       "output_price_per_1m": 30.0,
-      "blended_price_per_1m": 12.0
+      "blended_price_per_1m": 12.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Opus 5 (Max)",
@@ -1992,7 +2198,8 @@
       "ttft_seconds": 1.25,
       "input_price_per_1m": 15.0,
       "output_price_per_1m": 75.0,
-      "blended_price_per_1m": 30.0
+      "blended_price_per_1m": 30.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Fable 5 (xHigh)",
@@ -2010,7 +2217,8 @@
       "ttft_seconds": 1.3,
       "input_price_per_1m": 15.0,
       "output_price_per_1m": 75.0,
-      "blended_price_per_1m": 30.0
+      "blended_price_per_1m": 30.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Sonnet 5 (xHigh)",
@@ -2028,7 +2236,8 @@
       "ttft_seconds": 0.72,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 15.0,
-      "blended_price_per_1m": 6.0
+      "blended_price_per_1m": 6.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Opus 4.8 (xHigh)",
@@ -2046,7 +2255,8 @@
       "ttft_seconds": 1.18,
       "input_price_per_1m": 15.0,
       "output_price_per_1m": 75.0,
-      "blended_price_per_1m": 30.0
+      "blended_price_per_1m": 30.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Opus 4.7 (xHigh)",
@@ -2064,7 +2274,8 @@
       "ttft_seconds": 1.22,
       "input_price_per_1m": 15.0,
       "output_price_per_1m": 75.0,
-      "blended_price_per_1m": 30.0
+      "blended_price_per_1m": 30.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Opus 4.6 (High)",
@@ -2082,7 +2293,8 @@
       "ttft_seconds": 1.28,
       "input_price_per_1m": 15.0,
       "output_price_per_1m": 75.0,
-      "blended_price_per_1m": 30.0
+      "blended_price_per_1m": 30.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Sonnet 4.6 (Medium)",
@@ -2100,7 +2312,8 @@
       "ttft_seconds": 0.65,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 15.0,
-      "blended_price_per_1m": 6.0
+      "blended_price_per_1m": 6.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Opus 4.5 (High)",
@@ -2118,7 +2331,8 @@
       "ttft_seconds": 1.32,
       "input_price_per_1m": 15.0,
       "output_price_per_1m": 75.0,
-      "blended_price_per_1m": 30.0
+      "blended_price_per_1m": 30.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude Haiku 4.5",
@@ -2136,7 +2350,8 @@
       "ttft_seconds": 0.35,
       "input_price_per_1m": 1.0,
       "output_price_per_1m": 5.0,
-      "blended_price_per_1m": 2.0
+      "blended_price_per_1m": 2.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Claude 3.7 Sonnet (Thinking)",
@@ -2154,7 +2369,8 @@
       "ttft_seconds": 0.88,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 15.0,
-      "blended_price_per_1m": 6.0
+      "blended_price_per_1m": 6.0,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-6 Sol (Max)",
@@ -2172,7 +2388,8 @@
       "ttft_seconds": 0.98,
       "input_price_per_1m": 2.5,
       "output_price_per_1m": 10.0,
-      "blended_price_per_1m": 4.38
+      "blended_price_per_1m": 4.38,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-5.6 Sol (xHigh)",
@@ -2190,7 +2407,8 @@
       "ttft_seconds": 0.95,
       "input_price_per_1m": 5.0,
       "output_price_per_1m": 20.0,
-      "blended_price_per_1m": 8.75
+      "blended_price_per_1m": 8.75,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-5.6 Terra (xHigh)",
@@ -2208,7 +2426,8 @@
       "ttft_seconds": 0.82,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 12.0,
-      "blended_price_per_1m": 5.25
+      "blended_price_per_1m": 5.25,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-5.6 Luna (High)",
@@ -2226,7 +2445,8 @@
       "ttft_seconds": 0.45,
       "input_price_per_1m": 0.3,
       "output_price_per_1m": 1.2,
-      "blended_price_per_1m": 0.53
+      "blended_price_per_1m": 0.53,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-5.5 (xHigh)",
@@ -2244,7 +2464,8 @@
       "ttft_seconds": 1.05,
       "input_price_per_1m": 7.5,
       "output_price_per_1m": 30.0,
-      "blended_price_per_1m": 13.13
+      "blended_price_per_1m": 13.13,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-5.4 (xHigh)",
@@ -2262,7 +2483,8 @@
       "ttft_seconds": 0.88,
       "input_price_per_1m": 3.75,
       "output_price_per_1m": 15.0,
-      "blended_price_per_1m": 6.56
+      "blended_price_per_1m": 6.56,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-5.4 Mini (xHigh)",
@@ -2280,7 +2502,8 @@
       "ttft_seconds": 0.52,
       "input_price_per_1m": 1.1,
       "output_price_per_1m": 4.5,
-      "blended_price_per_1m": 1.95
+      "blended_price_per_1m": 1.95,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-5.4 Nano (xHigh)",
@@ -2298,7 +2521,8 @@
       "ttft_seconds": 0.34,
       "input_price_per_1m": 0.3,
       "output_price_per_1m": 1.25,
-      "blended_price_per_1m": 0.54
+      "blended_price_per_1m": 0.54,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-5.2 (High)",
@@ -2316,7 +2540,8 @@
       "ttft_seconds": 0.85,
       "input_price_per_1m": 3.5,
       "output_price_per_1m": 14.0,
-      "blended_price_per_1m": 6.13
+      "blended_price_per_1m": 6.13,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-5 Mini (High)",
@@ -2334,7 +2559,8 @@
       "ttft_seconds": 0.42,
       "input_price_per_1m": 0.5,
       "output_price_per_1m": 2.0,
-      "blended_price_per_1m": 0.88
+      "blended_price_per_1m": 0.88,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "o3 (High)",
@@ -2352,7 +2578,8 @@
       "ttft_seconds": 0.92,
       "input_price_per_1m": 2.0,
       "output_price_per_1m": 8.0,
-      "blended_price_per_1m": 3.5
+      "blended_price_per_1m": 3.5,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "GPT-4.1",
@@ -2370,7 +2597,8 @@
       "ttft_seconds": 0.48,
       "input_price_per_1m": 2.0,
       "output_price_per_1m": 8.0,
-      "blended_price_per_1m": 3.5
+      "blended_price_per_1m": 3.5,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 3.7 Flash (High)",
@@ -2388,7 +2616,8 @@
       "ttft_seconds": 0.52,
       "input_price_per_1m": 0.9,
       "output_price_per_1m": 3.75,
-      "blended_price_per_1m": 1.61
+      "blended_price_per_1m": 1.61,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 3.6 Flash (High)",
@@ -2406,7 +2635,8 @@
       "ttft_seconds": 0.48,
       "input_price_per_1m": 0.9,
       "output_price_per_1m": 3.75,
-      "blended_price_per_1m": 1.61
+      "blended_price_per_1m": 1.61,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 3.5 Flash (High)",
@@ -2424,7 +2654,8 @@
       "ttft_seconds": 0.44,
       "input_price_per_1m": 0.75,
       "output_price_per_1m": 3.0,
-      "blended_price_per_1m": 1.31
+      "blended_price_per_1m": 1.31,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemini 3.1 Pro (High)",
@@ -2442,7 +2673,8 @@
       "ttft_seconds": 0.82,
       "input_price_per_1m": 3.0,
       "output_price_per_1m": 12.0,
-      "blended_price_per_1m": 5.25
+      "blended_price_per_1m": 5.25,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemma 4 26B A4B",
@@ -2460,7 +2692,8 @@
       "ttft_seconds": 0.25,
       "input_price_per_1m": 0.08,
       "output_price_per_1m": 0.3,
-      "blended_price_per_1m": 0.14
+      "blended_price_per_1m": 0.14,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Gemma 4 12B (Non-Reasoning)",
@@ -2478,7 +2711,8 @@
       "ttft_seconds": 0.22,
       "input_price_per_1m": 0.05,
       "output_price_per_1m": 0.2,
-      "blended_price_per_1m": 0.09
+      "blended_price_per_1m": 0.09,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Muse Spark 1.3 (High)",
@@ -2496,7 +2730,8 @@
       "ttft_seconds": 0.58,
       "input_price_per_1m": 1.1,
       "output_price_per_1m": 4.25,
-      "blended_price_per_1m": 1.89
+      "blended_price_per_1m": 1.89,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Muse Spark 1.2 (High)",
@@ -2514,7 +2749,8 @@
       "ttft_seconds": 0.56,
       "input_price_per_1m": 1.1,
       "output_price_per_1m": 4.25,
-      "blended_price_per_1m": 1.89
+      "blended_price_per_1m": 1.89,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Muse Spark 1.1 (xHigh)",
@@ -2532,7 +2768,8 @@
       "ttft_seconds": 0.54,
       "input_price_per_1m": 1.1,
       "output_price_per_1m": 4.25,
-      "blended_price_per_1m": 1.89
+      "blended_price_per_1m": 1.89,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Llama 4 Maverick 17B 128E Instruct",
@@ -2550,7 +2787,8 @@
       "ttft_seconds": 0.36,
       "input_price_per_1m": 0.25,
       "output_price_per_1m": 1.0,
-      "blended_price_per_1m": 0.44
+      "blended_price_per_1m": 0.44,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Llama 4 Scout 17B 16E Instruct",
@@ -2568,7 +2806,8 @@
       "ttft_seconds": 0.28,
       "input_price_per_1m": 0.15,
       "output_price_per_1m": 0.6,
-      "blended_price_per_1m": 0.26
+      "blended_price_per_1m": 0.26,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Llama 3.3 70B Instruct",
@@ -2586,7 +2825,8 @@
       "ttft_seconds": 0.31,
       "input_price_per_1m": 0.12,
       "output_price_per_1m": 0.32,
-      "blended_price_per_1m": 0.17
+      "blended_price_per_1m": 0.17,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Llama 3.1 405B Instruct",
@@ -2604,7 +2844,8 @@
       "ttft_seconds": 0.75,
       "input_price_per_1m": 0.8,
       "output_price_per_1m": 2.4,
-      "blended_price_per_1m": 1.2
+      "blended_price_per_1m": 1.2,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek V4 Pro 0423",
@@ -2622,7 +2863,8 @@
       "ttft_seconds": 1.52,
       "input_price_per_1m": 0.55,
       "output_price_per_1m": 1.91,
-      "blended_price_per_1m": 0.89
+      "blended_price_per_1m": 0.89,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek V4 Flash 0731 (High)",
@@ -2640,7 +2882,8 @@
       "ttft_seconds": 1.12,
       "input_price_per_1m": 0.12,
       "output_price_per_1m": 0.32,
-      "blended_price_per_1m": 0.17
+      "blended_price_per_1m": 0.17,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek V4 Flash 0423",
@@ -2658,7 +2901,8 @@
       "ttft_seconds": 0.85,
       "input_price_per_1m": 0.08,
       "output_price_per_1m": 0.18,
-      "blended_price_per_1m": 0.11
+      "blended_price_per_1m": 0.11,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek V3.2",
@@ -2676,7 +2920,8 @@
       "ttft_seconds": 0.72,
       "input_price_per_1m": 0.14,
       "output_price_per_1m": 0.42,
-      "blended_price_per_1m": 0.21
+      "blended_price_per_1m": 0.21,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "DeepSeek-R1 (0528)",
@@ -2694,7 +2939,8 @@
       "ttft_seconds": 1.85,
       "input_price_per_1m": 0.55,
       "output_price_per_1m": 2.19,
-      "blended_price_per_1m": 0.96
+      "blended_price_per_1m": 0.96,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Qwen3.7 Max",
@@ -2712,7 +2958,8 @@
       "ttft_seconds": 1.12,
       "input_price_per_1m": 1.6,
       "output_price_per_1m": 4.8,
-      "blended_price_per_1m": 2.4
+      "blended_price_per_1m": 2.4,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Qwen3.6 Plus",
@@ -2730,7 +2977,8 @@
       "ttft_seconds": 0.74,
       "input_price_per_1m": 0.65,
       "output_price_per_1m": 1.95,
-      "blended_price_per_1m": 0.98
+      "blended_price_per_1m": 0.98,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Qwen3.5 397B A17B (Reasoning)",
@@ -2748,7 +2996,8 @@
       "ttft_seconds": 1.18,
       "input_price_per_1m": 0.9,
       "output_price_per_1m": 3.6,
-      "blended_price_per_1m": 1.58
+      "blended_price_per_1m": 1.58,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Qwen3.5 122B A10B (Reasoning)",
@@ -2766,7 +3015,8 @@
       "ttft_seconds": 0.62,
       "input_price_per_1m": 0.8,
       "output_price_per_1m": 3.2,
-      "blended_price_per_1m": 1.4
+      "blended_price_per_1m": 1.4,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Qwen3-Coder 480B A35B Instruct",
@@ -2784,7 +3034,8 @@
       "ttft_seconds": 0.95,
       "input_price_per_1m": 1.8,
       "output_price_per_1m": 7.5,
-      "blended_price_per_1m": 3.23
+      "blended_price_per_1m": 3.23,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Qwen3 235B A22B Instruct 2507",
@@ -2802,7 +3053,8 @@
       "ttft_seconds": 0.65,
       "input_price_per_1m": 0.18,
       "output_price_per_1m": 0.55,
-      "blended_price_per_1m": 0.27
+      "blended_price_per_1m": 0.27,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Kimi K3 (Max)",
@@ -2820,7 +3072,8 @@
       "ttft_seconds": 1.32,
       "input_price_per_1m": 2.0,
       "output_price_per_1m": 11.94,
-      "blended_price_per_1m": 4.49
+      "blended_price_per_1m": 4.49,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Kimi K2.6 Thinking",
@@ -2838,7 +3091,8 @@
       "ttft_seconds": 1.08,
       "input_price_per_1m": 0.85,
       "output_price_per_1m": 3.41,
-      "blended_price_per_1m": 1.49
+      "blended_price_per_1m": 1.49,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Grok 4.6 (High)",
@@ -2856,7 +3110,8 @@
       "ttft_seconds": 0.78,
       "input_price_per_1m": 1.5,
       "output_price_per_1m": 6.0,
-      "blended_price_per_1m": 2.63
+      "blended_price_per_1m": 2.63,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Grok 4.5 (High)",
@@ -2874,7 +3129,8 @@
       "ttft_seconds": 0.82,
       "input_price_per_1m": 1.5,
       "output_price_per_1m": 6.0,
-      "blended_price_per_1m": 2.63
+      "blended_price_per_1m": 2.63,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Hy4 Preview",
@@ -2892,7 +3148,8 @@
       "ttft_seconds": 0.76,
       "input_price_per_1m": 0.4,
       "output_price_per_1m": 1.6,
-      "blended_price_per_1m": 0.7
+      "blended_price_per_1m": 0.7,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Smaug-Nemotron-3.5-NVFP4",
@@ -2910,7 +3167,8 @@
       "ttft_seconds": 0.48,
       "input_price_per_1m": 0.15,
       "output_price_per_1m": 0.6,
-      "blended_price_per_1m": 0.26
+      "blended_price_per_1m": 0.26,
+      "first_seen": "2026-11-10"
     },
     {
       "model_name": "Mercury 3 (High)",
@@ -2928,7 +3186,8 @@
       "ttft_seconds": 0.32,
       "input_price_per_1m": 0.2,
       "output_price_per_1m": 0.8,
-      "blended_price_per_1m": 0.35
+      "blended_price_per_1m": 0.35,
+      "first_seen": "2026-11-10"
     }
   ]
 }

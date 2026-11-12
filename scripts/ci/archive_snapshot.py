@@ -97,9 +97,11 @@ def build_historical_and_changelog() -> None:
         }
     ]
 
-    newer_models = [
-        m for m in all_models if m.get("release_date", "") > "2026-11-10"
-    ]
+    newer_models = sorted(
+        (m for m in all_models if m.get("release_date", "") > "2026-11-10"),
+        key=lambda m: (m.get("release_date", ""), m["composite"]["unified_quality_score"]),
+        reverse=True,
+    )
     if newer_models or len(all_models) != 139:
         newer_names = [m["display_name"] for m in newer_models[:6]]
         full_count = sum(1 for m in all_models if m["composite"]["sources_present"] == 4)

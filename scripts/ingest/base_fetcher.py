@@ -301,7 +301,7 @@ class BaseFetcher:
                         "output_tokens_per_second",
                         "ttft_seconds",
                     ):
-                        if clean_item.get(field) is not None:
+                        if combined.get(field) is None and clean_item.get(field) is not None:
                             combined[field] = clean_item[field]
                     if clean_item.get("open_weights") is True:
                         combined["open_weights"] = True

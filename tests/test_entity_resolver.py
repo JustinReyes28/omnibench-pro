@@ -313,6 +313,94 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
             self.assertTrue(g2["is_open_weights"])
             self.assertEqual(g2["license"], "Apache-2.0")
 
+    def test_curated_single_source_protected_from_arena_variant_coalescing_and_historical_quarantine(self) -> None:
+        self.assertEqual(_infer_provider("Grok 4.7 (xhigh)", "SpaceXAI"), "xAI")
+        self.assertEqual(_infer_provider("GLM-5.3 (max)", "Z AI"), "Z.AI")
+        self.assertEqual(_infer_provider("Kimi K3.1 Pro", "Kimi"), "Moonshot AI")
+        self.assertEqual(_infer_provider("K2 Horizon 375B A23B", "Institute of Foundation Models"), "IFM")
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            raw_dir = tmp / "raw"
+            pub_dir = tmp / "public_data"
+            aliases_copy = tmp / "model_aliases.json"
+            unmatched_copy = tmp / "unmatched_models.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                (raw_dir / src).mkdir(parents=True, exist_ok=True)
+                (raw_dir / src / "latest.json").write_text(
+                    json.dumps({"fetched_at": "2026-11-13T00:00:00Z", "release": "2026-06-25", "models": []}),
+                    encoding="utf-8",
+                )
+
+            (raw_dir / "livebench" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-11-13T00:00:00Z",
+                "release": "2026-06-25",
+                "models": [
+                    {
+                        "model_key": "glm-5.2",
+                        "display_name": "GLM-5.2",
+                        "provider": "Z.AI",
+                        "global_average": 65.0,
+                        "coding": 66.0,
+                        "mathematics": 68.0,
+                        "reasoning": 64.0,
+                        "data_analysis": 63.0,
+                        "language": 65.0,
+                        "instruction_following": 64.0,
+                        "agentic_coding": 65.0,
+                    }
+                ],
+            }), encoding="utf-8")
+
+            # Arena introduces both an untagged glm-5.2-high effort variant and a pre-2026 legacy Arena-only model
+            (raw_dir / "arena" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-11-13T00:00:00Z",
+                "models": [
+                    {
+                        "arena_model_id": "glm-5.2-high",
+                        "display_name": "glm-5.2-high",
+                        "organization": "Z AI",
+                        "license": "MIT",
+                        "text_elo": 1410,
+                        "text_ci_lower": 1404,
+                        "text_ci_upper": 1416,
+                        "coding_elo": 1420,
+                        "vision_elo": None,
+                        "votes": 5000,
+                    },
+                    {
+                        "arena_model_id": "legacy-chat-20240501",
+                        "display_name": "Legacy Chat 2024",
+                        "organization": "Cohere",
+                        "license": "Proprietary",
+                        "text_elo": 1240,
+                        "text_ci_lower": 1234,
+                        "text_ci_upper": 1246,
+                        "coding_elo": 1240,
+                        "vision_elo": None,
+                        "votes": 4000,
+                    },
+                ],
+            }), encoding="utf-8")
+
+            built = build_unified_dataset(
+                aliases_path=aliases_copy,
+                raw_dir=raw_dir,
+                public_data_dir=pub_dir,
+                unmatched_path=unmatched_copy,
+            )
+            by_id = {m["id"]: m for m in built["models"]}
+            self.assertIn("zai-glm-5-2", by_id)
+            self.assertIsNotNone(by_id["zai-glm-5-2"]["benchmarks"]["livebench"])
+            self.assertNotIn("cohere-legacy-chat", by_id)
+
+            saved_registry = json.loads(aliases_copy.read_text(encoding="utf-8"))
+            saved_cids = {m["canonical_id"] for m in saved_registry["models"]}
+            self.assertIn("zai-glm-5-2", saved_cids)
+            self.assertNotIn("cohere-legacy-chat", saved_cids)
+
 
 if __name__ == "__main__":
     unittest.main()

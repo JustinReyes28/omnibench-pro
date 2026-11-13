@@ -602,6 +602,17 @@ def enrich_snapshots(
                         logger.debug("AA model page lookup failed for %s: %s", aa_slug, exc)
 
                 hf_repo_cand = (or_meta or {}).get("hugging_face_id") or aa_meta.get("hugging_face_id")
+                lower_raw = raw_name.lower()
+                closed_lab = (
+                    inferred_prov in ("Anthropic", "xAI")
+                    or (inferred_prov == "OpenAI" and "gpt-oss" not in lower_raw)
+                    or (inferred_prov == "Google" and "gemma" not in lower_raw)
+                )
+                allow_unlinked_hf = aa_meta.get("open_weights") is True or (
+                    aa_meta.get("open_weights") is not False
+                    and not closed_lab
+                    and not aa_meta.get("release_date")
+                )
                 if hf_repo_cand:
                     try:
                         hf_obj = _http_get_json(f"{HF_API_MODELS_URL}/{urllib.parse.quote(hf_repo_cand, safe='/')}", headers=hf_headers)
@@ -609,7 +620,7 @@ def enrich_snapshots(
                             hf_meta = parse_hf_model_metadata(raw_name, hf_obj)
                     except Exception as exc:
                         logger.debug("HF repo lookup failed for %s: %s", hf_repo_cand, exc)
-                elif aa_meta.get("open_weights") is True or not aa_meta.get("release_date"):
+                elif allow_unlinked_hf:
                     search_q = urllib.parse.quote(re.sub(r"\([^)]*\)", "", raw_name).strip())
                     try:
                         hf_list = _http_get_json(
@@ -619,6 +630,8 @@ def enrich_snapshots(
                         if isinstance(hf_list, list):
                             for cand in hf_list:
                                 if not isinstance(cand, dict):
+                                    continue
+                                if int(cand.get("downloads") or 0) < 50:
                                     continue
                                 parsed_hf = parse_hf_model_metadata(raw_name, cand)
                                 if parsed_hf:

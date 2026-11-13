@@ -117,6 +117,7 @@ class ArtificialAnalysisFetcher(BaseFetcher):
             if ttft is None:
                 ttft = item.get("ttft_seconds")
 
+            blend_valid = blend_p is not None and float(blend_p) > 0
             rec: dict[str, Any] = {
                 "model_name": str(name).strip(),
                 "provider": (creator.get("name") if isinstance(creator, dict) else None) or item.get("creator") or item.get("provider") or "Unknown",
@@ -127,9 +128,9 @@ class ArtificialAnalysisFetcher(BaseFetcher):
                 "math_index": round(float(math_idx), 2),
                 "output_tokens_per_second": round(float(tps), 1) if tps is not None and float(tps) > 0 else None,
                 "ttft_seconds": round(float(ttft), 2) if ttft is not None and float(ttft) >= 0 else None,
-                "input_price_per_1m": round(float(in_p), 3) if in_p is not None else None,
-                "output_price_per_1m": round(float(out_p), 3) if out_p is not None else None,
-                "blended_price_per_1m": round(float(blend_p), 3) if blend_p is not None else None,
+                "input_price_per_1m": round(float(in_p), 3) if blend_valid and in_p is not None and float(in_p) >= 0 else None,
+                "output_price_per_1m": round(float(out_p), 3) if blend_valid and out_p is not None and float(out_p) >= 0 else None,
+                "blended_price_per_1m": round(float(blend_p), 3) if blend_valid else None,
             }
             norm_rd = _normalize_release_date(item.get("release_date"))
             if norm_rd:
@@ -149,62 +150,86 @@ class ArtificialAnalysisFetcher(BaseFetcher):
             if not table:
                 continue
             col_map: dict[str, int | None] = {
-                "model": 0,
-                "context": 1,
-                "creator": 2,
-                "intelligence": 3,
-                "cost": 4,
+                "model": None,
+                "context": None,
+                "creator": None,
+                "intelligence": None,
+                "cost": None,
                 "speed": None,
                 "latency": None,
                 "license": None,
             }
-            data_rows = table
-            first_row_lower = [c[0].strip().lower() for c in table[0]]
-            if any(tok in " ".join(first_row_lower) for tok in ("model", "intelligence", "creator", "context", "price", "cost")):
-                data_rows = table[1:]
-                for idx, h in enumerate(first_row_lower):
-                    if h == "model" or h.startswith("model "):
-                        col_map["model"] = idx
-                    elif "context" in h:
-                        col_map["context"] = idx
-                    elif "creator" in h or "provider" in h or "lab" in h:
-                        col_map["creator"] = idx
-                    elif "intelligence" in h or "quality" in h:
-                        col_map["intelligence"] = idx
-                    elif "price" in h or "cost" in h or "blended" in h or "usd" in h:
-                        col_map["cost"] = idx
-                    elif "speed" in h or "tokens/s" in h or "tok/s" in h or "throughput" in h:
-                        col_map["speed"] = idx
-                    elif "latency" in h or "ttft" in h or "first token" in h:
-                        col_map["latency"] = idx
-                    elif "license" in h or "weights" in h or "open" in h:
-                        col_map["license"] = idx
+            header_idx: int | None = None
+            for idx, candidate_row in enumerate(table[:4]):
+                cells_lower = [c[0].strip().lower() for c in candidate_row]
+                has_model_col = any(
+                    h == "model" or h.startswith("model ") or h == "model name"
+                    for h in cells_lower
+                )
+                metric_hits = sum(
+                    1
+                    for h in cells_lower
+                    if any(
+                        tok in h
+                        for tok in ("context", "creator", "provider", "lab", "intelligence", "quality", "cost", "price")
+                    )
+                )
+                if has_model_col and metric_hits >= 2:
+                    header_idx = idx
+                    for col_i, h in enumerate(cells_lower):
+                        if h == "model" or h.startswith("model ") or h == "model name":
+                            col_map["model"] = col_i
+                        elif "context" in h:
+                            col_map["context"] = col_i
+                        elif "creator" in h or "provider" in h or "lab" in h:
+                            col_map["creator"] = col_i
+                        elif ("intelligence" in h or "quality" in h) and not any(tok in h for tok in ("cost", "price", "usd", "$")):
+                            col_map["intelligence"] = col_i
+                        elif any(tok in h for tok in ("cost", "price", "blended", "usd", "$")):
+                            col_map["cost"] = col_i
+                        elif any(tok in h for tok in ("tokens/s", "tok/s", "tokens per sec", "tokens per second", "throughput", "output speed")):
+                            col_map["speed"] = col_i
+                        elif any(tok in h for tok in ("first answer", "ttft", "first token")):
+                            col_map["latency"] = col_i
+                        elif any(tok in h for tok in ("license", "weights", "open")):
+                            col_map["license"] = col_i
+                    break
 
-            m_idx = col_map["model"] or 0
-            c_idx = col_map["context"] or 1
-            p_idx = col_map["creator"] or 2
-            i_idx = col_map["intelligence"] or 3
-            cost_idx = col_map["cost"]
+            if header_idx is not None:
+                data_rows = table[header_idx + 1 :]
+                m_idx = col_map["model"] if col_map["model"] is not None else 0
+                c_idx = col_map["context"] if col_map["context"] is not None else 1
+                p_idx = col_map["creator"] if col_map["creator"] is not None else 2
+                i_idx = col_map["intelligence"] if col_map["intelligence"] is not None else 3
+                cost_idx = col_map["cost"]
+            else:
+                data_rows = table
+                m_idx, c_idx, p_idx, i_idx, cost_idx = 0, 1, 2, 3, 4
+
             spd_idx = col_map["speed"]
             lat_idx = col_map["latency"]
             lic_idx = col_map["license"]
 
             for row in data_rows:
-                if len(row) < 4:
+                if len(row) < 4 or len(row) <= max(m_idx, i_idx):
                     continue
                 model_cell, model_links = row[m_idx]
                 model_name = model_cell.strip()
-                if not model_name or model_name.lower() in ("model", "features"):
+                if not model_name or model_name.lower() in ("model", "features", "model name"):
                     continue
-                ctx_str = row[c_idx][0].strip() if len(row) > c_idx else "128k"
-                creator_raw = row[p_idx][0].strip() if len(row) > p_idx else "Unknown"
+                ctx_str = row[c_idx][0].strip() if c_idx is not None and len(row) > c_idx else "128k"
+                creator_raw = row[p_idx][0].strip() if p_idx is not None and len(row) > p_idx else "Unknown"
                 parts = creator_raw.split()
                 if len(parts) >= 2 and len(parts) % 2 == 0 and parts[: len(parts) // 2] == parts[len(parts) // 2 :]:
                     creator_raw = " ".join(parts[: len(parts) // 2])
-                intel_str = row[i_idx][0].strip().replace("%", "") if len(row) > i_idx else ""
-                try:
-                    intel_val = float(intel_str)
-                except ValueError:
+                if not creator_raw:
+                    creator_raw = "Unknown"
+
+                intel_raw = row[i_idx][0].strip()
+                if not intel_raw or "$" in intel_raw or "/" in intel_raw or re.search(r"[mk]\s*$", intel_raw, re.IGNORECASE):
+                    continue
+                intel_val = _parse_float_cell(intel_raw.replace("%", ""))
+                if intel_val is None or not (0.0 <= intel_val <= 100.0):
                     continue
 
                 cost_val = _parse_float_cell(row[cost_idx][0]) if cost_idx is not None and len(row) > cost_idx else None
@@ -221,11 +246,20 @@ class ArtificialAnalysisFetcher(BaseFetcher):
                 lat_val = _parse_float_cell(row[lat_idx][0]) if lat_idx is not None and len(row) > lat_idx else None
 
                 aa_slug: str | None = None
-                for href in model_links:
-                    m_slug = re.search(r"/models/([A-Za-z0-9._-]+)", href)
+                all_row_links = list(model_links) + [
+                    href
+                    for idx, cell in enumerate(row)
+                    if idx != m_idx
+                    for href in cell[1]
+                ]
+                for href in all_row_links:
+                    m_slug = re.search(r"/models/([A-Za-z0-9._-]+)(?:$|[/?#])", href)
                     if m_slug:
-                        aa_slug = m_slug.group(1)
-                        break
+                        cand_slug = m_slug.group(1)
+                        if cand_slug.lower() not in ("compare", "providers", "models", "leaderboard"):
+                            aa_slug = cand_slug
+                            if not href.rstrip("/").endswith("/providers"):
+                                break
 
                 open_w = False
                 if lic_idx is not None and len(row) > lic_idx:

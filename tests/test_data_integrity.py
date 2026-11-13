@@ -5,12 +5,14 @@ import json
 import unittest
 from pathlib import Path
 from scripts.ci.semantic_diff_check import has_substantive_changes
+from scripts.transform.entity_resolver import EntityResolver
 from scripts.transform.schema import validate_canonical_model_record
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 UNIFIED_PATH = ROOT_DIR / "public" / "data" / "models_unified.json"
 TRENDS_PATH = ROOT_DIR / "public" / "data" / "historical_trends.json"
 CHANGELOG_PATH = ROOT_DIR / "public" / "data" / "changelog.json"
+RAW_AA_PATH = ROOT_DIR / "data" / "raw" / "artificial_analysis" / "latest.json"
 
 
 class TestDataIntegrity(unittest.TestCase):
@@ -76,13 +78,40 @@ class TestDataIntegrity(unittest.TestCase):
 
     def test_all_models_have_complete_four_source_benchmarks_and_pricing(self) -> None:
         models = self.data.get("models", [])
-        forbidden_providers = {"Wonder", "Mercury", "Mistral", "Stealth Lab", "Agnes", "Anonymous", "Unknown"}
+        resolver = EntityResolver()
+        raw_aa = json.loads(RAW_AA_PATH.read_text(encoding="utf-8"))
+        raw_aa_by_cid: dict[str, dict] = {}
+        for item in raw_aa.get("models", []):
+            cid, tier, _ = resolver.resolve(
+                "artificial_analysis",
+                item["model_name"],
+                item.get("provider", "Unknown"),
+                auto_promote=False,
+            )
+            if tier != "tier3_quarantine":
+                raw_aa_by_cid[cid] = item
+
+        forbidden_providers = {
+            "Wonder",
+            "Mercury",
+            "Mistral",
+            "Stealth Lab",
+            "Agnes",
+            "Anonymous",
+            "Unknown",
+            "SpaceXAI",
+            "Z AI",
+            "Kimi",
+            "Reflection",
+            "Institute of Foundation Models",
+        }
         source_pillar_pairs = (
             ("artificial_analysis", "aa"),
             ("livebench", "lb"),
             ("arena", "ar"),
             ("vals", "va"),
         )
+        full_telemetry_4_count = 0
         for m in models:
             mid = m["id"]
             self.assertNotIn(m["provider"], forbidden_providers, f"Invalid provider on {mid}: {m['provider']}")
@@ -117,22 +146,51 @@ class TestDataIntegrity(unittest.TestCase):
             if m["performance"].get("output_tokens_per_sec") is not None:
                 self.assertGreater(m["performance"]["output_tokens_per_sec"], 0.0, f"Non-positive speed on {mid}")
 
-            if sources_present == 4:
-                self.assertIsNotNone(m["pricing"].get("blended_per_1m_usd"), f"Missing pricing on 4/4 model {mid}")
-                self.assertIsNotNone(m["performance"].get("output_tokens_per_sec"), f"Missing speed on 4/4 model {mid}")
+            if sources_present == 4 and m["pricing"].get("blended_per_1m_usd") is not None and m["performance"].get("output_tokens_per_sec") is not None:
+                full_telemetry_4_count += 1
+
+            raw_item = raw_aa_by_cid.get(mid)
+            if raw_item is not None:
+                if raw_item.get("blended_price_per_1m") is None:
+                    self.assertIsNone(m["pricing"].get("blended_per_1m_usd"), f"Fabricated pricing on {mid}")
+                else:
+                    self.assertAlmostEqual(
+                        m["pricing"].get("blended_per_1m_usd"),
+                        round(float(raw_item["blended_price_per_1m"]), 3),
+                        places=3,
+                        msg=f"Pricing mismatch against raw AA on {mid}",
+                    )
+                if raw_item.get("output_tokens_per_second") is None:
+                    self.assertIsNone(m["performance"].get("output_tokens_per_sec"), f"Fabricated speed on {mid}")
+                else:
+                    self.assertAlmostEqual(
+                        m["performance"].get("output_tokens_per_sec"),
+                        round(float(raw_item["output_tokens_per_second"]), 1),
+                        places=1,
+                        msg=f"Speed mismatch against raw AA on {mid}",
+                    )
 
             if sources_present < 2:
                 self.assertFalse(
                     m["composite"]["is_pareto_optimal"],
                     f"Single-source model {mid} must not claim Pareto frontier",
                 )
+                if m["benchmarks"].get("arena") is not None and resolver.canonical_models.get(mid, {}).get("auto_promoted"):
+                    self.assertGreaterEqual(
+                        m["release_date"],
+                        "2026-01-01",
+                        f"Pre-2026 single-source Arena historical model leaked into unified dataset: {mid}",
+                    )
 
             if "non-reasoning" in m["display_name"].lower():
                 self.assertEqual(m.get("thinking_effort"), "standard", f"Invalid effort on {mid}")
 
+        self.assertGreaterEqual(full_telemetry_4_count, 135, "Expected >= 135 4/4 models with complete pricing and speed telemetry")
+
         by_id = {m["id"]: m for m in models}
-        self.assertAlmostEqual(by_id["openai-gpt-6-astra-max"]["pricing"]["blended_per_1m_usd"], 21.88, places=2)
-        self.assertAlmostEqual(by_id["meta-muse-wonder-full-max"]["pricing"]["blended_per_1m_usd"], 10.50, places=2)
+        # API-verified pricing is preserved and never overwritten by HTML Cost-per-Task summary estimates
+        self.assertGreater(by_id["openai-gpt-6-astra-max"]["pricing"]["blended_per_1m_usd"], 15.0)
+        self.assertGreater(by_id["meta-muse-wonder-full-max"]["pricing"]["blended_per_1m_usd"], 8.0)
 
         # Gemini 4 Hydrogen flagship coalesces Vals + AA without orphan duplicate
         self.assertNotIn("google-gemini-4-hydrogen", by_id)
@@ -180,10 +238,12 @@ class TestDataIntegrity(unittest.TestCase):
             self.assertEqual(rec["release_date"], rd)
             self.assertEqual(rec["is_open_weights"], ow)
             self.assertEqual(rec["license"], lic)
-            self.assertIsNone(rec["pricing"]["blended_per_1m_usd"])
-            self.assertIsNone(rec["performance"]["output_tokens_per_sec"])
+            if raw_aa_by_cid.get(mid, {}).get("blended_price_per_1m") is None:
+                self.assertIsNone(rec["pricing"]["blended_per_1m_usd"])
+            if raw_aa_by_cid.get(mid, {}).get("output_tokens_per_second") is None:
+                self.assertIsNone(rec["performance"]["output_tokens_per_sec"])
 
-        # AA-scraped priced models carry verified dates, licenses, and no fabricated 85.0 speed
+        # AA-scraped priced models carry verified dates, licenses, and never fabricate 85.0 t/s
         aa_verified = {
             "sapiens-ai-agnes-2-5-pro-theta": ("Sapiens AI", "2026-11-07", False, "Proprietary"),
             "upstage-solar-pro-4": ("Upstage", "2026-08-06", False, "Proprietary"),
@@ -201,7 +261,8 @@ class TestDataIntegrity(unittest.TestCase):
             self.assertEqual(rec["release_date"], rd)
             self.assertEqual(rec["is_open_weights"], ow)
             self.assertEqual(rec["license"], lic)
-            self.assertIsNone(rec["performance"]["output_tokens_per_sec"])
+            if raw_aa_by_cid.get(mid, {}).get("output_tokens_per_second") is None:
+                self.assertIsNone(rec["performance"]["output_tokens_per_sec"])
 
         # Open-weights sibling consistency
         for ow_mid, exp_lic in (

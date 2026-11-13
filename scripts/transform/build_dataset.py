@@ -220,9 +220,17 @@ def build_unified_dataset(
             "cost_per_test_usd": round(float(item["cost_per_test_usd"]), 2) if item.get("cost_per_test_usd") is not None else None,
         }
 
+    def _is_auto_promoted(cid: str) -> bool:
+        entry = resolver.canonical_models.get(cid)
+        return bool((entry and entry.get("auto_promoted")) or cid in resolver.auto_promoted_ids)
+
+    def _is_curated(cid: str) -> bool:
+        entry = resolver.canonical_models.get(cid)
+        return bool(entry and not entry.get("auto_promoted") and cid not in resolver.auto_promoted_ids)
+
     # 5. Bidirectional Cross-Source Flagship Effort Coalescing:
     # When sources like Vals/Arena omit effort tiers (e.g. "Gemini 4 Hydrogen") while AA splits
-    # explicit tiers (xhigh/high/medium/low), link the untagged record onto the highest flagship tier.
+    # explicit tiers (xhigh/high/medium/low), link the untagged temporary entry onto the flagship tier.
     by_family: dict[tuple[str, str], list[str]] = {}
     for cid, rec in merged.items():
         fk = (rec["provider"], model_family_key(cid, rec["provider"]))
@@ -232,14 +240,28 @@ def build_unified_dataset(
         if len(cids) < 2:
             continue
         targets = sorted(
-            (c for c in cids if merged[c].get("thinking_effort") in _FLAGSHIP_EFFORT_ORDER),
-            key=lambda c: _FLAGSHIP_EFFORT_ORDER[merged[c]["thinking_effort"]],
+            (
+                c
+                for c in cids
+                if merged[c].get("thinking_effort") in _FLAGSHIP_EFFORT_ORDER
+                and (
+                    _is_curated(c)
+                    or merged[c]["benchmarks"].get("artificial_analysis") is not None
+                )
+            ),
+            key=lambda c: (
+                0 if merged[c]["benchmarks"].get("artificial_analysis") is not None else 1,
+                _FLAGSHIP_EFFORT_ORDER[merged[c]["thinking_effort"]],
+            ),
         )
         if not targets:
             continue
 
         for std_cid in cids:
             if std_cid not in merged:
+                continue
+            # Never retire or delete curated canonical entries during automatic coalescing
+            if not _is_auto_promoted(std_cid):
                 continue
             std_rec = merged[std_cid]
             if std_rec.get("thinking_effort", "standard") != "standard":
@@ -274,19 +296,34 @@ def build_unified_dataset(
                     resolver.merge_and_retire_canonical(std_cid, tgt_cid)
                     break
 
-    # 6. Quarantine stealth/unattributable or empty-benchmark records so invalid placeholders never publish
+    # 6. Quarantine stealth/unattributable, empty-benchmark, or pre-2026 single-source Arena historical records
+    def _should_quarantine(cid: str, rec: dict[str, Any]) -> bool:
+        if is_stealth_model(rec["provider"], rec["display_name"]):
+            return True
+        present_sources = [k for k in _ALL_SOURCES if rec["benchmarks"].get(k) is not None]
+        if len(present_sources) < 1:
+            return True
+        if (
+            _is_auto_promoted(cid)
+            and present_sources == ["arena"]
+            and str(rec.get("release_date") or "") < "2026-01-01"
+        ):
+            return True
+        return False
+
     invalid_cids = [
         cid
         for cid, rec in merged.items()
-        if is_stealth_model(rec["provider"], rec["display_name"])
-        or sum(1 for k in _ALL_SOURCES if rec["benchmarks"].get(k) is not None) < 1
+        if _should_quarantine(cid, rec)
     ]
     for cid in invalid_cids:
+        is_auto = _is_auto_promoted(cid)
         rec = merged.pop(cid)
         present_sources = [k for k in _ALL_SOURCES if rec["benchmarks"].get(k) is not None]
-        if cid in resolver.auto_promoted_ids:
+        if is_auto:
             resolver.auto_promoted_ids.discard(cid)
-            resolver.canonical_models.pop(cid, None)
+            if resolver.canonical_models.pop(cid, None) is not None:
+                resolver.registry_dirty = True
         resolver.unmatched_queue.append({
             "provisional_id": f"unmatched-{cid}",
             "source_keys": present_sources,
@@ -437,6 +474,8 @@ def build_unified_dataset(
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / "models_unified.json"
     serialized = json.dumps(payload, indent=2, allow_nan=False)
+    if len(serialized.encode("utf-8")) > 450 * 1024:
+        serialized = json.dumps(payload, separators=(",", ":"), allow_nan=False)
     out_path.write_text(serialized + "\n", encoding="utf-8")
     size_kb = out_path.stat().st_size / 1024.0
     print(

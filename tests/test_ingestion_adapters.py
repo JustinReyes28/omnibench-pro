@@ -307,6 +307,251 @@ class TestIngestionAdapters(unittest.TestCase):
             self.assertEqual(updated["license"], "Apache-2.0")
             self.assertEqual(updated["context_window"], 262144)
 
+    def test_aa_scrape_handles_two_row_group_headers_and_doubled_creators(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            adapter = ArtificialAnalysisFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+            aa_two_row_html = """
+            <table>
+              <thead>
+                <tr><th>Features</th><th>Intelligence</th><th>Price</th><th>Speed</th><th>Latency</th></tr>
+                <tr>
+                  <th>Model</th><th>Context Window</th><th>Creator</th>
+                  <th>Artificial Analysis Intelligence Index</th><th>Cost per TaskUSD</th>
+                  <th>Time per TaskMinutes</th><th>First AnswerToken (s)</th><th>Further Analysis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Claude Fable 5.2 (max)</td><td>1M</td><td>Anthropic Anthropic</td>
+                  <td>65</td><td>$26.54</td><td>46.8</td><td>267.23</td>
+                  <td><a href="/models/claude-fable-5-2-max">Model</a> · <a href="/models/claude-fable-5-2-max/providers">Providers</a></td>
+                </tr>
+                <tr>
+                  <td>Grok 4.7 (xhigh)</td><td>500k</td><td>SpaceXAI SpaceXAI</td>
+                  <td>35</td><td>$7.77</td><td>27.0</td><td>58.37</td>
+                  <td><a href="/models/grok-4-7-xhigh">Model</a></td>
+                </tr>
+                <tr>
+                  <td>GLM-5.3 (max)</td><td>1M</td><td>Z AI Z AI</td>
+                  <td>32</td><td>$5.01</td><td>27.7</td><td>63.55</td>
+                  <td><a href="/models/glm-5-3-max">Model</a></td>
+                </tr>
+                <tr>
+                  <td>K2 Horizon 375B A23B</td><td>524k</td><td>Institute of Foundation Models Institute of Foundation Models</td>
+                  <td>18</td><td>$0.00</td><td>4.8</td><td>15.96</td>
+                  <td><a href="/models/k2-horizon-375b-a23b">Model</a></td>
+                </tr>
+                <tr>
+                  <td>Muse Wonder Full (max)</td><td>1M</td><td>Meta Meta</td>
+                  <td>50</td><td>--</td><td>--</td><td>--</td>
+                  <td><a href="/models/muse-wonder-full-max">Model</a></td>
+                </tr>
+                <tr>
+                  <td>JT-35B-Flash</td><td>256k</td><td>China Mobile China Mobile</td>
+                  <td>--</td><td>--</td><td>--</td><td>--</td>
+                  <td><a href="/models/jt-35b-flash">Model</a></td>
+                </tr>
+              </tbody>
+            </table>
+            """
+            with patch.object(adapter, "request_text", return_value=aa_two_row_html):
+                parsed = adapter._scrape_public_leaderboard()
+
+            self.assertEqual(len(parsed), 5)
+            by_name = {m["model_name"]: m for m in parsed}
+
+            fable = by_name["Claude Fable 5.2 (max)"]
+            self.assertEqual(fable["provider"], "Anthropic")
+            self.assertEqual(fable["context_window"], 1_000_000)
+            self.assertEqual(fable["intelligence_index"], 65.0)
+            self.assertEqual(fable["aa_slug"], "claude-fable-5-2-max")
+            # Time per TaskMinutes (46.8) must NEVER be misread as output_tokens_per_second
+            self.assertIsNone(fable["output_tokens_per_second"])
+            self.assertEqual(fable["ttft_seconds"], 267.23)
+
+            grok = by_name["Grok 4.7 (xhigh)"]
+            self.assertEqual(grok["provider"], "SpaceXAI")
+            self.assertEqual(grok["context_window"], 500_000)
+
+            glm = by_name["GLM-5.3 (max)"]
+            self.assertEqual(glm["provider"], "Z AI")
+
+            k2 = by_name["K2 Horizon 375B A23B"]
+            self.assertEqual(k2["provider"], "Institute of Foundation Models")
+            self.assertEqual(k2["context_window"], 524_000)
+            self.assertEqual(k2["blended_price_per_1m"], 0.05)
+
+            muse = by_name["Muse Wonder Full (max)"]
+            self.assertIsNone(muse["blended_price_per_1m"])
+            self.assertIsNone(muse["ttft_seconds"])
+
+    def test_scraped_aa_summary_never_overwrites_existing_api_telemetry(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            adapter = ArtificialAnalysisFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+            adapter.latest_path.write_text(
+                json.dumps({
+                    "fetched_at": "2026-11-12T00:00:00Z",
+                    "models": [
+                        {
+                            "model_name": "GPT-6 Astra (Max)",
+                            "provider": "OpenAI",
+                            "context_window": 1000000,
+                            "intelligence_index": 57.0,
+                            "coding_index": 61.0,
+                            "math_index": 70.0,
+                            "input_price_per_1m": 15.0,
+                            "output_price_per_1m": 42.5,
+                            "blended_price_per_1m": 21.88,
+                            "output_tokens_per_second": 76.0,
+                            "ttft_seconds": 1.45,
+                            "release_date": "2026-10-08",
+                        },
+                        {
+                            "model_name": "Gemini 4 Hydrogen (xhigh)",
+                            "provider": "Google",
+                            "context_window": 1000000,
+                            "intelligence_index": 54.0,
+                            "coding_index": 60.48,
+                            "math_index": 66.96,
+                            "input_price_per_1m": 0.948,
+                            "output_price_per_1m": 4.74,
+                            "blended_price_per_1m": 1.896,
+                            "output_tokens_per_second": None,
+                            "ttft_seconds": None,
+                            "release_date": "2026-11-12",
+                        },
+                    ],
+                }),
+                encoding="utf-8",
+            )
+            merged = adapter.merge_with_lkg([
+                {
+                    "model_name": "GPT-6 Astra (max)",
+                    "provider": "OpenAI",
+                    "context_window": 1000000,
+                    "intelligence_index": 57.0,
+                    "input_price_per_1m": 1.872,
+                    "output_price_per_1m": 9.36,
+                    "blended_price_per_1m": 3.744,
+                    "output_tokens_per_second": None,
+                    "ttft_seconds": 228.86,
+                    "aa_slug": "gpt-6-astra-max",
+                    "_scraped_summary": True,
+                },
+                {
+                    "model_name": "Gemini 4 Hydrogen (xhigh)",
+                    "provider": "Google",
+                    "context_window": 1000000,
+                    "intelligence_index": 54.0,
+                    "input_price_per_1m": 0.948,
+                    "output_price_per_1m": 4.74,
+                    "blended_price_per_1m": 1.896,
+                    "output_tokens_per_second": None,
+                    "ttft_seconds": 40.55,
+                    "aa_slug": "gemini-4-hydrogen-xhigh",
+                    "_scraped_summary": True,
+                },
+            ])
+            by_name = {m["model_name"]: m for m in merged}
+            astra = by_name["GPT-6 Astra (Max)"]
+            self.assertEqual(astra["blended_price_per_1m"], 21.88)
+            self.assertEqual(astra["output_tokens_per_second"], 76.0)
+            self.assertEqual(astra["ttft_seconds"], 1.45)
+            self.assertEqual(astra["aa_slug"], "gpt-6-astra-max")
+
+            hydrogen = by_name["Gemini 4 Hydrogen (xhigh)"]
+            self.assertEqual(hydrogen["blended_price_per_1m"], 1.896)
+            self.assertIsNone(hydrogen["output_tokens_per_second"])
+            self.assertEqual(hydrogen["ttft_seconds"], 40.55)
+
+    def test_arena_hf_dataset_filters_historical_backlog_and_keeps_tracked_models(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            adapter = ArenaFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+            adapter.latest_path.write_text(
+                json.dumps({
+                    "fetched_at": "2026-11-12T00:00:00Z",
+                    "models": [{"arena_model_id": "meta-llama-3-1-405b-instruct-202610", "display_name": "Llama 3.1 405B", "text_elo": 1284}],
+                }),
+                encoding="utf-8",
+            )
+
+            rows: list[dict] = [
+                # Curated/tracked lower-Elo model must always be preserved
+                {"row": {"model_name": "llama-3.1-405b-instruct", "organization": "Meta", "category": "overall", "rating": 1284.0, "rank": 210}},
+                # Stealth row should be excluded
+                {"row": {"model_name": "anonymous-mystery-bot", "organization": "Stealth", "category": "overall", "rating": 1510.0, "rank": 1}},
+                # Historical 2023/2024 models should be filtered even with higher votes
+                {"row": {"model_name": "gpt-4-turbo-2024-04-09", "organization": "OpenAI", "category": "overall", "rating": 1355.0, "rank": 140}},
+            ]
+            # 8 recent high-Elo top-160 challengers
+            for i in range(8):
+                rows.append({"row": {"model_name": f"challenger-2026-{i}", "organization": "Cohere", "category": "overall", "rating": 1450.0 - i, "rank": i + 10}})
+            # 220 low-Elo historical backlog rows (rank > 160 & elo < 1350)
+            for i in range(220):
+                rows.append({"row": {"model_name": f"old-chatbot-{i}", "organization": "LMSYS", "category": "overall", "rating": 1250.0 - (i * 0.5), "rank": 170 + i}})
+
+            all_rows = rows
+            def fake_paginated_json(url: str, headers: dict | None = None):
+                if "api.wulong.dev" in url or "oolong-tea-2026" in url:
+                    raise RuntimeError("Mirror down")
+                if "config=text" in url:
+                    if "offset=0" in url:
+                        return {"num_rows_total": len(all_rows), "rows": all_rows[:100]}
+                    if "offset=100" in url:
+                        return {"num_rows_total": len(all_rows), "rows": all_rows[100:200]}
+                    if "offset=200" in url:
+                        return {"num_rows_total": len(all_rows), "rows": all_rows[200:]}
+                return {"num_rows_total": 0, "rows": []}
+
+            with patch.object(adapter, "request_json", side_effect=fake_paginated_json):
+                models = adapter.fetch_live_models()
+
+            ids = {m["arena_model_id"] for m in models}
+            self.assertIn("llama-3.1-405b-instruct", ids)
+            for i in range(8):
+                self.assertIn(f"challenger-2026-{i}", ids)
+            self.assertNotIn("gpt-4-turbo-2024-04-09", ids)
+            self.assertNotIn("anonymous-mystery-bot", ids)
+            self.assertEqual(len(ids), 9)
+
+    def test_metadata_enricher_blocks_closed_lab_unlinked_hf_and_low_download_spam(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            raw_dir = tmp / "raw"
+            aliases_copy = tmp / "model_aliases.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                (raw_dir / src).mkdir(parents=True, exist_ok=True)
+                (raw_dir / src / "latest.json").write_text(json.dumps({"fetched_at": "2026-12-01T00:00:00Z", "models": []}))
+
+            (raw_dir / "arena" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-12-01T00:00:00Z",
+                "models": [
+                    {"arena_model_id": "claude-future-9", "display_name": "Claude Future 9", "organization": "Anthropic"},
+                    {"arena_model_id": "spam-open-7b", "display_name": "Spam Open 7B", "organization": "Upstage"},
+                ],
+            }))
+
+            def fake_json(url: str, headers: dict | None = None, timeout: float = 10.0):
+                if "openrouter.ai" in url:
+                    return {"data": []}
+                if "huggingface.co/api/models?search=" in url:
+                    if "claude" in url.lower():
+                        return [{"id": "fake/Claude-Future-9", "downloads": 5000, "createdAt": "2026-12-01T00:00:00Z", "tags": ["license:mit"]}]
+                    if "spam" in url.lower():
+                        return [{"id": "fake/Spam-Open-7B", "downloads": 3, "createdAt": "2026-12-01T00:00:00Z", "tags": ["license:apache-2.0"]}]
+                return []
+
+            with patch("scripts.ingest.metadata_enricher._http_get_json", side_effect=fake_json):
+                res = enrich_snapshots(raw_dir=raw_dir, aliases_path=aliases_copy, offline_mode=False)
+
+            self.assertEqual(res["enriched_count"], 0)
+            arena_models = json.loads((raw_dir / "arena" / "latest.json").read_text())["models"]
+            self.assertFalse(arena_models[0].get("open_weights", False))
+            self.assertIsNone(arena_models[0].get("license"))
+            self.assertFalse(arena_models[1].get("open_weights", False))
+            self.assertIsNone(arena_models[1].get("license"))
+
 
 if __name__ == "__main__":
     unittest.main()

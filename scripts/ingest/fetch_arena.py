@@ -1,11 +1,17 @@
 """Arena.ai (LMSYS Chatbot Arena) live leaderboard adapter."""
 
 from __future__ import annotations
+import json
 import os
 import re
+import time
 import urllib.parse
 from typing import Any
 from scripts.ingest.base_fetcher import BaseFetcher
+
+_MAX_UNSEEN_ARENA_MODELS = 30
+_MIN_UNSEEN_ARENA_ELO = 1350
+_MAX_UNSEEN_ARENA_RANK = 160
 
 
 def _is_valid_elo(val: Any) -> bool:
@@ -25,6 +31,81 @@ class ArenaFetcher(BaseFetcher):
     github_archive_raw_base = "https://raw.githubusercontent.com/oolong-tea-2026/arena-ai-leaderboards/main/data"
     github_archive_api_url = "https://api.github.com/repos/oolong-tea-2026/arena-ai-leaderboards/contents/data"
     hf_rows_base = "https://datasets-server.huggingface.co/rows"
+
+    def _filter_live_models(
+        self,
+        models: list[dict[str, Any]],
+        explicit_ranks: dict[str, int] | None = None,
+    ) -> list[dict[str, Any]]:
+        """Preserves all tracked/curated models while preventing historical 2023-2025 Arena backlog dumps."""
+        if not models:
+            return []
+
+        existing_keys: set[str] = set()
+        if self.latest_path.exists():
+            try:
+                old = json.loads(self.latest_path.read_text(encoding="utf-8"))
+                for m in old.get("models", []):
+                    for fk in ("arena_model_id", "display_name"):
+                        val = str(m.get(fk) or "").strip().lower()
+                        if val:
+                            existing_keys.add(val)
+            except Exception:
+                pass
+
+        resolver = None
+        is_stealth_fn = None
+        try:
+            from scripts.transform.entity_resolver import EntityResolver, is_stealth_model
+            resolver = EntityResolver()
+            is_stealth_fn = is_stealth_model
+        except Exception:
+            resolver = None
+
+        ranked = sorted(
+            models,
+            key=lambda m: (
+                -int(m["text_elo"]),
+                -int(m.get("votes") or 0),
+                str(m["arena_model_id"]).lower(),
+            ),
+        )
+
+        known_models: list[dict[str, Any]] = []
+        unseen_models: list[dict[str, Any]] = []
+
+        for global_rank, m in enumerate(ranked, start=1):
+            raw_id = str(m.get("arena_model_id") or "").strip()
+            key_lower = raw_id.lower()
+            org = str(m.get("organization") or "Unknown")
+            elo = int(m["text_elo"])
+
+            is_known = key_lower in existing_keys
+            if not is_known and resolver is not None:
+                try:
+                    _, tier, _ = resolver.resolve("arena", raw_id, org, auto_promote=False)
+                    if tier != "tier3_quarantine":
+                        is_known = True
+                except Exception:
+                    pass
+
+            if is_known:
+                known_models.append(m)
+                continue
+
+            if is_stealth_fn is not None and is_stealth_fn(org, raw_id):
+                continue
+
+            # Reject historical 2023-2024 dated checkpoints when unseen in the curated registry
+            if re.search(r"(?:^|[-_/])202[34](?:\d{2,4}|[-_]|$)", raw_id):
+                continue
+
+            eff_rank = (explicit_ranks or {}).get(key_lower, global_rank)
+            is_2026_plus = bool(re.search(r"202[6-9]", raw_id))
+            if (eff_rank <= _MAX_UNSEEN_ARENA_RANK and elo >= _MIN_UNSEEN_ARENA_ELO) or (is_2026_plus and elo >= 1200):
+                unseen_models.append(m)
+
+        return known_models + unseen_models[:_MAX_UNSEEN_ARENA_MODELS]
 
     def _parse_archive_models(
         self,
@@ -56,7 +137,7 @@ class ArenaFetcher(BaseFetcher):
                 "vision_elo": vision_elo,
                 "votes": int(item.get("votes") or 5000),
             })
-        return models
+        return self._filter_live_models(models)
 
     def _fetch_from_archive_api(self) -> list[dict[str, Any]]:
         text_data = self.request_json(f"{self.archive_api_base}?name=text")
@@ -149,6 +230,8 @@ class ArenaFetcher(BaseFetcher):
             total_rows: int | None = None
             try:
                 while offset < 1000:
+                    if offset > 0 and not self.offline_mode:
+                        time.sleep(0.15)
                     url = (
                         f"{self.hf_rows_base}?dataset={dataset_enc}"
                         f"&config={urllib.parse.quote(cfg, safe='')}&split=latest&offset={offset}&length={page_size}"
@@ -199,6 +282,7 @@ class ArenaFetcher(BaseFetcher):
                 vision_by_model[name] = int(round(float(rating)))
 
         models: list[dict[str, Any]] = []
+        explicit_ranks: dict[str, int] = {}
         seen_names: set[str] = set()
         for r in text_rows:
             cat = str(r.get("category") or "overall").strip().lower()
@@ -213,6 +297,9 @@ class ArenaFetcher(BaseFetcher):
                 continue
             seen_names.add(key_lower)
             elo = int(round(float(rating)))
+            raw_rank = r.get("rank")
+            if isinstance(raw_rank, (int, float)) and not isinstance(raw_rank, bool) and int(raw_rank) > 0:
+                explicit_ranks[key_lower] = int(raw_rank)
             ci_lo_raw = r.get("rating_lower")
             ci_hi_raw = r.get("rating_upper")
             ci_lo = int(round(float(ci_lo_raw))) if _is_valid_elo(ci_lo_raw) else max(500, elo - 6)
@@ -231,7 +318,7 @@ class ArenaFetcher(BaseFetcher):
                 "vision_elo": vision_by_model.get(key_lower, int(round(float(r["vision_elo"]))) if _is_valid_elo(r.get("vision_elo")) else None),
                 "votes": int(votes_raw or 5000),
             })
-        return models
+        return self._filter_live_models(models, explicit_ranks=explicit_ranks)
 
     def fetch_live_models(self) -> list[dict[str, Any]]:
         if self.offline_mode:

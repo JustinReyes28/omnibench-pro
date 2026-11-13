@@ -281,6 +281,41 @@ class TestDataIntegrity(unittest.TestCase):
             self.assertTrue(by_id[ow_mid]["is_open_weights"])
             self.assertEqual(by_id[ow_mid]["license"], exp_lic)
 
+        # Cross-variant enricher & Step 5b backfill invariants on frontier Arena models
+        self.assertNotIn("google-gemini-3-pro", by_id)
+        if "xai-grok-4-20-beta-1" in by_id:
+            self.assertEqual(by_id["xai-grok-4-20-beta-1"]["release_date"], "2026-03-09")
+        if "meta-muse-spark" in by_id:
+            self.assertEqual(by_id["meta-muse-spark"]["release_date"], "2026-04-08")
+            self.assertFalse(by_id["meta-muse-spark"]["is_open_weights"])
+        if "anthropic-claude-opus-4-6" in by_id:
+            self.assertEqual(by_id["anthropic-claude-opus-4-6"]["release_date"], "2026-02-04")
+        if "anthropic-claude-fable-5-high" in by_id:
+            self.assertEqual(by_id["anthropic-claude-fable-5-high"]["release_date"], "2026-06-09")
+        if "meta-muse-spark-1-2-xhigh" in by_id:
+            self.assertEqual(by_id["meta-muse-spark-1-2-xhigh"]["release_date"], "2026-08-05")
+        if "google-gemini-3-1-pro" in by_id:
+            self.assertEqual(by_id["google-gemini-3-1-pro"]["release_date"], "2026-02-19")
+        if "openai-gpt-5-2-chat" in by_id:
+            self.assertEqual(by_id["openai-gpt-5-2-chat"]["release_date"], "2026-02-10")
+        if "deepseek-v4-pro-high" in by_id:
+            self.assertEqual(by_id["deepseek-v4-pro-high"]["release_date"], "2026-08-13")
+            self.assertTrue(by_id["deepseek-v4-pro-high"]["is_open_weights"])
+            self.assertEqual(by_id["deepseek-v4-pro-high"]["license"], "MIT")
+        if "deepseek-v4-1-flash-max" in by_id:
+            self.assertEqual(by_id["deepseek-v4-1-flash-max"]["release_date"], "2026-09-10")
+            self.assertTrue(by_id["deepseek-v4-1-flash-max"]["is_open_weights"])
+            self.assertEqual(by_id["deepseek-v4-1-flash-max"]["license"], "MIT")
+
+        unmatched_path = ROOT_DIR / "data" / "registry" / "unmatched_models.json"
+        if unmatched_path.exists():
+            unmatched_payload = json.loads(unmatched_path.read_text(encoding="utf-8"))
+            self.assertLessEqual(
+                int(unmatched_payload.get("unmatched_count", 0)),
+                2,
+                "Expected unmatched queue to stay clean (stealth baseline only)",
+            )
+
 
     def test_semantic_diff_ignores_volatile_timestamps(self) -> None:
         clone = copy.deepcopy(self.data)

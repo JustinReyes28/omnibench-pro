@@ -7,6 +7,9 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+import urllib.error
+
+from scripts.ingest.base_fetcher import BaseFetcher
 from scripts.ingest.fetch_artificial_analysis import ArtificialAnalysisFetcher
 from scripts.ingest.fetch_arena import ArenaFetcher
 from scripts.ingest.fetch_livebench import LiveBenchFetcher
@@ -14,6 +17,7 @@ from scripts.ingest.fetch_vals import ValsFetcher
 from scripts.ingest.metadata_enricher import (
     enrich_snapshots,
     is_compatible_variant_match,
+    match_openrouter_model,
     parse_aa_model_page,
     reconcile_enriched_metadata,
 )
@@ -551,6 +555,211 @@ class TestIngestionAdapters(unittest.TestCase):
             self.assertIsNone(arena_models[0].get("license"))
             self.assertFalse(arena_models[1].get("open_weights", False))
             self.assertIsNone(arena_models[1].get("license"))
+
+    def test_variant_matching_and_enricher_collision_guards(self) -> None:
+        # Cross-variant collisions blocked
+        blocked = [
+            ("Claude Haiku 4.5", "anthropic/claude-opus-4.5"),
+            ("Claude Opus 4.6", "anthropic/claude-sonnet-4.6"),
+            ("Claude Fable 5 (High)", "anthropic/claude-opus-5"),
+            ("Gemini 3 Pro", "google/gemini-3-pro-image"),
+            ("Gemini 3.1 Pro Preview", "google/gemini-3.1-pro-preview-customtools"),
+            ("Muse Spark", "meta/muse-spark-open"),
+            ("Muse Spark 1.2 (xHigh)", "meta/muse-spark-1.2-contributor"),
+            ("Qwen3.5-Max-Preview", "qwen/qwen3.5-plus-20260420"),
+            ("Qwen3.6-Max-Preview", "qwen/qwen3.6-plus"),
+        ]
+        for q, c in blocked:
+            self.assertFalse(is_compatible_variant_match(q, c), f"Should block {q!r} vs {c!r}")
+
+        self.assertFalse(
+            is_compatible_variant_match("GPT-5.2 Chat (20260210)", "openai/gpt-5.2-chat-20251210", match_checkpoint_mmdd=True)
+        )
+
+        # Valid vendor/HF slug matches preserved
+        allowed = [
+            ("DeepSeek-V4.1-Flash-20260910 (Max)", "deepseek-ai/DeepSeek-V4.1-Flash"),
+            ("DeepSeek-V4-Pro (High, 20260813)", "deepseek-ai/DeepSeek-V4-Pro-0813"),
+            ("NVIDIA Nemotron 3.5 Lightning", "nvidia/NVIDIA-Nemotron-3.5-Lightning"),
+            ("Nemotron 3.5 Lightning", "nvidia/NVIDIA-Nemotron-3.5-Lightning"),
+        ]
+        for q, c in allowed:
+            self.assertTrue(is_compatible_variant_match(q, c, match_checkpoint_mmdd=True), f"Should allow {q!r} vs {c!r}")
+
+        # OpenRouter candidate scoring & explicit checkpoint protection
+        or_catalog = [
+            {"id": "openai/gpt-5.2-chat", "name": "OpenAI: GPT-5.2 Chat", "created": 1765324800, "context_length": 128000},
+            {"id": "deepseek/deepseek-v4-pro", "name": "DeepSeek: DeepSeek V4 Pro", "created": 1776816000, "context_length": 1048576, "hugging_face_id": "deepseek-ai/DeepSeek-V4-Pro"},
+            {"id": "deepseek/deepseek-v4-pro-0813:batch", "name": "DeepSeek: DeepSeek V4 Pro 0813 (batch)", "created": 1786492800, "context_length": 1048576},
+            {"id": "deepseek/deepseek-v4-pro-0813", "name": "DeepSeek: DeepSeek V4 Pro 0813", "created": 1786492800, "context_length": 1048576, "hugging_face_id": "deepseek-ai/DeepSeek-V4-Pro-0813"},
+            {"id": "openai/gpt-5.5", "name": "OpenAI: GPT-5.5", "created": 1777000000, "context_length": 1050000},
+        ]
+        gpt_52 = match_openrouter_model("GPT-5.2 Chat (20260210)", or_catalog)
+        self.assertIsNotNone(gpt_52)
+        self.assertEqual(gpt_52["release_date"], "2026-02-10")
+
+        ds_pro = match_openrouter_model("DeepSeek-V4-Pro (High, 20260813)", or_catalog)
+        self.assertIsNotNone(ds_pro)
+        self.assertEqual(ds_pro["openrouter_id"], "deepseek/deepseek-v4-pro-0813")
+        self.assertEqual(ds_pro["hugging_face_id"], "deepseek-ai/DeepSeek-V4-Pro-0813")
+
+        gpt_55 = match_openrouter_model("GPT-5.5 Instant", or_catalog)
+        self.assertIsNotNone(gpt_55)
+        self.assertEqual(gpt_55["openrouter_id"], "openai/gpt-5.5")
+
+        # AA SSR sidebar HF link pollution blocked when query_name is passed
+        aa_html = """
+        <html><head><title>Claude Opus 4.6 - Intelligence, Price & Benchmarks</title></head>
+        <body>
+          <aside><a href="https://huggingface.co/zai-org/GLM-4.5">GLM-4.5</a></aside>
+          <p>Claude Opus 4.6 · Released February 2026 · Proprietary model</p>
+        </body></html>
+        """
+        parsed = parse_aa_model_page(aa_html, query_name="Claude Opus 4.6")
+        self.assertEqual(parsed["page_title"], "Claude Opus 4.6")
+        self.assertIsNone(parsed["hugging_face_id"])
+        self.assertFalse(parsed["open_weights"])
+
+        # Derived AA SSR slug fallback populates valid matching page title and rejects mismatched ones
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            raw_dir = tmp / "raw"
+            aliases_copy = tmp / "model_aliases.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+            raw_aliases = json.loads(aliases_copy.read_text(encoding="utf-8"))
+            raw_aliases["models"] = [m for m in raw_aliases["models"] if not m.get("auto_promoted")]
+            aliases_copy.write_text(json.dumps(raw_aliases, indent=2) + "\n", encoding="utf-8")
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                (raw_dir / src).mkdir(parents=True, exist_ok=True)
+                (raw_dir / src / "latest.json").write_text(json.dumps({"fetched_at": "2026-12-01T00:00:00Z", "models": []}))
+            (raw_dir / "arena" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-12-01T00:00:00Z",
+                "models": [{"arena_model_id": "Muse Spark Test", "display_name": "Muse Spark Test", "organization": "Meta"}],
+            }))
+
+            def fake_json(url: str, headers: dict | None = None, timeout: float = 10.0):
+                return {"data": []} if "openrouter.ai" in url else []
+
+            def fake_text(url: str, headers: dict | None = None, timeout: float = 10.0):
+                return "<html><head><title>Muse Spark Test - Artificial Analysis</title></head><body><p>Muse Spark Test was released on Apr 8, 2026. Proprietary model.</p></body></html>"
+
+            with patch("scripts.ingest.metadata_enricher._http_get_json", side_effect=fake_json), patch(
+                "scripts.ingest.metadata_enricher._http_get_text", side_effect=fake_text
+            ):
+                res = enrich_snapshots(raw_dir=raw_dir, aliases_path=aliases_copy, offline_mode=False)
+
+            self.assertEqual(res["enriched_count"], 1)
+            item = json.loads((raw_dir / "arena" / "latest.json").read_text())["models"][0]
+            self.assertEqual(item["release_date"], "2026-04-08")
+            self.assertEqual(item["license"], "Proprietary")
+            self.assertFalse(item.get("open_weights", False))
+
+        # Mismatched AA page <title> must be rejected during derived SSR slug fallback
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            raw_dir = tmp / "raw"
+            aliases_copy = tmp / "model_aliases.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+            raw_aliases = json.loads(aliases_copy.read_text(encoding="utf-8"))
+            raw_aliases["models"] = [m for m in raw_aliases["models"] if not m.get("auto_promoted")]
+            aliases_copy.write_text(json.dumps(raw_aliases, indent=2) + "\n", encoding="utf-8")
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                (raw_dir / src).mkdir(parents=True, exist_ok=True)
+                (raw_dir / src / "latest.json").write_text(json.dumps({"fetched_at": "2026-12-01T00:00:00Z", "models": []}))
+            (raw_dir / "arena" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-12-01T00:00:00Z",
+                "models": [{"arena_model_id": "Muse Spark Test", "display_name": "Muse Spark Test", "organization": "Meta"}],
+            }))
+
+            with patch("scripts.ingest.metadata_enricher._http_get_json", side_effect=lambda u, **kw: {"data": []} if "openrouter.ai" in u else []), patch(
+                "scripts.ingest.metadata_enricher._http_get_text",
+                return_value="<html><head><title>Muse Spark Open - Artificial Analysis</title></head><body><p>Muse Spark Open was released on Oct 15, 2026.</p></body></html>",
+            ):
+                res = enrich_snapshots(raw_dir=raw_dir, aliases_path=aliases_copy, offline_mode=False)
+            self.assertEqual(res["enriched_count"], 0)
+
+    def test_arena_pre2026_eviction_and_excluded_historical_persistence(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            adapter = ArenaFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+            # Pre-seed LKG with a known pre-2026 model lacking "2025" in its ID
+            adapter.latest_path.write_text(
+                json.dumps({
+                    "fetched_at": "2026-11-12T00:00:00Z",
+                    "models": [
+                        {
+                            "arena_model_id": "Gemini 3 Flash",
+                            "display_name": "Gemini 3 Flash",
+                            "organization": "Google",
+                            "license": "Proprietary",
+                            "release_date": "2025-12-17",
+                            "text_elo": 1473,
+                            "text_ci_lower": 1467,
+                            "text_ci_upper": 1479,
+                            "coding_elo": 1473,
+                            "vision_elo": None,
+                            "votes": 8000,
+                        }
+                    ],
+                }),
+                encoding="utf-8",
+            )
+
+            live_feed = [
+                {"row": {"model_name": "claude-future-frontier", "organization": "Anthropic", "category": "overall", "rating": 1504.0, "rank": 1}},
+                {"row": {"model_name": "Gemini 3 Flash", "organization": "Google", "category": "overall", "rating": 1473.0, "rank": 20}},
+                {"row": {"model_name": "old-sub1470-bot", "organization": "LMSYS", "category": "overall", "rating": 1465.0, "rank": 35}},
+            ]
+
+            def fake_json(url: str, headers: dict | None = None):
+                if "api.wulong.dev" in url or "oolong-tea-2026" in url:
+                    raise RuntimeError("Mirror unavailable")
+                if "config=text" in url and "offset=0" in url:
+                    return {"num_rows_total": len(live_feed), "rows": live_feed}
+                return {"num_rows_total": 0, "rows": []}
+
+            with patch.object(adapter, "request_json", side_effect=fake_json):
+                snap1 = adapter.run()
+
+            ids1 = {m["arena_model_id"] for m in snap1["models"]}
+            self.assertIn("claude-future-frontier", ids1)
+            self.assertNotIn("Gemini 3 Flash", ids1)
+            self.assertNotIn("old-sub1470-bot", ids1)
+            self.assertIn("gemini 3 flash", snap1.get("excluded_historical_ids", []))
+
+            # Second run must keep "Gemini 3 Flash" excluded permanently even though it stays top-20 in feed
+            adapter2 = ArenaFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+            with patch.object(adapter2, "request_json", side_effect=fake_json):
+                snap2 = adapter2.run()
+            ids2 = {m["arena_model_id"] for m in snap2["models"]}
+            self.assertNotIn("Gemini 3 Flash", ids2)
+            self.assertIn("gemini 3 flash", snap2.get("excluded_historical_ids", []))
+
+    def test_base_fetcher_fails_over_immediately_on_http_501(self) -> None:
+        class DummyFetcher(BaseFetcher):
+            source_key = "vals"
+            source_name = "Dummy"
+            source_url = "https://example.com"
+            model_id_field = "vals_model_name"
+
+            def fetch_live_models(self):
+                return []
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            adapter = DummyFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+            err_501 = urllib.error.HTTPError("https://api.wulong.dev/test", 501, "Not Implemented", hdrs=None, fp=None)
+            calls = 0
+
+            def fake_urlopen(*args, **kwargs):
+                nonlocal calls
+                calls += 1
+                raise err_501
+
+            with patch("urllib.request.urlopen", side_effect=fake_urlopen), patch("time.sleep") as mock_sleep:
+                with self.assertRaises(RuntimeError):
+                    adapter.request_text("https://api.wulong.dev/test")
+
+            self.assertEqual(calls, 1)
+            mock_sleep.assert_not_called()
 
 
 if __name__ == "__main__":

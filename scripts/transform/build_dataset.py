@@ -7,7 +7,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from scripts.transform.entity_resolver import EntityResolver, is_stealth_model, model_family_key
+from scripts.transform.entity_resolver import (
+    EntityResolver,
+    _extract_explicit_date,
+    is_stealth_model,
+    model_family_key,
+    release_family_key,
+)
 from scripts.transform.normalizer import (
     compute_percentile_ranks,
     compute_weighted_composite,
@@ -297,6 +303,80 @@ def build_unified_dataset(
                         tgt_rec["license"] = std_rec["license"]
                     resolver.merge_and_retire_canonical(std_cid, tgt_cid)
                     break
+
+    # 5b. Order-independent sibling release-date & metadata backfill for unverified auto-promoted entries
+    def _has_explicit_stamp(cid: str, rec: dict[str, Any]) -> bool:
+        if _extract_explicit_date(rec["display_name"], default_date=rec["release_date"])[0] is not None:
+            return True
+        entry = resolver.canonical_models.get(cid, {})
+        for alias_list in (entry.get("aliases") or {}).values():
+            for alias in alias_list:
+                if _extract_explicit_date(str(alias), default_date=rec["release_date"])[0] is not None:
+                    return True
+        return False
+
+    exact_donor_dates: dict[tuple[str, str], list[str]] = {}
+    release_donor_dates: dict[tuple[str, str], list[str]] = {}
+    exact_donor_ow: dict[tuple[str, str], tuple[bool, str | None, int]] = {}
+
+    for cid, rec in merged.items():
+        meta = resolver.canonical_models.get(cid, {})
+        prov = rec["provider"]
+        mf_key = (prov, model_family_key(cid, prov))
+        rf_key = (prov, release_family_key(cid, prov))
+        is_verified = bool(meta.get("metadata_verified", not meta.get("auto_promoted", False)))
+        if (is_verified or _has_explicit_stamp(cid, rec)) and rec.get("release_date"):
+            if mf_key[1]:
+                exact_donor_dates.setdefault(mf_key, []).append(str(rec["release_date"]))
+            if rf_key[1]:
+                release_donor_dates.setdefault(rf_key, []).append(str(rec["release_date"]))
+        if mf_key[1] and (rec.get("is_open_weights") or rec.get("context_window", 128000) > 128000):
+            cur_ow, cur_lic, cur_ctx = exact_donor_ow.get(mf_key, (False, None, 128000))
+            cand_lic = str(rec.get("license") or "").strip()
+            new_lic = (
+                cand_lic
+                if cand_lic and cand_lic.lower() not in ("proprietary", "commercial", "other")
+                else cur_lic
+            )
+            exact_donor_ow[mf_key] = (
+                cur_ow or bool(rec.get("is_open_weights")),
+                new_lic,
+                max(cur_ctx, int(rec.get("context_window") or 128000)),
+            )
+
+    for cid, rec in merged.items():
+        if not _is_auto_promoted(cid):
+            continue
+        meta = resolver.canonical_models.get(cid, {})
+        prov = rec["provider"]
+        mf_key = (prov, model_family_key(cid, prov))
+        rf_key = (prov, release_family_key(cid, prov))
+
+        donor_rd: str | None = None
+        if not meta.get("metadata_verified") and not _has_explicit_stamp(cid, rec):
+            cands = exact_donor_dates.get(mf_key) or release_donor_dates.get(rf_key)
+            if cands:
+                donor_rd = min(cands)
+
+        d_ow, d_lic, d_ctx = exact_donor_ow.get(mf_key, (False, None, 128000))
+        apply_ow = True if d_ow and not rec.get("is_open_weights") else None
+        apply_lic = d_lic if d_lic and rec.get("license") in (None, "", "Proprietary", "Commercial", "other") else None
+        apply_ctx = d_ctx if d_ctx > int(rec.get("context_window") or 128000) else None
+
+        if donor_rd and donor_rd != rec.get("release_date") or apply_ow or apply_lic or apply_ctx:
+            updated_meta = resolver.apply_metadata_update(
+                cid,
+                release_date=donor_rd,
+                open_weights=apply_ow,
+                license_name=apply_lic,
+                context_window=apply_ctx,
+                metadata_verified=False,
+            )
+            if updated_meta:
+                rec["release_date"] = updated_meta["release_date"]
+                rec["is_open_weights"] = bool(updated_meta["is_open_weights"])
+                rec["license"] = updated_meta["license"]
+                rec["context_window"] = int(updated_meta["context_window"])
 
     # 6. Quarantine stealth/unattributable, empty-benchmark, or pre-2026 single-source Arena historical records
     def _should_quarantine(cid: str, rec: dict[str, Any]) -> bool:

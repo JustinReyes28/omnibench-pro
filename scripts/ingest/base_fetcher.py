@@ -161,8 +161,8 @@ class BaseFetcher:
                     return resp.read().decode("utf-8", errors="replace")
             except urllib.error.HTTPError as exc:
                 last_err = exc
-                # Do not retry deterministic 400/401/403/404/410 client errors
-                if exc.code in (400, 401, 403, 404, 410):
+                # Do not retry deterministic 400/401/403/404/410/501 responses
+                if exc.code in (400, 401, 403, 404, 410, 501):
                     break
                 wait_sec = self.backoff_schedule[min(attempt, len(self.backoff_schedule) - 1)]
                 logger.warning(

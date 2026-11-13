@@ -412,6 +412,9 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
             aliases_copy = tmp / "model_aliases.json"
             unmatched_copy = tmp / "unmatched_models.json"
             shutil.copy2(ALIASES_PATH, aliases_copy)
+            raw_aliases = json.loads(aliases_copy.read_text(encoding="utf-8"))
+            raw_aliases["models"] = [m for m in raw_aliases["models"] if not m.get("auto_promoted")]
+            aliases_copy.write_text(json.dumps(raw_aliases, indent=2) + "\n", encoding="utf-8")
 
             for src in ("artificial_analysis", "livebench", "arena", "vals"):
                 (raw_dir / src).mkdir(parents=True, exist_ok=True)
@@ -471,11 +474,88 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
                 unmatched_path=unmatched_copy,
             )
             by_id = {m["id"]: m for m in built["models"]}
-            # Sibling date 2025-12-15 must not block item's direct verified 2026-02-17 release date
+            # Sibling date must not block item's direct verified 2026-02-17 release date
             self.assertIn("anthropic-claude-opus-4-6", by_id)
             self.assertEqual(by_id["anthropic-claude-opus-4-6"]["release_date"], "2026-02-17")
             self.assertEqual(by_id["xai-grok-4-20-beta-reasoning"]["release_date"], "2026-03-09")
             self.assertEqual(by_id["baidu-ernie-5-1"]["provider"], "Baidu")
+
+    def test_mmdd_year_wraparound_and_order_independent_step5b_backfill(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            raw_dir = tmp / "raw"
+            pub_dir = tmp / "public_data"
+            aliases_copy = tmp / "model_aliases.json"
+            unmatched_copy = tmp / "unmatched_models.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+            raw_aliases = json.loads(aliases_copy.read_text(encoding="utf-8"))
+            raw_aliases["models"] = [m for m in raw_aliases["models"] if not m.get("auto_promoted")]
+            aliases_copy.write_text(json.dumps(raw_aliases, indent=2) + "\n", encoding="utf-8")
+
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                (raw_dir / src).mkdir(parents=True, exist_ok=True)
+                (raw_dir / src / "latest.json").write_text(
+                    json.dumps({"fetched_at": "2026-11-13T00:00:00Z", "release": "2026-11-13", "models": []}),
+                    encoding="utf-8",
+                )
+
+            # Higher-Elo undated sibling appears FIRST before later (0309) stamped sibling,
+            # plus (1203) December checkpoint that wraps around to 2025-12-03 and gets quarantined.
+            (raw_dir / "arena" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-11-13T00:00:00Z",
+                "models": [
+                    {
+                        "arena_model_id": "Grok 4.20 Beta 1",
+                        "display_name": "Grok 4.20 Beta 1",
+                        "organization": "xai",
+                        "license": "Proprietary",
+                        "text_elo": 1475,
+                        "text_ci_lower": 1469,
+                        "text_ci_upper": 1481,
+                        "coding_elo": 1475,
+                        "vision_elo": None,
+                        "votes": 5000,
+                    },
+                    {
+                        "arena_model_id": "Grok 4.20 Beta (Reasoning, 0309)",
+                        "display_name": "Grok 4.20 Beta (Reasoning, 0309)",
+                        "organization": "xai",
+                        "license": "Proprietary",
+                        "text_elo": 1472,
+                        "text_ci_lower": 1466,
+                        "text_ci_upper": 1478,
+                        "coding_elo": 1472,
+                        "vision_elo": None,
+                        "votes": 5000,
+                    },
+                    {
+                        "arena_model_id": "ERNIE-5.0-Preview (1203)",
+                        "display_name": "ERNIE-5.0-Preview (1203)",
+                        "organization": "baidu",
+                        "license": "Proprietary",
+                        "text_elo": 1449,
+                        "text_ci_lower": 1443,
+                        "text_ci_upper": 1455,
+                        "coding_elo": 1449,
+                        "vision_elo": None,
+                        "votes": 5000,
+                    },
+                ],
+            }), encoding="utf-8")
+
+            built = build_unified_dataset(
+                aliases_path=aliases_copy,
+                raw_dir=raw_dir,
+                public_data_dir=pub_dir,
+                unmatched_path=unmatched_copy,
+            )
+            by_id = {m["id"]: m for m in built["models"]}
+            self.assertEqual(by_id["xai-grok-4-20-beta-1"]["release_date"], "2026-03-09")
+            self.assertEqual(by_id["xai-grok-4-20-beta-reasoning"]["release_date"], "2026-03-09")
+            # (1203) in Nov 2026 resolves to 2025-12-03 (< 2026-01-01) and gets quarantined
+            self.assertNotIn("baidu-ernie-5-0", by_id)
+            saved_cids = {m["canonical_id"] for m in json.loads(aliases_copy.read_text(encoding="utf-8"))["models"]}
+            self.assertNotIn("baidu-ernie-5-0", saved_cids)
 
 
 if __name__ == "__main__":

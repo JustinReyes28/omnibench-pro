@@ -5,7 +5,7 @@
   "fetched_at": "2026-11-13T08:08:23Z",
   "status": "live",
   "fetch_status": "live",
-  "model_count": 208,
+  "model_count": 171,
   "models": [
     {
       "arena_model_id": "google-gemini-4-carbon-high-202610",
@@ -71,9 +71,9 @@
       "vision_elo": 1326,
       "votes": 45469,
       "first_seen": "2026-11-13",
-      "release_date": "2026-07-24",
-      "metadata_verified": true,
-      "context_window": 1000000
+      "context_window": 1000000,
+      "release_date": "2026-06-09",
+      "metadata_verified": true
     },
     {
       "arena_model_id": "anthropic-claude-opus-4-6-high-202610",
@@ -113,9 +113,9 @@
       "vision_elo": 1314,
       "votes": 64260,
       "first_seen": "2026-11-13",
+      "context_window": 1000000,
       "release_date": "2026-04-16",
-      "metadata_verified": true,
-      "context_window": 1000000
+      "metadata_verified": true
     },
     {
       "arena_model_id": "google-gemini-3-8-flash-high-202610",
@@ -142,9 +142,9 @@
       "vision_elo": 1310,
       "votes": 26806,
       "first_seen": "2026-11-13",
+      "context_window": 1048576,
       "release_date": "2026-09-02",
-      "metadata_verified": true,
-      "context_window": 1048576
+      "metadata_verified": true
     },
     {
       "arena_model_id": "Claude Opus 4.6",
@@ -158,9 +158,9 @@
       "vision_elo": 1312,
       "votes": 89177,
       "first_seen": "2026-11-13",
-      "release_date": "2026-02-17",
-      "metadata_verified": true,
-      "context_window": 1000000
+      "context_window": 1000000,
+      "release_date": "2026-02-04",
+      "metadata_verified": true
     },
     {
       "arena_model_id": "Claude Opus 4.7",
@@ -174,9 +174,9 @@
       "vision_elo": 1319,
       "votes": 65309,
       "first_seen": "2026-11-13",
+      "context_window": 1000000,
       "release_date": "2026-04-16",
-      "metadata_verified": true,
-      "context_window": 1000000
+      "metadata_verified": true
     },
     {
       "arena_model_id": "Muse Spark 1.2 (xHigh)",
@@ -190,9 +190,9 @@
       "vision_elo": 1305,
       "votes": 15563,
       "first_seen": "2026-11-13",
-      "release_date": "2026-08-21",
-      "metadata_verified": true,
-      "context_window": 1048576
+      "context_window": 1048576,
+      "release_date": "2026-08-05",
+      "metadata_verified": true
     },
     {
       "arena_model_id": "Muse Spark 1.1",
@@ -206,9 +206,9 @@
       "vision_elo": 1292,
       "votes": 45519,
       "first_seen": "2026-11-13",
+      "context_window": 1048576,
       "release_date": "2026-07-16",
-      "metadata_verified": true,
-      "context_window": 1048576
+      "metadata_verified": true
     },
     {
       "arena_model_id": "Claude Opus 5 (High)",
@@ -222,9 +222,9 @@
       "vision_elo": 1317,
       "votes": 73632,
       "first_seen": "2026-11-13",
+      "context_window": 1000000,
       "release_date": "2026-07-24",
-      "metadata_verified": true,
-      "context_window": 1000000
+      "metadata_verified": true
     },
     {
       "arena_model_id": "Gemini 4 Hydrogen (High)",
@@ -277,9 +277,9 @@
       "vision_elo": 1306,
       "votes": 13985,
       "first_seen": "2026-11-13",
-      "release_date": "2026-10-15",
-      "metadata_verified": true,
-      "context_window": 1048576
+      "context_window": 1048576,
+      "release_date": "2026-04-08",
+      "metadata_verified": true
     },
     {
       "arena_model_id": "Gemini 3.1 Pro Preview",
@@ -293,9 +293,9 @@
       "vision_elo": 1296,
       "votes": 132181,
       "first_seen": "2026-11-13",
-      "release_date": "2026-02-25",
-      "metadata_verified": true,
-      "context_window": 1048576
+      "context_window": 1048576,
+      "release_date": "2026-02-19",
+      "metadata_verified": true
     },
     {
       "arena_model_id": "moonshot-kimi-k3-base-202610",
@@ -309,22 +309,6 @@
       "vision_elo": null,
       "votes": 41402,
       "first_seen": "2026-11-10"
-    },
-    {
-      "arena_model_id": "Gemini 3 Pro",
-      "display_name": "Gemini 3 Pro",
-      "organization": "google",
-      "license": "Proprietary",
-      "text_elo": 1486,
-      "text_ci_lower": 1482,
-      "text_ci_upper": 1489,
-      "coding_elo": 1517,
-      "vision_elo": 1305,
-      "votes": 41803,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-06-18",
-      "metadata_verified": true,
-      "context_window": 131072
     },
     {
       "arena_model_id": "openai-gpt-5-6-sol-202610",
@@ -390,9 +374,9 @@
       "vision_elo": 1295,
       "votes": 63082,
       "first_seen": "2026-11-13",
+      "context_window": 1000000,
       "release_date": "2026-05-27",
-      "metadata_verified": true,
-      "context_window": 1000000
+      "metadata_verified": true
     },
     {
       "arena_model_id": "zai-glm-5-3-max-202610",
@@ -484,9 +468,9 @@
       "vision_elo": 1305,
       "votes": 46329,
       "first_seen": "2026-11-13",
+      "context_window": 1048576,
       "release_date": "2026-05-19",
-      "metadata_verified": true,
-      "context_window": 1048576
+      "metadata_verified": true
     },
     {
       "arena_model_id": "GPT-5.2 Chat (20260210)",
@@ -500,7 +484,7 @@
       "vision_elo": 1268,
       "votes": 35669,
       "first_seen": "2026-11-13",
-      "release_date": "2025-12-10",
+      "release_date": "2026-02-10",
       "metadata_verified": true
     },
     {
@@ -515,9 +499,9 @@
       "vision_elo": 1301,
       "votes": 64067,
       "first_seen": "2026-11-13",
+      "context_window": 1050000,
       "release_date": "2026-03-05",
-      "metadata_verified": true,
-      "context_window": 1050000
+      "metadata_verified": true
     },
     {
       "arena_model_id": "GLM-5.2 (Max)",
@@ -531,10 +515,10 @@
       "vision_elo": null,
       "votes": 54143,
       "first_seen": "2026-11-13",
+      "context_window": 1048576,
       "release_date": "2026-06-16",
       "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 1048576
+      "open_weights": true
     },
     {
       "arena_model_id": "zai-glm-5-3-flash-202610",
@@ -574,10 +558,10 @@
       "vision_elo": 1279,
       "votes": 13547,
       "first_seen": "2026-11-13",
+      "context_window": 1048576,
       "release_date": "2026-09-10",
       "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 1048576
+      "open_weights": true
     },
     {
       "arena_model_id": "Claude Opus 4.8",
@@ -591,25 +575,9 @@
       "vision_elo": 1289,
       "votes": 64116,
       "first_seen": "2026-11-13",
+      "context_window": 1000000,
       "release_date": "2026-05-27",
-      "metadata_verified": true,
-      "context_window": 1000000
-    },
-    {
-      "arena_model_id": "Claude Opus 4.5 (High, 32K, 20251101)",
-      "display_name": "Claude Opus 4.5 (High, 32K, 20251101)",
-      "organization": "anthropic",
-      "license": "Proprietary",
-      "text_elo": 1474,
-      "text_ci_lower": 1470,
-      "text_ci_upper": 1477,
-      "coding_elo": 1530,
-      "vision_elo": null,
-      "votes": 37245,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-11-24",
-      "metadata_verified": true,
-      "context_window": 200000
+      "metadata_verified": true
     },
     {
       "arena_model_id": "openai-gpt-6-astra-max-202610",
@@ -638,22 +606,6 @@
       "first_seen": "2026-11-10"
     },
     {
-      "arena_model_id": "Gemini 3 Flash",
-      "display_name": "Gemini 3 Flash",
-      "organization": "google",
-      "license": "Proprietary",
-      "text_elo": 1473,
-      "text_ci_lower": 1469,
-      "text_ci_upper": 1477,
-      "coding_elo": 1505,
-      "vision_elo": 1285,
-      "votes": 31126,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-12-17",
-      "metadata_verified": true,
-      "context_window": 1048576
-    },
-    {
       "arena_model_id": "GPT-5.5 Instant",
       "display_name": "GPT-5.5 Instant",
       "organization": "openai",
@@ -665,9 +617,9 @@
       "vision_elo": 1251,
       "votes": 26859,
       "first_seen": "2026-11-13",
+      "context_window": 1050000,
       "release_date": "2026-04-24",
-      "metadata_verified": true,
-      "context_window": 1050000
+      "metadata_verified": true
     },
     {
       "arena_model_id": "anthropic-claude-sonnet-5-5-xhigh-202610",
@@ -694,9 +646,9 @@
       "vision_elo": 1283,
       "votes": 69975,
       "first_seen": "2026-11-13",
+      "context_window": 1000000,
       "release_date": "2026-02-17",
-      "metadata_verified": true,
-      "context_window": 1000000
+      "metadata_verified": true
     },
     {
       "arena_model_id": "Grok 4.20 Beta (Reasoning, 0309)",
@@ -725,22 +677,6 @@
       "first_seen": "2026-11-13"
     },
     {
-      "arena_model_id": "Claude Opus 4.5 (20251101)",
-      "display_name": "Claude Opus 4.5 (20251101)",
-      "organization": "anthropic",
-      "license": "Proprietary",
-      "text_elo": 1470,
-      "text_ci_lower": 1467,
-      "text_ci_upper": 1473,
-      "coding_elo": 1523,
-      "vision_elo": null,
-      "votes": 72235,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-11-24",
-      "metadata_verified": true,
-      "context_window": 200000
-    },
-    {
       "arena_model_id": "openai-gpt-5-6-terra-202610",
       "display_name": "GPT-5.6 Terra (xHigh)",
       "organization": "OpenAI",
@@ -752,68 +688,6 @@
       "vision_elo": 1269,
       "votes": 48778,
       "first_seen": "2026-11-10"
-    },
-    {
-      "arena_model_id": "ERNIE 5.1",
-      "display_name": "ERNIE 5.1",
-      "organization": "baidu",
-      "license": "Proprietary",
-      "text_elo": 1467,
-      "text_ci_lower": 1462,
-      "text_ci_upper": 1472,
-      "coding_elo": 1512,
-      "vision_elo": null,
-      "votes": 39018,
-      "first_seen": "2026-11-13"
-    },
-    {
-      "arena_model_id": "MiMo-V2.5-Pro",
-      "display_name": "MiMo-V2.5-Pro",
-      "organization": "xiaomi",
-      "license": "MIT",
-      "text_elo": 1466,
-      "text_ci_lower": 1463,
-      "text_ci_upper": 1470,
-      "coding_elo": 1520,
-      "vision_elo": null,
-      "votes": 76747,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-04-27",
-      "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 1024000
-    },
-    {
-      "arena_model_id": "Grok 4.5",
-      "display_name": "Grok 4.5",
-      "organization": "xai",
-      "license": "Proprietary",
-      "text_elo": 1466,
-      "text_ci_lower": 1461,
-      "text_ci_upper": 1470,
-      "coding_elo": 1514,
-      "vision_elo": 1288,
-      "votes": 39122,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-07-08",
-      "metadata_verified": true,
-      "context_window": 500000
-    },
-    {
-      "arena_model_id": "GPT-5.4",
-      "display_name": "GPT-5.4",
-      "organization": "openai",
-      "license": "Proprietary",
-      "text_elo": 1465,
-      "text_ci_lower": 1461,
-      "text_ci_upper": 1469,
-      "coding_elo": 1511,
-      "vision_elo": 1292,
-      "votes": 67055,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-03-05",
-      "metadata_verified": true,
-      "context_window": 1050000
     },
     {
       "arena_model_id": "deepseek-v4-pro-0813-202610",
@@ -1297,52 +1171,6 @@
       "first_seen": "2026-11-13"
     },
     {
-      "arena_model_id": "GLM-5.1",
-      "display_name": "GLM-5.1",
-      "organization": "zai",
-      "license": "MIT",
-      "text_elo": 1465,
-      "text_ci_lower": 1461,
-      "text_ci_upper": 1468,
-      "coding_elo": 1512,
-      "vision_elo": null,
-      "votes": 67009,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-04-03",
-      "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 204800
-    },
-    {
-      "arena_model_id": "Grok 4.1 (Thinking)",
-      "display_name": "Grok 4.1",
-      "organization": "xai",
-      "license": "Proprietary",
-      "text_elo": 1465,
-      "text_ci_lower": 1462,
-      "text_ci_upper": 1469,
-      "coding_elo": 1500,
-      "vision_elo": null,
-      "votes": 66050,
-      "first_seen": "2026-11-13"
-    },
-    {
-      "arena_model_id": "Qwen3.5-Max-Preview",
-      "display_name": "Qwen3.5-Max-Preview",
-      "organization": "alibaba",
-      "license": "Proprietary",
-      "text_elo": 1465,
-      "text_ci_lower": 1460,
-      "text_ci_upper": 1470,
-      "coding_elo": 1513,
-      "vision_elo": null,
-      "votes": 22401,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-04-27",
-      "metadata_verified": true,
-      "context_window": 1000000
-    },
-    {
       "arena_model_id": "DeepSeek-V4-Pro (High, 20260813)",
       "display_name": "DeepSeek-V4-Pro (High, 20260813)",
       "organization": "deepseek",
@@ -1354,410 +1182,10 @@
       "vision_elo": null,
       "votes": 9573,
       "first_seen": "2026-11-13",
-      "release_date": "2026-04-22",
+      "context_window": 1048576,
+      "release_date": "2026-08-13",
       "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 1048576
-    },
-    {
-      "arena_model_id": "Claude Sonnet 5 (High)",
-      "display_name": "Claude Sonnet 5 (High)",
-      "organization": "anthropic",
-      "license": "Proprietary",
-      "text_elo": 1461,
-      "text_ci_lower": 1457,
-      "text_ci_upper": 1465,
-      "coding_elo": 1520,
-      "vision_elo": 1272,
-      "votes": 52963,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-07-24",
-      "metadata_verified": true,
-      "context_window": 1000000
-    },
-    {
-      "arena_model_id": "Kimi K2.6",
-      "display_name": "Kimi K2.6",
-      "organization": "moonshot",
-      "license": "Modified MIT",
-      "text_elo": 1461,
-      "text_ci_lower": 1456,
-      "text_ci_upper": 1465,
-      "coding_elo": 1516,
-      "vision_elo": 1282,
-      "votes": 39551,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-04-14",
-      "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 262144
-    },
-    {
-      "arena_model_id": "Qwen3.6-Max-Preview",
-      "display_name": "Qwen3.6-Max-Preview",
-      "organization": "alibaba",
-      "license": "Proprietary",
-      "text_elo": 1460,
-      "text_ci_lower": 1452,
-      "text_ci_upper": 1468,
-      "coding_elo": 1510,
-      "vision_elo": null,
-      "votes": 5380,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-04-02",
-      "metadata_verified": true,
-      "context_window": 1000000
-    },
-    {
-      "arena_model_id": "Grok 4.1",
-      "display_name": "Grok 4.1",
-      "organization": "xai",
-      "license": "Proprietary",
-      "text_elo": 1459,
-      "text_ci_lower": 1456,
-      "text_ci_upper": 1462,
-      "coding_elo": 1492,
-      "vision_elo": null,
-      "votes": 68162,
-      "first_seen": "2026-11-13"
-    },
-    {
-      "arena_model_id": "Gemini 3 Flash (Minimal)",
-      "display_name": "Gemini 3 Flash (Minimal)",
-      "organization": "google",
-      "license": "Proprietary",
-      "text_elo": 1458,
-      "text_ci_lower": 1455,
-      "text_ci_upper": 1461,
-      "coding_elo": 1489,
-      "vision_elo": 1265,
-      "votes": 90063,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-12-17",
-      "metadata_verified": true,
-      "context_window": 1048576
-    },
-    {
-      "arena_model_id": "GLM-5",
-      "display_name": "GLM-5",
-      "organization": "zai",
-      "license": "MIT",
-      "text_elo": 1457,
-      "text_ci_lower": 1453,
-      "text_ci_upper": 1462,
-      "coding_elo": 1498,
-      "vision_elo": null,
-      "votes": 28979,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-02-11",
-      "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 204800
-    },
-    {
-      "arena_model_id": "Claude Sonnet 4.5 (High, 32K, 20250929)",
-      "display_name": "Claude Sonnet 4.5 (High, 32K, 20250929)",
-      "organization": "anthropic",
-      "license": "Proprietary",
-      "text_elo": 1456,
-      "text_ci_lower": 1453,
-      "text_ci_upper": 1459,
-      "coding_elo": 1519,
-      "vision_elo": null,
-      "votes": 83310,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-11-24",
-      "metadata_verified": true,
-      "context_window": 200000
-    },
-    {
-      "arena_model_id": "Dola Seed 2.0 Pro",
-      "display_name": "Dola Seed 2.0 Pro",
-      "organization": "bytedance",
-      "license": "Proprietary",
-      "text_elo": 1456,
-      "text_ci_lower": 1453,
-      "text_ci_upper": 1460,
-      "coding_elo": 1514,
-      "vision_elo": 1274,
-      "votes": 78156,
-      "first_seen": "2026-11-13"
-    },
-    {
-      "arena_model_id": "Claude Sonnet 4.5 (20250929)",
-      "display_name": "Claude Sonnet 4.5 (20250929)",
-      "organization": "anthropic",
-      "license": "Proprietary",
-      "text_elo": 1455,
-      "text_ci_lower": 1452,
-      "text_ci_upper": 1458,
-      "coding_elo": 1512,
-      "vision_elo": null,
-      "votes": 82053,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-11-24",
-      "metadata_verified": true,
-      "context_window": 200000
-    },
-    {
-      "arena_model_id": "DeepSeek-V4-Pro Preview (High)",
-      "display_name": "DeepSeek-V4-Pro Preview (High)",
-      "organization": "deepseek",
-      "license": "MIT",
-      "text_elo": 1455,
-      "text_ci_lower": 1451,
-      "text_ci_upper": 1459,
-      "coding_elo": 1488,
-      "vision_elo": null,
-      "votes": 54224,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-04-22",
-      "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 1048576
-    },
-    {
-      "arena_model_id": "GPT-5.1 (High)",
-      "display_name": "GPT-5.1 (High)",
-      "organization": "openai",
-      "license": "Proprietary",
-      "text_elo": 1455,
-      "text_ci_lower": 1452,
-      "text_ci_upper": 1459,
-      "coding_elo": 1492,
-      "vision_elo": 1249,
-      "votes": 41389,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-11-13",
-      "metadata_verified": true,
-      "context_window": 400000
-    },
-    {
-      "arena_model_id": "Qwen3.7-Plus",
-      "display_name": "Qwen3.7-Plus",
-      "organization": "alibaba",
-      "license": "Proprietary",
-      "text_elo": 1455,
-      "text_ci_lower": 1451,
-      "text_ci_upper": 1460,
-      "coding_elo": 1500,
-      "vision_elo": 1277,
-      "votes": 41289,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-06-03",
-      "metadata_verified": true,
-      "context_window": 1000000
-    },
-    {
-      "arena_model_id": "Hy3",
-      "display_name": "Hy3",
-      "organization": "tencent",
-      "license": "Apache 2.0",
-      "text_elo": 1454,
-      "text_ci_lower": 1448,
-      "text_ci_upper": 1460,
-      "coding_elo": 1504,
-      "vision_elo": null,
-      "votes": 15178,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-07-02",
-      "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 262144
-    },
-    {
-      "arena_model_id": "GPT-5.6 Luna (xHigh)",
-      "display_name": "GPT-5.6 Luna (xHigh)",
-      "organization": "openai",
-      "license": "Proprietary",
-      "text_elo": 1453,
-      "text_ci_lower": 1449,
-      "text_ci_upper": 1458,
-      "coding_elo": 1502,
-      "vision_elo": 1256,
-      "votes": 40598,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-07-09",
-      "metadata_verified": true,
-      "context_window": 1050000
-    },
-    {
-      "arena_model_id": "Kimi K2.5 (Thinking)",
-      "display_name": "Kimi K2.5",
-      "organization": "moonshot",
-      "license": "Modified MIT",
-      "text_elo": 1450,
-      "text_ci_lower": 1446,
-      "text_ci_upper": 1453,
-      "coding_elo": 1502,
-      "vision_elo": 1269,
-      "votes": 73820,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-01-01",
-      "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 262144
-    },
-    {
-      "arena_model_id": "Claude Opus 4.1 (Thinking 16K, 20250805)",
-      "display_name": "Claude Opus 4.1 (Thinking 16K, 20250805)",
-      "organization": "anthropic",
-      "license": "Proprietary",
-      "text_elo": 1450,
-      "text_ci_lower": 1446,
-      "text_ci_upper": 1453,
-      "coding_elo": 1511,
-      "vision_elo": null,
-      "votes": 49366,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-08-05",
-      "metadata_verified": true,
-      "context_window": 200000
-    },
-    {
-      "arena_model_id": "GPT-5.3 Chat",
-      "display_name": "GPT-5.3 Chat",
-      "organization": "openai",
-      "license": "Proprietary",
-      "text_elo": 1450,
-      "text_ci_lower": 1446,
-      "text_ci_upper": 1455,
-      "coding_elo": 1497,
-      "vision_elo": null,
-      "votes": 34026,
-      "first_seen": "2026-11-13"
-    },
-    {
-      "arena_model_id": "ERNIE-5.0-Preview (1203)",
-      "display_name": "ERNIE-5.0-Preview (1203)",
-      "organization": "baidu",
-      "license": "Proprietary",
-      "text_elo": 1449,
-      "text_ci_lower": 1442,
-      "text_ci_upper": 1455,
-      "coding_elo": 1471,
-      "vision_elo": null,
-      "votes": 9727,
-      "first_seen": "2026-11-13"
-    },
-    {
-      "arena_model_id": "Claude Opus 4.1 (20250805)",
-      "display_name": "Claude Opus 4.1 (20250805)",
-      "organization": "anthropic",
-      "license": "Proprietary",
-      "text_elo": 1448,
-      "text_ci_lower": 1445,
-      "text_ci_upper": 1451,
-      "coding_elo": 1505,
-      "vision_elo": null,
-      "votes": 76899,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-08-05",
-      "metadata_verified": true,
-      "context_window": 200000
-    },
-    {
-      "arena_model_id": "MiMo-V2-Pro",
-      "display_name": "MiMo-V2-Pro",
-      "organization": "xiaomi",
-      "license": "Proprietary",
-      "text_elo": 1448,
-      "text_ci_lower": 1443,
-      "text_ci_upper": 1453,
-      "coding_elo": 1503,
-      "vision_elo": null,
-      "votes": 25219,
-      "first_seen": "2026-11-13"
-    },
-    {
-      "arena_model_id": "GPT-5.4 mini (High)",
-      "display_name": "GPT-5.4 mini (High)",
-      "organization": "openai",
-      "license": "Proprietary",
-      "text_elo": 1447,
-      "text_ci_lower": 1444,
-      "text_ci_upper": 1451,
-      "coding_elo": 1495,
-      "vision_elo": 1244,
-      "votes": 62752,
-      "first_seen": "2026-11-13",
-      "release_date": "2026-03-17",
-      "metadata_verified": true,
-      "context_window": 400000
-    },
-    {
-      "arena_model_id": "ERNIE 5.0 (0110)",
-      "display_name": "ERNIE 5.0 (0110)",
-      "organization": "baidu",
-      "license": "Proprietary",
-      "text_elo": 1446,
-      "text_ci_lower": 1442,
-      "text_ci_upper": 1450,
-      "coding_elo": 1489,
-      "vision_elo": null,
-      "votes": 36162,
-      "first_seen": "2026-11-13"
-    },
-    {
-      "arena_model_id": "Gemini 2.5 Pro",
-      "display_name": "Gemini 2.5 Pro",
-      "organization": "google",
-      "license": "Proprietary",
-      "text_elo": 1445,
-      "text_ci_lower": 1443,
-      "text_ci_upper": 1448,
-      "coding_elo": 1464,
-      "vision_elo": 1263,
-      "votes": 124742,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-06-17",
-      "metadata_verified": true,
-      "context_window": 1048576
-    },
-    {
-      "arena_model_id": "GPT-4.5 Preview (2025-02-27)",
-      "display_name": "GPT-4.5 Preview (2025-02-27)",
-      "organization": "openai",
-      "license": "Proprietary",
-      "text_elo": 1445,
-      "text_ci_lower": 1439,
-      "text_ci_upper": 1450,
-      "coding_elo": 1458,
-      "vision_elo": 1195,
-      "votes": 14547,
-      "first_seen": "2026-11-13"
-    },
-    {
-      "arena_model_id": "ChatGPT-4o Latest (20250326)",
-      "display_name": "ChatGPT-4o Latest (20250326)",
-      "organization": "openai",
-      "license": "Proprietary",
-      "text_elo": 1443,
-      "text_ci_lower": 1440,
-      "text_ci_upper": 1445,
-      "coding_elo": 1467,
-      "vision_elo": 1243,
-      "votes": 81638,
-      "first_seen": "2026-11-13",
-      "release_date": "2024-11-20",
-      "metadata_verified": true
-    },
-    {
-      "arena_model_id": "GLM-4.7",
-      "display_name": "GLM-4.7",
-      "organization": "zai",
-      "license": "MIT",
-      "text_elo": 1441,
-      "text_ci_lower": 1435,
-      "text_ci_upper": 1447,
-      "coding_elo": 1484,
-      "vision_elo": null,
-      "votes": 12153,
-      "first_seen": "2026-11-13",
-      "release_date": "2025-12-22",
-      "metadata_verified": true,
-      "open_weights": true,
-      "context_window": 204800
+      "open_weights": true
     },
     {
       "arena_model_id": "anthropic-claude-fable-5-2-max-202611",
@@ -2864,5 +2292,13 @@
       "votes": 4800,
       "first_seen": "2026-11-10"
     }
+  ],
+  "excluded_historical_ids": [
+    "gemini 2.5 pro",
+    "gemini 3 flash",
+    "gemini 3 flash (minimal)",
+    "gemini 3 pro",
+    "glm-4.7",
+    "gpt-5.1 (high)"
   ]
 }

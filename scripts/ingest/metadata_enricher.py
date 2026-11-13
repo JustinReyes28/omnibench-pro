@@ -73,9 +73,31 @@ _VARIANT_QUALIFIERS = frozenset({
     "wonder",
     "ember",
     "spark",
+    "opus",
+    "sonnet",
+    "haiku",
+    "fable",
+    "glimmer",
+    "plus",
+    "prime",
+    "omni",
+    "turbo",
+    "exp",
+    "next",
+    "max",
+    "customtools",
+    "image",
+    "realtime",
+    "safeguard",
+    "open",
+    "contributor",
+    "chat",
+    "agent",
+    "multi",
+    "fast",
 })
 
-_HARMLESS_HF_QUALIFIERS = frozenset({"instruct", "chat", "it"})
+_HARMLESS_HF_QUALIFIERS = frozenset({"instruct", "it"})
 
 _COMMUNITY_NOISE = frozenset({
     "gguf",
@@ -164,23 +186,56 @@ def normalize_license_name(raw_lic: str | None) -> tuple[bool, str] | None:
     return (True, cleaned)
 
 
-def _strip_effort_and_dates(name: str) -> str:
+def _extract_checkpoint_date_info(name: str) -> tuple[str | None, tuple[int, int] | None]:
+    """Extracts explicit (full YYYY-MM-DD date if present, (month, day) tag if present) from a model name."""
+    s = (name or "").strip()
+    m_iso = re.search(r"(202\d)-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])", s)
+    if m_iso:
+        full = m_iso.group(0)
+        return full, (int(m_iso.group(2)), int(m_iso.group(3)))
+    m_8 = re.search(r"(202\d)(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])", s)
+    if m_8:
+        full = f"{m_8.group(1)}-{m_8.group(2)}-{m_8.group(3)}"
+        return full, (int(m_8.group(2)), int(m_8.group(3)))
+    m_mmdd = re.search(
+        r"(?:^|[\s(,_-])(0[1-9]|1[0-2])[-_]?(0[1-9]|[12]\d|3[01])(?=$|[\s),_-])",
+        s,
+    )
+    if m_mmdd:
+        return None, (int(m_mmdd.group(1)), int(m_mmdd.group(2)))
+    return None, None
+
+
+def _strip_effort_and_dates(name: str, *, strip_mmdd_suffix: bool = False) -> str:
     s = (name or "").strip().lower()
     s = re.sub(r"\([^)]*\)", " ", s)
-    s = re.sub(r"^[a-z0-9._-]+/", "", s)
+    if "/" in s:
+        s = s.split("/", 1)[1]
+    s = re.sub(r":[a-z0-9_-]+$", "", s)
     s = re.sub(r"\b202\d-\d{2}-\d{2}\b", " ", s)
     s = re.sub(r"\b202\d{3,5}\b", " ", s)
-    s = re.sub(r"(?:^|[-_\s])(?:max|xhigh|high|low|minimal|none|non-reasoning|standard|thinking|reasoning|preview)(?=$|[-_\s])", " ", s)
+    if strip_mmdd_suffix:
+        s = re.sub(r"(?:^|[-_\s])(?:0[1-9]|1[0-2])-?(?:0[1-9]|[12]\d|3[01])(?=$|[-_\s])", " ", s)
+    s = re.sub(
+        r"(?:^|[-_\s])(?:xhigh|high|low|minimal|none|non-reasoning|standard|thinking|reasoning|preview)(?=$|[-_\s])",
+        " ",
+        s,
+    )
     # Strip trailing -medium only if not part of mistral medium
     if "mistral" not in s:
         s = re.sub(r"(?:^|[-_\s])medium(?=$|[-_\s])", " ", s)
+    # Strip bare -max effort only if not part of Qwen Max model family
+    if "qwen" not in s:
+        s = re.sub(r"(?:^|[-_\s])max(?=$|[-_\s])", " ", s)
     return re.sub(r"[^a-z0-9.]+", " ", s).strip()
 
 
 def _extract_signature(
     name: str,
+    *,
+    strip_mmdd_suffix: bool = False,
 ) -> tuple[tuple[str, ...], frozenset[str], frozenset[str], frozenset[str], frozenset[str]]:
-    cleaned = _strip_effort_and_dates(name)
+    cleaned = _strip_effort_and_dates(name, strip_mmdd_suffix=strip_mmdd_suffix)
     tokens = [t for t in cleaned.split() if t]
     # Split concatenated model+version tokens like qwen3.6 or nanbeige4.3 cleanly
     expanded: list[str] = []
@@ -203,37 +258,62 @@ def _extract_signature(
         and t not in _HARMLESS_HF_QUALIFIERS
         and t not in _COMMUNITY_NOISE
         and t not in size_tokens
-        and t not in {"ai", "research", "china", "mobile", "open", "weights"}
+        and t not in {"ai", "research", "china", "mobile", "weights"}
     )
     return nums, size_tokens, qualifiers, noise, anchors
 
 
-def is_compatible_variant_match(query_name: str, candidate_name: str, allow_harmless_instruct: bool = True) -> bool:
-    """Strictly validates that a candidate entry matches the query without cross-variant pollution (e.g. Apodex 1.1 != Apodex 1.1 Mini)."""
+def is_compatible_variant_match(
+    query_name: str,
+    candidate_name: str,
+    allow_harmless_instruct: bool = True,
+    *,
+    match_checkpoint_mmdd: bool = False,
+) -> bool:
+    """Strictly validates that a candidate entry matches the query without cross-variant pollution."""
     cand_lower = (candidate_name or "").strip().lower()
     author = cand_lower.split("/", 1)[0] if "/" in cand_lower else ""
     if author in _TRUSTED_UNTRUSTED_AUTHORS:
         return False
 
-    q_nums, q_sizes, q_quals, _, q_anchors = _extract_signature(query_name)
-    c_nums, c_sizes, c_quals, c_noise, c_anchors = _extract_signature(candidate_name)
+    _, q_mmdd = _extract_checkpoint_date_info(query_name)
+    _, c_mmdd = _extract_checkpoint_date_info(candidate_name)
+    if q_mmdd and c_mmdd and q_mmdd != c_mmdd:
+        return False
 
-    if c_noise:
-        return False
-    if q_nums != c_nums:
-        return False
-    if q_sizes != c_sizes:
-        return False
-    if q_quals != c_quals:
-        return False
-    if q_anchors and c_anchors and not (q_anchors & c_anchors):
-        return False
-    if not allow_harmless_instruct:
-        cand_clean = set(_strip_effort_and_dates(candidate_name).split())
-        q_clean = set(_strip_effort_and_dates(query_name).split())
-        if (cand_clean & _HARMLESS_HF_QUALIFIERS) != (q_clean & _HARMLESS_HF_QUALIFIERS):
+    q_nums, q_sizes, q_quals, _, q_anchors = _extract_signature(
+        query_name, strip_mmdd_suffix=match_checkpoint_mmdd
+    )
+
+    def _matches(cand: str) -> bool:
+        c_nums, c_sizes, c_quals, c_noise, c_anchors = _extract_signature(
+            cand, strip_mmdd_suffix=match_checkpoint_mmdd
+        )
+        if c_noise or q_nums != c_nums or q_sizes != c_sizes or q_quals != c_quals or q_anchors != c_anchors:
             return False
-    return True
+        if not allow_harmless_instruct:
+            cand_clean = set(_strip_effort_and_dates(cand, strip_mmdd_suffix=match_checkpoint_mmdd).split())
+            q_clean = set(_strip_effort_and_dates(query_name, strip_mmdd_suffix=match_checkpoint_mmdd).split())
+            if (cand_clean & _HARMLESS_HF_QUALIFIERS) != (q_clean & _HARMLESS_HF_QUALIFIERS):
+                return False
+        return True
+
+    if _matches(candidate_name):
+        return True
+
+    # Retry stripping redundant vendor-owner prefix from repo names (e.g. nvidia/NVIDIA-Nemotron-3.5-Lightning)
+    if "/" in cand_lower and q_anchors:
+        owner, repo = cand_lower.split("/", 1)
+        owner_clean = re.sub(r"(?:-?ai|-?research|-?org)$", "", owner)
+        if owner_clean and (repo.startswith(owner_clean + "-") or repo.startswith(owner_clean + "_")):
+            cand_stripped = repo[len(owner_clean) + 1 :]
+            if (
+                cand_stripped
+                and not re.match(r"^(?:\d|[vr]\d)", cand_stripped)
+                and cand_stripped not in _VARIANT_QUALIFIERS
+            ):
+                return _matches(cand_stripped)
+    return False
 
 
 def _normalize_date_str(raw: str | None) -> str | None:
@@ -266,8 +346,14 @@ def _normalize_ym_str(raw: str | None) -> str | None:
     return f"{m.group(1)}-{m.group(2)}" if m else None
 
 
-def parse_aa_model_page(html_text: str) -> dict[str, Any]:
-    """Parses Artificial Analysis /models/<slug> SSR page with header-vs-FAQ date validation."""
+def parse_aa_model_page(html_text: str, query_name: str | None = None) -> dict[str, Any]:
+    """Parses Artificial Analysis /models/<slug> SSR page with header-vs-FAQ and variant guards."""
+    page_title: str | None = None
+    m_title = re.search(r"<title[^>]*>(.*?)</title>", html_text, re.IGNORECASE | re.DOTALL)
+    if m_title:
+        raw_title = html_lib.unescape(re.sub(r"\s+", " ", m_title.group(1))).strip()
+        page_title = re.split(r"\s+[-|]\s+(?:Intelligence|Performance|Price|Artificial Analysis)", raw_title, maxsplit=1)[0].strip()
+
     text = html_lib.unescape(re.sub(r"<[^>]+>", " ", html_text))
     text = re.sub(r"\s+", " ", text)
 
@@ -326,13 +412,20 @@ def parse_aa_model_page(html_text: str) -> dict[str, Any]:
         context_window = int(val * (1_000_000 if unit == "m" else 1_000))
 
     hf_id: str | None = None
-    m_hf = re.search(r"https?://huggingface\.co/([A-Za-z0-9._-]+/[A-Za-z0-9._-]+)", html_text)
-    if m_hf:
-        cand_hf = m_hf.group(1).strip().rstrip("/")
-        if not cand_hf.lower().startswith(("spaces/", "datasets/")):
-            hf_id = cand_hf
+    for raw_hf in re.findall(r"https?://huggingface\.co/([A-Za-z0-9._-]+/[A-Za-z0-9._-]+)", html_text):
+        cand_hf = raw_hf.strip().rstrip("/")
+        cand_lower = cand_hf.lower()
+        if cand_lower.startswith(("spaces/", "datasets/", "docs/", "blog/", "models/")):
+            continue
+        if cand_lower.split("/", 1)[0] in _TRUSTED_UNTRUSTED_AUTHORS:
+            continue
+        if query_name is not None and not is_compatible_variant_match(query_name, cand_hf, match_checkpoint_mmdd=True):
+            continue
+        hf_id = cand_hf
+        break
 
     return {
+        "page_title": page_title,
         "release_date": aa_release_date,
         "header_ym": header_ym,
         "faq_date": faq_date,
@@ -346,37 +439,79 @@ def parse_aa_model_page(html_text: str) -> dict[str, Any]:
 
 def match_openrouter_model(raw_name: str, or_models: list[dict[str, Any]]) -> dict[str, Any] | None:
     """Finds strict variant-compatible entry in OpenRouter /api/v1/models catalog."""
-    best: dict[str, Any] | None = None
-    for entry in or_models:
-        or_id = str(entry.get("id") or "").strip()
-        or_name = str(entry.get("name") or "").strip()
-        if not or_id:
-            continue
-        if is_compatible_variant_match(raw_name, or_id) or (or_name and is_compatible_variant_match(raw_name, or_name)):
+    explicit_full, q_mmdd = _extract_checkpoint_date_info(raw_name)
+
+    def _find_best(query: str, *, allow_mmdd: bool) -> tuple[tuple[int, int, int, int], dict[str, Any]] | None:
+        best_score: tuple[int, int, int, int] = (-1, -1, -1, -1)
+        best_cand: dict[str, Any] | None = None
+        for entry in or_models:
+            or_id = str(entry.get("id") or "").strip()
+            or_name = str(entry.get("name") or "").strip()
+            or_display = re.sub(r"^[A-Za-z0-9._ -]+:\s*", "", or_name).strip()
+            if not or_id:
+                continue
+            id_match = is_compatible_variant_match(query, or_id, match_checkpoint_mmdd=allow_mmdd)
+            name_match = bool(or_display) and is_compatible_variant_match(query, or_display, match_checkpoint_mmdd=allow_mmdd)
+            if not (id_match or name_match):
+                continue
+
+            _, c_mmdd_id = _extract_checkpoint_date_info(or_id)
+            _, c_mmdd_name = _extract_checkpoint_date_info(or_display)
+            c_mmdd = c_mmdd_id or c_mmdd_name
+
             created_ts = entry.get("created")
             created_date: str | None = None
             if isinstance(created_ts, (int, float)) and created_ts > 1_600_000_000:
                 created_date = datetime.fromtimestamp(float(created_ts), tz=timezone.utc).strftime("%Y-%m-%d")
+
+            # Do not let an undated base OR entry's older launch date overwrite an explicit checkpoint stamp
+            if explicit_full and c_mmdd is None and created_date:
+                try:
+                    exp_dt = datetime.strptime(explicit_full, "%Y-%m-%d")
+                    cr_dt = datetime.strptime(created_date, "%Y-%m-%d")
+                    if abs((exp_dt - cr_dt).days) > 14:
+                        created_date = explicit_full
+                except ValueError:
+                    pass
+
             ctx = entry.get("context_length")
+            ctx_val = int(ctx) if isinstance(ctx, (int, float)) and int(ctx) > 1000 else None
             hf_id = entry.get("hugging_face_id")
             cand = {
                 "openrouter_id": or_id,
                 "release_date": created_date,
-                "context_window": int(ctx) if isinstance(ctx, (int, float)) and int(ctx) > 1000 else None,
+                "context_window": ctx_val,
                 "hugging_face_id": str(hf_id).strip() if hf_id else None,
             }
-            # Prefer matches that link directly to a HuggingFace repo or carry context_length
-            if best is None or (cand["hugging_face_id"] and not best.get("hugging_face_id")):
-                best = cand
-                if cand["hugging_face_id"]:
-                    break
-    return best
+            score = (
+                1 if (q_mmdd and c_mmdd == q_mmdd) else (0 if c_mmdd is None else -1),
+                0 if or_id.lower().endswith(":batch") else 1,
+                1 if cand["hugging_face_id"] else 0,
+                1 if (ctx_val or 0) > 128000 else 0,
+            )
+            if score > best_score:
+                best_score = score
+                best_cand = cand
+        return (best_score, best_cand) if best_cand is not None else None
+
+    hit = _find_best(raw_name, allow_mmdd=bool(q_mmdd))
+    if hit is not None:
+        return hit[1]
+
+    # Retry stripped 'instant' mode tag only when no exact variant exists (e.g. GPT-5.5 Instant -> openai/gpt-5.5)
+    if re.search(r"\binstant\b", raw_name, re.IGNORECASE):
+        no_instant = re.sub(r"\binstant\b", "", raw_name, flags=re.IGNORECASE).strip()
+        hit = _find_best(no_instant, allow_mmdd=bool(q_mmdd))
+        if hit is not None:
+            return hit[1]
+
+    return None
 
 
 def parse_hf_model_metadata(query_name: str, hf_obj: dict[str, Any]) -> dict[str, Any] | None:
     """Parses HuggingFace Hub API model object with strict variant guard."""
     repo_id = str(hf_obj.get("id") or hf_obj.get("modelId") or "").strip()
-    if not repo_id or not is_compatible_variant_match(query_name, repo_id):
+    if not repo_id or not is_compatible_variant_match(query_name, repo_id, match_checkpoint_mmdd=True):
         return None
 
     created_raw = hf_obj.get("createdAt")
@@ -427,6 +562,7 @@ def reconcile_enriched_metadata(
     or_meta = or_meta or {}
     hf_meta = hf_meta or {}
 
+    explicit_full, _ = _extract_checkpoint_date_info(raw_name)
     header_ym: str | None = aa_meta.get("header_ym")
     hf_date: str | None = hf_meta.get("release_date")
     or_date: str | None = or_meta.get("release_date")
@@ -443,7 +579,9 @@ def reconcile_enriched_metadata(
         day_candidates.append(aa_date)
 
     release_date: str | None = None
-    if header_ym:
+    if explicit_full:
+        release_date = explicit_full
+    elif header_ym:
         in_hdr_month = [d for d in day_candidates if d[:7] == header_ym]
         if in_hdr_month:
             release_date = min(in_hdr_month)
@@ -505,6 +643,17 @@ def _http_get_text(url: str, headers: dict[str, str] | None = None, timeout: flo
 
 def _http_get_json(url: str, headers: dict[str, str] | None = None, timeout: float = 10.0) -> Any:
     return json.loads(_http_get_text(url, headers=headers, timeout=timeout))
+
+
+def _is_derived_aa_title_compatible(raw_name: str, page_title: str | None) -> bool:
+    if not page_title:
+        return False
+    if is_compatible_variant_match(raw_name, page_title, match_checkpoint_mmdd=True):
+        return True
+    if re.search(r"\binstant\b", raw_name, re.IGNORECASE):
+        no_inst = re.sub(r"\binstant\b", "", raw_name, flags=re.IGNORECASE).strip()
+        return is_compatible_variant_match(no_inst, page_title, match_checkpoint_mmdd=True)
+    return False
 
 
 def enrich_snapshots(
@@ -597,9 +746,30 @@ def enrich_snapshots(
                 if aa_slug:
                     try:
                         aa_html = _http_get_text(AA_MODEL_URL_TMPL.format(slug=urllib.parse.quote(str(aa_slug), safe="")))
-                        aa_meta = parse_aa_model_page(aa_html)
+                        aa_meta = parse_aa_model_page(aa_html, query_name=raw_name)
                     except Exception as exc:
                         logger.debug("AA model page lookup failed for %s: %s", aa_slug, exc)
+                elif not item.get("release_date") and not (or_meta and or_meta.get("release_date")):
+                    # Fallback SSR slug probe for Arena/LiveBench/Vals items absent from OpenRouter
+                    derived_cands: list[str] = [cache_key]
+                    base_slug = re.sub(
+                        r"-(?:xhigh|high|medium|low|minimal|max|reasoning|instant)$",
+                        "",
+                        cache_key,
+                    )
+                    if base_slug and base_slug != cache_key:
+                        derived_cands.append(base_slug)
+                    for cand_slug in derived_cands:
+                        if not cand_slug:
+                            continue
+                        try:
+                            aa_html = _http_get_text(AA_MODEL_URL_TMPL.format(slug=urllib.parse.quote(cand_slug, safe="")))
+                            parsed_aa = parse_aa_model_page(aa_html, query_name=raw_name)
+                            if _is_derived_aa_title_compatible(raw_name, parsed_aa.get("page_title")):
+                                aa_meta = parsed_aa
+                                break
+                        except Exception:
+                            continue
 
                 hf_repo_cand = (or_meta or {}).get("hugging_face_id") or aa_meta.get("hugging_face_id")
                 lower_raw = raw_name.lower()

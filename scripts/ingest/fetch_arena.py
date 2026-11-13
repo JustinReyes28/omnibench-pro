@@ -9,9 +9,15 @@ import urllib.parse
 from typing import Any
 from scripts.ingest.base_fetcher import BaseFetcher
 
-_MAX_UNSEEN_ARENA_MODELS = 30
-_MIN_UNSEEN_ARENA_ELO = 1350
-_MAX_UNSEEN_ARENA_RANK = 160
+_MAX_UNSEEN_ARENA_MODELS = 20
+_MIN_UNSEEN_ARENA_ELO = 1470
+_MAX_UNSEEN_ARENA_RANK = 50
+_ARENA_FRONTIER_BAND = 60
+
+_PRE_2026_CHECKPOINT_RE = re.compile(
+    r"(?:^|[^0-9])202[345](?:[-_/]?\d{2}(?:[-_/]?\d{2})?|(?=$|[^a-z0-9]))",
+    re.IGNORECASE,
+)
 
 
 def _is_valid_elo(val: Any) -> bool:
@@ -20,6 +26,10 @@ def _is_valid_elo(val: Any) -> bool:
     except (TypeError, ValueError):
         return False
     return 500.0 <= num <= 2500.0
+
+
+def _is_pre_2026_checkpoint(raw_id: str) -> bool:
+    return bool(_PRE_2026_CHECKPOINT_RE.search(raw_id or ""))
 
 
 class ArenaFetcher(BaseFetcher):
@@ -32,6 +42,20 @@ class ArenaFetcher(BaseFetcher):
     github_archive_api_url = "https://api.github.com/repos/oolong-tea-2026/arena-ai-leaderboards/contents/data"
     hf_rows_base = "https://datasets-server.huggingface.co/rows"
 
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        self._excluded_historical: set[str] = self._load_excluded_historical_ids()
+
+    def _load_excluded_historical_ids(self) -> set[str]:
+        if not self.latest_path.exists():
+            return set()
+        try:
+            old = json.loads(self.latest_path.read_text(encoding="utf-8"))
+            raw_list = old.get("excluded_historical_ids") or []
+            return {str(x).strip().lower() for x in raw_list if str(x).strip()}
+        except Exception:
+            return set()
+
     def _filter_live_models(
         self,
         models: list[dict[str, Any]],
@@ -41,7 +65,10 @@ class ArenaFetcher(BaseFetcher):
         if not models:
             return []
 
-        existing_keys: set[str] = set()
+        existing_excluded = self._load_excluded_historical_ids()
+        self._excluded_historical = set(existing_excluded)
+
+        existing_by_key: dict[str, dict[str, Any]] = {}
         if self.latest_path.exists():
             try:
                 old = json.loads(self.latest_path.read_text(encoding="utf-8"))
@@ -49,7 +76,7 @@ class ArenaFetcher(BaseFetcher):
                     for fk in ("arena_model_id", "display_name"):
                         val = str(m.get(fk) or "").strip().lower()
                         if val:
-                            existing_keys.add(val)
+                            existing_by_key.setdefault(val, m)
             except Exception:
                 pass
 
@@ -70,6 +97,8 @@ class ArenaFetcher(BaseFetcher):
                 str(m["arena_model_id"]).lower(),
             ),
         )
+        top_elo = int(ranked[0]["text_elo"]) if ranked else _MIN_UNSEEN_ARENA_ELO
+        frontier_floor = max(_MIN_UNSEEN_ARENA_ELO, top_elo - _ARENA_FRONTIER_BAND)
 
         known_models: list[dict[str, Any]] = []
         unseen_models: list[dict[str, Any]] = []
@@ -80,14 +109,28 @@ class ArenaFetcher(BaseFetcher):
             org = str(m.get("organization") or "Unknown")
             elo = int(m["text_elo"])
 
-            is_known = key_lower in existing_keys
-            if not is_known and resolver is not None:
+            is_known = False
+            if resolver is not None:
                 try:
                     _, tier, _ = resolver.resolve("arena", raw_id, org, auto_promote=False)
                     if tier != "tier3_quarantine":
                         is_known = True
                 except Exception:
                     pass
+
+            if not is_known:
+                if key_lower in existing_excluded:
+                    self._excluded_historical.add(key_lower)
+                    continue
+                if key_lower in existing_by_key:
+                    old_entry = existing_by_key[key_lower]
+                    old_rd = str(old_entry.get("release_date") or "")[:10]
+                    if old_rd and old_rd < "2026-01-01":
+                        self._excluded_historical.add(key_lower)
+                        continue
+                    if _is_pre_2026_checkpoint(raw_id):
+                        continue
+                    is_known = True
 
             if is_known:
                 known_models.append(m)
@@ -96,16 +139,59 @@ class ArenaFetcher(BaseFetcher):
             if is_stealth_fn is not None and is_stealth_fn(org, raw_id):
                 continue
 
-            # Reject historical 2023-2024 dated checkpoints when unseen in the curated registry
-            if re.search(r"(?:^|[-_/])202[34](?:\d{2,4}|[-_]|$)", raw_id):
+            if _is_pre_2026_checkpoint(raw_id):
                 continue
 
             eff_rank = (explicit_ranks or {}).get(key_lower, global_rank)
             is_2026_plus = bool(re.search(r"202[6-9]", raw_id))
-            if (eff_rank <= _MAX_UNSEEN_ARENA_RANK and elo >= _MIN_UNSEEN_ARENA_ELO) or (is_2026_plus and elo >= 1200):
+            if (eff_rank <= _MAX_UNSEEN_ARENA_RANK and elo >= frontier_floor) or (
+                is_2026_plus and eff_rank <= 100 and elo >= 1400
+            ):
                 unseen_models.append(m)
 
         return known_models + unseen_models[:_MAX_UNSEEN_ARENA_MODELS]
+
+    def merge_with_lkg(self, live_models: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        """Merges live Arena models with LKG while permanently evicting confirmed pre-2026 historical entries."""
+        merged = super().merge_with_lkg(live_models)
+        excluded = getattr(self, "_excluded_historical", set())
+        resolver = None
+        try:
+            from scripts.transform.entity_resolver import EntityResolver
+            resolver = EntityResolver()
+        except Exception:
+            resolver = None
+
+        cleaned: list[dict[str, Any]] = []
+        for item in merged:
+            raw_id = str(item.get("arena_model_id") or item.get("display_name") or "").strip()
+            key_lower = raw_id.lower()
+            org = str(item.get("organization") or "Unknown")
+
+            is_curated = False
+            if resolver is not None and raw_id:
+                try:
+                    _, tier, meta = resolver.resolve("arena", raw_id, org, auto_promote=False)
+                    if tier != "tier3_quarantine" and not meta.get("auto_promoted", False):
+                        is_curated = True
+                except Exception:
+                    pass
+
+            if not is_curated:
+                rd = str(item.get("release_date") or "")[:10]
+                if key_lower in excluded or _is_pre_2026_checkpoint(raw_id):
+                    continue
+                if rd and rd < "2026-01-01":
+                    self._excluded_historical.add(key_lower)
+                    continue
+            cleaned.append(item)
+        return cleaned
+
+    def get_extra_meta(self) -> dict[str, Any] | None:
+        excluded = getattr(self, "_excluded_historical", None)
+        if excluded:
+            return {"excluded_historical_ids": sorted(excluded)}
+        return None
 
     def _parse_archive_models(
         self,

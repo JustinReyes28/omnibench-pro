@@ -210,6 +210,73 @@ def model_family_key(name_or_slug: str, provider: str = "") -> str:
     return re.sub(r"[^a-z0-9]", "", slug)
 
 
+def release_family_key(name_or_slug: str, provider: str = "") -> str:
+    """Returns a broader family key stripping release-stage tags (beta/alpha/preview/reasoning) for date inheritance."""
+    slug = normalize_slug(name_or_slug)
+    prefixes: list[str] = []
+    if provider:
+        prefixes.append(canonical_provider_prefix(provider))
+        raw_p = re.sub(r"[^a-z0-9]+", "-", provider.lower()).strip("-")
+        if raw_p not in prefixes:
+            prefixes.append(raw_p)
+    for pfx in prefixes:
+        if pfx and slug.startswith(pfx + "-") and len(slug) > len(pfx) + 1:
+            slug = slug[len(pfx) + 1 :]
+            break
+    else:
+        stripped = _ORG_SLUG_PREFIX_RE.sub("", slug)
+        if stripped:
+            slug = stripped
+
+    stage_re = re.compile(
+        r"-(?:beta|alpha|preview|rc|exp|reasoning|thinking|non-reasoning|standard|xhigh|high|low|minimal|none)(?:-\d+)?$"
+    )
+    while True:
+        nxt = stage_re.sub("", slug)
+        if nxt == slug and "mistral" not in slug and slug.endswith("-medium"):
+            nxt = slug[: -len("-medium")]
+        if nxt == slug and "qwen" not in slug and slug.endswith("-max"):
+            nxt = slug[: -len("-max")]
+        if nxt == slug or not nxt:
+            break
+        slug = nxt
+    return re.sub(r"[^a-z0-9]", "", slug)
+
+
+def _extract_explicit_date(raw_name: str, default_date: str | None = None) -> tuple[str | None, bool]:
+    """Extracts an explicit YYYY-MM-DD / YYYYMMDD (verified=True) or (MMDD) (verified=False) date stamp."""
+    s = raw_name or ""
+    m_iso = re.search(r"(202\d-\d{2}-\d{2})", s)
+    if m_iso:
+        try:
+            datetime.strptime(m_iso.group(1), "%Y-%m-%d")
+            return m_iso.group(1), True
+        except ValueError:
+            pass
+    m_8 = re.search(r"(202\d)(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])", s)
+    if m_8:
+        cand = f"{m_8.group(1)}-{m_8.group(2)}-{m_8.group(3)}"
+        try:
+            datetime.strptime(cand, "%Y-%m-%d")
+            return cand, True
+        except ValueError:
+            pass
+    ref_date = default_date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    m_mmdd = re.search(r"\((?:[^)]*[,\s])?(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\s*\)", s)
+    if m_mmdd and len(ref_date) >= 4 and ref_date[:4].isdigit():
+        yr = int(ref_date[:4])
+        mm = int(m_mmdd.group(1))
+        dd = int(m_mmdd.group(2))
+        for cand_yr in (yr, yr - 1):
+            try:
+                cand_dt = datetime(cand_yr, mm, dd).strftime("%Y-%m-%d")
+                if cand_dt <= ref_date[:10]:
+                    return cand_dt, False
+            except ValueError:
+                continue
+    return None, False
+
+
 def _slug_signature(slug: str) -> tuple[tuple[str, ...], frozenset[str]]:
     """Extracts numeric version tokens and explicit effort tokens so distinct versions/efforts never fuzzy-collide."""
     parts = slug.split("-")
@@ -273,35 +340,13 @@ def _infer_family_metadata(
     default_date: str | None = None,
 ) -> dict[str, Any]:
     """Infers release date, open-weights/license, and context window from raw name or same-family sibling."""
-    explicit_date: str | None = None
-    explicit_verified = False
-    m_iso = re.search(r"(202\d-\d{2}-\d{2})", raw_name)
-    if m_iso:
-        explicit_date = m_iso.group(1)
-        explicit_verified = True
-    else:
-        m_8 = re.search(r"(202\d)(\d{2})(\d{2})", raw_name)
-        if m_8:
-            explicit_date = f"{m_8.group(1)}-{m_8.group(2)}-{m_8.group(3)}"
-            explicit_verified = True
-        else:
-            ref_date = default_date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
-            m_mmdd = re.search(r"\((?:[^)]*[,\s])?(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\s*\)", raw_name)
-            if m_mmdd and len(ref_date) >= 4 and ref_date[:4].isdigit():
-                yr = int(ref_date[:4])
-                mm = int(m_mmdd.group(1))
-                dd = int(m_mmdd.group(2))
-                try:
-                    cand_dt = datetime(yr, mm, dd).strftime("%Y-%m-%d")
-                    if cand_dt <= ref_date[:10]:
-                        explicit_date = cand_dt
-                        explicit_verified = False
-                except ValueError:
-                    pass
+    explicit_date, explicit_verified = _extract_explicit_date(raw_name, default_date=default_date)
 
     target_keys = {model_family_key(raw_name, provider), model_family_key(auto_cid, provider)} - {""}
+    target_release_keys = {release_family_key(raw_name, provider), release_family_key(auto_cid, provider)} - {""}
     verified_sibling_dates: list[str] = []
     unverified_sibling_dates: list[str] = []
+    release_family_dates: list[str] = []
     sibling_open_weights = False
     sibling_licenses: list[str] = []
     sibling_contexts: list[int] = []
@@ -309,15 +354,14 @@ def _infer_family_metadata(
     for cid, entry in canonical_models.items():
         if provider and entry.get("provider") and entry["provider"] != provider:
             continue
+        entry_prov = entry.get("provider", "")
         cand_keys = {
-            model_family_key(cid, entry.get("provider", "")),
-            model_family_key(entry.get("display_name", ""), entry.get("provider", "")),
+            model_family_key(cid, entry_prov),
+            model_family_key(entry.get("display_name", ""), entry_prov),
         }
+        is_entry_verified = bool(entry.get("metadata_verified", not entry.get("auto_promoted", False)))
         if target_keys & cand_keys:
             if entry.get("release_date"):
-                is_entry_verified = bool(
-                    entry.get("metadata_verified", not entry.get("auto_promoted", False))
-                )
                 if is_entry_verified:
                     verified_sibling_dates.append(str(entry["release_date"]))
                 else:
@@ -329,6 +373,15 @@ def _infer_family_metadata(
                     sibling_licenses.append(lic)
             if entry.get("context_window"):
                 sibling_contexts.append(int(entry["context_window"]))
+        elif not explicit_date and target_release_keys:
+            cand_rel_keys = {
+                release_family_key(cid, entry_prov),
+                release_family_key(entry.get("display_name", ""), entry_prov),
+            }
+            if (target_release_keys & cand_rel_keys) and entry.get("release_date"):
+                has_explicit_stamp = _extract_explicit_date(entry.get("display_name", ""), default_date=default_date)[0] is not None
+                if is_entry_verified or has_explicit_stamp:
+                    release_family_dates.append(str(entry["release_date"]))
 
     if explicit_date:
         release_date: str | None = explicit_date
@@ -339,6 +392,9 @@ def _infer_family_metadata(
         metadata_verified = False
     elif unverified_sibling_dates:
         release_date = min(unverified_sibling_dates)
+        metadata_verified = False
+    elif release_family_dates:
+        release_date = min(release_family_dates)
         metadata_verified = False
     else:
         release_date = default_date or datetime.now(timezone.utc).strftime("%Y-%m-%d")

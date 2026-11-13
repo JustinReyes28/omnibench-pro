@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-13T08:07:27Z",
+  "updated_at": "2026-11-13T08:08:26Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5265,6 +5265,366 @@
         "livebench": [],
         "arena": [
           "GPT-5.4"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "zai-glm-5-1",
+      "display_name": "GLM-5.1",
+      "provider": "Z.AI",
+      "release_date": "2026-04-03",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 204800,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "GLM-5.1"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "xai-grok-4-1",
+      "display_name": "Grok 4.1",
+      "provider": "xAI",
+      "release_date": "2026-11-13",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "auto_promoted": true,
+      "metadata_verified": false,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Grok 4.1 (Thinking)",
+          "Grok 4.1"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "alibaba-qwen3-5-max",
+      "display_name": "Qwen3.5-Max-Preview",
+      "provider": "Alibaba",
+      "release_date": "2026-04-27",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Qwen3.5-Max-Preview"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "deepseek-v4-pro-high",
+      "display_name": "DeepSeek-V4-Pro (High, 20260813)",
+      "provider": "DeepSeek",
+      "release_date": "2026-08-13",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1048576,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "DeepSeek-V4-Pro (High, 20260813)",
+          "DeepSeek-V4-Pro Preview (High)"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "anthropic-claude-sonnet-5-high",
+      "display_name": "Claude Sonnet 5 (High)",
+      "provider": "Anthropic",
+      "release_date": "2026-07-24",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Claude Sonnet 5 (High)"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "moonshot-kimi-k2-6",
+      "display_name": "Kimi K2.6",
+      "provider": "Moonshot AI",
+      "release_date": "2026-04-14",
+      "license": "Modified MIT",
+      "is_open_weights": true,
+      "context_window": 262144,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Kimi K2.6"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "alibaba-qwen3-6-max",
+      "display_name": "Qwen3.6-Max-Preview",
+      "provider": "Alibaba",
+      "release_date": "2026-04-02",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Qwen3.6-Max-Preview"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "zai-glm-5",
+      "display_name": "GLM-5",
+      "provider": "Z.AI",
+      "release_date": "2026-02-11",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 204800,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "GLM-5"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "bytedance-dola-seed-2-0-pro",
+      "display_name": "Dola Seed 2.0 Pro",
+      "provider": "ByteDance",
+      "release_date": "2026-11-13",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": false,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Dola Seed 2.0 Pro"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "alibaba-qwen3-7-plus",
+      "display_name": "Qwen3.7-Plus",
+      "provider": "Alibaba",
+      "release_date": "2026-06-03",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Qwen3.7-Plus"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "tencent-hy3",
+      "display_name": "Hy3",
+      "provider": "Tencent",
+      "release_date": "2026-07-02",
+      "license": "Apache 2.0",
+      "is_open_weights": true,
+      "context_window": 262144,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Hy3"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-6-luna-xhigh",
+      "display_name": "GPT-5.6 Luna (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-07-09",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "GPT-5.6 Luna (xHigh)"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "moonshot-kimi-k2-5",
+      "display_name": "Kimi K2.5",
+      "provider": "Moonshot AI",
+      "release_date": "2026-01-01",
+      "license": "Modified MIT",
+      "is_open_weights": true,
+      "context_window": 262144,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Kimi K2.5 (Thinking)"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-3-chat",
+      "display_name": "GPT-5.3 Chat",
+      "provider": "OpenAI",
+      "release_date": "2026-11-13",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": false,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "GPT-5.3 Chat"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "baidu-ernie-5-0",
+      "display_name": "ERNIE-5.0-Preview (1203)",
+      "provider": "Baidu",
+      "release_date": "2026-11-13",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": false,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "ERNIE-5.0-Preview (1203)",
+          "ERNIE 5.0 (0110)"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "xiaomi-mimo-v2-pro",
+      "display_name": "MiMo-V2-Pro",
+      "provider": "Xiaomi",
+      "release_date": "2026-11-13",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": false,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "MiMo-V2-Pro"
+        ],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-5-4-mini-high",
+      "display_name": "GPT-5.4 mini (High)",
+      "provider": "OpenAI",
+      "release_date": "2026-03-17",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 400000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "GPT-5.4 mini (High)"
         ],
         "vals": []
       }

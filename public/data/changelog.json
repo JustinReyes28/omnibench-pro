@@ -1,13 +1,13 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-13T08:07:27Z",
+  "updated_at": "2026-11-13T08:08:26Z",
   "entries": [
     {
       "date": "2026-11-13",
       "type": "release_sync",
-      "summary": "Autonomous 12-hour sync expanded the verified fleet to 204 models (139 full 4/4 coverage, 65 early partial-source releases).",
+      "summary": "Autonomous 12-hour sync expanded the verified fleet to 221 models (139 full 4/4 coverage, 82 early partial-source releases).",
       "highlights": [
-        "Newly indexed flagship releases include: Grok 4.20 Beta 1, ERNIE 5.1, Gemini 4 Hydrogen (xhigh), Gemini 4 Hydrogen (high), Gemini 4 Hydrogen (medium), Gemini 4 Hydrogen (low)."
+        "Newly indexed flagship releases include: Grok 4.20 Beta 1, ERNIE 5.1, Dola Seed 2.0 Pro, Grok 4.1, MiMo-V2-Pro, GPT-5.3 Chat."
       ]
     },
     {

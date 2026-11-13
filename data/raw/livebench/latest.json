@@ -2,10 +2,10 @@
   "source_key": "livebench",
   "source_name": "LiveBench",
   "source_url": "https://livebench.ai/",
-  "fetched_at": "2026-11-12T19:15:34Z",
+  "fetched_at": "2026-11-13T08:01:28Z",
   "status": "live",
   "fetch_status": "live",
-  "release": "2026-11-06",
+  "release": "2026-06-25",
   "model_count": 147,
   "models": [
     {

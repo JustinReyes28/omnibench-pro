@@ -1,5 +1,5 @@
 {
-  "unmatched_count": 1,
+  "unmatched_count": 6,
   "unmatched_models": [
     {
       "provisional_id": "unmatched-stealth-nebula-v1",
@@ -9,6 +9,51 @@
       "normalized_slug": "stealth-nebula-v1",
       "closest_canonical_candidate": "deepseek-r1-0528",
       "similarity_score": 0.286
+    },
+    {
+      "provisional_id": "unmatched-anthropic-claude-opus-4-6",
+      "source_keys": [
+        "arena"
+      ],
+      "raw_name": "Claude Opus 4.6",
+      "provider": "Anthropic",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-anthropic-claude-opus-4-5-high-32k",
+      "source_keys": [
+        "arena"
+      ],
+      "raw_name": "Claude Opus 4.5 (High, 32K, 20251101)",
+      "provider": "Anthropic",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-google-gemini-3-flash",
+      "source_keys": [
+        "arena"
+      ],
+      "raw_name": "Gemini 3 Flash",
+      "provider": "Google",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-anthropic-claude-sonnet-4-6",
+      "source_keys": [
+        "arena"
+      ],
+      "raw_name": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "sources_present": 1
+    },
+    {
+      "provisional_id": "unmatched-anthropic-claude-opus-4-5",
+      "source_keys": [
+        "arena"
+      ],
+      "raw_name": "Claude Opus 4.5 (20251101)",
+      "provider": "Anthropic",
+      "sources_present": 1
     }
   ]
 }

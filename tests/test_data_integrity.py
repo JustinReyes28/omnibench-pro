@@ -115,6 +115,11 @@ class TestDataIntegrity(unittest.TestCase):
         for m in models:
             mid = m["id"]
             self.assertNotIn(m["provider"], forbidden_providers, f"Invalid provider on {mid}: {m['provider']}")
+            self.assertNotEqual(
+                m["provider"],
+                m["provider"].lower(),
+                f"Unnormalized lowercase provider on {mid}: {m['provider']}",
+            )
             sources_present = m["composite"]["sources_present"]
             self.assertGreaterEqual(sources_present, 1, f"Model {mid} has 0 benchmark sources")
             self.assertLessEqual(sources_present, 4, f"Model {mid} has invalid source count")

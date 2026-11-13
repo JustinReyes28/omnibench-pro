@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-11-13T08:02:45Z",
+  "generated_at": "2026-11-13T08:07:27Z",
   "sources_metadata": {
     "artificial_analysis": {
       "last_updated": "2026-11-13T08:01:28Z",
@@ -85,14 +85,14 @@
       "normalized_pillars": {
         "aa": 99.14,
         "lb": 97.94,
-        "ar": 98.03,
+        "ar": 98.01,
         "va": 97.67
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 98.25,
+        "unified_quality_score": 98.24,
         "coding_composite_score": 90.51,
         "enterprise_agent_score": 98.11,
         "value_efficiency_score": 41.89,
@@ -155,7 +155,7 @@
       "normalized_pillars": {
         "aa": 95.62,
         "lb": 95.31,
-        "ar": 96.08,
+        "ar": 96.07,
         "va": 98.33
       },
       "composite": {
@@ -225,7 +225,7 @@
       "normalized_pillars": {
         "aa": 93.2,
         "lb": 95.01,
-        "ar": 97.58,
+        "ar": 97.56,
         "va": 95.85
       },
       "composite": {
@@ -233,7 +233,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 95.06,
-        "coding_composite_score": 85.75,
+        "coding_composite_score": 85.74,
         "enterprise_agent_score": 95.11,
         "value_efficiency_score": 46.43,
         "is_pareto_optimal": true
@@ -303,7 +303,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 94.26,
-        "coding_composite_score": 92.5,
+        "coding_composite_score": 92.48,
         "enterprise_agent_score": 95.63,
         "value_efficiency_score": 40.19,
         "is_pareto_optimal": false
@@ -365,7 +365,7 @@
       "normalized_pillars": {
         "aa": 91.96,
         "lb": 95.74,
-        "ar": 93.16,
+        "ar": 93.15,
         "va": 95.17
       },
       "composite": {
@@ -435,7 +435,7 @@
       "normalized_pillars": {
         "aa": 89.39,
         "lb": 92.42,
-        "ar": 89.74,
+        "ar": 89.75,
         "va": 93.81
       },
       "composite": {
@@ -443,7 +443,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 91.46,
-        "coding_composite_score": 91.72,
+        "coding_composite_score": 91.7,
         "enterprise_agent_score": 92.22,
         "value_efficiency_score": 37.01,
         "is_pareto_optimal": false
@@ -505,17 +505,17 @@
       "normalized_pillars": {
         "aa": 84.02,
         "lb": 96.87,
-        "ar": 87.73,
+        "ar": 87.59,
         "va": 92.88
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 90.65,
-        "coding_composite_score": 92.48,
-        "enterprise_agent_score": 91.21,
-        "value_efficiency_score": 35.41,
+        "unified_quality_score": 90.63,
+        "coding_composite_score": 92.47,
+        "enterprise_agent_score": 91.2,
+        "value_efficiency_score": 35.4,
         "is_pareto_optimal": false
       }
     },
@@ -575,17 +575,17 @@
       "normalized_pillars": {
         "aa": 89.39,
         "lb": 96.56,
-        "ar": 84.04,
+        "ar": 83.91,
         "va": 84.84
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 89.6,
+        "unified_quality_score": 89.58,
         "coding_composite_score": 83.44,
         "enterprise_agent_score": 88.28,
-        "value_efficiency_score": 36.69,
+        "value_efficiency_score": 36.68,
         "is_pareto_optimal": false
       }
     },
@@ -645,17 +645,17 @@
       "normalized_pillars": {
         "aa": 86.59,
         "lb": 86.73,
-        "ar": 82.95,
+        "ar": 82.83,
         "va": 96.67
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 88.61,
-        "coding_composite_score": 83.36,
-        "enterprise_agent_score": 91.48,
-        "value_efficiency_score": 43.42,
+        "unified_quality_score": 88.59,
+        "coding_composite_score": 83.34,
+        "enterprise_agent_score": 91.47,
+        "value_efficiency_score": 43.41,
         "is_pareto_optimal": true
       }
     },
@@ -715,17 +715,17 @@
       "normalized_pillars": {
         "aa": 82.18,
         "lb": 89.4,
-        "ar": 91.38,
+        "ar": 91.37,
         "va": 90.18
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 87.73,
-        "coding_composite_score": 87.75,
+        "unified_quality_score": 87.72,
+        "coding_composite_score": 87.74,
         "enterprise_agent_score": 88.08,
-        "value_efficiency_score": 36.34,
+        "value_efficiency_score": 36.33,
         "is_pareto_optimal": false
       }
     },
@@ -785,17 +785,17 @@
       "normalized_pillars": {
         "aa": 79.09,
         "lb": 92.85,
-        "ar": 88.38,
+        "ar": 88.24,
         "va": 90.52
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 87.47,
-        "coding_composite_score": 89.05,
-        "enterprise_agent_score": 88.02,
-        "value_efficiency_score": 34.73,
+        "unified_quality_score": 87.45,
+        "coding_composite_score": 89.04,
+        "enterprise_agent_score": 88.01,
+        "value_efficiency_score": 34.72,
         "is_pareto_optimal": false
       }
     },
@@ -855,17 +855,17 @@
       "normalized_pillars": {
         "aa": 86.59,
         "lb": 93.93,
-        "ar": 84.25,
+        "ar": 84.12,
         "va": 82.03
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 87.3,
-        "coding_composite_score": 82.99,
-        "enterprise_agent_score": 85.66,
-        "value_efficiency_score": 44.92,
+        "unified_quality_score": 87.28,
+        "coding_composite_score": 82.98,
+        "enterprise_agent_score": 85.65,
+        "value_efficiency_score": 44.91,
         "is_pareto_optimal": true
       }
     },
@@ -925,7 +925,7 @@
       "normalized_pillars": {
         "aa": 79.09,
         "lb": 85.14,
-        "ar": 94.83,
+        "ar": 94.81,
         "va": 93.62
       },
       "composite": {
@@ -933,7 +933,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 86.9,
-        "coding_composite_score": 77.57,
+        "coding_composite_score": 77.56,
         "enterprise_agent_score": 88.35,
         "value_efficiency_score": 44.72,
         "is_pareto_optimal": false
@@ -995,17 +995,17 @@
       "normalized_pillars": {
         "aa": 88.06,
         "lb": 84.11,
-        "ar": 82.18,
+        "ar": 82.07,
         "va": 89.36
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 86.32,
-        "coding_composite_score": 85.46,
-        "enterprise_agent_score": 87.63,
-        "value_efficiency_score": 36.81,
+        "unified_quality_score": 86.3,
+        "coding_composite_score": 85.43,
+        "enterprise_agent_score": 87.62,
+        "value_efficiency_score": 36.8,
         "is_pareto_optimal": false
       }
     },
@@ -1065,17 +1065,17 @@
       "normalized_pillars": {
         "aa": 86.59,
         "lb": 90.78,
-        "ar": 80.97,
+        "ar": 80.87,
         "va": 82.47
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 85.97,
-        "coding_composite_score": 87.8,
-        "enterprise_agent_score": 85.09,
-        "value_efficiency_score": 36.23,
+        "unified_quality_score": 85.96,
+        "coding_composite_score": 87.77,
+        "enterprise_agent_score": 85.08,
+        "value_efficiency_score": 36.22,
         "is_pareto_optimal": false
       }
     },
@@ -1129,7 +1129,7 @@
       "id": "anthropic-claude-fable-5-high",
       "display_name": "Claude Fable 5 (High)",
       "provider": "Anthropic",
-      "release_date": "2026-07-12",
+      "release_date": "2026-07-24",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -1160,17 +1160,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 91.69,
+        "ar": 91.68,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 85.01,
+        "unified_quality_score": 85.0,
         "coding_composite_score": 85.89,
-        "enterprise_agent_score": 84.22,
-        "value_efficiency_score": 63.76,
+        "enterprise_agent_score": 84.21,
+        "value_efficiency_score": 63.75,
         "is_pareto_optimal": false
       }
     },
@@ -1231,7 +1231,7 @@
       "id": "anthropic-claude-opus-4-7-high",
       "display_name": "Claude Opus 4.7 (High)",
       "provider": "Anthropic",
-      "release_date": "2026-02-24",
+      "release_date": "2026-04-16",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -1270,7 +1270,7 @@
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
         "unified_quality_score": 84.02,
-        "coding_composite_score": 85.56,
+        "coding_composite_score": 85.55,
         "enterprise_agent_score": 83.26,
         "value_efficiency_score": 63.02,
         "is_pareto_optimal": false
@@ -1332,17 +1332,17 @@
       "normalized_pillars": {
         "aa": 86.59,
         "lb": 88.41,
-        "ar": 73.34,
+        "ar": 73.13,
         "va": 80.49
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 83.62,
-        "coding_composite_score": 85.62,
-        "enterprise_agent_score": 83.24,
-        "value_efficiency_score": 35.24,
+        "unified_quality_score": 83.59,
+        "coding_composite_score": 85.6,
+        "enterprise_agent_score": 83.23,
+        "value_efficiency_score": 35.23,
         "is_pareto_optimal": false
       }
     },
@@ -1402,17 +1402,17 @@
       "normalized_pillars": {
         "aa": 79.09,
         "lb": 83.12,
-        "ar": 85.89,
+        "ar": 85.76,
         "va": 88.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 83.6,
-        "coding_composite_score": 75.02,
-        "enterprise_agent_score": 84.79,
-        "value_efficiency_score": 37.75,
+        "unified_quality_score": 83.58,
+        "coding_composite_score": 74.99,
+        "enterprise_agent_score": 84.78,
+        "value_efficiency_score": 37.74,
         "is_pareto_optimal": false
       }
     },
@@ -1472,17 +1472,17 @@
       "normalized_pillars": {
         "aa": 79.09,
         "lb": 82.0,
-        "ar": 76.11,
+        "ar": 75.88,
         "va": 92.88
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 82.96,
-        "coding_composite_score": 87.18,
-        "enterprise_agent_score": 86.42,
-        "value_efficiency_score": 40.65,
+        "unified_quality_score": 82.93,
+        "coding_composite_score": 87.15,
+        "enterprise_agent_score": 86.41,
+        "value_efficiency_score": 40.63,
         "is_pareto_optimal": false
       }
     },
@@ -1542,17 +1542,66 @@
       "normalized_pillars": {
         "aa": 82.18,
         "lb": 89.83,
-        "ar": 75.65,
+        "ar": 75.43,
         "va": 79.58
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 82.85,
-        "coding_composite_score": 87.36,
-        "enterprise_agent_score": 82.08,
-        "value_efficiency_score": 42.63,
+        "unified_quality_score": 82.81,
+        "coding_composite_score": 87.34,
+        "enterprise_agent_score": 82.07,
+        "value_efficiency_score": 42.61,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "anthropic-claude-opus-4-6",
+      "display_name": "Claude Opus 4.6",
+      "provider": "Anthropic",
+      "release_date": "2026-02-17",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": null,
+        "arena": {
+          "text_elo": 1496,
+          "text_ci_lower": 1493,
+          "text_ci_upper": 1500,
+          "coding_elo": 1547,
+          "vision_elo": 1312,
+          "votes": 89177
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": null,
+        "ar": 88.85,
+        "va": null
+      },
+      "composite": {
+        "sources_present": 1,
+        "coverage_ratio": 0.25,
+        "provisional_ranking": false,
+        "unified_quality_score": 82.6,
+        "coding_composite_score": 84.15,
+        "enterprise_agent_score": 81.86,
+        "value_efficiency_score": 61.95,
         "is_pareto_optimal": false
       }
     },
@@ -1612,17 +1661,17 @@
       "normalized_pillars": {
         "aa": 75.2,
         "lb": 87.85,
-        "ar": 80.26,
+        "ar": 80.16,
         "va": 85.94
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 82.44,
-        "coding_composite_score": 83.63,
+        "unified_quality_score": 82.42,
+        "coding_composite_score": 83.61,
         "enterprise_agent_score": 83.35,
-        "value_efficiency_score": 33.73,
+        "value_efficiency_score": 33.72,
         "is_pareto_optimal": false
       }
     },
@@ -1630,7 +1679,7 @@
       "id": "anthropic-claude-opus-4-7",
       "display_name": "Claude Opus 4.7",
       "provider": "Anthropic",
-      "release_date": "2026-02-24",
+      "release_date": "2026-04-16",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -1661,17 +1710,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 88.54,
+        "ar": 88.4,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 82.34,
-        "coding_composite_score": 84.22,
-        "enterprise_agent_score": 81.61,
-        "value_efficiency_score": 61.76,
+        "unified_quality_score": 82.22,
+        "coding_composite_score": 84.15,
+        "enterprise_agent_score": 81.49,
+        "value_efficiency_score": 61.66,
         "is_pareto_optimal": false
       }
     },
@@ -1731,16 +1780,16 @@
       "normalized_pillars": {
         "aa": 74.43,
         "lb": 87.03,
-        "ar": 83.39,
+        "ar": 83.27,
         "va": 83.95
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 81.93,
-        "coding_composite_score": 81.19,
-        "enterprise_agent_score": 82.16,
+        "unified_quality_score": 81.92,
+        "coding_composite_score": 81.17,
+        "enterprise_agent_score": 82.15,
         "value_efficiency_score": 32.25,
         "is_pareto_optimal": false
       }
@@ -1749,7 +1798,7 @@
       "id": "meta-muse-spark-1-2-xhigh",
       "display_name": "Muse Spark 1.2 (xHigh)",
       "provider": "Meta",
-      "release_date": "2026-08-14",
+      "release_date": "2026-08-21",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1048576,
@@ -1780,17 +1829,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 87.33,
+        "ar": 87.2,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 81.31,
-        "coding_composite_score": 82.79,
-        "enterprise_agent_score": 80.6,
-        "value_efficiency_score": 60.98,
+        "unified_quality_score": 81.2,
+        "coding_composite_score": 82.66,
+        "enterprise_agent_score": 80.5,
+        "value_efficiency_score": 60.9,
         "is_pareto_optimal": false
       }
     },
@@ -1798,7 +1847,7 @@
       "id": "meta-muse-spark-1-3-max",
       "display_name": "Muse Spark 1.3 (Max)",
       "provider": "Meta",
-      "release_date": "2026-09-28",
+      "release_date": "2026-09-02",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1048576,
@@ -1829,17 +1878,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 86.8,
+        "ar": 86.67,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 80.86,
-        "coding_composite_score": 80.29,
-        "enterprise_agent_score": 80.17,
-        "value_efficiency_score": 60.64,
+        "unified_quality_score": 80.75,
+        "coding_composite_score": 80.17,
+        "enterprise_agent_score": 80.06,
+        "value_efficiency_score": 60.56,
         "is_pareto_optimal": false
       }
     },
@@ -1945,16 +1994,16 @@
       "normalized_pillars": {
         "aa": 73.51,
         "lb": 85.61,
-        "ar": 78.88,
+        "ar": 78.79,
         "va": 82.81
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 80.27,
-        "coding_composite_score": 74.94,
-        "enterprise_agent_score": 80.85,
+        "unified_quality_score": 80.26,
+        "coding_composite_score": 74.92,
+        "enterprise_agent_score": 80.84,
         "value_efficiency_score": 31.6,
         "is_pareto_optimal": false
       }
@@ -2015,17 +2064,17 @@
       "normalized_pillars": {
         "aa": 79.09,
         "lb": 88.84,
-        "ar": 68.89,
+        "ar": 68.71,
         "va": 77.06
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 79.98,
-        "coding_composite_score": 84.95,
-        "enterprise_agent_score": 79.52,
-        "value_efficiency_score": 41.16,
+        "unified_quality_score": 79.95,
+        "coding_composite_score": 84.93,
+        "enterprise_agent_score": 79.51,
+        "value_efficiency_score": 41.14,
         "is_pareto_optimal": false
       }
     },
@@ -2085,17 +2134,17 @@
       "normalized_pillars": {
         "aa": 80.71,
         "lb": 86.13,
-        "ar": 73.0,
+        "ar": 72.8,
         "va": 74.8
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 79.7,
-        "coding_composite_score": 74.48,
-        "enterprise_agent_score": 78.45,
-        "value_efficiency_score": 46.46,
+        "unified_quality_score": 79.67,
+        "coding_composite_score": 74.46,
+        "enterprise_agent_score": 78.44,
+        "value_efficiency_score": 46.45,
         "is_pareto_optimal": false
       }
     },
@@ -2103,7 +2152,7 @@
       "id": "meta-muse-spark-1-1",
       "display_name": "Muse Spark 1.1",
       "provider": "Meta",
-      "release_date": "2026-06-30",
+      "release_date": "2026-07-16",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1048576,
@@ -2134,17 +2183,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 85.19,
+        "ar": 85.06,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 79.5,
-        "coding_composite_score": 79.77,
-        "enterprise_agent_score": 78.83,
-        "value_efficiency_score": 59.62,
+        "unified_quality_score": 79.39,
+        "coding_composite_score": 79.65,
+        "enterprise_agent_score": 78.72,
+        "value_efficiency_score": 59.54,
         "is_pareto_optimal": false
       }
     },
@@ -2204,17 +2253,17 @@
       "normalized_pillars": {
         "aa": 76.45,
         "lb": 81.57,
-        "ar": 72.55,
+        "ar": 72.36,
         "va": 84.47
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 79.41,
-        "coding_composite_score": 80.06,
-        "enterprise_agent_score": 81.29,
-        "value_efficiency_score": 33.86,
+        "unified_quality_score": 79.38,
+        "coding_composite_score": 80.04,
+        "enterprise_agent_score": 81.28,
+        "value_efficiency_score": 33.85,
         "is_pareto_optimal": false
       }
     },
@@ -2222,7 +2271,7 @@
       "id": "anthropic-claude-opus-5-high",
       "display_name": "Claude Opus 5 (High)",
       "provider": "Anthropic",
-      "release_date": "2026-06-20",
+      "release_date": "2026-07-24",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -2253,17 +2302,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 84.77,
+        "ar": 84.64,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 79.14,
-        "coding_composite_score": 79.31,
-        "enterprise_agent_score": 78.48,
-        "value_efficiency_score": 59.36,
+        "unified_quality_score": 79.03,
+        "coding_composite_score": 79.2,
+        "enterprise_agent_score": 78.37,
+        "value_efficiency_score": 59.27,
         "is_pareto_optimal": false
       }
     },
@@ -2323,17 +2372,17 @@
       "normalized_pillars": {
         "aa": 84.98,
         "lb": 74.85,
-        "ar": 69.4,
+        "ar": 69.22,
         "va": 81.63
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 78.77,
-        "coding_composite_score": 78.25,
-        "enterprise_agent_score": 80.5,
-        "value_efficiency_score": 33.59,
+        "unified_quality_score": 78.74,
+        "coding_composite_score": 78.23,
+        "enterprise_agent_score": 80.49,
+        "value_efficiency_score": 33.57,
         "is_pareto_optimal": false
       }
     },
@@ -2382,17 +2431,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": 83.74,
-        "ar": 78.32,
+        "ar": 78.23,
         "va": null
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 78.57,
-        "coding_composite_score": 65.56,
-        "enterprise_agent_score": 77.98,
-        "value_efficiency_score": 58.93,
+        "unified_quality_score": 78.55,
+        "coding_composite_score": 65.52,
+        "enterprise_agent_score": 77.96,
+        "value_efficiency_score": 58.91,
         "is_pareto_optimal": false
       }
     },
@@ -2460,7 +2509,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 78.46,
-        "coding_composite_score": 69.42,
+        "coding_composite_score": 69.41,
         "enterprise_agent_score": 79.37,
         "value_efficiency_score": 36.36,
         "is_pareto_optimal": false
@@ -2501,17 +2550,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 83.81,
+        "ar": 83.69,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 78.33,
-        "coding_composite_score": 78.12,
-        "enterprise_agent_score": 77.69,
-        "value_efficiency_score": 58.75,
+        "unified_quality_score": 78.23,
+        "coding_composite_score": 78.02,
+        "enterprise_agent_score": 77.59,
+        "value_efficiency_score": 58.67,
         "is_pareto_optimal": false
       }
     },
@@ -2554,17 +2603,17 @@
       "normalized_pillars": {
         "aa": 80.71,
         "lb": null,
-        "ar": 81.28,
+        "ar": 81.18,
         "va": null
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 77.64,
-        "coding_composite_score": 75.6,
-        "enterprise_agent_score": 76.67,
-        "value_efficiency_score": 51.05,
+        "unified_quality_score": 77.61,
+        "coding_composite_score": 75.56,
+        "enterprise_agent_score": 76.66,
+        "value_efficiency_score": 51.03,
         "is_pareto_optimal": true
       }
     },
@@ -2624,17 +2673,17 @@
       "normalized_pillars": {
         "aa": 82.18,
         "lb": 81.14,
-        "ar": 64.55,
+        "ar": 64.39,
         "va": 75.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 77.53,
-        "coding_composite_score": 78.94,
-        "enterprise_agent_score": 77.7,
-        "value_efficiency_score": 32.67,
+        "unified_quality_score": 77.5,
+        "coding_composite_score": 78.92,
+        "enterprise_agent_score": 77.69,
+        "value_efficiency_score": 32.66,
         "is_pareto_optimal": false
       }
     },
@@ -2642,7 +2691,7 @@
       "id": "anthropic-claude-opus-4-8-high",
       "display_name": "Claude Opus 4.8 (High)",
       "provider": "Anthropic",
-      "release_date": "2026-04-18",
+      "release_date": "2026-05-27",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -2673,17 +2722,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 82.64,
+        "ar": 82.52,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 77.34,
-        "coding_composite_score": 80.29,
-        "enterprise_agent_score": 76.72,
-        "value_efficiency_score": 58.01,
+        "unified_quality_score": 77.24,
+        "coding_composite_score": 80.17,
+        "enterprise_agent_score": 76.62,
+        "value_efficiency_score": 57.93,
         "is_pareto_optimal": false
       }
     },
@@ -2743,17 +2792,17 @@
       "normalized_pillars": {
         "aa": 74.43,
         "lb": 84.84,
-        "ar": 71.55,
+        "ar": 71.36,
         "va": 72.35
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 76.6,
-        "coding_composite_score": 80.26,
-        "enterprise_agent_score": 75.33,
-        "value_efficiency_score": 39.42,
+        "unified_quality_score": 76.57,
+        "coding_composite_score": 80.24,
+        "enterprise_agent_score": 75.32,
+        "value_efficiency_score": 39.4,
         "is_pareto_optimal": false
       }
     },
@@ -2761,7 +2810,7 @@
       "id": "google-gemini-3-1-pro",
       "display_name": "Gemini 3.1 Pro Preview",
       "provider": "Google",
-      "release_date": "2026-02-10",
+      "release_date": "2026-02-25",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1048576,
@@ -2792,17 +2841,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 80.78,
+        "ar": 80.68,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 75.76,
-        "coding_composite_score": 74.67,
-        "enterprise_agent_score": 75.17,
-        "value_efficiency_score": 56.82,
+        "unified_quality_score": 75.68,
+        "coding_composite_score": 74.46,
+        "enterprise_agent_score": 75.09,
+        "value_efficiency_score": 56.76,
         "is_pareto_optimal": false
       }
     },
@@ -2862,17 +2911,17 @@
       "normalized_pillars": {
         "aa": 68.0,
         "lb": 77.9,
-        "ar": 66.68,
+        "ar": 66.51,
         "va": 87.08
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 75.54,
-        "coding_composite_score": 79.44,
+        "unified_quality_score": 75.52,
+        "coding_composite_score": 79.42,
         "enterprise_agent_score": 79.45,
-        "value_efficiency_score": 37.01,
+        "value_efficiency_score": 37.0,
         "is_pareto_optimal": false
       }
     },
@@ -2932,66 +2981,17 @@
       "normalized_pillars": {
         "aa": 69.54,
         "lb": 79.93,
-        "ar": 69.6,
+        "ar": 69.42,
         "va": 79.58
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 75.18,
-        "coding_composite_score": 76.59,
-        "enterprise_agent_score": 76.64,
-        "value_efficiency_score": 31.8,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "google-gemini-3-pro",
-      "display_name": "Gemini 3 Pro",
-      "provider": "Google",
-      "release_date": "2026-06-18",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 131072,
-      "reasoning_mode": "standard",
-      "thinking_effort": "standard",
-      "pricing": {
-        "input_per_1m_usd": null,
-        "output_per_1m_usd": null,
-        "blended_per_1m_usd": null
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": null
-      },
-      "benchmarks": {
-        "artificial_analysis": null,
-        "livebench": null,
-        "arena": {
-          "text_elo": 1486,
-          "text_ci_lower": 1482,
-          "text_ci_upper": 1489,
-          "coding_elo": 1517,
-          "vision_elo": 1305,
-          "votes": 41803
-        },
-        "vals": null
-      },
-      "normalized_pillars": {
-        "aa": null,
-        "lb": null,
-        "ar": 79.68,
-        "va": null
-      },
-      "composite": {
-        "sources_present": 1,
-        "coverage_ratio": 0.25,
-        "provisional_ranking": false,
-        "unified_quality_score": 74.83,
-        "coding_composite_score": 73.05,
-        "enterprise_agent_score": 74.26,
-        "value_efficiency_score": 56.12,
+        "unified_quality_score": 75.15,
+        "coding_composite_score": 76.57,
+        "enterprise_agent_score": 76.63,
+        "value_efficiency_score": 31.79,
         "is_pareto_optimal": false
       }
     },
@@ -3051,17 +3051,66 @@
       "normalized_pillars": {
         "aa": 73.51,
         "lb": 68.77,
-        "ar": 82.45,
+        "ar": 82.34,
         "va": 78.87
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 74.77,
-        "coding_composite_score": 69.77,
-        "enterprise_agent_score": 75.69,
-        "value_efficiency_score": 40.61,
+        "unified_quality_score": 74.75,
+        "coding_composite_score": 69.76,
+        "enterprise_agent_score": 75.68,
+        "value_efficiency_score": 40.6,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "google-gemini-3-pro",
+      "display_name": "Gemini 3 Pro",
+      "provider": "Google",
+      "release_date": "2026-06-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 131072,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": null,
+        "arena": {
+          "text_elo": 1486,
+          "text_ci_lower": 1482,
+          "text_ci_upper": 1489,
+          "coding_elo": 1517,
+          "vision_elo": 1305,
+          "votes": 41803
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": null,
+        "ar": 79.58,
+        "va": null
+      },
+      "composite": {
+        "sources_present": 1,
+        "coverage_ratio": 0.25,
+        "provisional_ranking": false,
+        "unified_quality_score": 74.75,
+        "coding_composite_score": 72.86,
+        "enterprise_agent_score": 74.18,
+        "value_efficiency_score": 56.06,
         "is_pareto_optimal": false
       }
     },
@@ -3069,7 +3118,7 @@
       "id": "anthropic-claude-opus-4-8",
       "display_name": "Claude Opus 4.8",
       "provider": "Anthropic",
-      "release_date": "2026-04-18",
+      "release_date": "2026-05-27",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1000000,
@@ -3100,17 +3149,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 79.13,
+        "ar": 79.03,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 74.37,
-        "coding_composite_score": 78.12,
-        "enterprise_agent_score": 73.81,
-        "value_efficiency_score": 55.78,
+        "unified_quality_score": 74.28,
+        "coding_composite_score": 78.02,
+        "enterprise_agent_score": 73.72,
+        "value_efficiency_score": 55.71,
         "is_pareto_optimal": false
       }
     },
@@ -3149,17 +3198,66 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 78.13,
+        "ar": 78.04,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 73.52,
-        "coding_composite_score": 76.65,
-        "enterprise_agent_score": 72.98,
-        "value_efficiency_score": 55.14,
+        "unified_quality_score": 73.44,
+        "coding_composite_score": 76.43,
+        "enterprise_agent_score": 72.9,
+        "value_efficiency_score": 55.08,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "anthropic-claude-sonnet-4-6",
+      "display_name": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "release_date": "2026-02-17",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": null,
+        "arena": {
+          "text_elo": 1472,
+          "text_ci_lower": 1469,
+          "text_ci_upper": 1476,
+          "coding_elo": 1528,
+          "vision_elo": 1283,
+          "votes": 69975
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": null,
+        "ar": 77.81,
+        "va": null
+      },
+      "composite": {
+        "sources_present": 1,
+        "coverage_ratio": 0.25,
+        "provisional_ranking": false,
+        "unified_quality_score": 73.25,
+        "coding_composite_score": 77.5,
+        "enterprise_agent_score": 72.71,
+        "value_efficiency_score": 54.94,
         "is_pareto_optimal": false
       }
     },
@@ -3219,17 +3317,17 @@
       "normalized_pillars": {
         "aa": 68.33,
         "lb": 76.4,
-        "ar": 83.55,
+        "ar": 83.43,
         "va": 67.71
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 72.88,
-        "coding_composite_score": 75.48,
+        "unified_quality_score": 72.86,
+        "coding_composite_score": 75.47,
         "enterprise_agent_score": 70.39,
-        "value_efficiency_score": 33.77,
+        "value_efficiency_score": 33.76,
         "is_pareto_optimal": false
       }
     },
@@ -3237,7 +3335,7 @@
       "id": "openai-gpt-5-4-high",
       "display_name": "GPT-5.4 (High)",
       "provider": "OpenAI",
-      "release_date": "2026-01-22",
+      "release_date": "2026-03-05",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 1050000,
@@ -3268,17 +3366,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 77.34,
+        "ar": 77.11,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 72.85,
-        "coding_composite_score": 75.18,
-        "enterprise_agent_score": 72.32,
-        "value_efficiency_score": 54.64,
+        "unified_quality_score": 72.66,
+        "coding_composite_score": 74.98,
+        "enterprise_agent_score": 72.13,
+        "value_efficiency_score": 54.49,
         "is_pareto_optimal": false
       }
     },
@@ -3338,17 +3436,17 @@
       "normalized_pillars": {
         "aa": 72.11,
         "lb": 78.98,
-        "ar": 65.3,
+        "ar": 65.13,
         "va": 69.64
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 72.53,
-        "coding_composite_score": 76.36,
-        "enterprise_agent_score": 71.91,
-        "value_efficiency_score": 42.28,
+        "unified_quality_score": 72.51,
+        "coding_composite_score": 76.34,
+        "enterprise_agent_score": 71.9,
+        "value_efficiency_score": 42.27,
         "is_pareto_optimal": false
       }
     },
@@ -3408,17 +3506,17 @@
       "normalized_pillars": {
         "aa": 73.51,
         "lb": 79.93,
-        "ar": 57.93,
+        "ar": 57.8,
         "va": 70.84
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 72.43,
-        "coding_composite_score": 77.57,
-        "enterprise_agent_score": 72.68,
-        "value_efficiency_score": 37.27,
+        "unified_quality_score": 72.41,
+        "coding_composite_score": 77.56,
+        "enterprise_agent_score": 72.67,
+        "value_efficiency_score": 37.26,
         "is_pareto_optimal": false
       }
     },
@@ -3457,17 +3555,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 76.6,
+        "ar": 76.38,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 72.22,
-        "coding_composite_score": 72.32,
-        "enterprise_agent_score": 71.71,
-        "value_efficiency_score": 54.16,
+        "unified_quality_score": 72.04,
+        "coding_composite_score": 72.13,
+        "enterprise_agent_score": 71.53,
+        "value_efficiency_score": 54.03,
         "is_pareto_optimal": false
       }
     },
@@ -3506,17 +3604,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 76.31,
+        "ar": 76.08,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 71.98,
-        "coding_composite_score": 72.32,
-        "enterprise_agent_score": 71.47,
-        "value_efficiency_score": 53.98,
+        "unified_quality_score": 71.78,
+        "coding_composite_score": 72.13,
+        "enterprise_agent_score": 71.28,
+        "value_efficiency_score": 53.84,
         "is_pareto_optimal": false
       }
     },
@@ -3569,55 +3667,6 @@
         "coding_composite_score": 69.37,
         "enterprise_agent_score": 70.21,
         "value_efficiency_score": 53.01,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "openai-gpt-5-5-instant",
-      "display_name": "GPT-5.5 Instant",
-      "provider": "OpenAI",
-      "release_date": "2026-04-24",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 1050000,
-      "reasoning_mode": "standard",
-      "thinking_effort": "standard",
-      "pricing": {
-        "input_per_1m_usd": null,
-        "output_per_1m_usd": null,
-        "blended_per_1m_usd": null
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": null
-      },
-      "benchmarks": {
-        "artificial_analysis": null,
-        "livebench": null,
-        "arena": {
-          "text_elo": 1473,
-          "text_ci_lower": 1468,
-          "text_ci_upper": 1478,
-          "coding_elo": 1513,
-          "vision_elo": 1251,
-          "votes": 26859
-        },
-        "vals": null
-      },
-      "normalized_pillars": {
-        "aa": null,
-        "lb": null,
-        "ar": 74.73,
-        "va": null
-      },
-      "composite": {
-        "sources_present": 1,
-        "coverage_ratio": 0.25,
-        "provisional_ranking": false,
-        "unified_quality_score": 70.64,
-        "coding_composite_score": 71.58,
-        "enterprise_agent_score": 70.16,
-        "value_efficiency_score": 52.98,
         "is_pareto_optimal": false
       }
     },
@@ -3677,17 +3726,66 @@
       "normalized_pillars": {
         "aa": 61.61,
         "lb": 84.32,
-        "ar": 63.75,
+        "ar": 63.6,
         "va": 68.55
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 70.48,
-        "coding_composite_score": 66.09,
-        "enterprise_agent_score": 69.73,
-        "value_efficiency_score": 27.75,
+        "unified_quality_score": 70.46,
+        "coding_composite_score": 66.07,
+        "enterprise_agent_score": 69.72,
+        "value_efficiency_score": 27.74,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "openai-gpt-5-5-instant",
+      "display_name": "GPT-5.5 Instant",
+      "provider": "OpenAI",
+      "release_date": "2026-04-24",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": null,
+        "arena": {
+          "text_elo": 1473,
+          "text_ci_lower": 1468,
+          "text_ci_upper": 1478,
+          "coding_elo": 1513,
+          "vision_elo": 1251,
+          "votes": 26859
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": null,
+        "ar": 74.52,
+        "va": null
+      },
+      "composite": {
+        "sources_present": 1,
+        "coverage_ratio": 0.25,
+        "provisional_ranking": false,
+        "unified_quality_score": 70.46,
+        "coding_composite_score": 71.4,
+        "enterprise_agent_score": 69.99,
+        "value_efficiency_score": 52.84,
         "is_pareto_optimal": false
       }
     },
@@ -3726,66 +3824,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 74.4,
+        "ar": 74.19,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 70.36,
-        "coding_composite_score": 74.67,
-        "enterprise_agent_score": 69.89,
-        "value_efficiency_score": 52.77,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "xai-grok-4-20-beta-1",
-      "display_name": "Grok 4.20 Beta 1",
-      "provider": "xAI",
-      "release_date": "2026-11-13",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 128000,
-      "reasoning_mode": "standard",
-      "thinking_effort": "standard",
-      "pricing": {
-        "input_per_1m_usd": null,
-        "output_per_1m_usd": null,
-        "blended_per_1m_usd": null
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": null
-      },
-      "benchmarks": {
-        "artificial_analysis": null,
-        "livebench": null,
-        "arena": {
-          "text_elo": 1475,
-          "text_ci_lower": 1470,
-          "text_ci_upper": 1479,
-          "coding_elo": 1508,
-          "vision_elo": null,
-          "votes": 27653
-        },
-        "vals": null
-      },
-      "normalized_pillars": {
-        "aa": null,
-        "lb": null,
-        "ar": 73.98,
-        "va": null
-      },
-      "composite": {
-        "sources_present": 1,
-        "coverage_ratio": 0.25,
-        "provisional_ranking": false,
-        "unified_quality_score": 70.01,
-        "coding_composite_score": 69.11,
-        "enterprise_agent_score": 69.54,
-        "value_efficiency_score": 52.51,
+        "unified_quality_score": 70.18,
+        "coding_composite_score": 74.46,
+        "enterprise_agent_score": 69.71,
+        "value_efficiency_score": 52.64,
         "is_pareto_optimal": false
       }
     },
@@ -3845,17 +3894,66 @@
       "normalized_pillars": {
         "aa": 60.43,
         "lb": 79.32,
-        "ar": 75.39,
+        "ar": 75.18,
         "va": 66.87
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 69.95,
-        "coding_composite_score": 68.58,
-        "enterprise_agent_score": 68.18,
-        "value_efficiency_score": 27.54,
+        "unified_quality_score": 69.92,
+        "coding_composite_score": 68.56,
+        "enterprise_agent_score": 68.17,
+        "value_efficiency_score": 27.53,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "xai-grok-4-20-beta-1",
+      "display_name": "Grok 4.20 Beta 1",
+      "provider": "xAI",
+      "release_date": "2026-11-13",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": null,
+        "arena": {
+          "text_elo": 1475,
+          "text_ci_lower": 1470,
+          "text_ci_upper": 1479,
+          "coding_elo": 1508,
+          "vision_elo": null,
+          "votes": 27653
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": null,
+        "ar": 73.77,
+        "va": null
+      },
+      "composite": {
+        "sources_present": 1,
+        "coverage_ratio": 0.25,
+        "provisional_ranking": false,
+        "unified_quality_score": 69.83,
+        "coding_composite_score": 68.94,
+        "enterprise_agent_score": 69.36,
+        "value_efficiency_score": 52.37,
         "is_pareto_optimal": false
       }
     },
@@ -3863,7 +3961,7 @@
       "id": "xai-grok-4-20-beta-reasoning",
       "display_name": "Grok 4.20 Beta (Reasoning, 0309)",
       "provider": "xAI",
-      "release_date": "2026-11-13",
+      "release_date": "2026-03-09",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -3894,125 +3992,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 73.75,
+        "ar": 73.55,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 69.81,
-        "coding_composite_score": 70.54,
-        "enterprise_agent_score": 69.35,
-        "value_efficiency_score": 52.36,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "google-gemini-3-5-flash-medium",
-      "display_name": "Gemini 3.5 Flash (Medium)",
-      "provider": "Google",
-      "release_date": "2026-03-08",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 1048576,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "medium",
-      "pricing": {
-        "input_per_1m_usd": null,
-        "output_per_1m_usd": null,
-        "blended_per_1m_usd": null
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": null
-      },
-      "benchmarks": {
-        "artificial_analysis": null,
-        "livebench": null,
-        "arena": {
-          "text_elo": 1476,
-          "text_ci_lower": 1472,
-          "text_ci_upper": 1480,
-          "coding_elo": 1506,
-          "vision_elo": 1305,
-          "votes": 46329
-        },
-        "vals": null
-      },
-      "normalized_pillars": {
-        "aa": null,
-        "lb": null,
-        "ar": 73.59,
-        "va": null
-      },
-      "composite": {
-        "sources_present": 1,
-        "coverage_ratio": 0.25,
-        "provisional_ranking": false,
-        "unified_quality_score": 69.67,
-        "coding_composite_score": 68.32,
-        "enterprise_agent_score": 69.21,
-        "value_efficiency_score": 52.25,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "openai-gpt-5-5",
-      "display_name": "GPT-5.5",
-      "provider": "OpenAI",
-      "release_date": "2026-03-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 1050000,
-      "reasoning_mode": "standard",
-      "thinking_effort": "standard",
-      "pricing": {
-        "input_per_1m_usd": null,
-        "output_per_1m_usd": null,
-        "blended_per_1m_usd": null
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": null
-      },
-      "benchmarks": {
-        "artificial_analysis": null,
-        "livebench": {
-          "global_average": 72.15,
-          "coding": 78.63,
-          "mathematics": 69.77,
-          "reasoning": 87.27,
-          "data_analysis": 76.99,
-          "language": 85.57,
-          "instruction_following": 65.74,
-          "agentic_coding": 41.11,
-          "cost_per_question_usd": null
-        },
-        "arena": {
-          "text_elo": 1476,
-          "text_ci_lower": 1472,
-          "text_ci_upper": 1480,
-          "coding_elo": 1510,
-          "vision_elo": 1296,
-          "votes": 69859
-        },
-        "vals": null
-      },
-      "normalized_pillars": {
-        "aa": null,
-        "lb": 70.56,
-        "ar": 74.96,
-        "va": null
-      },
-      "composite": {
-        "sources_present": 2,
-        "coverage_ratio": 0.5,
-        "provisional_ranking": false,
-        "unified_quality_score": 69.65,
-        "coding_composite_score": 62.1,
-        "enterprise_agent_score": 68.28,
-        "value_efficiency_score": 52.24,
+        "unified_quality_score": 69.64,
+        "coding_composite_score": 70.37,
+        "enterprise_agent_score": 69.18,
+        "value_efficiency_score": 52.23,
         "is_pareto_optimal": false
       }
     },
@@ -4065,6 +4055,114 @@
         "coding_composite_score": 61.69,
         "enterprise_agent_score": 69.19,
         "value_efficiency_score": 52.22,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "openai-gpt-5-5",
+      "display_name": "GPT-5.5",
+      "provider": "OpenAI",
+      "release_date": "2026-03-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": {
+          "global_average": 72.15,
+          "coding": 78.63,
+          "mathematics": 69.77,
+          "reasoning": 87.27,
+          "data_analysis": 76.99,
+          "language": 85.57,
+          "instruction_following": 65.74,
+          "agentic_coding": 41.11,
+          "cost_per_question_usd": null
+        },
+        "arena": {
+          "text_elo": 1476,
+          "text_ci_lower": 1472,
+          "text_ci_upper": 1480,
+          "coding_elo": 1510,
+          "vision_elo": 1296,
+          "votes": 69859
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": 70.56,
+        "ar": 74.75,
+        "va": null
+      },
+      "composite": {
+        "sources_present": 2,
+        "coverage_ratio": 0.5,
+        "provisional_ranking": false,
+        "unified_quality_score": 69.58,
+        "coding_composite_score": 62.06,
+        "enterprise_agent_score": 68.24,
+        "value_efficiency_score": 52.19,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "google-gemini-3-5-flash-medium",
+      "display_name": "Gemini 3.5 Flash (Medium)",
+      "provider": "Google",
+      "release_date": "2026-05-19",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1048576,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "medium",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": null,
+        "arena": {
+          "text_elo": 1476,
+          "text_ci_lower": 1472,
+          "text_ci_upper": 1480,
+          "coding_elo": 1506,
+          "vision_elo": 1305,
+          "votes": 46329
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": null,
+        "ar": 73.39,
+        "va": null
+      },
+      "composite": {
+        "sources_present": 1,
+        "coverage_ratio": 0.25,
+        "provisional_ranking": false,
+        "unified_quality_score": 69.51,
+        "coding_composite_score": 68.15,
+        "enterprise_agent_score": 69.05,
+        "value_efficiency_score": 52.13,
         "is_pareto_optimal": false
       }
     },
@@ -4142,7 +4240,7 @@
       "id": "xai-grok-4-20-multi-agent-beta",
       "display_name": "Grok 4.20 Multi-Agent Beta (0309)",
       "provider": "xAI",
-      "release_date": "2026-11-13",
+      "release_date": "2026-03-09",
       "license": "Proprietary",
       "is_open_weights": false,
       "context_window": 128000,
@@ -4173,66 +4271,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 72.77,
+        "ar": 72.57,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 68.98,
-        "coding_composite_score": 69.63,
-        "enterprise_agent_score": 68.53,
-        "value_efficiency_score": 51.73,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "xai-grok-4-5",
-      "display_name": "Grok 4.5",
-      "provider": "xAI",
-      "release_date": "2026-06-14",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 500000,
-      "reasoning_mode": "standard",
-      "thinking_effort": "standard",
-      "pricing": {
-        "input_per_1m_usd": null,
-        "output_per_1m_usd": null,
-        "blended_per_1m_usd": null
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": null
-      },
-      "benchmarks": {
-        "artificial_analysis": null,
-        "livebench": null,
-        "arena": {
-          "text_elo": 1466,
-          "text_ci_lower": 1461,
-          "text_ci_upper": 1470,
-          "coding_elo": 1514,
-          "vision_elo": 1288,
-          "votes": 39122
-        },
-        "vals": null
-      },
-      "normalized_pillars": {
-        "aa": null,
-        "lb": null,
-        "ar": 72.34,
-        "va": null
-      },
-      "composite": {
-        "sources_present": 1,
-        "coverage_ratio": 0.25,
-        "provisional_ranking": false,
-        "unified_quality_score": 68.62,
-        "coding_composite_score": 71.92,
-        "enterprise_agent_score": 68.18,
-        "value_efficiency_score": 51.47,
+        "unified_quality_score": 68.81,
+        "coding_composite_score": 69.46,
+        "enterprise_agent_score": 68.37,
+        "value_efficiency_score": 51.61,
         "is_pareto_optimal": false
       }
     },
@@ -4292,28 +4341,28 @@
       "normalized_pillars": {
         "aa": 63.63,
         "lb": 76.63,
-        "ar": 56.01,
+        "ar": 55.9,
         "va": 72.35
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 68.57,
-        "coding_composite_score": 68.05,
-        "enterprise_agent_score": 70.21,
-        "value_efficiency_score": 33.6,
+        "unified_quality_score": 68.55,
+        "coding_composite_score": 68.03,
+        "enterprise_agent_score": 70.2,
+        "value_efficiency_score": 33.59,
         "is_pareto_optimal": false
       }
     },
     {
-      "id": "baidu-ernie-5-1",
-      "display_name": "ERNIE 5.1",
-      "provider": "baidu",
-      "release_date": "2026-11-13",
+      "id": "xai-grok-4-5",
+      "display_name": "Grok 4.5",
+      "provider": "xAI",
+      "release_date": "2026-07-08",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 128000,
+      "context_window": 500000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "pricing": {
@@ -4329,29 +4378,29 @@
         "artificial_analysis": null,
         "livebench": null,
         "arena": {
-          "text_elo": 1467,
-          "text_ci_lower": 1462,
-          "text_ci_upper": 1472,
-          "coding_elo": 1512,
-          "vision_elo": null,
-          "votes": 39018
+          "text_elo": 1466,
+          "text_ci_lower": 1461,
+          "text_ci_upper": 1470,
+          "coding_elo": 1514,
+          "vision_elo": 1288,
+          "votes": 39122
         },
         "vals": null
       },
       "normalized_pillars": {
         "aa": null,
         "lb": null,
-        "ar": 72.1,
+        "ar": 72.14,
         "va": null
       },
       "composite": {
         "sources_present": 1,
         "coverage_ratio": 0.25,
         "provisional_ranking": false,
-        "unified_quality_score": 68.41,
-        "coding_composite_score": 71.13,
-        "enterprise_agent_score": 67.98,
-        "value_efficiency_score": 51.31,
+        "unified_quality_score": 68.45,
+        "coding_composite_score": 71.73,
+        "enterprise_agent_score": 68.01,
+        "value_efficiency_score": 51.34,
         "is_pareto_optimal": false
       }
     },
@@ -4411,17 +4460,66 @@
       "normalized_pillars": {
         "aa": 58.0,
         "lb": 86.45,
-        "ar": 65.62,
+        "ar": 65.46,
         "va": 60.88
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 68.4,
-        "coding_composite_score": 67.03,
-        "enterprise_agent_score": 65.51,
-        "value_efficiency_score": 29.95,
+        "unified_quality_score": 68.37,
+        "coding_composite_score": 67.02,
+        "enterprise_agent_score": 65.5,
+        "value_efficiency_score": 29.94,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "baidu-ernie-5-1",
+      "display_name": "ERNIE 5.1",
+      "provider": "Baidu",
+      "release_date": "2026-11-13",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": null,
+        "arena": {
+          "text_elo": 1467,
+          "text_ci_lower": 1462,
+          "text_ci_upper": 1472,
+          "coding_elo": 1512,
+          "vision_elo": null,
+          "votes": 39018
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": null,
+        "ar": 71.9,
+        "va": null
+      },
+      "composite": {
+        "sources_present": 1,
+        "coverage_ratio": 0.25,
+        "provisional_ranking": false,
+        "unified_quality_score": 68.24,
+        "coding_composite_score": 70.94,
+        "enterprise_agent_score": 67.81,
+        "value_efficiency_score": 51.18,
         "is_pareto_optimal": false
       }
     },
@@ -4481,66 +4579,17 @@
       "normalized_pillars": {
         "aa": 68.0,
         "lb": 74.46,
-        "ar": 59.56,
+        "ar": 59.42,
         "va": 65.21
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 67.97,
-        "coding_composite_score": 71.98,
+        "unified_quality_score": 67.95,
+        "coding_composite_score": 71.96,
         "enterprise_agent_score": 67.47,
-        "value_efficiency_score": 39.63,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "openai-gpt-5-4",
-      "display_name": "GPT-5.4",
-      "provider": "OpenAI",
-      "release_date": "2026-01-22",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 1050000,
-      "reasoning_mode": "standard",
-      "thinking_effort": "standard",
-      "pricing": {
-        "input_per_1m_usd": null,
-        "output_per_1m_usd": null,
-        "blended_per_1m_usd": null
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": null
-      },
-      "benchmarks": {
-        "artificial_analysis": null,
-        "livebench": null,
-        "arena": {
-          "text_elo": 1465,
-          "text_ci_lower": 1461,
-          "text_ci_upper": 1469,
-          "coding_elo": 1511,
-          "vision_elo": 1292,
-          "votes": 67055
-        },
-        "vals": null
-      },
-      "normalized_pillars": {
-        "aa": null,
-        "lb": null,
-        "ar": 71.38,
-        "va": null
-      },
-      "composite": {
-        "sources_present": 1,
-        "coverage_ratio": 0.25,
-        "provisional_ranking": false,
-        "unified_quality_score": 67.8,
-        "coding_composite_score": 70.54,
-        "enterprise_agent_score": 67.38,
-        "value_efficiency_score": 50.85,
+        "value_efficiency_score": 39.61,
         "is_pareto_optimal": false
       }
     },
@@ -4600,18 +4649,67 @@
       "normalized_pillars": {
         "aa": 54.46,
         "lb": 74.16,
-        "ar": 67.42,
+        "ar": 67.24,
         "va": 76.31
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 67.78,
-        "coding_composite_score": 67.97,
-        "enterprise_agent_score": 69.97,
-        "value_efficiency_score": 68.75,
+        "unified_quality_score": 67.75,
+        "coding_composite_score": 67.95,
+        "enterprise_agent_score": 69.96,
+        "value_efficiency_score": 68.72,
         "is_pareto_optimal": true
+      }
+    },
+    {
+      "id": "openai-gpt-5-4",
+      "display_name": "GPT-5.4",
+      "provider": "OpenAI",
+      "release_date": "2026-03-05",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": null,
+        "arena": {
+          "text_elo": 1465,
+          "text_ci_lower": 1461,
+          "text_ci_upper": 1469,
+          "coding_elo": 1511,
+          "vision_elo": 1292,
+          "votes": 67055
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": null,
+        "ar": 71.19,
+        "va": null
+      },
+      "composite": {
+        "sources_present": 1,
+        "coverage_ratio": 0.25,
+        "provisional_ranking": false,
+        "unified_quality_score": 67.64,
+        "coding_composite_score": 70.37,
+        "enterprise_agent_score": 67.22,
+        "value_efficiency_score": 50.73,
+        "is_pareto_optimal": false
       }
     },
     {
@@ -4670,17 +4768,17 @@
       "normalized_pillars": {
         "aa": 62.86,
         "lb": 71.06,
-        "ar": 58.94,
+        "ar": 58.81,
         "va": 70.84
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 66.73,
-        "coding_composite_score": 67.99,
+        "unified_quality_score": 66.71,
+        "coding_composite_score": 67.98,
         "enterprise_agent_score": 68.29,
-        "value_efficiency_score": 29.58,
+        "value_efficiency_score": 29.57,
         "is_pareto_optimal": false
       }
     },
@@ -4740,17 +4838,17 @@
       "normalized_pillars": {
         "aa": 69.54,
         "lb": 69.2,
-        "ar": 54.83,
+        "ar": 54.72,
         "va": 63.97
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 65.84,
-        "coding_composite_score": 67.96,
+        "unified_quality_score": 65.82,
+        "coding_composite_score": 67.95,
         "enterprise_agent_score": 65.95,
-        "value_efficiency_score": 27.75,
+        "value_efficiency_score": 27.74,
         "is_pareto_optimal": false
       }
     },
@@ -4810,17 +4908,17 @@
       "normalized_pillars": {
         "aa": 59.77,
         "lb": 70.33,
-        "ar": 58.5,
+        "ar": 58.37,
         "va": 70.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 65.38,
-        "coding_composite_score": 74.32,
+        "unified_quality_score": 65.36,
+        "coding_composite_score": 74.31,
         "enterprise_agent_score": 67.08,
-        "value_efficiency_score": 40.09,
+        "value_efficiency_score": 40.08,
         "is_pareto_optimal": false
       }
     },
@@ -4880,17 +4978,17 @@
       "normalized_pillars": {
         "aa": 54.83,
         "lb": 82.39,
-        "ar": 64.14,
+        "ar": 63.98,
         "va": 56.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 64.89,
-        "coding_composite_score": 60.96,
-        "enterprise_agent_score": 61.59,
-        "value_efficiency_score": 31.37,
+        "unified_quality_score": 64.86,
+        "coding_composite_score": 60.95,
+        "enterprise_agent_score": 61.58,
+        "value_efficiency_score": 31.35,
         "is_pareto_optimal": false
       }
     },
@@ -5042,17 +5140,17 @@
       "normalized_pillars": {
         "aa": 58.0,
         "lb": 66.53,
-        "ar": 62.32,
+        "ar": 62.17,
         "va": 69.94
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 64.19,
-        "coding_composite_score": 68.45,
-        "enterprise_agent_score": 65.89,
-        "value_efficiency_score": 34.26,
+        "unified_quality_score": 64.17,
+        "coding_composite_score": 68.43,
+        "enterprise_agent_score": 65.88,
+        "value_efficiency_score": 34.25,
         "is_pareto_optimal": false
       }
     },
@@ -5112,17 +5210,17 @@
       "normalized_pillars": {
         "aa": 53.07,
         "lb": 57.87,
-        "ar": 79.84,
+        "ar": 79.74,
         "va": 73.34
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 63.59,
-        "coding_composite_score": 59.22,
+        "unified_quality_score": 63.58,
+        "coding_composite_score": 59.2,
         "enterprise_agent_score": 65.5,
-        "value_efficiency_score": 47.75,
+        "value_efficiency_score": 47.74,
         "is_pareto_optimal": false
       }
     },
@@ -5182,17 +5280,17 @@
       "normalized_pillars": {
         "aa": 48.16,
         "lb": 80.61,
-        "ar": 67.9,
+        "ar": 67.73,
         "va": 58.86
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 63.53,
-        "coding_composite_score": 58.25,
-        "enterprise_agent_score": 60.99,
-        "value_efficiency_score": 31.77,
+        "unified_quality_score": 63.51,
+        "coding_composite_score": 58.24,
+        "enterprise_agent_score": 60.98,
+        "value_efficiency_score": 31.76,
         "is_pareto_optimal": false
       }
     },
@@ -5252,17 +5350,17 @@
       "normalized_pillars": {
         "aa": 58.0,
         "lb": 64.51,
-        "ar": 63.92,
+        "ar": 63.77,
         "va": 68.21
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 63.39,
-        "coding_composite_score": 70.13,
+        "unified_quality_score": 63.37,
+        "coding_composite_score": 70.12,
         "enterprise_agent_score": 64.7,
-        "value_efficiency_score": 35.51,
+        "value_efficiency_score": 35.5,
         "is_pareto_optimal": false
       }
     },
@@ -5322,17 +5420,17 @@
       "normalized_pillars": {
         "aa": 51.08,
         "lb": 67.09,
-        "ar": 56.9,
+        "ar": 56.78,
         "va": 76.72
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 63.17,
-        "coding_composite_score": 66.77,
+        "unified_quality_score": 63.15,
+        "coding_composite_score": 66.76,
         "enterprise_agent_score": 67.39,
-        "value_efficiency_score": 30.95,
+        "value_efficiency_score": 30.94,
         "is_pareto_optimal": false
       }
     },
@@ -5392,17 +5490,17 @@
       "normalized_pillars": {
         "aa": 58.0,
         "lb": 65.89,
-        "ar": 57.12,
+        "ar": 57.0,
         "va": 69.64
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 63.15,
-        "coding_composite_score": 64.09,
+        "unified_quality_score": 63.13,
+        "coding_composite_score": 64.08,
         "enterprise_agent_score": 65.35,
-        "value_efficiency_score": 28.71,
+        "value_efficiency_score": 28.7,
         "is_pareto_optimal": false
       }
     },
@@ -5462,17 +5560,17 @@
       "normalized_pillars": {
         "aa": 49.16,
         "lb": 63.26,
-        "ar": 83.12,
+        "ar": 83.0,
         "va": 67.39
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 63.04,
-        "coding_composite_score": 66.1,
+        "unified_quality_score": 63.02,
+        "coding_composite_score": 66.09,
         "enterprise_agent_score": 62.79,
-        "value_efficiency_score": 53.2,
+        "value_efficiency_score": 53.18,
         "is_pareto_optimal": false
       }
     },
@@ -5532,17 +5630,17 @@
       "normalized_pillars": {
         "aa": 62.09,
         "lb": 51.67,
-        "ar": 75.93,
+        "ar": 75.71,
         "va": 69.05
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.78,
-        "coding_composite_score": 76.46,
-        "enterprise_agent_score": 64.18,
-        "value_efficiency_score": 37.31,
+        "unified_quality_score": 62.75,
+        "coding_composite_score": 76.44,
+        "enterprise_agent_score": 64.17,
+        "value_efficiency_score": 37.29,
         "is_pareto_optimal": false
       }
     },
@@ -5602,17 +5700,17 @@
       "normalized_pillars": {
         "aa": 60.69,
         "lb": 61.75,
-        "ar": 74.18,
+        "ar": 73.97,
         "va": 59.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.66,
-        "coding_composite_score": 72.81,
-        "enterprise_agent_score": 60.83,
-        "value_efficiency_score": 31.34,
+        "unified_quality_score": 62.63,
+        "coding_composite_score": 72.79,
+        "enterprise_agent_score": 60.82,
+        "value_efficiency_score": 31.32,
         "is_pareto_optimal": false
       }
     },
@@ -5672,17 +5770,17 @@
       "normalized_pillars": {
         "aa": 59.77,
         "lb": 59.68,
-        "ar": 50.3,
+        "ar": 50.21,
         "va": 74.53
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.01,
-        "coding_composite_score": 49.0,
-        "enterprise_agent_score": 66.66,
-        "value_efficiency_score": 62.9,
+        "unified_quality_score": 62.0,
+        "coding_composite_score": 48.99,
+        "enterprise_agent_score": 66.65,
+        "value_efficiency_score": 62.89,
         "is_pareto_optimal": false
       }
     },
@@ -5742,17 +5840,17 @@
       "normalized_pillars": {
         "aa": 58.0,
         "lb": 65.89,
-        "ar": 53.67,
+        "ar": 53.56,
         "va": 66.37
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 61.81,
-        "coding_composite_score": 74.86,
-        "enterprise_agent_score": 63.55,
-        "value_efficiency_score": 37.9,
+        "unified_quality_score": 61.79,
+        "coding_composite_score": 74.85,
+        "enterprise_agent_score": 63.54,
+        "value_efficiency_score": 37.89,
         "is_pareto_optimal": false
       }
     },
@@ -5812,17 +5910,17 @@
       "normalized_pillars": {
         "aa": 55.93,
         "lb": 48.66,
-        "ar": 80.56,
+        "ar": 80.45,
         "va": 71.35
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 61.3,
-        "coding_composite_score": 52.13,
-        "enterprise_agent_score": 63.42,
-        "value_efficiency_score": 33.57,
+        "unified_quality_score": 61.28,
+        "coding_composite_score": 52.1,
+        "enterprise_agent_score": 63.41,
+        "value_efficiency_score": 33.56,
         "is_pareto_optimal": false
       }
     },
@@ -5934,17 +6032,17 @@
       "normalized_pillars": {
         "aa": 53.77,
         "lb": 61.75,
-        "ar": 69.21,
+        "ar": 69.03,
         "va": 63.97
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 61.03,
-        "coding_composite_score": 74.09,
-        "enterprise_agent_score": 61.24,
-        "value_efficiency_score": 34.19,
+        "unified_quality_score": 61.0,
+        "coding_composite_score": 74.07,
+        "enterprise_agent_score": 61.23,
+        "value_efficiency_score": 34.17,
         "is_pareto_optimal": false
       }
     },
@@ -6004,15 +6102,15 @@
       "normalized_pillars": {
         "aa": 62.86,
         "lb": 67.39,
-        "ar": 50.83,
+        "ar": 50.74,
         "va": 57.14
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 60.98,
-        "coding_composite_score": 65.13,
+        "unified_quality_score": 60.97,
+        "coding_composite_score": 65.12,
         "enterprise_agent_score": 60.3,
         "value_efficiency_score": 35.55,
         "is_pareto_optimal": false
@@ -6074,17 +6172,17 @@
       "normalized_pillars": {
         "aa": 52.15,
         "lb": 72.16,
-        "ar": 59.73,
+        "ar": 59.6,
         "va": 57.84
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 60.71,
-        "coding_composite_score": 60.85,
-        "enterprise_agent_score": 59.38,
-        "value_efficiency_score": 29.75,
+        "unified_quality_score": 60.69,
+        "coding_composite_score": 60.84,
+        "enterprise_agent_score": 59.37,
+        "value_efficiency_score": 29.74,
         "is_pareto_optimal": false
       }
     },
@@ -6144,17 +6242,17 @@
       "normalized_pillars": {
         "aa": 58.0,
         "lb": 57.01,
-        "ar": 48.88,
+        "ar": 48.8,
         "va": 72.01
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 59.84,
-        "coding_composite_score": 54.87,
+        "unified_quality_score": 59.83,
+        "coding_composite_score": 54.86,
         "enterprise_agent_score": 64.35,
-        "value_efficiency_score": 38.51,
+        "value_efficiency_score": 38.5,
         "is_pareto_optimal": false
       }
     },
@@ -6266,17 +6364,17 @@
       "normalized_pillars": {
         "aa": 41.2,
         "lb": 72.53,
-        "ar": 77.83,
+        "ar": 77.6,
         "va": 54.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 59.34,
-        "coding_composite_score": 55.36,
-        "enterprise_agent_score": 55.8,
-        "value_efficiency_score": 33.78,
+        "unified_quality_score": 59.31,
+        "coding_composite_score": 55.34,
+        "enterprise_agent_score": 55.79,
+        "value_efficiency_score": 33.76,
         "is_pareto_optimal": false
       }
     },
@@ -6336,17 +6434,17 @@
       "normalized_pillars": {
         "aa": 48.49,
         "lb": 75.83,
-        "ar": 60.05,
+        "ar": 59.91,
         "va": 50.04
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 58.81,
-        "coding_composite_score": 57.79,
-        "enterprise_agent_score": 55.31,
-        "value_efficiency_score": 28.72,
+        "unified_quality_score": 58.79,
+        "coding_composite_score": 57.77,
+        "enterprise_agent_score": 55.3,
+        "value_efficiency_score": 28.71,
         "is_pareto_optimal": false
       }
     },
@@ -6406,15 +6504,15 @@
       "normalized_pillars": {
         "aa": 48.49,
         "lb": 56.06,
-        "ar": 81.52,
+        "ar": 81.42,
         "va": 59.88
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 58.56,
-        "coding_composite_score": 60.56,
+        "unified_quality_score": 58.55,
+        "coding_composite_score": 60.54,
         "enterprise_agent_score": 57.35,
         "value_efficiency_score": 35.86,
         "is_pareto_optimal": false
@@ -6476,17 +6574,17 @@
       "normalized_pillars": {
         "aa": 52.15,
         "lb": 55.55,
-        "ar": 85.35,
+        "ar": 85.22,
         "va": 53.51
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 58.49,
-        "coding_composite_score": 47.94,
-        "enterprise_agent_score": 55.17,
-        "value_efficiency_score": 29.98,
+        "unified_quality_score": 58.47,
+        "coding_composite_score": 47.92,
+        "enterprise_agent_score": 55.16,
+        "value_efficiency_score": 29.97,
         "is_pareto_optimal": false
       }
     },
@@ -6546,16 +6644,16 @@
       "normalized_pillars": {
         "aa": 49.75,
         "lb": 71.46,
-        "ar": 56.28,
+        "ar": 56.17,
         "va": 53.09
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 58.08,
-        "coding_composite_score": 59.6,
-        "enterprise_agent_score": 56.09,
+        "unified_quality_score": 58.06,
+        "coding_composite_score": 59.59,
+        "enterprise_agent_score": 56.08,
         "value_efficiency_score": 22.86,
         "is_pareto_optimal": false
       }
@@ -6616,17 +6714,17 @@
       "normalized_pillars": {
         "aa": 56.38,
         "lb": 47.89,
-        "ar": 70.46,
+        "ar": 70.28,
         "va": 63.13
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 57.63,
-        "coding_composite_score": 70.44,
-        "enterprise_agent_score": 58.76,
-        "value_efficiency_score": 34.25,
+        "unified_quality_score": 57.61,
+        "coding_composite_score": 70.42,
+        "enterprise_agent_score": 58.75,
+        "value_efficiency_score": 34.24,
         "is_pareto_optimal": false
       }
     },
@@ -6686,17 +6784,17 @@
       "normalized_pillars": {
         "aa": 58.0,
         "lb": 64.94,
-        "ar": 45.37,
+        "ar": 45.3,
         "va": 54.63
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 57.34,
-        "coding_composite_score": 62.71,
+        "unified_quality_score": 57.33,
+        "coding_composite_score": 62.7,
         "enterprise_agent_score": 57.07,
-        "value_efficiency_score": 29.51,
+        "value_efficiency_score": 29.5,
         "is_pareto_optimal": false
       }
     },
@@ -6756,17 +6854,17 @@
       "normalized_pillars": {
         "aa": 51.08,
         "lb": 44.18,
-        "ar": 86.29,
+        "ar": 86.15,
         "va": 62.44
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 57.13,
-        "coding_composite_score": 65.41,
-        "enterprise_agent_score": 57.14,
-        "value_efficiency_score": 34.33,
+        "unified_quality_score": 57.11,
+        "coding_composite_score": 65.39,
+        "enterprise_agent_score": 57.13,
+        "value_efficiency_score": 34.32,
         "is_pareto_optimal": false
       }
     },
@@ -6826,17 +6924,17 @@
       "normalized_pillars": {
         "aa": 49.16,
         "lb": 62.14,
-        "ar": 55.29,
+        "ar": 55.18,
         "va": 61.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 57.11,
-        "coding_composite_score": 70.5,
+        "unified_quality_score": 57.09,
+        "coding_composite_score": 70.49,
         "enterprise_agent_score": 58.33,
-        "value_efficiency_score": 35.02,
+        "value_efficiency_score": 35.0,
         "is_pareto_optimal": false
       }
     },
@@ -6896,17 +6994,17 @@
       "normalized_pillars": {
         "aa": 35.6,
         "lb": 76.02,
-        "ar": 75.17,
+        "ar": 74.95,
         "va": 47.14
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 56.55,
-        "coding_composite_score": 55.33,
-        "enterprise_agent_score": 51.43,
-        "value_efficiency_score": 36.04,
+        "unified_quality_score": 56.51,
+        "coding_composite_score": 55.31,
+        "enterprise_agent_score": 51.42,
+        "value_efficiency_score": 36.02,
         "is_pareto_optimal": false
       }
     },
@@ -6966,17 +7064,17 @@
       "normalized_pillars": {
         "aa": 37.23,
         "lb": 69.47,
-        "ar": 68.06,
+        "ar": 67.88,
         "va": 53.72
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 55.65,
-        "coding_composite_score": 50.01,
+        "unified_quality_score": 55.62,
+        "coding_composite_score": 49.99,
         "enterprise_agent_score": 53.46,
-        "value_efficiency_score": 38.41,
+        "value_efficiency_score": 38.39,
         "is_pareto_optimal": false
       }
     },
@@ -7082,17 +7180,17 @@
       "normalized_pillars": {
         "aa": 45.69,
         "lb": 50.81,
-        "ar": 79.13,
+        "ar": 79.03,
         "va": 54.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 54.37,
-        "coding_composite_score": 57.08,
+        "unified_quality_score": 54.35,
+        "coding_composite_score": 57.06,
         "enterprise_agent_score": 52.64,
-        "value_efficiency_score": 33.3,
+        "value_efficiency_score": 33.29,
         "is_pareto_optimal": false
       }
     },
@@ -7152,17 +7250,17 @@
       "normalized_pillars": {
         "aa": 46.8,
         "lb": 59.99,
-        "ar": 54.45,
+        "ar": 54.34,
         "va": 56.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 54.23,
-        "coding_composite_score": 61.81,
+        "unified_quality_score": 54.21,
+        "coding_composite_score": 61.8,
         "enterprise_agent_score": 54.47,
-        "value_efficiency_score": 50.81,
+        "value_efficiency_score": 50.79,
         "is_pareto_optimal": false
       }
     },
@@ -7222,17 +7320,17 @@
       "normalized_pillars": {
         "aa": 43.48,
         "lb": 52.62,
-        "ar": 67.2,
+        "ar": 67.03,
         "va": 60.11
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 53.94,
-        "coding_composite_score": 56.8,
-        "enterprise_agent_score": 54.81,
-        "value_efficiency_score": 65.19,
+        "unified_quality_score": 53.91,
+        "coding_composite_score": 56.78,
+        "enterprise_agent_score": 54.8,
+        "value_efficiency_score": 65.16,
         "is_pareto_optimal": true
       }
     },
@@ -7292,17 +7390,17 @@
       "normalized_pillars": {
         "aa": 52.7,
         "lb": 44.91,
-        "ar": 67.7,
+        "ar": 67.53,
         "va": 57.84
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 53.9,
-        "coding_composite_score": 66.25,
-        "enterprise_agent_score": 54.46,
-        "value_efficiency_score": 32.03,
+        "unified_quality_score": 53.87,
+        "coding_composite_score": 66.24,
+        "enterprise_agent_score": 54.45,
+        "value_efficiency_score": 32.02,
         "is_pareto_optimal": false
       }
     },
@@ -7362,17 +7460,17 @@
       "normalized_pillars": {
         "aa": 42.09,
         "lb": 58.57,
-        "ar": 48.26,
+        "ar": 48.17,
         "va": 65.71
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 53.86,
+        "unified_quality_score": 53.85,
         "coding_composite_score": 57.29,
         "enterprise_agent_score": 57.5,
-        "value_efficiency_score": 26.39,
+        "value_efficiency_score": 26.38,
         "is_pareto_optimal": false
       }
     },
@@ -7484,17 +7582,17 @@
       "normalized_pillars": {
         "aa": 47.79,
         "lb": 54.52,
-        "ar": 56.47,
+        "ar": 56.35,
         "va": 56.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 53.26,
-        "coding_composite_score": 65.62,
-        "enterprise_agent_score": 53.88,
-        "value_efficiency_score": 29.84,
+        "unified_quality_score": 53.25,
+        "coding_composite_score": 65.61,
+        "enterprise_agent_score": 53.87,
+        "value_efficiency_score": 29.83,
         "is_pareto_optimal": false
       }
     },
@@ -7543,17 +7641,17 @@
       "normalized_pillars": {
         "aa": null,
         "lb": 50.02,
-        "ar": 60.99,
+        "ar": 60.85,
         "va": null
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 53.11,
-        "coding_composite_score": 47.64,
-        "enterprise_agent_score": 51.65,
-        "value_efficiency_score": 39.83,
+        "unified_quality_score": 53.07,
+        "coding_composite_score": 47.61,
+        "enterprise_agent_score": 51.62,
+        "value_efficiency_score": 39.8,
         "is_pareto_optimal": false
       }
     },
@@ -7613,17 +7711,17 @@
       "normalized_pillars": {
         "aa": 45.03,
         "lb": 55.55,
-        "ar": 63.3,
+        "ar": 63.15,
         "va": 51.97
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 52.66,
-        "coding_composite_score": 62.5,
-        "enterprise_agent_score": 51.52,
-        "value_efficiency_score": 49.34,
+        "unified_quality_score": 52.64,
+        "coding_composite_score": 62.48,
+        "enterprise_agent_score": 51.51,
+        "value_efficiency_score": 49.32,
         "is_pareto_optimal": false
       }
     },
@@ -7683,17 +7781,17 @@
       "normalized_pillars": {
         "aa": 45.03,
         "lb": 49.57,
-        "ar": 78.54,
+        "ar": 78.45,
         "va": 48.55
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 52.3,
-        "coding_composite_score": 59.7,
+        "unified_quality_score": 52.28,
+        "coding_composite_score": 59.68,
         "enterprise_agent_score": 49.37,
-        "value_efficiency_score": 55.91,
+        "value_efficiency_score": 55.89,
         "is_pareto_optimal": false
       }
     },
@@ -7753,17 +7851,17 @@
       "normalized_pillars": {
         "aa": 51.08,
         "lb": 55.16,
-        "ar": 38.09,
+        "ar": 38.04,
         "va": 57.84
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 52.05,
+        "unified_quality_score": 52.04,
         "coding_composite_score": 59.13,
-        "enterprise_agent_score": 54.63,
-        "value_efficiency_score": 29.16,
+        "enterprise_agent_score": 54.62,
+        "value_efficiency_score": 29.15,
         "is_pareto_optimal": false
       }
     },
@@ -7823,17 +7921,17 @@
       "normalized_pillars": {
         "aa": 46.8,
         "lb": 43.23,
-        "ar": 66.03,
+        "ar": 65.86,
         "va": 59.64
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 51.82,
-        "coding_composite_score": 65.47,
-        "enterprise_agent_score": 53.47,
-        "value_efficiency_score": 33.84,
+        "unified_quality_score": 51.8,
+        "coding_composite_score": 65.45,
+        "enterprise_agent_score": 53.46,
+        "value_efficiency_score": 33.83,
         "is_pareto_optimal": false
       }
     },
@@ -7893,17 +7991,17 @@
       "normalized_pillars": {
         "aa": 49.16,
         "lb": 40.65,
-        "ar": 68.7,
+        "ar": 68.52,
         "va": 57.84
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 51.71,
-        "coding_composite_score": 61.39,
+        "unified_quality_score": 51.68,
+        "coding_composite_score": 61.38,
         "enterprise_agent_score": 52.77,
-        "value_efficiency_score": 31.08,
+        "value_efficiency_score": 31.06,
         "is_pareto_optimal": false
       }
     },
@@ -7963,17 +8061,17 @@
       "normalized_pillars": {
         "aa": 51.08,
         "lb": 42.54,
-        "ar": 52.27,
+        "ar": 52.17,
         "va": 62.83
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 51.63,
-        "coding_composite_score": 45.79,
-        "enterprise_agent_score": 55.31,
-        "value_efficiency_score": 41.17,
+        "unified_quality_score": 51.62,
+        "coding_composite_score": 45.78,
+        "enterprise_agent_score": 55.3,
+        "value_efficiency_score": 41.16,
         "is_pareto_optimal": false
       }
     },
@@ -8033,17 +8131,17 @@
       "normalized_pillars": {
         "aa": 46.8,
         "lb": 45.47,
-        "ar": 60.27,
+        "ar": 60.13,
         "va": 57.84
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 51.18,
-        "coding_composite_score": 52.11,
-        "enterprise_agent_score": 52.73,
-        "value_efficiency_score": 42.9,
+        "unified_quality_score": 51.16,
+        "coding_composite_score": 52.1,
+        "enterprise_agent_score": 52.72,
+        "value_efficiency_score": 42.88,
         "is_pareto_optimal": false
       }
     },
@@ -8103,17 +8201,17 @@
       "normalized_pillars": {
         "aa": 35.97,
         "lb": 67.62,
-        "ar": 57.62,
+        "ar": 57.49,
         "va": 43.06
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 50.48,
-        "coding_composite_score": 53.65,
-        "enterprise_agent_score": 46.93,
-        "value_efficiency_score": 31.38,
+        "unified_quality_score": 50.47,
+        "coding_composite_score": 53.64,
+        "enterprise_agent_score": 46.92,
+        "value_efficiency_score": 31.37,
         "is_pareto_optimal": false
       }
     },
@@ -8173,17 +8271,17 @@
       "normalized_pillars": {
         "aa": 35.02,
         "lb": 63.95,
-        "ar": 62.84,
+        "ar": 62.69,
         "va": 45.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 50.44,
-        "coding_composite_score": 53.61,
-        "enterprise_agent_score": 47.34,
-        "value_efficiency_score": 34.11,
+        "unified_quality_score": 50.42,
+        "coding_composite_score": 53.59,
+        "enterprise_agent_score": 47.33,
+        "value_efficiency_score": 34.09,
         "is_pareto_optimal": false
       }
     },
@@ -8243,17 +8341,17 @@
       "normalized_pillars": {
         "aa": 51.08,
         "lb": 54.52,
-        "ar": 43.49,
+        "ar": 43.43,
         "va": 46.05
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 49.72,
+        "unified_quality_score": 49.71,
         "coding_composite_score": 52.68,
         "enterprise_agent_score": 48.87,
-        "value_efficiency_score": 28.99,
+        "value_efficiency_score": 28.98,
         "is_pareto_optimal": false
       }
     },
@@ -8313,17 +8411,17 @@
       "normalized_pillars": {
         "aa": 44.26,
         "lb": 46.16,
-        "ar": 52.92,
+        "ar": 52.82,
         "va": 54.82
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 48.77,
-        "coding_composite_score": 55.23,
+        "unified_quality_score": 48.75,
+        "coding_composite_score": 55.22,
         "enterprise_agent_score": 50.35,
-        "value_efficiency_score": 35.48,
+        "value_efficiency_score": 35.47,
         "is_pareto_optimal": false
       }
     },
@@ -8383,17 +8481,17 @@
       "normalized_pillars": {
         "aa": 40.54,
         "lb": 53.57,
-        "ar": 41.98,
+        "ar": 41.92,
         "va": 52.27
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 47.6,
+        "unified_quality_score": 47.59,
         "coding_composite_score": 59.8,
         "enterprise_agent_score": 49.08,
-        "value_efficiency_score": 29.19,
+        "value_efficiency_score": 29.18,
         "is_pareto_optimal": false
       }
     },
@@ -8453,16 +8551,16 @@
       "normalized_pillars": {
         "aa": 46.8,
         "lb": 53.01,
-        "ar": 41.12,
+        "ar": 41.06,
         "va": 44.48
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 47.23,
-        "coding_composite_score": 50.92,
-        "enterprise_agent_score": 46.6,
+        "unified_quality_score": 47.22,
+        "coding_composite_score": 50.91,
+        "enterprise_agent_score": 46.59,
         "value_efficiency_score": 27.53,
         "is_pareto_optimal": false
       }
@@ -8523,17 +8621,17 @@
       "normalized_pillars": {
         "aa": 32.37,
         "lb": 57.29,
-        "ar": 58.25,
+        "ar": 58.12,
         "va": 46.05
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 47.15,
-        "coding_composite_score": 48.88,
-        "enterprise_agent_score": 45.49,
-        "value_efficiency_score": 50.4,
+        "unified_quality_score": 47.13,
+        "coding_composite_score": 48.87,
+        "enterprise_agent_score": 45.48,
+        "value_efficiency_score": 50.38,
         "is_pareto_optimal": false
       }
     },
@@ -8639,17 +8737,17 @@
       "normalized_pillars": {
         "aa": 34.28,
         "lb": 51.24,
-        "ar": 59.13,
+        "ar": 58.99,
         "va": 49.37
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 46.87,
-        "coding_composite_score": 57.36,
-        "enterprise_agent_score": 46.46,
-        "value_efficiency_score": 32.35,
+        "unified_quality_score": 46.85,
+        "coding_composite_score": 57.35,
+        "enterprise_agent_score": 46.45,
+        "value_efficiency_score": 32.33,
         "is_pareto_optimal": false
       }
     },
@@ -8709,17 +8807,17 @@
       "normalized_pillars": {
         "aa": 30.08,
         "lb": 60.62,
-        "ar": 60.68,
+        "ar": 60.54,
         "va": 40.29
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 46.38,
-        "coding_composite_score": 44.87,
+        "unified_quality_score": 46.36,
+        "coding_composite_score": 44.85,
         "enterprise_agent_score": 42.82,
-        "value_efficiency_score": 36.0,
+        "value_efficiency_score": 35.99,
         "is_pareto_optimal": false
       }
     },
@@ -8779,17 +8877,17 @@
       "normalized_pillars": {
         "aa": 38.85,
         "lb": 58.96,
-        "ar": 40.78,
+        "ar": 40.73,
         "va": 41.88
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 45.93,
-        "coding_composite_score": 47.61,
+        "unified_quality_score": 45.92,
+        "coding_composite_score": 47.6,
         "enterprise_agent_score": 44.48,
-        "value_efficiency_score": 27.14,
+        "value_efficiency_score": 27.13,
         "is_pareto_optimal": false
       }
     },
@@ -8849,17 +8947,17 @@
       "normalized_pillars": {
         "aa": 49.16,
         "lb": 40.21,
-        "ar": 44.15,
+        "ar": 44.08,
         "va": 49.37
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 45.78,
-        "coding_composite_score": 54.87,
+        "unified_quality_score": 45.77,
+        "coding_composite_score": 54.86,
         "enterprise_agent_score": 47.22,
-        "value_efficiency_score": 32.42,
+        "value_efficiency_score": 32.41,
         "is_pareto_optimal": false
       }
     },
@@ -8919,17 +9017,17 @@
       "normalized_pillars": {
         "aa": 39.77,
         "lb": 52.11,
-        "ar": 48.07,
+        "ar": 47.99,
         "va": 43.89
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 45.75,
-        "coding_composite_score": 51.33,
+        "unified_quality_score": 45.73,
+        "coding_composite_score": 51.32,
         "enterprise_agent_score": 44.71,
-        "value_efficiency_score": 35.52,
+        "value_efficiency_score": 35.5,
         "is_pareto_optimal": false
       }
     },
@@ -8989,17 +9087,17 @@
       "normalized_pillars": {
         "aa": 37.23,
         "lb": 42.54,
-        "ar": 51.93,
+        "ar": 51.84,
         "va": 55.31
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 45.55,
+        "unified_quality_score": 45.53,
         "coding_composite_score": 49.75,
-        "enterprise_agent_score": 48.07,
-        "value_efficiency_score": 34.2,
+        "enterprise_agent_score": 48.06,
+        "value_efficiency_score": 34.19,
         "is_pareto_optimal": false
       }
     },
@@ -9059,17 +9157,17 @@
       "normalized_pillars": {
         "aa": 39.29,
         "lb": 39.44,
-        "ar": 61.36,
+        "ar": 61.21,
         "va": 50.04
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 45.33,
-        "coding_composite_score": 47.15,
-        "enterprise_agent_score": 45.8,
-        "value_efficiency_score": 27.86,
+        "unified_quality_score": 45.31,
+        "coding_composite_score": 47.14,
+        "enterprise_agent_score": 45.79,
+        "value_efficiency_score": 27.85,
         "is_pareto_optimal": false
       }
     },
@@ -9175,17 +9273,17 @@
       "normalized_pillars": {
         "aa": 37.23,
         "lb": 49.57,
-        "ar": 41.61,
+        "ar": 41.55,
         "va": 46.8
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 43.98,
-        "coding_composite_score": 56.33,
+        "unified_quality_score": 43.97,
+        "coding_composite_score": 56.32,
         "enterprise_agent_score": 44.7,
-        "value_efficiency_score": 41.21,
+        "value_efficiency_score": 41.2,
         "is_pareto_optimal": false
       }
     },
@@ -9245,17 +9343,17 @@
       "normalized_pillars": {
         "aa": 31.92,
         "lb": 42.54,
-        "ar": 53.2,
+        "ar": 53.1,
         "va": 50.95
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 43.06,
-        "coding_composite_score": 60.78,
+        "unified_quality_score": 43.04,
+        "coding_composite_score": 60.77,
         "enterprise_agent_score": 44.62,
-        "value_efficiency_score": 32.46,
+        "value_efficiency_score": 32.44,
         "is_pareto_optimal": false
       }
     },
@@ -9315,14 +9413,14 @@
       "normalized_pillars": {
         "aa": 36.56,
         "lb": 52.62,
-        "ar": 39.79,
+        "ar": 39.74,
         "va": 39.95
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 42.71,
+        "unified_quality_score": 42.7,
         "coding_composite_score": 46.21,
         "enterprise_agent_score": 41.63,
         "value_efficiency_score": 22.79,
@@ -9385,17 +9483,17 @@
       "normalized_pillars": {
         "aa": 42.09,
         "lb": 19.37,
-        "ar": 53.94,
+        "ar": 53.83,
         "va": 64.44
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 42.64,
-        "coding_composite_score": 43.76,
+        "unified_quality_score": 42.62,
+        "coding_composite_score": 43.74,
         "enterprise_agent_score": 49.31,
-        "value_efficiency_score": 25.2,
+        "value_efficiency_score": 25.18,
         "is_pareto_optimal": false
       }
     },
@@ -9455,17 +9553,17 @@
       "normalized_pillars": {
         "aa": 34.54,
         "lb": 50.38,
-        "ar": 51.76,
+        "ar": 51.67,
         "va": 37.33
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 42.57,
-        "coding_composite_score": 44.95,
+        "unified_quality_score": 42.56,
+        "coding_composite_score": 44.93,
         "enterprise_agent_score": 39.96,
-        "value_efficiency_score": 25.04,
+        "value_efficiency_score": 25.03,
         "is_pareto_optimal": false
       }
     },
@@ -9525,17 +9623,17 @@
       "normalized_pillars": {
         "aa": 37.23,
         "lb": 33.31,
-        "ar": 57.29,
+        "ar": 57.17,
         "va": 47.64
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 41.67,
-        "coding_composite_score": 48.83,
+        "unified_quality_score": 41.65,
+        "coding_composite_score": 48.82,
         "enterprise_agent_score": 42.65,
-        "value_efficiency_score": 25.04,
+        "value_efficiency_score": 25.03,
         "is_pareto_optimal": false
       }
     },
@@ -9595,17 +9693,17 @@
       "normalized_pillars": {
         "aa": 31.15,
         "lb": 65.35,
-        "ar": 28.29,
+        "ar": 28.25,
         "va": 33.63
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 41.6,
+        "unified_quality_score": 41.59,
         "coding_composite_score": 41.66,
         "enterprise_agent_score": 39.09,
-        "value_efficiency_score": 32.15,
+        "value_efficiency_score": 32.14,
         "is_pareto_optimal": false
       }
     },
@@ -9665,7 +9763,7 @@
       "normalized_pillars": {
         "aa": 33.62,
         "lb": 46.59,
-        "ar": 37.3,
+        "ar": 37.25,
         "va": 43.06
       },
       "composite": {
@@ -9781,17 +9879,17 @@
       "normalized_pillars": {
         "aa": 40.54,
         "lb": 31.41,
-        "ar": 47.15,
+        "ar": 47.07,
         "va": 42.74
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 39.34,
-        "coding_composite_score": 47.52,
+        "unified_quality_score": 39.33,
+        "coding_composite_score": 47.51,
         "enterprise_agent_score": 40.14,
-        "value_efficiency_score": 27.22,
+        "value_efficiency_score": 27.21,
         "is_pareto_optimal": false
       }
     },
@@ -9851,17 +9949,17 @@
       "normalized_pillars": {
         "aa": 29.01,
         "lb": 42.54,
-        "ar": 49.15,
+        "ar": 49.07,
         "va": 41.13
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 39.12,
-        "coding_composite_score": 48.8,
+        "unified_quality_score": 39.11,
+        "coding_composite_score": 48.79,
         "enterprise_agent_score": 38.78,
-        "value_efficiency_score": 48.87,
+        "value_efficiency_score": 48.86,
         "is_pareto_optimal": true
       }
     },
@@ -9921,7 +10019,7 @@
       "normalized_pillars": {
         "aa": 30.08,
         "lb": 44.61,
-        "ar": 35.77,
+        "ar": 35.72,
         "va": 43.89
       },
       "composite": {
@@ -9929,8 +10027,8 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 38.74,
-        "coding_composite_score": 49.71,
-        "enterprise_agent_score": 40.18,
+        "coding_composite_score": 49.7,
+        "enterprise_agent_score": 40.17,
         "value_efficiency_score": 23.75,
         "is_pareto_optimal": false
       }
@@ -10037,14 +10135,14 @@
       "normalized_pillars": {
         "aa": 32.84,
         "lb": 47.89,
-        "ar": 31.8,
+        "ar": 31.76,
         "va": 36.52
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 38.12,
+        "unified_quality_score": 38.11,
         "coding_composite_score": 41.53,
         "enterprise_agent_score": 37.64,
         "value_efficiency_score": 26.37,
@@ -10107,17 +10205,17 @@
       "normalized_pillars": {
         "aa": 27.65,
         "lb": 38.4,
-        "ar": 52.11,
+        "ar": 52.01,
         "va": 37.83
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 37.09,
-        "coding_composite_score": 46.14,
+        "unified_quality_score": 37.07,
+        "coding_composite_score": 46.13,
         "enterprise_agent_score": 36.11,
-        "value_efficiency_score": 37.05,
+        "value_efficiency_score": 37.03,
         "is_pareto_optimal": false
       }
     },
@@ -10177,15 +10275,15 @@
       "normalized_pillars": {
         "aa": 30.67,
         "lb": 32.62,
-        "ar": 47.49,
+        "ar": 47.41,
         "va": 40.79
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 36.31,
-        "coding_composite_score": 38.7,
+        "unified_quality_score": 36.3,
+        "coding_composite_score": 38.69,
         "enterprise_agent_score": 36.96,
         "value_efficiency_score": 22.84,
         "is_pareto_optimal": false
@@ -10247,7 +10345,7 @@
       "normalized_pillars": {
         "aa": 29.27,
         "lb": 34.39,
-        "ar": 41.38,
+        "ar": 41.32,
         "va": 41.88
       },
       "composite": {
@@ -10255,7 +10353,7 @@
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 35.77,
-        "coding_composite_score": 49.53,
+        "coding_composite_score": 49.52,
         "enterprise_agent_score": 37.2,
         "value_efficiency_score": 19.35,
         "is_pareto_optimal": false
@@ -10317,17 +10415,17 @@
       "normalized_pillars": {
         "aa": 28.16,
         "lb": 41.34,
-        "ar": 34.02,
+        "ar": 33.98,
         "va": 38.17
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 35.5,
+        "unified_quality_score": 35.49,
         "coding_composite_score": 46.35,
         "enterprise_agent_score": 36.09,
-        "value_efficiency_score": 33.26,
+        "value_efficiency_score": 33.25,
         "is_pareto_optimal": false
       }
     },
@@ -10387,17 +10485,17 @@
       "normalized_pillars": {
         "aa": 26.25,
         "lb": 37.72,
-        "ar": 50.01,
+        "ar": 49.93,
         "va": 35.04
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 35.45,
-        "coding_composite_score": 43.9,
-        "enterprise_agent_score": 34.13,
-        "value_efficiency_score": 24.08,
+        "unified_quality_score": 35.44,
+        "coding_composite_score": 43.88,
+        "enterprise_agent_score": 34.12,
+        "value_efficiency_score": 24.07,
         "is_pareto_optimal": false
       }
     },
@@ -10503,16 +10601,16 @@
       "normalized_pillars": {
         "aa": 27.17,
         "lb": 37.03,
-        "ar": 46.8,
+        "ar": 46.72,
         "va": 28.54
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 33.41,
-        "coding_composite_score": 36.7,
-        "enterprise_agent_score": 30.81,
+        "unified_quality_score": 33.4,
+        "coding_composite_score": 36.69,
+        "enterprise_agent_score": 30.8,
         "value_efficiency_score": 17.83,
         "is_pareto_optimal": false
       }
@@ -10665,15 +10763,15 @@
       "normalized_pillars": {
         "aa": 25.4,
         "lb": 39.44,
-        "ar": 40.47,
+        "ar": 40.42,
         "va": 26.74
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 32.21,
-        "coding_composite_score": 35.78,
+        "unified_quality_score": 32.2,
+        "coding_composite_score": 35.77,
         "enterprise_agent_score": 29.63,
         "value_efficiency_score": 15.78,
         "is_pareto_optimal": false
@@ -10735,17 +10833,17 @@
       "normalized_pillars": {
         "aa": 33.62,
         "lb": 27.83,
-        "ar": 38.4,
+        "ar": 38.35,
         "va": 32.02
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 32.2,
-        "coding_composite_score": 41.32,
+        "unified_quality_score": 32.19,
+        "coding_composite_score": 41.31,
         "enterprise_agent_score": 31.9,
-        "value_efficiency_score": 27.77,
+        "value_efficiency_score": 27.76,
         "is_pareto_optimal": false
       }
     },
@@ -10805,17 +10903,17 @@
       "normalized_pillars": {
         "aa": 25.07,
         "lb": 27.27,
-        "ar": 51.59,
+        "ar": 51.49,
         "va": 33.63
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 31.85,
-        "coding_composite_score": 34.69,
-        "enterprise_agent_score": 31.12,
-        "value_efficiency_score": 29.52,
+        "unified_quality_score": 31.83,
+        "coding_composite_score": 34.68,
+        "enterprise_agent_score": 31.11,
+        "value_efficiency_score": 29.5,
         "is_pareto_optimal": false
       }
     },
@@ -10875,17 +10973,17 @@
       "normalized_pillars": {
         "aa": 25.4,
         "lb": 29.38,
-        "ar": 43.06,
+        "ar": 42.99,
         "va": 35.38
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 31.74,
-        "coding_composite_score": 43.49,
+        "unified_quality_score": 31.73,
+        "coding_composite_score": 43.48,
         "enterprise_agent_score": 32.07,
-        "value_efficiency_score": 29.74,
+        "value_efficiency_score": 29.73,
         "is_pareto_optimal": false
       }
     },
@@ -10945,17 +11043,17 @@
       "normalized_pillars": {
         "aa": 18.52,
         "lb": 28.39,
-        "ar": 67.0,
+        "ar": 66.83,
         "va": 30.02
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 31.63,
-        "coding_composite_score": 33.89,
-        "enterprise_agent_score": 28.67,
-        "value_efficiency_score": 29.64,
+        "unified_quality_score": 31.6,
+        "coding_composite_score": 33.88,
+        "enterprise_agent_score": 28.66,
+        "value_efficiency_score": 29.61,
         "is_pareto_optimal": false
       }
     },
@@ -11015,17 +11113,17 @@
       "normalized_pillars": {
         "aa": 28.16,
         "lb": 25.63,
-        "ar": 44.8,
+        "ar": 44.73,
         "va": 31.27
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 30.67,
+        "unified_quality_score": 30.66,
         "coding_composite_score": 37.83,
         "enterprise_agent_score": 30.04,
-        "value_efficiency_score": 24.93,
+        "value_efficiency_score": 24.92,
         "is_pareto_optimal": false
       }
     },
@@ -11068,17 +11166,17 @@
       "normalized_pillars": {
         "aa": 21.83,
         "lb": null,
-        "ar": 42.31,
+        "ar": 42.25,
         "va": null
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 30.57,
-        "coding_composite_score": 28.78,
-        "enterprise_agent_score": 28.11,
-        "value_efficiency_score": 23.26,
+        "unified_quality_score": 30.55,
+        "coding_composite_score": 28.76,
+        "enterprise_agent_score": 28.1,
+        "value_efficiency_score": 23.25,
         "is_pareto_optimal": false
       }
     },
@@ -11138,17 +11236,17 @@
       "normalized_pillars": {
         "aa": 18.52,
         "lb": 26.32,
-        "ar": 51.21,
+        "ar": 51.11,
         "va": 31.58
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 29.03,
+        "unified_quality_score": 29.01,
         "coding_composite_score": 38.29,
         "enterprise_agent_score": 28.24,
-        "value_efficiency_score": 19.35,
+        "value_efficiency_score": 19.34,
         "is_pareto_optimal": false
       }
     },
@@ -11254,17 +11352,17 @@
       "normalized_pillars": {
         "aa": 28.16,
         "lb": 24.56,
-        "ar": 36.52,
+        "ar": 36.47,
         "va": 30.02
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 28.8,
-        "coding_composite_score": 38.49,
+        "unified_quality_score": 28.79,
+        "coding_composite_score": 38.48,
         "enterprise_agent_score": 28.79,
-        "value_efficiency_score": 39.02,
+        "value_efficiency_score": 39.0,
         "is_pareto_optimal": true
       }
     },
@@ -11353,17 +11451,17 @@
       "normalized_pillars": {
         "aa": 9.12,
         "lb": null,
-        "ar": 54.25,
+        "ar": 54.14,
         "va": null
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 26.52,
-        "coding_composite_score": 22.58,
-        "enterprise_agent_score": 20.59,
-        "value_efficiency_score": 19.81,
+        "unified_quality_score": 26.49,
+        "coding_composite_score": 22.55,
+        "enterprise_agent_score": 20.58,
+        "value_efficiency_score": 19.79,
         "is_pareto_optimal": false
       }
     },
@@ -11423,17 +11521,17 @@
       "normalized_pillars": {
         "aa": 26.69,
         "lb": 8.45,
-        "ar": 58.5,
+        "ar": 58.37,
         "va": 28.54
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 26.45,
-        "coding_composite_score": 28.23,
-        "enterprise_agent_score": 25.56,
-        "value_efficiency_score": 30.22,
+        "unified_quality_score": 26.43,
+        "coding_composite_score": 28.22,
+        "enterprise_agent_score": 25.55,
+        "value_efficiency_score": 30.2,
         "is_pareto_optimal": false
       }
     },
@@ -11539,17 +11637,17 @@
       "normalized_pillars": {
         "aa": 15.73,
         "lb": 30.72,
-        "ar": 26.59,
+        "ar": 26.56,
         "va": 26.74
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 24.61,
+        "unified_quality_score": 24.6,
         "coding_composite_score": 33.58,
-        "enterprise_agent_score": 24.78,
-        "value_efficiency_score": 23.06,
+        "enterprise_agent_score": 24.77,
+        "value_efficiency_score": 23.05,
         "is_pareto_optimal": false
       }
     },
@@ -11609,17 +11707,17 @@
       "normalized_pillars": {
         "aa": 7.57,
         "lb": 11.77,
-        "ar": 66.26,
+        "ar": 66.09,
         "va": 34.06
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 24.26,
-        "coding_composite_score": 32.85,
-        "enterprise_agent_score": 24.59,
-        "value_efficiency_score": 25.45,
+        "unified_quality_score": 24.23,
+        "coding_composite_score": 32.83,
+        "enterprise_agent_score": 24.58,
+        "value_efficiency_score": 25.42,
         "is_pareto_optimal": false
       }
     },
@@ -11725,17 +11823,17 @@
       "normalized_pillars": {
         "aa": 18.52,
         "lb": 23.74,
-        "ar": 62.15,
+        "ar": 62.0,
         "va": 5.48
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 23.37,
-        "coding_composite_score": 32.1,
-        "enterprise_agent_score": 15.23,
-        "value_efficiency_score": 14.07,
+        "unified_quality_score": 23.35,
+        "coding_composite_score": 32.08,
+        "enterprise_agent_score": 15.22,
+        "value_efficiency_score": 14.06,
         "is_pareto_optimal": false
       }
     },
@@ -11795,17 +11893,17 @@
       "normalized_pillars": {
         "aa": 21.83,
         "lb": 29.08,
-        "ar": 40.24,
+        "ar": 40.19,
         "va": 6.97
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 23.05,
-        "coding_composite_score": 34.97,
+        "unified_quality_score": 23.04,
+        "coding_composite_score": 34.96,
         "enterprise_agent_score": 16.77,
-        "value_efficiency_score": 20.37,
+        "value_efficiency_score": 20.36,
         "is_pareto_optimal": false
       }
     },
@@ -11865,7 +11963,7 @@
       "normalized_pillars": {
         "aa": 24.11,
         "lb": 22.53,
-        "ar": 13.67,
+        "ar": 13.66,
         "va": 25.35
       },
       "composite": {
@@ -12051,15 +12149,15 @@
       "normalized_pillars": {
         "aa": 20.07,
         "lb": 15.92,
-        "ar": 47.7,
+        "ar": 47.62,
         "va": 3.25
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 18.76,
-        "coding_composite_score": 26.93,
+        "unified_quality_score": 18.75,
+        "coding_composite_score": 26.92,
         "enterprise_agent_score": 12.21,
         "value_efficiency_score": 14.56,
         "is_pareto_optimal": false
@@ -12213,17 +12311,17 @@
       "normalized_pillars": {
         "aa": 20.99,
         "lb": 3.44,
-        "ar": 30.47,
+        "ar": 30.43,
         "va": 21.64
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 17.31,
+        "unified_quality_score": 17.3,
         "coding_composite_score": 19.52,
         "enterprise_agent_score": 18.28,
-        "value_efficiency_score": 23.45,
+        "value_efficiency_score": 23.44,
         "is_pareto_optimal": false
       }
     },
@@ -12399,14 +12497,14 @@
       "normalized_pillars": {
         "aa": 10.67,
         "lb": 9.14,
-        "ar": 21.52,
+        "ar": 21.48,
         "va": 23.42
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 15.03,
+        "unified_quality_score": 15.02,
         "coding_composite_score": 19.98,
         "enterprise_agent_score": 17.28,
         "value_efficiency_score": 10.0,
@@ -12469,7 +12567,7 @@
       "normalized_pillars": {
         "aa": 17.27,
         "lb": 13.37,
-        "ar": 11.24,
+        "ar": 11.23,
         "va": 16.13
       },
       "composite": {
@@ -12631,17 +12729,17 @@
       "normalized_pillars": {
         "aa": 10.67,
         "lb": 5.43,
-        "ar": 18.34,
+        "ar": 18.31,
         "va": 16.95
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 11.82,
+        "unified_quality_score": 11.81,
         "coding_composite_score": 17.59,
-        "enterprise_agent_score": 13.15,
-        "value_efficiency_score": 12.4,
+        "enterprise_agent_score": 13.14,
+        "value_efficiency_score": 12.39,
         "is_pareto_optimal": false
       }
     },

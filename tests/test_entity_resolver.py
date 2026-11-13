@@ -401,6 +401,82 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
             self.assertIn("zai-glm-5-2", saved_cids)
             self.assertNotIn("cohere-legacy-chat", saved_cids)
 
+    def test_provider_case_mmdd_and_verified_item_date_overrides_sibling(self) -> None:
+        self.assertEqual(_infer_provider("ERNIE 5.1", "baidu"), "Baidu")
+        self.assertEqual(_infer_provider("ERNIE 5.1", "Unknown"), "Baidu")
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            raw_dir = tmp / "raw"
+            pub_dir = tmp / "public_data"
+            aliases_copy = tmp / "model_aliases.json"
+            unmatched_copy = tmp / "unmatched_models.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                (raw_dir / src).mkdir(parents=True, exist_ok=True)
+                (raw_dir / src / "latest.json").write_text(
+                    json.dumps({"fetched_at": "2026-11-13T00:00:00Z", "release": "2026-11-13", "models": []}),
+                    encoding="utf-8",
+                )
+
+            (raw_dir / "arena" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-11-13T00:00:00Z",
+                "models": [
+                    {
+                        "arena_model_id": "Claude Opus 4.6",
+                        "display_name": "Claude Opus 4.6",
+                        "organization": "anthropic",
+                        "license": "Proprietary",
+                        "release_date": "2026-02-17",
+                        "metadata_verified": True,
+                        "text_elo": 1496,
+                        "text_ci_lower": 1490,
+                        "text_ci_upper": 1502,
+                        "coding_elo": 1496,
+                        "vision_elo": None,
+                        "votes": 5000,
+                    },
+                    {
+                        "arena_model_id": "Grok 4.20 Beta (Reasoning, 0309)",
+                        "display_name": "Grok 4.20 Beta (Reasoning, 0309)",
+                        "organization": "xai",
+                        "license": "Proprietary",
+                        "text_elo": 1472,
+                        "text_ci_lower": 1466,
+                        "text_ci_upper": 1478,
+                        "coding_elo": 1472,
+                        "vision_elo": None,
+                        "votes": 5000,
+                    },
+                    {
+                        "arena_model_id": "ERNIE 5.1",
+                        "display_name": "ERNIE 5.1",
+                        "organization": "baidu",
+                        "license": "Proprietary",
+                        "text_elo": 1467,
+                        "text_ci_lower": 1461,
+                        "text_ci_upper": 1473,
+                        "coding_elo": 1467,
+                        "vision_elo": None,
+                        "votes": 5000,
+                    },
+                ],
+            }), encoding="utf-8")
+
+            built = build_unified_dataset(
+                aliases_path=aliases_copy,
+                raw_dir=raw_dir,
+                public_data_dir=pub_dir,
+                unmatched_path=unmatched_copy,
+            )
+            by_id = {m["id"]: m for m in built["models"]}
+            # Sibling date 2025-12-15 must not block item's direct verified 2026-02-17 release date
+            self.assertIn("anthropic-claude-opus-4-6", by_id)
+            self.assertEqual(by_id["anthropic-claude-opus-4-6"]["release_date"], "2026-02-17")
+            self.assertEqual(by_id["xai-grok-4-20-beta-reasoning"]["release_date"], "2026-03-09")
+            self.assertEqual(by_id["baidu-ernie-5-1"]["provider"], "Baidu")
+
 
 if __name__ == "__main__":
     unittest.main()

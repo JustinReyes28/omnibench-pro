@@ -122,6 +122,19 @@ _PROVIDER_ALIASES: dict[str, str] = {
     "inception": "Inception",
     "mercury": "Inception",
     "wonder": "Meta",
+    "baidu": "Baidu",
+    "bytedance": "ByteDance",
+    "01.ai": "01.AI",
+    "01-ai": "01.AI",
+    "tii": "TII",
+    "allenai": "AllenAI",
+    "ai21": "AI21 Labs",
+    "ai21 labs": "AI21 Labs",
+    "liquid": "Liquid AI",
+    "liquid ai": "Liquid AI",
+    "microsoft": "Microsoft",
+    "amazon": "Amazon",
+    "perplexity": "Perplexity",
 }
 
 _PROVIDER_CANONICAL_PREFIX: dict[str, str] = {
@@ -261,13 +274,30 @@ def _infer_family_metadata(
 ) -> dict[str, Any]:
     """Infers release date, open-weights/license, and context window from raw name or same-family sibling."""
     explicit_date: str | None = None
+    explicit_verified = False
     m_iso = re.search(r"(202\d-\d{2}-\d{2})", raw_name)
     if m_iso:
         explicit_date = m_iso.group(1)
+        explicit_verified = True
     else:
         m_8 = re.search(r"(202\d)(\d{2})(\d{2})", raw_name)
         if m_8:
             explicit_date = f"{m_8.group(1)}-{m_8.group(2)}-{m_8.group(3)}"
+            explicit_verified = True
+        else:
+            ref_date = default_date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            m_mmdd = re.search(r"\((?:[^)]*[,\s])?(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\s*\)", raw_name)
+            if m_mmdd and len(ref_date) >= 4 and ref_date[:4].isdigit():
+                yr = int(ref_date[:4])
+                mm = int(m_mmdd.group(1))
+                dd = int(m_mmdd.group(2))
+                try:
+                    cand_dt = datetime(yr, mm, dd).strftime("%Y-%m-%d")
+                    if cand_dt <= ref_date[:10]:
+                        explicit_date = cand_dt
+                        explicit_verified = False
+                except ValueError:
+                    pass
 
     target_keys = {model_family_key(raw_name, provider), model_family_key(auto_cid, provider)} - {""}
     verified_sibling_dates: list[str] = []
@@ -302,10 +332,11 @@ def _infer_family_metadata(
 
     if explicit_date:
         release_date: str | None = explicit_date
-        metadata_verified = True
+        metadata_verified = explicit_verified
     elif verified_sibling_dates:
+        # Sibling-inherited date remains an inference so direct upstream verification can upgrade it
         release_date = min(verified_sibling_dates)
-        metadata_verified = True
+        metadata_verified = False
     elif unverified_sibling_dates:
         release_date = min(unverified_sibling_dates)
         metadata_verified = False
@@ -635,6 +666,12 @@ class EntityResolver:
         is_auto = bool(entry.get("auto_promoted") or cid in self.auto_promoted_ids)
         if not is_auto:
             return entry
+
+        cur_prov = str(entry.get("provider") or "Unknown")
+        clean_prov = _infer_provider(str(entry.get("display_name") or display_name or cid), cur_prov)
+        if clean_prov != "Unknown" and clean_prov != cur_prov:
+            entry["provider"] = clean_prov
+            self.registry_dirty = True
 
         if release_date and (not entry.get("metadata_verified") or not entry.get("release_date")):
             if entry.get("release_date") != release_date:

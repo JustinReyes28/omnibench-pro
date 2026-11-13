@@ -113,6 +113,8 @@ def build_unified_dataset(
             metadata_verified=bool(item.get("metadata_verified") or item_rd),
         )
         target_meta = updated_meta or meta
+        if target_meta.get("provider") and target_meta["provider"] != "Unknown":
+            rec["provider"] = target_meta["provider"]
         rec["release_date"] = target_meta["release_date"]
         rec["license"] = target_meta["license"]
         rec["is_open_weights"] = bool(target_meta["is_open_weights"])

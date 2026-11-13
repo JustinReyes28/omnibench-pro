@@ -4,7 +4,6 @@ import {
   CAPABILITY_AXES,
   formatReleaseDateShort,
   getCapabilityScores,
-  getCapabilityStrengthProfile,
 } from '../lib/capabilities';
 import { getLabStyle } from '../lib/labPalette';
 
@@ -207,10 +206,6 @@ export const ModelComparisonModal: React.FC<Props> = ({ models, onRemove }) => {
             const color = SERIES_COLORS[idx % SERIES_COLORS.length];
             const labStyle = getLabStyle(m.provider);
             const caps = getCapabilityScores(m);
-            const profile = getCapabilityStrengthProfile(m, {
-              isPareto: m.isDynamicPareto,
-              score: m.dynamicScore,
-            });
 
             return (
               <div
@@ -241,12 +236,6 @@ export const ModelComparisonModal: React.FC<Props> = ({ models, onRemove }) => {
                             {m.composite.sources_present}/4 SRC
                           </span>
                         )}
-                        <span
-                          className="px-1.5 font-semibold text-white"
-                          style={{ backgroundColor: profile.badgeColor }}
-                        >
-                          {profile.badgeLabel}
-                        </span>
                       </div>
                     </div>
                     <button

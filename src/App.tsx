@@ -9,7 +9,6 @@ import { LeaderboardTable, ScoredModelEntry } from './components/LeaderboardTabl
 import { ParetoChart } from './components/ParetoChart';
 import { ModelComparisonModal } from './components/ModelComparisonModal';
 import { ReleaseTimelinePage } from './components/ReleaseTimelinePage';
-import { getCapabilityStrengthProfile } from './lib/capabilities';
 
 export const App: React.FC = () => {
   const [payload, setPayload] = useState<UnifiedDataset | null>(null);
@@ -63,11 +62,7 @@ export const App: React.FC = () => {
           return false;
         if (state.searchQuery) {
           const q = state.searchQuery.toLowerCase();
-          const profile = getCapabilityStrengthProfile(m, {
-            isPareto: m.isDynamicPareto,
-            score: m.dynamicScore,
-          });
-          const target = `${m.display_name} ${m.provider} ${m.thinking_effort || ''} ${m.license} ${profile.badgeLabel} ${m.composite.sources_present}/4`.toLowerCase();
+          const target = `${m.display_name} ${m.provider} ${m.thinking_effort || ''} ${m.license} ${m.composite.sources_present}/4`.toLowerCase();
           if (!target.includes(q)) return false;
         }
         return true;

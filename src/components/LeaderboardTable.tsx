@@ -7,7 +7,6 @@ import {
   CapabilityAxisKey,
   formatReleaseDateShort,
   getCapabilityScores,
-  getCapabilityStrengthProfile,
 } from '../lib/capabilities';
 
 export interface ScoredModelEntry extends CanonicalModel {
@@ -336,7 +335,7 @@ export const LeaderboardTable: React.FC<Props> = ({
         {/* Capability Header Row */}
         {breakdownMode === 'capabilities' && (
           <div className="hidden grid-cols-12 items-center gap-3 border-b border-[#EBE8E0] bg-[#FDFCFB] px-6 py-1.5 font-mono text-[9px] font-bold uppercase tracking-wider text-[#68707C] sm:grid">
-            <div className="col-span-4">Model · Release &amp; Strength Profile</div>
+            <div className="col-span-4">Model · Release &amp; Cost</div>
             <div className="col-span-6 grid grid-cols-5 gap-2">
               {CAPABILITY_AXES.map((ax) => (
                 <div key={ax.key} className="text-center" title={ax.description}>
@@ -370,10 +369,6 @@ export const LeaderboardTable: React.FC<Props> = ({
             const labStyle = getLabStyle(m.provider);
             const isCompared = comparedIds.includes(m.id);
             const caps = getCapabilityScores(m);
-            const profile = getCapabilityStrengthProfile(m, {
-              isPareto: m.isDynamicPareto,
-              score: m.dynamicScore,
-            });
             const focusVal = getFocusMetric(m, breakdownFocus);
 
             return (
@@ -430,12 +425,6 @@ export const LeaderboardTable: React.FC<Props> = ({
                         {m.pricing.blended_per_1m_usd !== null
                           ? `$${m.pricing.blended_per_1m_usd.toFixed(2)}/1M`
                           : 'Price N/A'}
-                      </span>
-                      <span
-                        className="ml-0.5 px-1 text-[8px] font-semibold uppercase text-white"
-                        style={{ backgroundColor: profile.badgeColor }}
-                      >
-                        {profile.badgeLabel}
                       </span>
                     </div>
                   </div>
@@ -573,7 +562,7 @@ export const LeaderboardTable: React.FC<Props> = ({
               type="text"
               value={filterState.searchQuery}
               onChange={(e) => onFilterChange({ searchQuery: e.target.value })}
-              placeholder="Search model, lab, capability (e.g. Enterprise)..."
+              placeholder="Search model, provider, effort, or license..."
               className="w-64 border border-[#111317] bg-[#FFFFFF] px-3 py-1.5 font-mono text-xs text-[#111317] placeholder-[#68707C] focus:border-[#C84B31] focus:outline-none"
             />
 
@@ -698,7 +687,7 @@ export const LeaderboardTable: React.FC<Props> = ({
             <thead>
               <tr className="border-b-2 border-[#111317] bg-[#111317] font-mono text-[10px] font-semibold uppercase tracking-wider text-white">
                 <th className="py-3 pl-4 pr-2">#</th>
-                <th className="px-3 py-3">Model, Provider &amp; Strength</th>
+                <th className="px-3 py-3">Model &amp; Provider</th>
                 <th
                   onClick={() => handleHeaderSort('dynamicScore')}
                   className="px-3 py-3 text-right cursor-pointer hover:bg-[#373C44] text-[#F4A261]"
@@ -787,10 +776,6 @@ export const LeaderboardTable: React.FC<Props> = ({
                   const ar = m.benchmarks.arena;
                   const va = m.benchmarks.vals;
                   const caps = getCapabilityScores(m);
-                  const profile = getCapabilityStrengthProfile(m, {
-                    isPareto: m.isDynamicPareto,
-                    score: m.dynamicScore,
-                  });
                   const effort = (m.thinking_effort || 'standard').toUpperCase();
                   const labStyle = getLabStyle(m.provider);
                   const colCount = tableViewMode === 'capabilities' ? 11 : 10;
@@ -842,12 +827,6 @@ export const LeaderboardTable: React.FC<Props> = ({
                             <span>{(m.context_window / 1000).toFixed(0)}k ctx</span>
                             <span>•</span>
                             <span>{m.license}</span>
-                            <span
-                              className="px-1.5 py-0.2 text-[9px] font-semibold uppercase text-white"
-                              style={{ backgroundColor: profile.badgeColor }}
-                            >
-                              {profile.badgeLabel}
-                            </span>
                           </div>
                         </td>
                         <td className="px-3 py-3 text-right font-mono text-xs font-bold text-[#C84B31]">
@@ -945,12 +924,6 @@ export const LeaderboardTable: React.FC<Props> = ({
                               <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
                                 <span className="font-bold uppercase text-[#111317]">
                                   Calibrated 5-Domain Capability Profile ({m.composite.sources_present}/4 Sources)
-                                </span>
-                                <span
-                                  className="px-2 py-0.5 text-[10px] font-bold uppercase text-white"
-                                  style={{ backgroundColor: profile.badgeColor }}
-                                >
-                                  {profile.badgeLabel}
                                 </span>
                               </div>
                               <div className="grid grid-cols-1 gap-3 sm:grid-cols-5">

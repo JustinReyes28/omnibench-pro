@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ScoredModelEntry } from './LeaderboardTable';
 import { getLabStyle } from '../lib/labPalette';
-import { getCapabilityStrengthProfile } from '../lib/capabilities';
+import { getTopCapabilities } from '../lib/capabilities';
 import { ParetoScaleMode } from '../hooks/useUrlFilterState';
 
 interface Props {
@@ -552,10 +552,7 @@ export const ParetoChart: React.FC<Props> = ({
 
         {/* Hover Tooltip Overlay */}
         {hoveredModel && (() => {
-          const hoveredProfile = getCapabilityStrengthProfile(hoveredModel, {
-            isPareto: hoveredModel.isDynamicPareto,
-            score: hoveredModel.dynamicScore,
-          });
+          const topCaps = getTopCapabilities(hoveredModel, 2);
           return (
             <div
               className="pointer-events-none absolute z-30 border-2 border-[#111317] bg-[#FFFFFF] p-3 font-mono text-xs shadow-[4px_4px_0_#111317]"
@@ -564,7 +561,7 @@ export const ParetoChart: React.FC<Props> = ({
                   Math.max(16, toX(hoveredModel.pricing.blended_per_1m_usd) + 14),
                   containerWidth - 260
                 ),
-                top: Math.max(16, Math.min(toY(hoveredModel.dynamicScore) - 40, CHART_HEIGHT - 172)),
+                top: Math.max(16, Math.min(toY(hoveredModel.dynamicScore) - 40, CHART_HEIGHT - 165)),
                 width: 244,
               }}
             >
@@ -619,21 +616,14 @@ export const ParetoChart: React.FC<Props> = ({
                     </span>
                   </div>
                 )}
-                <div className="mt-1 flex flex-wrap items-center justify-between gap-1 border-t border-[#D8D4C8] pt-1 text-[9px]">
-                  <span
-                    className="px-1.5 py-0.2 font-bold uppercase text-white"
-                    style={{ backgroundColor: hoveredProfile.badgeColor }}
-                  >
-                    {hoveredProfile.badgeLabel}
-                  </span>
-                  {hoveredProfile.topAxes.length > 0 && (
+                {topCaps.length > 0 && (
+                  <div className="flex justify-between border-t border-[#D8D4C8] pt-1 text-[10px]">
+                    <span className="text-[#68707C]">Top Domains:</span>
                     <span className="font-semibold text-[#111317]">
-                      {hoveredProfile.topAxes
-                        .map((ax) => `${ax.shortLabel} ${ax.score.toFixed(0)}`)
-                        .join(' · ')}
+                      {topCaps.map((ax) => `${ax.shortLabel} ${ax.score.toFixed(0)}`).join(' · ')}
                     </span>
-                  )}
-                </div>
+                  </div>
+                )}
                 {hoveredModel.isDynamicPareto && (
                   <div className="mt-1 border-t border-[#D8D4C8] pt-1 font-bold uppercase text-[#C84B31]">
                     ★ Pareto Frontier Optimal

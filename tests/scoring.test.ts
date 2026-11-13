@@ -9,7 +9,7 @@ import {
   scoreModelsWithWeights,
 } from "../src/lib/scoring";
 
-import { getCapabilityScores, getCapabilityStrengthProfile } from "../src/lib/capabilities";
+import { getCapabilityScores, getTopCapabilities } from "../src/lib/capabilities";
 
 describe("UnifiedDatasetSchema & scoring invariants", () => {
   const unifiedPath = resolve(process.cwd(), "public/data/models_unified.json");
@@ -28,8 +28,8 @@ describe("UnifiedDatasetSchema & scoring invariants", () => {
         expect(v).toBeGreaterThanOrEqual(0);
         expect(v).toBeLessThanOrEqual(100);
       }
-      const profile = getCapabilityStrengthProfile(m);
-      expect(profile.evaluatedCount).toBeGreaterThanOrEqual(1);
+      const topCaps = getTopCapabilities(m);
+      expect(topCaps.length).toBeGreaterThanOrEqual(1);
     }
 
     const hydrogen = parsed.models.filter((m) =>

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { ScoredModelEntry } from './LeaderboardTable';
 import { getLabStyle } from '../lib/labPalette';
-import { getCapabilityStrengthProfile } from '../lib/capabilities';
+import { getTopCapabilities } from '../lib/capabilities';
 
 interface Props {
   models: ScoredModelEntry[];
@@ -450,10 +450,7 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                         const efforts = Array.from(
                           new Set(item.variants.map((v) => (v.thinking_effort || 'standard').toUpperCase()))
                         );
-                        const profile = getCapabilityStrengthProfile(m, {
-                          isPareto: item.isPareto,
-                          score: m.dynamicScore,
-                        });
+                        const topCaps = getTopCapabilities(m, 2);
 
                         return (
                           <div
@@ -489,12 +486,6 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                                     OPEN
                                   </span>
                                 )}
-                                <span
-                                  className="px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase text-white"
-                                  style={{ backgroundColor: profile.badgeColor }}
-                                >
-                                  {profile.badgeLabel}
-                                </span>
                               </div>
 
                               <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[10px] text-[#68707C]">
@@ -514,11 +505,11 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                                     </span>
                                   ))}
                                 </span>
-                                {profile.topAxes.length > 0 && (
+                                {topCaps.length > 0 && (
                                   <>
                                     <span>•</span>
                                     <span className="inline-flex flex-wrap items-center gap-1">
-                                      {profile.topAxes.map((ax) => (
+                                      {topCaps.map((ax) => (
                                         <span
                                           key={`${item.key}-${ax.key}`}
                                           className="border border-[#D8D4C8] bg-[#FFFFFF] px-1 py-0.2 text-[9px] font-bold text-[#111317]"

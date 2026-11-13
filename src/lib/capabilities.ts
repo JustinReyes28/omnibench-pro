@@ -67,111 +67,26 @@ export function getCapabilityScores(model: CanonicalModel): ModelCapabilities {
   };
 }
 
-export interface CapabilityStrengthProfile {
-  badgeLabel: string;
-  badgeColor: string;
-  topAxes: Array<{ key: CapabilityAxisKey; shortLabel: string; score: number; color: string }>;
-  evaluatedCount: number;
+export interface EvaluatedCapabilityItem {
+  key: CapabilityAxisKey;
+  shortLabel: string;
+  label: string;
+  score: number;
+  color: string;
 }
 
-const AXIS_LEAD_LABELS: Record<CapabilityAxisKey, string> = {
-  coding: 'Coding Specialist',
-  reasoning: 'Reasoning & Math',
-  agentic: 'Agentic Execution',
-  enterprise: 'Enterprise Specialist',
-  chat: 'Human Chat Favorite',
-};
-
-export function getCapabilityStrengthProfile(
-  model: CanonicalModel,
-  options?: { isPareto?: boolean; score?: number }
-): CapabilityStrengthProfile {
+export function getTopCapabilities(model: CanonicalModel, limit = 2): EvaluatedCapabilityItem[] {
   const scores = getCapabilityScores(model);
-  const evaluated = CAPABILITY_AXES.map((axis) => ({
+  return CAPABILITY_AXES.map((axis) => ({
     key: axis.key,
     shortLabel: axis.shortLabel,
+    label: axis.label,
     color: axis.color,
     score: scores[axis.key],
   }))
-    .filter((item): item is { key: CapabilityAxisKey; shortLabel: string; color: string; score: number } =>
-      typeof item.score === 'number'
-    )
-    .sort((a, b) => b.score - a.score);
-
-  const topAxes = evaluated.slice(0, 2);
-  if (evaluated.length === 0) {
-    return {
-      badgeLabel: 'Pending Profile',
-      badgeColor: '#68707C',
-      topAxes: [],
-      evaluatedCount: 0,
-    };
-  }
-
-  const peak = evaluated[0];
-  const floor = evaluated[evaluated.length - 1];
-  const median = evaluated[Math.floor(evaluated.length / 2)].score;
-  const effectiveScore = options?.score ?? model.composite.unified_quality_score;
-  const price = model.pricing.blended_per_1m_usd;
-
-  if (evaluated.length >= 4 && floor.score >= 85 && peak.score >= 92) {
-    return {
-      badgeLabel: 'All-Round Frontier',
-      badgeColor: '#C84B31',
-      topAxes,
-      evaluatedCount: evaluated.length,
-    };
-  }
-
-  if (
-    typeof scores.coding === 'number' &&
-    typeof scores.reasoning === 'number' &&
-    scores.coding >= 82 &&
-    scores.reasoning >= 82 &&
-    typeof scores.chat === 'number' &&
-    scores.reasoning - scores.chat >= 7
-  ) {
-    return {
-      badgeLabel: 'STEM & Coding Lead',
-      badgeColor: '#255C99',
-      topAxes,
-      evaluatedCount: evaluated.length,
-    };
-  }
-
-  if (peak.score - median >= 7 && peak.score >= 55) {
-    return {
-      badgeLabel: AXIS_LEAD_LABELS[peak.key],
-      badgeColor: peak.color,
-      topAxes,
-      evaluatedCount: evaluated.length,
-    };
-  }
-
-  if (options?.isPareto && price !== null && price <= 1.25 && effectiveScore >= 45) {
-    return {
-      badgeLabel: 'Efficiency Frontier',
-      badgeColor: '#1F7A63',
-      topAxes,
-      evaluatedCount: evaluated.length,
-    };
-  }
-
-  if (evaluated.length < 4) {
-    return {
-      badgeLabel: `Partial · ${peak.shortLabel} ${peak.score.toFixed(0)}`,
-      badgeColor: '#68707C',
-      topAxes,
-      evaluatedCount: evaluated.length,
-    };
-  }
-
-  return {
-    badgeLabel: effectiveScore >= 70 ? 'Balanced Tier-1' : 'Balanced Generalist',
-    badgeColor: '#373C44',
-    topAxes,
-    evaluatedCount: evaluated.length,
-  };
+    .filter((item): item is EvaluatedCapabilityItem => typeof item.score === 'number')
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit);
 }
 
 export function formatReleaseDateShort(isoDate: string): string {

@@ -1,13 +1,13 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-13T08:31:00Z",
+  "updated_at": "2026-11-13T08:58:26Z",
   "entries": [
     {
       "date": "2026-11-13",
       "type": "release_sync",
-      "summary": "Autonomous 12-hour sync expanded the verified fleet to 200 models (139 full 4/4 coverage, 61 early partial-source releases).",
+      "summary": "Verified multi-source fleet (148 models requiring >=2 independent benchmarks: 139 full 4/4 coverage, 9 dual-source 2/4 models) with 5-dimension capability profiles.",
       "highlights": [
-        "Newly indexed flagship releases include: Gemini 4 Hydrogen (xhigh), Gemini 4 Hydrogen (high), Gemini 4 Hydrogen (medium), Gemini 4 Hydrogen (low)."
+        "Newly indexed verified releases include: Gemini 4 Hydrogen (xhigh), Gemini 4 Hydrogen (high)."
       ]
     },
     {

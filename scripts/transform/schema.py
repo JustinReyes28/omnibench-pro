@@ -110,4 +110,13 @@ def validate_canonical_model_record(record: dict[str, Any]) -> dict[str, Any]:
     if not isinstance(comp.get("is_pareto_optimal"), bool):
         raise TypeError("composite.is_pareto_optimal must be boolean")
 
+    caps = record.get("capabilities")
+    if caps is not None:
+        if not isinstance(caps, dict):
+            raise TypeError(f"capabilities must be a dict in {record.get('id')}")
+        for k in ("coding", "reasoning", "agentic", "enterprise", "chat"):
+            _check_finite_number(caps.get(k), f"capabilities.{k}", allow_none=True, min_val=0.0, max_val=100.0)
+        if not any(caps.get(k) is not None for k in ("coding", "reasoning", "agentic", "enterprise", "chat")):
+            raise ValueError(f"Record {record.get('id')} has zero evaluated capability dimensions")
+
     return record

@@ -11,6 +11,7 @@ export interface DashboardFilterState {
   searchQuery: string;
   openWeightsOnly: boolean;
   paretoOnly: boolean;
+  fullCoverageOnly: boolean;
   providerFilter: string;
   effortFilter: string;
   comparedModelIds: string[];
@@ -41,13 +42,14 @@ export function useUrlFilterState() {
       searchQuery: params.get("q") || "",
       openWeightsOnly: params.get("open") === "1",
       paretoOnly: params.get("pareto") === "1",
+      fullCoverageOnly: params.get("full") === "1",
       providerFilter: params.get("provider") || "ALL",
       effortFilter: params.get("effort") || "ALL",
       comparedModelIds: compareParam
         ? compareParam.split(",").filter(Boolean).slice(0, 4)
         : [
+            "anthropic-claude-fable-5-2-max",
             "google-gemini-4-carbon-high",
-            "anthropic-claude-opus-5-5",
             "openai-gpt-6-astra-max",
             "deepseek-v4-1-flash-1017",
           ],
@@ -63,6 +65,7 @@ export function useUrlFilterState() {
     if (state.searchQuery) params.set("q", state.searchQuery);
     if (state.openWeightsOnly) params.set("open", "1");
     if (state.paretoOnly) params.set("pareto", "1");
+    if (state.fullCoverageOnly) params.set("full", "1");
     if (state.providerFilter !== "ALL") params.set("provider", state.providerFilter);
     if (state.effortFilter !== "ALL") params.set("effort", state.effortFilter);
     if (state.comparedModelIds.length > 0) params.set("compare", state.comparedModelIds.join(","));

@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { ScoredModelEntry } from './LeaderboardTable';
 import { getLabStyle } from '../lib/labPalette';
+import { getCapabilityStrengthProfile } from '../lib/capabilities';
 
 interface Props {
   models: ScoredModelEntry[];
@@ -449,6 +450,10 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                         const efforts = Array.from(
                           new Set(item.variants.map((v) => (v.thinking_effort || 'standard').toUpperCase()))
                         );
+                        const profile = getCapabilityStrengthProfile(m, {
+                          isPareto: item.isPareto,
+                          score: m.dynamicScore,
+                        });
 
                         return (
                           <div
@@ -468,7 +473,7 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                                 </span>
                                 {maxSources < 4 && (
                                   <span
-                                    className="border border-[#68707C] bg-[#EBE8E0] px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase text-[#373C44]"
+                                    className="border border-[#C57B18] bg-[#C57B18]/15 px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase text-[#8A530B]"
                                     title={`Evaluated on ${maxSources} of 4 benchmark sources`}
                                   >
                                     {maxSources}/4 SRC
@@ -484,6 +489,12 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                                     OPEN
                                   </span>
                                 )}
+                                <span
+                                  className="px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase text-white"
+                                  style={{ backgroundColor: profile.badgeColor }}
+                                >
+                                  {profile.badgeLabel}
+                                </span>
                               </div>
 
                               <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[10px] text-[#68707C]">
@@ -503,6 +514,21 @@ export const ReleaseTimelinePage: React.FC<Props> = ({
                                     </span>
                                   ))}
                                 </span>
+                                {profile.topAxes.length > 0 && (
+                                  <>
+                                    <span>•</span>
+                                    <span className="inline-flex flex-wrap items-center gap-1">
+                                      {profile.topAxes.map((ax) => (
+                                        <span
+                                          key={`${item.key}-${ax.key}`}
+                                          className="border border-[#D8D4C8] bg-[#FFFFFF] px-1 py-0.2 text-[9px] font-bold text-[#111317]"
+                                        >
+                                          {ax.shortLabel} {ax.score.toFixed(0)}
+                                        </span>
+                                      ))}
+                                    </span>
+                                  </>
+                                )}
                               </div>
                             </div>
 

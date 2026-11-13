@@ -15,6 +15,7 @@ from scripts.transform.entity_resolver import (
     release_family_key,
 )
 from scripts.transform.normalizer import (
+    compute_capability_score,
     compute_percentile_ranks,
     compute_weighted_composite,
     mark_pareto_frontier,
@@ -34,6 +35,7 @@ def build_unified_dataset(
     raw_dir: Path | None = None,
     public_data_dir: Path | None = None,
     unmatched_path: Path | None = None,
+    min_sources: int = 2,
 ) -> dict[str, Any]:
     resolver = EntityResolver(aliases_path=aliases_path)
     src_root = raw_dir or RAW_DIR
@@ -417,6 +419,17 @@ def build_unified_dataset(
     resolver.save_registry(path=aliases_path)
     resolver.save_unmatched_queue(path=unmatched_path)
 
+    # 6b. Gate published leaderboard to corroborated multi-source models (>= min_sources) BEFORE normalization,
+    # while keeping valid single-source models tracked in model_aliases.json so they auto-graduate smoothly once
+    # a 2nd independent benchmark evaluates them.
+    gated_out_cids = [
+        cid
+        for cid, rec in merged.items()
+        if sum(1 for k in _ALL_SOURCES if rec["benchmarks"].get(k) is not None) < max(1, min_sources)
+    ]
+    for cid in gated_out_cids:
+        merged.pop(cid, None)
+
     # Compute calibrated normalized scores across all 4 sources
     aa_map = {
         cid: r["benchmarks"]["artificial_analysis"]["intelligence_index"]
@@ -448,9 +461,19 @@ def build_unified_dataset(
     va_norm = compute_percentile_ranks(va_map)
 
     aa_code_norm = compute_percentile_ranks({cid: r["benchmarks"]["artificial_analysis"]["coding_index"] for cid, r in merged.items() if r["benchmarks"]["artificial_analysis"]})
+    aa_math_norm = compute_percentile_ranks({cid: r["benchmarks"]["artificial_analysis"]["math_index"] for cid, r in merged.items() if r["benchmarks"]["artificial_analysis"]})
     lb_code_norm = compute_percentile_ranks({cid: r["benchmarks"]["livebench"]["coding"] for cid, r in merged.items() if r["benchmarks"]["livebench"]})
+    lb_agent_norm = compute_percentile_ranks({cid: r["benchmarks"]["livebench"]["agentic_coding"] for cid, r in merged.items() if r["benchmarks"]["livebench"]})
+    lb_math_norm = compute_percentile_ranks({cid: r["benchmarks"]["livebench"]["mathematics"] for cid, r in merged.items() if r["benchmarks"]["livebench"]})
+    lb_reas_norm = compute_percentile_ranks({cid: r["benchmarks"]["livebench"]["reasoning"] for cid, r in merged.items() if r["benchmarks"]["livebench"]})
+    lb_data_norm = compute_percentile_ranks({cid: r["benchmarks"]["livebench"]["data_analysis"] for cid, r in merged.items() if r["benchmarks"]["livebench"]})
+    lb_lang_norm = compute_percentile_ranks({cid: r["benchmarks"]["livebench"]["language"] for cid, r in merged.items() if r["benchmarks"]["livebench"]})
+    lb_if_norm = compute_percentile_ranks({cid: r["benchmarks"]["livebench"]["instruction_following"] for cid, r in merged.items() if r["benchmarks"]["livebench"]})
+    ar_text_norm = compute_percentile_ranks({cid: float(r["benchmarks"]["arena"]["text_elo"]) for cid, r in merged.items() if r["benchmarks"]["arena"]})
     ar_code_norm = compute_percentile_ranks({cid: float(r["benchmarks"]["arena"]["coding_elo"]) for cid, r in merged.items() if r["benchmarks"]["arena"]})
-    va_code_norm = compute_percentile_ranks({cid: r["benchmarks"]["vals"]["vibe_code"] for cid, r in merged.items() if r["benchmarks"]["vals"]})
+    va_fin_norm = compute_percentile_ranks({cid: r["benchmarks"]["vals"]["finance_agent"] for cid, r in merged.items() if r["benchmarks"]["vals"]})
+    va_leg_norm = compute_percentile_ranks({cid: r["benchmarks"]["vals"]["legal_bench"] for cid, r in merged.items() if r["benchmarks"]["vals"]})
+    va_tax_norm = compute_percentile_ranks({cid: r["benchmarks"]["vals"]["tax_agent"] for cid, r in merged.items() if r["benchmarks"]["vals"]})
 
     models_list: list[dict[str, Any]] = []
     for cid, rec in merged.items():
@@ -466,13 +489,72 @@ def build_unified_dataset(
         }
         unified_q = compute_weighted_composite(pillars, {"aa": 30.0, "lb": 30.0, "ar": 15.0, "va": 25.0})
 
+        cap_coding = compute_capability_score(
+            {
+                "aa_code": aa_code_norm.get(cid),
+                "lb_code": lb_code_norm.get(cid),
+                "lb_agent": lb_agent_norm.get(cid),
+                "ar_code": ar_code_norm.get(cid),
+            },
+            {"aa_code": 35.0, "lb_code": 35.0, "lb_agent": 15.0, "ar_code": 15.0},
+        )
+        cap_reasoning = compute_capability_score(
+            {
+                "aa_intel": aa_norm.get(cid),
+                "aa_math": aa_math_norm.get(cid),
+                "lb_reas": lb_reas_norm.get(cid),
+                "lb_math": lb_math_norm.get(cid),
+            },
+            {"aa_intel": 25.0, "aa_math": 25.0, "lb_reas": 25.0, "lb_math": 25.0},
+        )
+        cap_agentic = compute_capability_score(
+            {
+                "lb_agent": lb_agent_norm.get(cid),
+                "lb_if": lb_if_norm.get(cid),
+                "va_fin": va_fin_norm.get(cid),
+            },
+            {"lb_agent": 40.0, "lb_if": 35.0, "va_fin": 25.0},
+        )
+        cap_enterprise = compute_capability_score(
+            {
+                "va_idx": va_norm.get(cid),
+                "va_fin": va_fin_norm.get(cid),
+                "va_leg": va_leg_norm.get(cid),
+                "va_tax": va_tax_norm.get(cid),
+                "lb_data": lb_data_norm.get(cid),
+            },
+            {"va_idx": 35.0, "va_fin": 20.0, "va_leg": 20.0, "va_tax": 15.0, "lb_data": 10.0},
+        )
+        cap_chat = compute_capability_score(
+            {
+                "ar_text": ar_text_norm.get(cid),
+                "lb_lang": lb_lang_norm.get(cid),
+            },
+            {"ar_text": 65.0, "lb_lang": 35.0},
+        )
+
+        # Ensure every active model retains at least one finite capability dimension even on minimal synthetic fixtures
+        if not any(v is not None for v in (cap_coding, cap_reasoning, cap_agentic, cap_enterprise, cap_chat)):
+            if ar_text_norm.get(cid) is not None:
+                cap_chat = round(ar_text_norm[cid], 1)
+            elif aa_norm.get(cid) is not None:
+                cap_reasoning = round(aa_norm[cid], 1)
+            elif lb_norm.get(cid) is not None:
+                cap_reasoning = round(lb_norm[cid], 1)
+            elif va_norm.get(cid) is not None:
+                cap_enterprise = round(va_norm[cid], 1)
+
         code_pillars = {
             "aa": aa_code_norm.get(cid),
             "lb": lb_code_norm.get(cid),
             "ar": ar_code_norm.get(cid),
-            "va": va_code_norm.get(cid),
+            "va": None,
         }
-        coding_comp = compute_weighted_composite(code_pillars, {"aa": 35.0, "lb": 40.0, "ar": 10.0, "va": 15.0})
+        coding_comp = (
+            cap_coding
+            if cap_coding is not None
+            else compute_weighted_composite(code_pillars, {"aa": 40.0, "lb": 45.0, "ar": 15.0})
+        )
 
         ent_pillars = {
             "aa": aa_norm.get(cid),
@@ -480,7 +562,11 @@ def build_unified_dataset(
             "ar": ar_norm.get(cid),
             "va": va_norm.get(cid),
         }
-        enterprise_comp = compute_weighted_composite(ent_pillars, {"aa": 25.0, "lb": 20.0, "ar": 5.0, "va": 50.0})
+        enterprise_comp = (
+            cap_enterprise
+            if cap_enterprise is not None
+            else compute_weighted_composite(ent_pillars, {"aa": 25.0, "lb": 20.0, "ar": 5.0, "va": 50.0})
+        )
 
         blended_price = rec["pricing"]["blended_per_1m_usd"]
         if blended_price is not None and blended_price > 0:
@@ -494,6 +580,13 @@ def build_unified_dataset(
             "lb": pillars["lb"],
             "ar": pillars["ar"],
             "va": pillars["va"],
+        }
+        rec["capabilities"] = {
+            "coding": cap_coding,
+            "reasoning": cap_reasoning,
+            "agentic": cap_agentic,
+            "enterprise": cap_enterprise,
+            "chat": cap_chat,
         }
         rec["composite"] = {
             "sources_present": sources_present,
@@ -563,6 +656,7 @@ def build_unified_dataset(
     print(
         f"[build_dataset] Built {len(models_list)} canonical models ({size_kb:.1f} KB) | "
         f"Pareto optimal={sum(1 for m in models_list if m['composite']['is_pareto_optimal'])} | "
+        f"Gated <{min_sources}src={len(gated_out_cids)} | "
         f"Unmatched quarantined={len(resolver.unmatched_queue)}"
     )
     return payload

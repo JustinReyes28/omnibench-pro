@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ScoredModelEntry } from './LeaderboardTable';
 import { getLabStyle } from '../lib/labPalette';
+import { getCapabilityStrengthProfile } from '../lib/capabilities';
 import { ParetoScaleMode } from '../hooks/useUrlFilterState';
 
 interface Props {
@@ -550,77 +551,98 @@ export const ParetoChart: React.FC<Props> = ({
         </svg>
 
         {/* Hover Tooltip Overlay */}
-        {hoveredModel && (
-          <div
-            className="pointer-events-none absolute z-30 border-2 border-[#111317] bg-[#FFFFFF] p-3 font-mono text-xs shadow-[4px_4px_0_#111317]"
-            style={{
-              left: Math.min(
-                Math.max(16, toX(hoveredModel.pricing.blended_per_1m_usd) + 14),
-                containerWidth - 250
-              ),
-              top: Math.max(16, Math.min(toY(hoveredModel.dynamicScore) - 40, CHART_HEIGHT - 130)),
-              width: 230,
-            }}
-          >
-            <div className="flex items-center gap-1.5 border-b border-[#D8D4C8] pb-1.5">
-              <span
-                className="inline-flex h-4 w-4 shrink-0 items-center justify-center font-bold text-[8px]"
-                style={{
-                  backgroundColor: getLabStyle(hoveredModel.provider).badgeBg,
-                  color: getLabStyle(hoveredModel.provider).badgeText,
-                }}
-              >
-                {getLabStyle(hoveredModel.provider).short}
-              </span>
-              <span className="truncate font-heading font-bold text-[#111317]">
-                {hoveredModel.display_name}
-              </span>
-            </div>
-            <div className="mt-1.5 space-y-1 text-[11px] text-[#373C44]">
-              <div className="flex justify-between">
-                <span>Provider:</span>
-                <span className="font-semibold text-[#111317]">{hoveredModel.provider}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Thinking Effort:</span>
-                <span className="uppercase text-[#255C99] font-semibold">
-                  {hoveredModel.thinking_effort || 'standard'}
+        {hoveredModel && (() => {
+          const hoveredProfile = getCapabilityStrengthProfile(hoveredModel, {
+            isPareto: hoveredModel.isDynamicPareto,
+            score: hoveredModel.dynamicScore,
+          });
+          return (
+            <div
+              className="pointer-events-none absolute z-30 border-2 border-[#111317] bg-[#FFFFFF] p-3 font-mono text-xs shadow-[4px_4px_0_#111317]"
+              style={{
+                left: Math.min(
+                  Math.max(16, toX(hoveredModel.pricing.blended_per_1m_usd) + 14),
+                  containerWidth - 260
+                ),
+                top: Math.max(16, Math.min(toY(hoveredModel.dynamicScore) - 40, CHART_HEIGHT - 172)),
+                width: 244,
+              }}
+            >
+              <div className="flex items-center gap-1.5 border-b border-[#D8D4C8] pb-1.5">
+                <span
+                  className="inline-flex h-4 w-4 shrink-0 items-center justify-center font-bold text-[8px]"
+                  style={{
+                    backgroundColor: getLabStyle(hoveredModel.provider).badgeBg,
+                    color: getLabStyle(hoveredModel.provider).badgeText,
+                  }}
+                >
+                  {getLabStyle(hoveredModel.provider).short}
+                </span>
+                <span className="truncate font-heading font-bold text-[#111317]">
+                  {hoveredModel.display_name}
                 </span>
               </div>
-              <div className="flex justify-between">
-                <span>Unified Score:</span>
-                <span className="font-bold text-[#C84B31]">
-                  {hoveredModel.dynamicScore.toFixed(2)} pts
-                </span>
-              </div>
-              <div className="flex justify-between">
-                <span>Blended Price:</span>
-                <span className="font-bold text-[#111317]">
-                  ${hoveredModel.pricing.blended_per_1m_usd.toFixed(2)} / 1M
-                </span>
-              </div>
-              {hoveredModel.performance.output_tokens_per_sec !== null && (
+              <div className="mt-1.5 space-y-1 text-[11px] text-[#373C44]">
                 <div className="flex justify-between">
-                  <span>Speed:</span>
-                  <span>{hoveredModel.performance.output_tokens_per_sec.toFixed(0)} tok/s</span>
+                  <span>Provider:</span>
+                  <span className="font-semibold text-[#111317]">{hoveredModel.provider}</span>
                 </div>
-              )}
-              {hoveredModel.composite.sources_present < 4 && (
                 <div className="flex justify-between">
-                  <span>Coverage:</span>
-                  <span className="font-semibold text-[#68707C]">
-                    {hoveredModel.composite.sources_present}/4 sources
+                  <span>Thinking Effort:</span>
+                  <span className="uppercase text-[#255C99] font-semibold">
+                    {hoveredModel.thinking_effort || 'standard'}
                   </span>
                 </div>
-              )}
-              {hoveredModel.isDynamicPareto && (
-                <div className="mt-1 border-t border-[#D8D4C8] pt-1 font-bold uppercase text-[#C84B31]">
-                  ★ Pareto Frontier Optimal
+                <div className="flex justify-between">
+                  <span>Unified Score:</span>
+                  <span className="font-bold text-[#C84B31]">
+                    {hoveredModel.dynamicScore.toFixed(2)} pts
+                  </span>
                 </div>
-              )}
+                <div className="flex justify-between">
+                  <span>Blended Price:</span>
+                  <span className="font-bold text-[#111317]">
+                    ${hoveredModel.pricing.blended_per_1m_usd.toFixed(2)} / 1M
+                  </span>
+                </div>
+                {hoveredModel.performance.output_tokens_per_sec !== null && (
+                  <div className="flex justify-between">
+                    <span>Speed:</span>
+                    <span>{hoveredModel.performance.output_tokens_per_sec.toFixed(0)} tok/s</span>
+                  </div>
+                )}
+                {hoveredModel.composite.sources_present < 4 && (
+                  <div className="flex justify-between">
+                    <span>Coverage:</span>
+                    <span className="font-semibold text-[#8A530B]">
+                      {hoveredModel.composite.sources_present}/4 sources
+                    </span>
+                  </div>
+                )}
+                <div className="mt-1 flex flex-wrap items-center justify-between gap-1 border-t border-[#D8D4C8] pt-1 text-[9px]">
+                  <span
+                    className="px-1.5 py-0.2 font-bold uppercase text-white"
+                    style={{ backgroundColor: hoveredProfile.badgeColor }}
+                  >
+                    {hoveredProfile.badgeLabel}
+                  </span>
+                  {hoveredProfile.topAxes.length > 0 && (
+                    <span className="font-semibold text-[#111317]">
+                      {hoveredProfile.topAxes
+                        .map((ax) => `${ax.shortLabel} ${ax.score.toFixed(0)}`)
+                        .join(' · ')}
+                    </span>
+                  )}
+                </div>
+                {hoveredModel.isDynamicPareto && (
+                  <div className="mt-1 border-t border-[#D8D4C8] pt-1 font-bold uppercase text-[#C84B31]">
+                    ★ Pareto Frontier Optimal
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
       </div>
 
       {/* Chart Footer Note */}

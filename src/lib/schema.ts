@@ -47,6 +47,15 @@ export const ValsSchema = z.object({
   cost_per_test_usd: z.number().nullable(),
 });
 
+export const CapabilitiesSchema = z.object({
+  coding: z.number().nullable(),
+  reasoning: z.number().nullable(),
+  agentic: z.number().nullable(),
+  enterprise: z.number().nullable(),
+  chat: z.number().nullable(),
+});
+export type ModelCapabilities = z.infer<typeof CapabilitiesSchema>;
+
 export const CompositeSchema = z.object({
   sources_present: z.number(),
   coverage_ratio: z.number(),
@@ -84,6 +93,7 @@ export const CanonicalModelSchema = z.object({
       va: z.number().nullable().optional(),
     })
     .optional(),
+  capabilities: CapabilitiesSchema.optional(),
   composite: CompositeSchema,
 });
 

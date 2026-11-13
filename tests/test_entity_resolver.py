@@ -15,7 +15,11 @@ from scripts.transform.entity_resolver import (
     model_family_key,
     normalize_slug,
 )
-from scripts.transform.normalizer import mark_pareto_frontier
+from scripts.transform.normalizer import (
+    compute_capability_score,
+    compute_weighted_composite,
+    mark_pareto_frontier,
+)
 
 
 class TestEntityResolverAndNormalizer(unittest.TestCase):
@@ -209,6 +213,7 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
                 raw_dir=raw_dir,
                 public_data_dir=pub_dir,
                 unmatched_path=unmatched_copy,
+                min_sources=1,
             )
             day0_ids = {m["id"] for m in day0["models"]}
             self.assertIn("google-gemini-5-nova", day0_ids)
@@ -228,6 +233,7 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
                 raw_dir=raw_dir,
                 public_data_dir=pub_dir,
                 unmatched_path=unmatched_copy,
+                min_sources=1,
             )
             by_id = {m["id"]: m for m in day1["models"]}
             # Vals standard entry was retroactively coalesced into xhigh flagship and retired
@@ -286,6 +292,7 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
                 raw_dir=raw_dir,
                 public_data_dir=pub_dir,
                 unmatched_path=unmatched_copy,
+                min_sources=1,
             )
             by_id1 = {m["id"]: m for m in build1["models"]}
             g = by_id1["xai-grok-build-9-9"]
@@ -305,6 +312,7 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
                 raw_dir=raw_dir,
                 public_data_dir=pub_dir,
                 unmatched_path=unmatched_copy,
+                min_sources=1,
             )
             by_id2 = {m["id"]: m for m in build2["models"]}
             g2 = by_id2["xai-grok-build-9-9"]
@@ -390,6 +398,7 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
                 raw_dir=raw_dir,
                 public_data_dir=pub_dir,
                 unmatched_path=unmatched_copy,
+                min_sources=1,
             )
             by_id = {m["id"]: m for m in built["models"]}
             self.assertIn("zai-glm-5-2", by_id)
@@ -472,6 +481,7 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
                 raw_dir=raw_dir,
                 public_data_dir=pub_dir,
                 unmatched_path=unmatched_copy,
+                min_sources=1,
             )
             by_id = {m["id"]: m for m in built["models"]}
             # Sibling date must not block item's direct verified 2026-02-17 release date
@@ -548,6 +558,7 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
                 raw_dir=raw_dir,
                 public_data_dir=pub_dir,
                 unmatched_path=unmatched_copy,
+                min_sources=1,
             )
             by_id = {m["id"]: m for m in built["models"]}
             self.assertEqual(by_id["xai-grok-4-20-beta-1"]["release_date"], "2026-03-09")
@@ -556,6 +567,105 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
             self.assertNotIn("baidu-ernie-5-0", by_id)
             saved_cids = {m["canonical_id"] for m in json.loads(aliases_copy.read_text(encoding="utf-8"))["models"]}
             self.assertNotIn("baidu-ernie-5-0", saved_cids)
+
+    def test_min_sources_gate_auto_graduation_and_capability_calibration(self) -> None:
+        # 1. Downward-only Bayesian shrinkage prevents inflated 2/4 scores without lifting weak 2/4 models
+        high_partial = compute_weighted_composite(
+            {"aa": 92.0, "lb": None, "ar": None, "va": 92.0},
+            {"aa": 0.30, "lb": 0.30, "ar": 0.15, "va": 0.25},
+        )
+        self.assertGreater(high_partial, 75.0)
+        self.assertLess(high_partial, 92.0)
+
+        low_partial = compute_weighted_composite(
+            {"aa": 6.0, "lb": None, "ar": 4.0, "va": None},
+            {"aa": 0.30, "lb": 0.30, "ar": 0.15, "va": 0.25},
+        )
+        self.assertLessEqual(low_partial, 6.0)
+
+        # 2. Sparse capability coverage guard rejects < 35% weighted domain coverage
+        sparse_cap = compute_capability_score(
+            {"va_vals_index": None, "va_finance": None, "va_legal": None, "va_tax": None, "lb_data_analysis": 88.0},
+            {"va_vals_index": 0.35, "va_finance": 0.22, "va_legal": 0.22, "va_tax": 0.11, "lb_data_analysis": 0.10},
+        )
+        self.assertIsNone(sparse_cap)
+        full_cap = compute_capability_score(
+            {"aa_coding": 90.0, "lb_coding": 84.0, "lb_agentic": 86.0, "ar_coding": 80.0},
+            {"aa_coding": 0.32, "lb_coding": 0.28, "lb_agentic": 0.18, "ar_coding": 0.22},
+        )
+        self.assertIsNotNone(full_cap)
+        self.assertGreaterEqual(full_cap, 80.0)
+
+        # 3. Default min_sources=2 gates 1/4 releases while preserving registry telemetry, then graduates on Day 1
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            raw_dir = tmp / "raw"
+            pub_dir = tmp / "public_data"
+            aliases_copy = tmp / "model_aliases.json"
+            unmatched_copy = tmp / "unmatched_models.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                (raw_dir / src).mkdir(parents=True, exist_ok=True)
+                (raw_dir / src / "latest.json").write_text(
+                    json.dumps({"fetched_at": "2026-12-01T00:00:00Z", "release": "2026-12-01", "models": []}),
+                    encoding="utf-8",
+                )
+
+            # Day 0: Anchor model has 2/4 (AA + Vals), while new release "Gemini 5 Nebula (High)" has only 1/4 (AA)
+            (raw_dir / "artificial_analysis" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-12-01T00:00:00Z",
+                "models": [
+                    {"model_name": "Gemini 4 Carbon (High)", "provider": "Google", "context_window": 1000000, "open_weights": False, "intelligence_index": 60.0, "coding_index": 68.0, "math_index": 72.0, "output_tokens_per_second": 95.0, "ttft_seconds": 1.0, "input_price_per_1m": 1.5, "output_price_per_1m": 6.0, "blended_price_per_1m": 2.625},
+                    {"model_name": "Gemini 5 Nebula (High)", "provider": "Google", "release_date": "2026-11-30", "context_window": 1000000, "open_weights": False, "intelligence_index": 63.0, "coding_index": 71.0, "math_index": 75.0, "output_tokens_per_second": 90.0, "ttft_seconds": 1.0, "input_price_per_1m": 1.25, "output_price_per_1m": 5.0, "blended_price_per_1m": 2.188},
+                ],
+            }), encoding="utf-8")
+            (raw_dir / "vals" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-12-01T00:00:00Z",
+                "models": [
+                    {"vals_model_name": "Gemini 4 Carbon (High)", "provider": "Google", "vals_index": 70.0, "finance_agent": 68.0, "legal_bench": 72.0, "tax_agent": 62.0, "vibe_code": 64.0, "cost_per_test_usd": 6.0},
+                ],
+            }), encoding="utf-8")
+
+            day0 = build_unified_dataset(
+                aliases_path=aliases_copy,
+                raw_dir=raw_dir,
+                public_data_dir=pub_dir,
+                unmatched_path=unmatched_copy,
+            )
+            day0_ids = {m["id"] for m in day0["models"]}
+            self.assertIn("google-gemini-4-carbon-high", day0_ids)
+            self.assertNotIn("google-gemini-5-nebula-high", day0_ids)
+
+            saved_day0 = json.loads(aliases_copy.read_text(encoding="utf-8"))
+            saved_day0_map = {m["canonical_id"]: m for m in saved_day0["models"]}
+            self.assertIn("google-gemini-5-nebula-high", saved_day0_map)
+            self.assertEqual(saved_day0_map["google-gemini-5-nebula-high"]["release_date"], "2026-11-30")
+            unmatched_day0 = json.loads(unmatched_copy.read_text(encoding="utf-8"))
+            self.assertEqual(unmatched_day0["unmatched_count"], 0)
+
+            # Day 1: Arena arrives with Gemini 5 Nebula -> graduates automatically into unified fleet with >=2 sources & capabilities
+            (raw_dir / "arena" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-12-02T00:00:00Z",
+                "models": [
+                    {"arena_model_id": "gemini-5-nebula-high", "display_name": "Gemini 5 Nebula (High)", "organization": "Google", "license": "Proprietary", "text_elo": 1495, "text_ci_lower": 1488, "text_ci_upper": 1502, "coding_elo": 1505, "vision_elo": None, "votes": 5200},
+                ],
+            }), encoding="utf-8")
+
+            day1 = build_unified_dataset(
+                aliases_path=aliases_copy,
+                raw_dir=raw_dir,
+                public_data_dir=pub_dir,
+                unmatched_path=unmatched_copy,
+            )
+            day1_by_id = {m["id"]: m for m in day1["models"]}
+            self.assertIn("google-gemini-5-nebula-high", day1_by_id)
+            nebula = day1_by_id["google-gemini-5-nebula-high"]
+            self.assertEqual(nebula["composite"]["sources_present"], 2)
+            self.assertEqual(nebula["release_date"], "2026-11-30")
+            self.assertIsNotNone(nebula["capabilities"]["coding"])
+            self.assertIsNotNone(nebula["capabilities"]["reasoning"])
+            self.assertIsNotNone(nebula["capabilities"]["chat"])
 
 
 if __name__ == "__main__":

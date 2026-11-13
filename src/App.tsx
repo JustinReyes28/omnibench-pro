@@ -9,6 +9,7 @@ import { LeaderboardTable, ScoredModelEntry } from './components/LeaderboardTabl
 import { ParetoChart } from './components/ParetoChart';
 import { ModelComparisonModal } from './components/ModelComparisonModal';
 import { ReleaseTimelinePage } from './components/ReleaseTimelinePage';
+import { getCapabilityStrengthProfile } from './lib/capabilities';
 
 export const App: React.FC = () => {
   const [payload, setPayload] = useState<UnifiedDataset | null>(null);
@@ -50,18 +51,23 @@ export const App: React.FC = () => {
     return list.map((m) => ({ ...m, isDynamicPareto: Boolean(paretoFlags[m.id]) }));
   }, [payload, state.weights]);
 
-  // Models filtered according to search, provider, effort, and flags
+  // Models filtered according to search, provider, effort, coverage, and flags
   const filteredModels: ScoredModelEntry[] = useMemo(() => {
     return allScoredModels
       .filter((m) => {
         if (state.openWeightsOnly && !m.is_open_weights) return false;
         if (state.paretoOnly && !m.isDynamicPareto) return false;
+        if (state.fullCoverageOnly && m.composite.sources_present < 4) return false;
         if (state.providerFilter !== 'ALL' && m.provider !== state.providerFilter) return false;
         if (state.effortFilter !== 'ALL' && (m.thinking_effort || 'standard') !== state.effortFilter)
           return false;
         if (state.searchQuery) {
           const q = state.searchQuery.toLowerCase();
-          const target = `${m.display_name} ${m.provider} ${m.thinking_effort || ''} ${m.license}`.toLowerCase();
+          const profile = getCapabilityStrengthProfile(m, {
+            isPareto: m.isDynamicPareto,
+            score: m.dynamicScore,
+          });
+          const target = `${m.display_name} ${m.provider} ${m.thinking_effort || ''} ${m.license} ${profile.badgeLabel} ${m.composite.sources_present}/4`.toLowerCase();
           if (!target.includes(q)) return false;
         }
         return true;
@@ -180,7 +186,9 @@ export const App: React.FC = () => {
                 </h1>
                 <p className="mt-2 sm:mt-3 max-w-3xl text-xs sm:text-sm leading-relaxed text-[#373C44]">
                   OmniBench aggregates Artificial Analysis, LiveBench 2.0, Arena.ai, and Vals.ai across{' '}
-                  {payload.models.length} models and thinking effort tiers into a calibrated 0–100 quality score.
+                  {payload.models.length} corroborated models (requiring ≥2 independent benchmarks), surfacing
+                  calibrated 5-domain capability profiles (Coding, Reasoning, Agentic, Enterprise, and Chat)
+                  alongside thinking effort tiers.
                 </p>
               </div>
               <WeightMixer

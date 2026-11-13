@@ -38,7 +38,8 @@ export const WEIGHT_PRESETS: Record<string, { label: string; description: string
 export function computeDynamicCompositeScore(
   normalizedScores: { aa?: number | null; lb?: number | null; ar?: number | null; va?: number | null } | undefined,
   weights: PillarWeights,
-  shrinkagePrior = 48.0
+  shrinkagePrior = 48.0,
+  shrinkageStrength = 0.35
 ): number {
   if (!normalizedScores) return 0;
   let weightedSum = 0;
@@ -58,8 +59,9 @@ export function computeDynamicCompositeScore(
   const rawMean = weightedSum / activeWeightTotal;
   if (requestedWeightTotal > 0 && activeWeightTotal < requestedWeightTotal) {
     const missingFrac = (requestedWeightTotal - activeWeightTotal) / requestedWeightTotal;
-    const priorWeight = 0.18 * missingFrac;
-    return Number(((1 - priorWeight) * rawMean + priorWeight * shrinkagePrior).toFixed(2));
+    const priorWeight = shrinkageStrength * missingFrac;
+    const priorTarget = Math.min(shrinkagePrior, rawMean);
+    return Number(((1 - priorWeight) * rawMean + priorWeight * priorTarget).toFixed(2));
   }
   return Number(rawMean.toFixed(2));
 }

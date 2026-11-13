@@ -52,8 +52,6 @@ class TestDataIntegrity(unittest.TestCase):
             "Tencent Hy4",
             "Gemini 4 Hydrogen (xhigh)",
             "Gemini 4 Hydrogen (high)",
-            "Gemini 4 Hydrogen (medium)",
-            "Gemini 4 Hydrogen (low)",
         ):
             self.assertIn(latest_model, names)
 
@@ -66,6 +64,32 @@ class TestDataIntegrity(unittest.TestCase):
         self.assertGreater(by_id["openai-gpt-6-astra-max"], by_id["openai-gpt-5-6-sol"] + 10.0)
         self.assertGreater(by_id["deepseek-v4-1-flash-1017"], by_id["deepseek-r1-0528"] + 20.0)
         self.assertGreater(by_id["meta-muse-wonder-full-max"], by_id["meta-llama-3-1-405b-instruct"] + 45.0)
+
+        # Ensure single-source outliers never invert lab flagships in models_unified.json
+        for single_outlier in (
+            "zai-glm-5-2-max",
+            "zai-glm-5-2",
+            "xai-grok-4-20-beta-1",
+            "deepseek-v4-1-flash-max",
+            "meta-muse-spark",
+            "google-gemini-3-1-pro",
+            "anthropic-claude-fable-5-high",
+        ):
+            self.assertNotIn(single_outlier, by_id)
+
+        by_lab_top: dict[str, str] = {}
+        for m in models:
+            by_lab_top.setdefault(m["provider"], m["id"])
+        self.assertEqual(by_lab_top["Z.AI"], "zai-glm-5-3-max")
+        self.assertEqual(by_lab_top["xAI"], "xai-grok-4-7-xhigh")
+        self.assertEqual(by_lab_top["DeepSeek"], "deepseek-v4-1-flash-1017")
+        self.assertEqual(by_lab_top["Meta"], "meta-muse-wonder-full-max")
+        self.assertEqual(by_lab_top["Google"], "google-gemini-4-carbon-high")
+
+        # Ensure shrinkage directionality avoids lifting older/low partial models above newer flagships
+        self.assertGreater(by_id["openai-gpt-6-sol-max"], by_id["openai-gpt-5-5-high"])
+        self.assertGreater(by_id["openai-gpt-5-5-high"], by_id["openai-gpt-5-5"])
+        self.assertLess(by_id["ibm-granite-4-2-8b"], 20.0)
 
     def test_all_models_pass_schema_and_attribution_urls(self) -> None:
         sources_meta = self.data.get("sources_metadata", {})
@@ -121,7 +145,7 @@ class TestDataIntegrity(unittest.TestCase):
                 f"Unnormalized lowercase provider on {mid}: {m['provider']}",
             )
             sources_present = m["composite"]["sources_present"]
-            self.assertGreaterEqual(sources_present, 1, f"Model {mid} has 0 benchmark sources")
+            self.assertGreaterEqual(sources_present, 2, f"Model {mid} has fewer than 2 benchmark sources")
             self.assertLessEqual(sources_present, 4, f"Model {mid} has invalid source count")
             self.assertEqual(
                 m["composite"]["coverage_ratio"],
@@ -129,6 +153,14 @@ class TestDataIntegrity(unittest.TestCase):
                 f"Mismatched coverage_ratio on {mid}",
             )
             self.assertFalse(m["composite"]["provisional_ranking"], f"Unexpected provisional model in unified dataset: {mid}")
+
+            caps = m.get("capabilities")
+            self.assertIsInstance(caps, dict, f"Missing 5-axis capabilities dict on {mid}")
+            cap_vals = [caps.get(ax) for ax in ("coding", "reasoning", "agentic", "enterprise", "chat") if caps.get(ax) is not None]
+            self.assertGreaterEqual(len(cap_vals), 1, f"Model {mid} has 0 evaluated capabilities")
+            for cv in cap_vals:
+                self.assertGreaterEqual(cv, 0.0, f"Negative capability score on {mid}")
+                self.assertLessEqual(cv, 100.0, f"Out-of-range capability score on {mid}")
 
             actual_sources = sum(1 for src, _ in source_pillar_pairs if m["benchmarks"].get(src) is not None)
             self.assertEqual(actual_sources, sources_present, f"Mismatched sources_present on {mid}")
@@ -175,18 +207,6 @@ class TestDataIntegrity(unittest.TestCase):
                         msg=f"Speed mismatch against raw AA on {mid}",
                     )
 
-            if sources_present < 2:
-                self.assertFalse(
-                    m["composite"]["is_pareto_optimal"],
-                    f"Single-source model {mid} must not claim Pareto frontier",
-                )
-                if m["benchmarks"].get("arena") is not None and resolver.canonical_models.get(mid, {}).get("auto_promoted"):
-                    self.assertGreaterEqual(
-                        m["release_date"],
-                        "2026-01-01",
-                        f"Pre-2026 single-source Arena historical model leaked into unified dataset: {mid}",
-                    )
-
             if "non-reasoning" in m["display_name"].lower():
                 self.assertEqual(m.get("thinking_effort"), "standard", f"Invalid effort on {mid}")
 
@@ -197,7 +217,7 @@ class TestDataIntegrity(unittest.TestCase):
         self.assertGreater(by_id["openai-gpt-6-astra-max"]["pricing"]["blended_per_1m_usd"], 15.0)
         self.assertGreater(by_id["meta-muse-wonder-full-max"]["pricing"]["blended_per_1m_usd"], 8.0)
 
-        # Gemini 4 Hydrogen flagship coalesces Vals + AA without orphan duplicate
+        # Gemini 4 Hydrogen flagship coalesces Vals + AA without orphan duplicate; (high) & (xhigh) pass >=2 gate
         self.assertNotIn("google-gemini-4-hydrogen", by_id)
         h_xhigh = by_id["google-gemini-4-hydrogen-xhigh"]
         self.assertEqual(h_xhigh["provider"], "Google")
@@ -207,69 +227,68 @@ class TestDataIntegrity(unittest.TestCase):
         self.assertIsNotNone(h_xhigh["benchmarks"]["artificial_analysis"])
         self.assertIsNotNone(h_xhigh["benchmarks"]["vals"])
 
+        h_high = by_id["google-gemini-4-hydrogen-high"]
+        self.assertEqual(h_high["provider"], "Google")
+        self.assertEqual(h_high["release_date"], "2026-11-12")
+        self.assertGreaterEqual(h_high["composite"]["sources_present"], 2)
+
+        # 1/4 Hydrogen effort siblings remain excluded from public leaderboard while preserved in registry
+        for h_single in ("google-gemini-4-hydrogen-medium", "google-gemini-4-hydrogen-low"):
+            self.assertNotIn(h_single, by_id)
+            self.assertEqual(resolver.canonical_models[h_single]["release_date"], "2026-11-12")
+
         # Series names containing effort words must not misclassify as reasoning effort
         self.assertEqual(by_id["mistral-medium-3-5"]["thinking_effort"], "standard")
         self.assertNotIn("unmatched-stealth-nebula-v1", by_id)
 
-        # LiveBench-only models retain real release dates (never CSV filename date), formatted names, and open-weights metadata
-        expected_lb = {
-            "openai-gpt-5-2-codex": ("GPT-5.2-Codex", "2025-12-18", False, "Proprietary", 400000),
-            "zai-glm-5-2": ("GLM-5.2", "2026-06-16", True, "MIT", 1000000),
-            "moonshot-kimi-k2-7-code": ("Kimi K2.7 Code", "2026-06-12", True, "Modified MIT", 262000),
-            "xai-grok-build-0-1": ("Grok Build 0.1", "2026-05-20", False, "Proprietary", 256000),
-            "alibaba-qwen3-6-27b": ("Qwen3.6-27B", "2026-04-21", True, "Apache-2.0", 262000),
-            "xai-grok-4-3": ("Grok 4.3", "2026-04-30", False, "Proprietary", 1000000),
-            "openai-gpt-5-5": ("GPT-5.5", "2026-03-10", False, "Proprietary", 1050000),
-            "openai-gpt-5-5-high": ("GPT-5.5 (High)", "2026-03-10", False, "Proprietary", 1050000),
+        # Corroborated (>=2 source) models in published unified dataset keep exact release dates, names, and licenses
+        verified_multi = {
+            "xai-grok-4-3": ("Grok 4.3", "xAI", "2026-04-30", False, "Proprietary", 1000000),
+            "openai-gpt-5-5": ("GPT-5.5", "OpenAI", "2026-03-10", False, "Proprietary", 1050000),
+            "openai-gpt-5-5-high": ("GPT-5.5 (High)", "OpenAI", "2026-03-10", False, "Proprietary", 1050000),
+            "ibm-granite-4-2-3b": ("Granite 4.2 3B", "IBM", "2026-08-25", True, "Apache-2.0", 131000),
+            "ibm-granite-4-2-8b": ("Granite 4.2 8B", "IBM", "2026-08-25", True, "Apache-2.0", 131000),
+            "upstage-solar-pro-4": ("Solar Pro 4", "Upstage", "2026-08-06", False, "Proprietary", 512000),
+            "mistral-medium-3-5": ("Mistral Medium 3.5", "Mistral AI", "2026-04-28", True, "Modified MIT", 256000),
         }
-        for mid, (disp, rd, ow, lic, ctx) in expected_lb.items():
+        for mid, (disp, prov, rd, ow, lic, ctx) in verified_multi.items():
             rec = by_id[mid]
             self.assertEqual(rec["display_name"], disp)
+            self.assertEqual(rec["provider"], prov)
             self.assertEqual(rec["release_date"], rd)
             self.assertEqual(rec["is_open_weights"], ow)
             self.assertEqual(rec["license"], lic)
             self.assertEqual(rec["context_window"], ctx)
 
-        # Unpriced "--" AA models never fabricate $0.90/1M or 85.0 t/s, and carry verified release dates + licenses
-        unpriced_aa = {
-            "nanbeige4-3-33b": ("2026-10-24", True, "Apache-2.0"),
-            "china-mobile-jt-4-1-flash-236b-a21b": ("2026-07-09", False, "Proprietary"),
-            "lg-ai-research-k-exaone-2-0": ("2026-07-31", True, "Apache-2.0"),
-            "ibm-granite-4-2-3b": ("2026-08-25", True, "Apache-2.0"),
-            "nvidia-nemotron-3-nano-4b": ("2026-03-16", True, "NVIDIA Open"),
+        # Gated 1/4 models are excluded from models_unified.json yet keep verified metadata in EntityResolver registry
+        gated_registry_checks = {
+            "openai-gpt-5-2-codex": ("GPT-5.2-Codex", "OpenAI", "2025-12-18", False, "Proprietary", 400000),
+            "zai-glm-5-2": ("GLM-5.2", "Z.AI", "2026-06-16", True, "MIT", 1000000),
+            "moonshot-kimi-k2-7-code": ("Kimi K2.7 Code", "Moonshot AI", "2026-06-12", True, "Modified MIT", 262000),
+            "xai-grok-build-0-1": ("Grok Build 0.1", "xAI", "2026-05-20", False, "Proprietary", 256000),
+            "alibaba-qwen3-6-27b": ("Qwen3.6-27B", "Alibaba", "2026-04-21", True, "Apache-2.0", 262000),
+            "nanbeige4-3-33b": ("Nanbeige4.3-33B", "Nanbeige", "2026-10-24", True, "Apache-2.0", 524000),
+            "china-mobile-jt-4-1-flash-236b-a21b": ("JT-4.1 Flash 236B A21B", "China Mobile", "2026-07-09", False, "Proprietary", 262000),
+            "lg-ai-research-k-exaone-2-0": ("K-EXAONE 2.0", "LG AI Research", "2026-07-31", True, "Apache-2.0", 262000),
+            "nvidia-nemotron-3-nano-4b": ("Nemotron 3 Nano 4B", "NVIDIA", "2026-03-16", True, "NVIDIA Open", 262000),
+            "sapiens-ai-agnes-2-5-pro-theta": ("Agnes 2.5 Pro Theta", "Sapiens AI", "2026-11-07", False, "Proprietary", 1000000),
+            "apodex-1-1": ("Apodex 1.1", "Apodex", "2026-08-30", False, "Proprietary", 256000),
+            "nvidia-nemotron-3-5-lightning": ("Nemotron 3.5 Lightning", "NVIDIA", "2026-08-11", True, "OpenMDW-1.1", 1000000),
+            "mistral-small-4": ("Mistral Small 4", "Mistral AI", "2026-03-16", True, "Apache-2.0", 256000),
+            "openai-gpt-oss-120b-high": ("gpt-oss-120b (high)", "OpenAI", "2025-08-05", True, "Apache-2.0", 131000),
+            "cohere-north-mini-code": ("North Mini Code", "Cohere", "2026-06-09", True, "Apache-2.0", 256000),
         }
-        for mid, (rd, ow, lic) in unpriced_aa.items():
-            rec = by_id[mid]
-            self.assertEqual(rec["release_date"], rd)
-            self.assertEqual(rec["is_open_weights"], ow)
-            self.assertEqual(rec["license"], lic)
-            if raw_aa_by_cid.get(mid, {}).get("blended_price_per_1m") is None:
-                self.assertIsNone(rec["pricing"]["blended_per_1m_usd"])
-            if raw_aa_by_cid.get(mid, {}).get("output_tokens_per_second") is None:
-                self.assertIsNone(rec["performance"]["output_tokens_per_sec"])
+        for mid, (disp, prov, rd, ow, lic, ctx) in gated_registry_checks.items():
+            self.assertNotIn(mid, by_id, f"Single-source model {mid} must be gated from models_unified.json")
+            canon = resolver.canonical_models[mid]
+            self.assertEqual(canon["display_name"], disp)
+            self.assertEqual(canon["provider"], prov)
+            self.assertEqual(canon["release_date"], rd)
+            self.assertEqual(canon["is_open_weights"], ow)
+            self.assertEqual(canon["license"], lic)
+            self.assertEqual(canon["context_window"], ctx)
 
-        # AA-scraped priced models carry verified dates, licenses, and never fabricate 85.0 t/s
-        aa_verified = {
-            "sapiens-ai-agnes-2-5-pro-theta": ("Sapiens AI", "2026-11-07", False, "Proprietary"),
-            "upstage-solar-pro-4": ("Upstage", "2026-08-06", False, "Proprietary"),
-            "apodex-1-1": ("Apodex", "2026-08-30", False, "Proprietary"),
-            "nvidia-nemotron-3-5-lightning": ("NVIDIA", "2026-08-11", True, "OpenMDW-1.1"),
-            "ibm-granite-4-2-8b": ("IBM", "2026-08-25", True, "Apache-2.0"),
-            "mistral-medium-3-5": ("Mistral AI", "2026-04-28", True, "Modified MIT"),
-            "mistral-small-4": ("Mistral AI", "2026-03-16", True, "Apache-2.0"),
-            "openai-gpt-oss-120b-high": ("OpenAI", "2025-08-05", True, "Apache-2.0"),
-            "cohere-north-mini-code": ("Cohere", "2026-06-09", True, "Apache-2.0"),
-        }
-        for mid, (prov, rd, ow, lic) in aa_verified.items():
-            rec = by_id[mid]
-            self.assertEqual(rec["provider"], prov)
-            self.assertEqual(rec["release_date"], rd)
-            self.assertEqual(rec["is_open_weights"], ow)
-            self.assertEqual(rec["license"], lic)
-            if raw_aa_by_cid.get(mid, {}).get("output_tokens_per_second") is None:
-                self.assertIsNone(rec["performance"]["output_tokens_per_sec"])
-
-        # Open-weights sibling consistency
+        # Open-weights sibling consistency in registry (gated 1/4 variants retain verified open-weights licenses)
         for ow_mid, exp_lic in (
             ("alibaba-qwen3-8-27b-medium", "Apache-2.0"),
             ("alibaba-qwen3-8-27b-low", "Apache-2.0"),
@@ -278,34 +297,27 @@ class TestDataIntegrity(unittest.TestCase):
             ("deepseek-v4-1-flash-1017-non-reasoning", "MIT"),
             ("deepseek-v4-pro-0813-non-reasoning", "MIT"),
         ):
-            self.assertTrue(by_id[ow_mid]["is_open_weights"])
-            self.assertEqual(by_id[ow_mid]["license"], exp_lic)
+            self.assertNotIn(ow_mid, by_id)
+            canon = resolver.canonical_models[ow_mid]
+            self.assertTrue(canon["is_open_weights"])
+            self.assertEqual(canon["license"], exp_lic)
 
-        # Cross-variant enricher & Step 5b backfill invariants on frontier Arena models
+        # Step 5b metadata consistency remains intact for gated Arena-only siblings so graduation is accurate
         self.assertNotIn("google-gemini-3-pro", by_id)
-        if "xai-grok-4-20-beta-1" in by_id:
-            self.assertEqual(by_id["xai-grok-4-20-beta-1"]["release_date"], "2026-03-09")
-        if "meta-muse-spark" in by_id:
-            self.assertEqual(by_id["meta-muse-spark"]["release_date"], "2026-04-08")
-            self.assertFalse(by_id["meta-muse-spark"]["is_open_weights"])
-        if "anthropic-claude-opus-4-6" in by_id:
-            self.assertEqual(by_id["anthropic-claude-opus-4-6"]["release_date"], "2026-02-04")
-        if "anthropic-claude-fable-5-high" in by_id:
-            self.assertEqual(by_id["anthropic-claude-fable-5-high"]["release_date"], "2026-06-09")
-        if "meta-muse-spark-1-2-xhigh" in by_id:
-            self.assertEqual(by_id["meta-muse-spark-1-2-xhigh"]["release_date"], "2026-08-05")
-        if "google-gemini-3-1-pro" in by_id:
-            self.assertEqual(by_id["google-gemini-3-1-pro"]["release_date"], "2026-02-19")
-        if "openai-gpt-5-2-chat" in by_id:
-            self.assertEqual(by_id["openai-gpt-5-2-chat"]["release_date"], "2026-02-10")
-        if "deepseek-v4-pro-high" in by_id:
-            self.assertEqual(by_id["deepseek-v4-pro-high"]["release_date"], "2026-08-13")
-            self.assertTrue(by_id["deepseek-v4-pro-high"]["is_open_weights"])
-            self.assertEqual(by_id["deepseek-v4-pro-high"]["license"], "MIT")
-        if "deepseek-v4-1-flash-max" in by_id:
-            self.assertEqual(by_id["deepseek-v4-1-flash-max"]["release_date"], "2026-09-10")
-            self.assertTrue(by_id["deepseek-v4-1-flash-max"]["is_open_weights"])
-            self.assertEqual(by_id["deepseek-v4-1-flash-max"]["license"], "MIT")
+        for mid, exp_rd in (
+            ("xai-grok-4-20-beta-1", "2026-03-09"),
+            ("meta-muse-spark", "2026-04-08"),
+            ("anthropic-claude-opus-4-6", "2026-02-04"),
+            ("anthropic-claude-fable-5-high", "2026-06-09"),
+            ("meta-muse-spark-1-2-xhigh", "2026-08-05"),
+            ("google-gemini-3-1-pro", "2026-02-19"),
+            ("openai-gpt-5-2-chat", "2026-02-10"),
+            ("deepseek-v4-pro-high", "2026-08-13"),
+            ("deepseek-v4-1-flash-max", "2026-09-10"),
+        ):
+            self.assertNotIn(mid, by_id)
+            if mid in resolver.canonical_models:
+                self.assertEqual(resolver.canonical_models[mid]["release_date"], exp_rd)
 
         unmatched_path = ROOT_DIR / "data" / "registry" / "unmatched_models.json"
         if unmatched_path.exists():

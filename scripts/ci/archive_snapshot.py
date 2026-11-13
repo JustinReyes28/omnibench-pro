@@ -102,7 +102,7 @@ def build_historical_and_changelog() -> None:
         key=lambda m: (m.get("release_date", ""), m["composite"]["unified_quality_score"]),
         reverse=True,
     )
-    if newer_models or len(all_models) != 139:
+    if newer_models or len(all_models) != 148:
         newer_names = [m["display_name"] for m in newer_models[:6]]
         full_count = sum(1 for m in all_models if m["composite"]["sources_present"] == 4)
         partial_count = len(all_models) - full_count
@@ -115,14 +115,14 @@ def build_historical_and_changelog() -> None:
                 "date": sync_date,
                 "type": "release_sync",
                 "summary": (
-                    f"Autonomous 12-hour sync expanded the verified fleet to {len(all_models)} models "
-                    f"({full_count} full 4/4 coverage, {partial_count} early partial-source releases)."
+                    f"Verified multi-source fleet ({len(all_models)} models requiring >=2 independent benchmarks: "
+                    f"{full_count} full 4/4 coverage, {partial_count} dual-source 2/4 models) with 5-dimension capability profiles."
                 ),
                 "highlights": [
                     (
-                        f"Newly indexed flagship releases include: {', '.join(newer_names)}."
+                        f"Newly indexed verified releases include: {', '.join(newer_names)}."
                         if newer_names
-                        else f"Indexed {len(all_models)} canonical models across active benchmark sources."
+                        else f"Indexed {len(all_models)} corroborated models across active benchmark sources."
                     ),
                 ],
             },

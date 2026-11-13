@@ -58,6 +58,7 @@ def compute_weighted_composite(
     pillar_scores: dict[str, float | None],
     weights: dict[str, float] | None = None,
     shrinkage_prior: float = 48.0,
+    shrinkage_strength: float = 0.35,
 ) -> float:
     """Computes coverage-calibrated composite score across available benchmark pillars.
 
@@ -68,9 +69,10 @@ def compute_weighted_composite(
     - Vals.ai Enterprise Index v2.2: 25%
     - Arena.ai Human + Coding Elo: 15%
 
-    Applies a Bayesian missing-source shrinkage prior when a model is missing
-    active pillars so single-benchmark outliers cannot leapfrog full-coverage
-    frontier models.
+    Applies conservative Bayesian missing-source shrinkage toward
+    min(shrinkage_prior, raw_mean) when a model is missing active pillars so
+    partial-coverage outliers cannot leapfrog stronger full-coverage models and
+    low-scoring partial models receive no upward inflation.
     """
     if weights is None:
         weights = {"aa": 30.0, "lb": 30.0, "ar": 15.0, "va": 25.0}
@@ -87,10 +89,46 @@ def compute_weighted_composite(
     raw_mean = weighted_sum / active_w
     if requested_w > 0 and active_w < requested_w:
         missing_frac = (requested_w - active_w) / requested_w
-        prior_weight = 0.18 * missing_frac
-        adjusted = (1.0 - prior_weight) * raw_mean + prior_weight * shrinkage_prior
+        prior_weight = shrinkage_strength * missing_frac
+        prior_target = min(shrinkage_prior, raw_mean)
+        adjusted = (1.0 - prior_weight) * raw_mean + prior_weight * prior_target
         return round(adjusted, 2)
     return round(raw_mean, 2)
+
+
+def compute_capability_score(
+    submetric_ranks: dict[str, float | None],
+    weights: dict[str, float],
+    min_weight_coverage: float = 0.35,
+    shrinkage_prior: float = 48.0,
+    shrinkage_strength: float = 0.25,
+) -> float | None:
+    """Computes a 0-100 calibrated capability score across pre-normalized sub-metrics.
+
+    Returns None when less than `min_weight_coverage` of the capability's total
+    weight is evaluated, preventing sparse single-submetric hallucinations on 2/4
+    models.
+    """
+    requested_w = sum(w for w in weights.values() if w > 0)
+    if requested_w <= 0:
+        return None
+    weighted_sum = 0.0
+    active_w = 0.0
+    for k, w in weights.items():
+        val = submetric_ranks.get(k)
+        if val is not None and not math.isnan(val) and w > 0:
+            weighted_sum += val * w
+            active_w += w
+    if active_w == 0 or active_w < requested_w * min_weight_coverage:
+        return None
+    raw_mean = weighted_sum / active_w
+    if active_w < requested_w:
+        missing_frac = (requested_w - active_w) / requested_w
+        prior_weight = shrinkage_strength * missing_frac
+        prior_target = min(shrinkage_prior, raw_mean)
+        adjusted = (1.0 - prior_weight) * raw_mean + prior_weight * prior_target
+        return round(adjusted, 1)
+    return round(raw_mean, 1)
 
 
 def mark_pareto_frontier(models: list[dict[str, Any]], min_sources_for_pareto: int = 2) -> None:

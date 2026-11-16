@@ -1,28 +1,28 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-11-16T05:06:11Z",
+  "generated_at": "2026-11-16T21:22:02Z",
   "sources_metadata": {
     "artificial_analysis": {
-      "last_updated": "2026-11-16T05:06:00Z",
+      "last_updated": "2026-11-16T21:21:49Z",
       "status": "live",
       "url": "https://artificialanalysis.ai/",
       "methodology_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "livebench": {
-      "last_updated": "2026-11-16T05:06:02Z",
+      "last_updated": "2026-11-16T21:21:49Z",
       "release": "2026-11-06",
       "status": "live",
       "url": "https://livebench.ai/",
       "repo_url": "https://github.com/LiveBench/new-livebench"
     },
     "arena": {
-      "last_updated": "2026-11-16T05:06:05Z",
+      "last_updated": "2026-11-16T21:21:57Z",
       "status": "live",
       "url": "https://arena.ai/leaderboard",
       "hf_url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard"
     },
     "vals": {
-      "last_updated": "2026-11-16T05:06:05Z",
+      "last_updated": "2026-11-16T21:21:57Z",
       "status": "live",
       "url": "https://www.vals.ai/benchmarks",
       "methodology_url": "https://www.vals.ai/methodology"
@@ -3014,7 +3014,7 @@
       },
       "performance": {
         "output_tokens_per_sec": null,
-        "ttft_seconds": null
+        "ttft_seconds": 139.46
       },
       "benchmarks": {
         "artificial_analysis": {

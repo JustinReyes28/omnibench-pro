@@ -1,13 +1,13 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-13T08:58:26Z",
+  "updated_at": "2026-11-16T05:06:11Z",
   "entries": [
     {
-      "date": "2026-11-13",
+      "date": "2026-11-16",
       "type": "release_sync",
-      "summary": "Verified multi-source fleet (148 models requiring >=2 independent benchmarks: 139 full 4/4 coverage, 9 dual-source 2/4 models) with 5-dimension capability profiles.",
+      "summary": "Verified multi-source fleet (149 models requiring >=2 independent benchmarks: 139 full 4/4 coverage, 10 dual-source 2/4 models) with 5-dimension capability profiles.",
       "highlights": [
-        "Newly indexed verified releases include: Gemini 4 Hydrogen (xhigh), Gemini 4 Hydrogen (high)."
+        "Newly indexed verified releases include: Qwen4 Max, Gemini 4 Hydrogen (xhigh), Gemini 4 Hydrogen (high)."
       ]
     },
     {

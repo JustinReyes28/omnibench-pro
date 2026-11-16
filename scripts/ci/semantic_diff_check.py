@@ -47,6 +47,9 @@ def has_substantive_changes(old_payload: dict[str, Any], new_payload: dict[str, 
             return any(_diff_values(x, y) for x, y in zip(a, b))
         return a != b
 
+    if _diff_values(old_clean.get("sources_metadata") or {}, new_clean.get("sources_metadata") or {}):
+        return True
+
     return _diff_values(old_models, new_models)
 
 

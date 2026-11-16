@@ -217,20 +217,28 @@ class TestDataIntegrity(unittest.TestCase):
         self.assertGreater(by_id["openai-gpt-6-astra-max"]["pricing"]["blended_per_1m_usd"], 15.0)
         self.assertGreater(by_id["meta-muse-wonder-full-max"]["pricing"]["blended_per_1m_usd"], 8.0)
 
-        # Gemini 4 Hydrogen flagship coalesces Vals + AA without orphan duplicate; (high) & (xhigh) pass >=2 gate
+        # Gemini 4 Hydrogen flagship coalesces LiveBench 2.0 + Vals + AA without orphan duplicate; (high) & (xhigh) pass >=2 gate
         self.assertNotIn("google-gemini-4-hydrogen", by_id)
         h_xhigh = by_id["google-gemini-4-hydrogen-xhigh"]
         self.assertEqual(h_xhigh["provider"], "Google")
         self.assertEqual(h_xhigh["release_date"], "2026-11-12")
         self.assertEqual(h_xhigh["thinking_effort"], "xhigh")
-        self.assertGreaterEqual(h_xhigh["composite"]["sources_present"], 2)
+        self.assertGreaterEqual(h_xhigh["composite"]["sources_present"], 3)
         self.assertIsNotNone(h_xhigh["benchmarks"]["artificial_analysis"])
+        self.assertIsNotNone(h_xhigh["benchmarks"]["livebench"])
+        self.assertAlmostEqual(h_xhigh["benchmarks"]["livebench"]["global_average"], 77.0, places=1)
         self.assertIsNotNone(h_xhigh["benchmarks"]["vals"])
+        self.assertAlmostEqual(h_xhigh["benchmarks"]["vals"]["vibe_code"], 87.8, places=1)
+        self.assertAlmostEqual(h_xhigh["benchmarks"]["vals"]["legal_bench"], 53.8, places=1)
+        self.assertAlmostEqual(h_xhigh["benchmarks"]["vals"]["tax_agent"], 52.3, places=1)
 
         h_high = by_id["google-gemini-4-hydrogen-high"]
         self.assertEqual(h_high["provider"], "Google")
         self.assertEqual(h_high["release_date"], "2026-11-12")
         self.assertGreaterEqual(h_high["composite"]["sources_present"], 2)
+        self.assertIsNotNone(h_high["benchmarks"]["arena"])
+        self.assertEqual(h_high["benchmarks"]["arena"]["text_elo"], 1502)
+        self.assertEqual(h_high["benchmarks"]["arena"]["coding_elo"], 1516)
 
         # 1/4 Hydrogen effort siblings remain excluded from public leaderboard while preserved in registry
         for h_single in ("google-gemini-4-hydrogen-medium", "google-gemini-4-hydrogen-low"):

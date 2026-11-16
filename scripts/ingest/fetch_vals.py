@@ -61,10 +61,11 @@ class ValsFetcher(BaseFetcher):
                         rec["cost_per_test_usd"] = cost_val
             # Table 2: Accuracy by Benchmark breakdown
             elif any("finance" in h for h in headers) or any("vibe code" in h for h in headers):
-                for cells in rows[1:]:
-                    if len(cells) < 9 or cells[0].lower() == "models":
+                for raw_cells in rows[1:]:
+                    cells = [c.strip() for c in raw_cells if c and c.strip()]
+                    if len(cells) < 9 or cells[0].lower() == "models" or "finance agent" in cells[0].lower():
                         continue
-                    mname = cells[0].strip()
+                    mname = cells[0]
                     vals_idx = _clean_pct(cells[-1], 0.0)
                     if not mname or vals_idx <= 0:
                         continue

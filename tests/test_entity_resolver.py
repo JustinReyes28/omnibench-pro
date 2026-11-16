@@ -115,6 +115,7 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
         self.assertEqual(format_display_name("gpt-5.5-high"), "GPT-5.5 (High)")
         self.assertEqual(format_display_name("gpt-oss-120b (high)"), "gpt-oss-120b (high)")
         self.assertEqual(_infer_provider("North Mini Code", "Unknown"), "Cohere")
+        self.assertEqual(_infer_provider("Qwen4 Max", "$3.27"), "Alibaba")
 
         # Qwen-3-8 canonical family key matches human-formatted Qwen3.8 siblings
         self.assertEqual(

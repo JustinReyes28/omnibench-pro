@@ -199,7 +199,7 @@ class ArtificialAnalysisFetcher(BaseFetcher):
                 data_rows = table[header_idx + 1 :]
                 m_idx = col_map["model"] if col_map["model"] is not None else 0
                 c_idx = col_map["context"] if col_map["context"] is not None else 1
-                p_idx = col_map["creator"] if col_map["creator"] is not None else 2
+                p_idx = col_map["creator"]
                 i_idx = col_map["intelligence"] if col_map["intelligence"] is not None else 3
                 cost_idx = col_map["cost"]
             else:
@@ -214,7 +214,7 @@ class ArtificialAnalysisFetcher(BaseFetcher):
                 if len(row) < 4 or len(row) <= max(m_idx, i_idx):
                     continue
                 model_cell, model_links = row[m_idx]
-                model_name = model_cell.strip()
+                model_name = re.sub(r"\s*,\s*default\s+fallback\b", "", model_cell.strip(), flags=re.IGNORECASE).strip()
                 if not model_name or model_name.lower() in ("model", "features", "model name"):
                     continue
                 ctx_str = row[c_idx][0].strip() if c_idx is not None and len(row) > c_idx else "128k"
@@ -222,7 +222,7 @@ class ArtificialAnalysisFetcher(BaseFetcher):
                 parts = creator_raw.split()
                 if len(parts) >= 2 and len(parts) % 2 == 0 and parts[: len(parts) // 2] == parts[len(parts) // 2 :]:
                     creator_raw = " ".join(parts[: len(parts) // 2])
-                if not creator_raw:
+                if not creator_raw or creator_raw.startswith("$"):
                     creator_raw = "Unknown"
 
                 intel_raw = row[i_idx][0].strip()

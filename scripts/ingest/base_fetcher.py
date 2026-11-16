@@ -306,9 +306,17 @@ class BaseFetcher:
                     if clean_item.get("open_weights") is True:
                         combined["open_weights"] = True
                     combined["first_seen"] = preserved_first_seen
+                elif self.source_key in ("livebench", "arena") and k != ex_key:
+                    combined["first_seen"] = preserved_first_seen
+                    if combined.get("cost_per_question_usd") is None and clean_item.get("cost_per_question_usd") is not None:
+                        combined["cost_per_question_usd"] = clean_item["cost_per_question_usd"]
+                    if clean_item.get("open_weights") is True:
+                        combined["open_weights"] = True
                 else:
                     combined.update(clean_item)
                     combined["first_seen"] = clean_item.get("first_seen") or preserved_first_seen
+                    if clean_item.get("cost_per_question_usd") is None and matched_existing.get("cost_per_question_usd") is not None:
+                        combined["cost_per_question_usd"] = matched_existing["cost_per_question_usd"]
                     if not combined.get("release_date") and matched_existing.get("release_date"):
                         combined["release_date"] = matched_existing["release_date"]
                     if (not combined.get("license") or combined.get("license") == "Proprietary") and matched_existing.get("license") not in (None, "", "Proprietary"):

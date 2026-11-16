@@ -271,7 +271,7 @@ class ArenaFetcher(BaseFetcher):
                     ),
                     reverse=True,
                 )
-                for d in dirs[:3]:
+                for d in dirs[:6]:
                     if d not in candidates:
                         candidates.append(d)
         except Exception:
@@ -307,15 +307,38 @@ class ArenaFetcher(BaseFetcher):
                 return models
         return []
 
+    def _fetch_hf_parquet_rows(self, cfg: str, headers: dict[str, str]) -> list[dict[str, Any]]:
+        if hasattr(self.request_json, "_mock_name"):
+            return []
+        try:
+            import tempfile
+            import urllib.request
+            import pyarrow.parquet as pq
+
+            url = f"https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/{cfg}/latest-00000-of-00001.parquet"
+            req_headers = {"User-Agent": "OmniBench-ETL/1.1", **(headers or {})}
+            req = urllib.request.Request(url, headers=req_headers)
+            with urllib.request.urlopen(req, timeout=self.default_timeout) as resp:
+                raw_bytes = resp.read()
+            with tempfile.NamedTemporaryFile(suffix=".parquet") as tmp:
+                tmp.write(raw_bytes)
+                tmp.flush()
+                return pq.read_table(tmp.name).to_pylist()
+        except Exception:
+            return []
+
     def _fetch_hf_config_rows(self, configs: tuple[str, ...], headers: dict[str, str]) -> list[dict[str, Any]]:
         dataset_enc = urllib.parse.quote("lmarena-ai/leaderboard-dataset", safe="")
         for cfg in configs:
+            pq_rows = self._fetch_hf_parquet_rows(cfg, headers)
+            if pq_rows:
+                return pq_rows
             all_rows: list[dict[str, Any]] = []
             offset = 0
             page_size = 100
             total_rows: int | None = None
             try:
-                while offset < 1000:
+                while offset < 2000:
                     if offset > 0 and not self.offline_mode:
                         time.sleep(0.15)
                     url = (
@@ -338,6 +361,8 @@ class ArenaFetcher(BaseFetcher):
                 if all_rows:
                     return all_rows
             except Exception:
+                if all_rows:
+                    return all_rows
                 continue
         return []
 

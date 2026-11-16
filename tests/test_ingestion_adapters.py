@@ -761,6 +761,127 @@ class TestIngestionAdapters(unittest.TestCase):
             self.assertEqual(calls, 1)
             mock_sleep.assert_not_called()
 
+    def test_livebench_v2_weighted_averaging_and_data_dir_discovery(self) -> None:
+        sample_row = {
+            "claw_eval": "61.78",
+            "deep_research_bench": "86.8",
+            "frontend_bench": "77.31",
+            "weirdml": "88.58",
+            "lcb_generation": "78.5",
+            "browser_use": "77.12",
+            "data_analysis": "83.24",
+        }
+        cat_map = {
+            "long_agentic": ["claw_eval"],
+            "research": ["deep_research_bench"],
+            "design": ["frontend_bench"],
+            "reasoning": ["weirdml"],
+            "coding": ["lcb_generation"],
+            "browser": ["browser_use"],
+            "data_analysis": ["data_analysis"],
+        }
+        weights = {"long_agentic": 2}
+        res = LiveBenchFetcher.compute_category_averages(sample_row, cat_map, weights=weights)
+        self.assertEqual(res["long_agentic"], 61.78)
+        self.assertEqual(res["research"], 86.8)
+        self.assertEqual(res["design"], 77.31)
+        self.assertEqual(res["reasoning"], 88.58)
+        self.assertEqual(res["coding"], 78.5)
+        self.assertEqual(res["browser"], 77.12)
+        self.assertEqual(res["data_analysis"], 83.24)
+        self.assertEqual(res["global_average"], 76.9)
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            adapter = LiveBenchFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+
+            def fake_json(url: str, headers: dict | None = None):
+                if "contents/public" in url:
+                    return [{"name": "table_2026_06_25.csv"}]
+                if "data/20261106/categories.json" in url:
+                    return {**cat_map, "_overall_weights": weights}
+                raise RuntimeError(f"404 {url}")
+
+            def fake_text(url: str, headers: dict | None = None, accept: str = "*/*"):
+                if url == "https://livebench.ai/":
+                    return '<html><script src="/static/js/main.deadbeef.js"></script></html>'
+                if "main.deadbeef.js" in url:
+                    return (
+                        'const R=["20261106","20261025"];'
+                        'const M={"gemini-4-hydrogen":{displayName:"Gemini 4 Hydrogen",organization:"Google",effort:"xhigh",openweight:false}};'
+                    )
+                if "data/20261106/table.csv" in url:
+                    return (
+                        "model,claw_eval,deep_research_bench,frontend_bench,weirdml,lcb_generation,browser_use,data_analysis\n"
+                        "gemini-4-hydrogen,61.78,86.8,77.31,88.58,78.5,77.12,83.24\n"
+                    )
+                if "data/20261106/cost.csv" in url:
+                    return "model,claw_eval,nq_claw_eval\ngemini-4-hydrogen,44.436,30\n"
+                raise RuntimeError(f"404 {url}")
+
+            with patch.object(adapter, "request_json", side_effect=fake_json), patch.object(
+                adapter, "request_text", side_effect=fake_text
+            ):
+                snap = adapter.run()
+
+            self.assertEqual(snap["release"], "2026-11-06")
+            self.assertEqual(len(snap["models"]), 1)
+            m = snap["models"][0]
+            self.assertEqual(m["model_key"], "gemini-4-hydrogen")
+            self.assertEqual(m["display_name"], "Gemini 4 Hydrogen")
+            self.assertEqual(m["provider"], "Google")
+            self.assertEqual(m["global_average"], 76.9)
+            self.assertEqual(m["agentic_coding"], 61.78)
+            self.assertEqual(m["language"], 86.8)
+            self.assertEqual(m["instruction_following"], 77.31)
+            self.assertEqual(m["mathematics"], 77.12)
+            self.assertAlmostEqual(m["cost_per_question_usd"], 1.4812, places=4)
+
+    def test_vals_table2_spacer_cells_and_subheader_filtered(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            adapter = ValsFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+            sample_html = """
+            <table>
+              <tr><th>Rank</th><th>Model</th><th>Accuracy</th><th>Cost</th></tr>
+              <tr><td>1</td><td>Google Gemini 4 Hydrogen (xHigh)</td><td>68.49%</td><td>$9.84</td></tr>
+            </table>
+            <table>
+              <tr><td></td><td>Finance Agent v2.1</td><td>EMB v1.1</td><td>Terminal-Bench 4</td><td>Vibe Code Bench v1.1</td><td>Code Migration v1.1</td><td>Legal Research</td><td>HLAB-Vals-1.1</td><td>Tax Agent</td><td>Vals Index</td></tr>
+              <tr>
+                <td>Google Gemini 4 Hydrogen (xHigh)</td>
+                <td>65.1%</td><td>69.6%</td><td></td><td>59.7%</td><td>87.8%</td><td>85.7%</td><td></td><td>53.8%</td><td>74.0%</td><td></td><td>52.3%</td><td></td><td>68.49%</td>
+              </tr>
+            </table>
+            """
+            with patch.object(adapter, "request_text", return_value=sample_html):
+                models = adapter.fetch_live_models()
+
+            self.assertEqual(len(models), 1)
+            m = models[0]
+            self.assertEqual(m["vals_model_name"], "Google Gemini 4 Hydrogen (xHigh)")
+            self.assertEqual(m["finance_agent"], 65.1)
+            self.assertEqual(m["vibe_code"], 87.8)
+            self.assertEqual(m["legal_bench"], 53.8)
+            self.assertEqual(m["tax_agent"], 52.3)
+            self.assertEqual(m["vals_index"], 68.49)
+            self.assertEqual(m["cost_per_test_usd"], 9.84)
+
+    def test_aa_scrape_missing_creator_column_and_default_fallback_suffix(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            adapter = ArtificialAnalysisFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+            sample_html = """
+            <table>
+              <tr><th>Model</th><th>Context Window</th><th>Cost per TaskUSD</th><th>Artificial Analysis Intelligence Index</th><th>PriceUSD/1M Tokens</th></tr>
+              <tr><td><a href="/models/claude-fable-5-2-max">Claude Fable 5.2 Max, Default Fallback</a></td><td>1m</td><td>$450.00</td><td>58.0%</td><td>$30.00</td></tr>
+            </table>
+            """
+            with patch.object(adapter, "request_text", return_value=sample_html):
+                parsed = adapter._scrape_public_leaderboard()
+
+            self.assertEqual(len(parsed), 1)
+            m = parsed[0]
+            self.assertEqual(m["model_name"], "Claude Fable 5.2 Max")
+            self.assertEqual(m["provider"], "Unknown")
+
 
 if __name__ == "__main__":
     unittest.main()

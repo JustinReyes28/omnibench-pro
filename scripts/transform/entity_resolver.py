@@ -19,7 +19,7 @@ _EFFORT_NOISE_RE = re.compile(
     r"-(?:thinking-auto|thinking-\d+k|effort|preview)(?=-|$)",
     re.IGNORECASE,
 )
-_WITH_FALLBACK_RE = re.compile(r"\s+with\s+fallback\b", re.IGNORECASE)
+_WITH_FALLBACK_RE = re.compile(r"(?:\s*,\s*default\s+fallback|\s+with\s+fallback)\b", re.IGNORECASE)
 _REASONING_TAG_RE = re.compile(
     r"\s*\((?:reasoning|thinking|preview|with fallback)\)\s*",
     re.IGNORECASE,
@@ -90,6 +90,8 @@ _PROVIDER_ALIASES: dict[str, str] = {
     "minimax": "MiniMax",
     "tencent": "Tencent",
     "nvidia": "NVIDIA",
+    "abacus.ai": "NVIDIA",
+    "abacus ai": "NVIDIA",
     "cohere": "Cohere",
     "upstage": "Upstage",
     "ibm": "IBM",
@@ -286,8 +288,9 @@ def _slug_signature(slug: str) -> tuple[tuple[str, ...], frozenset[str]]:
 
 
 def _infer_provider(raw_name: str, provider: str) -> str:
-    if provider and provider != "Unknown":
-        return _PROVIDER_ALIASES.get(provider.strip().lower(), provider.strip())
+    prov_clean = (provider or "").strip()
+    if prov_clean and prov_clean != "Unknown" and not prov_clean.startswith("$") and re.search(r"[a-zA-Z]", prov_clean):
+        return _PROVIDER_ALIASES.get(prov_clean.lower(), prov_clean)
     lowered = raw_name.lower()
     for prefixes, canonical_provider in _PROVIDER_HINTS:
         if any(tok in lowered for tok in prefixes):
@@ -458,6 +461,7 @@ def format_display_name(raw_name: str, provider: str = "") -> str:
         "codex": "Codex",
         "oss": "OSS",
         "hf": "HF",
+        "nvfp4": "NVFP4",
     }
 
     def _cap_tok(tok: str) -> str:
@@ -759,11 +763,23 @@ class EntityResolver:
                 self.registry_dirty = True
 
         if display_name:
-            formatted = format_display_name(display_name, entry.get("provider", ""))
+            prov_str = str(entry.get("provider", ""))
+            formatted = format_display_name(display_name, prov_str)
             cur_disp = str(entry.get("display_name") or "")
             if formatted and cur_disp != formatted:
-                # Only upgrade raw lowercase slugs or exact case-folded improvements; never clobber human names
-                if (cur_disp == cur_disp.lower() and formatted != formatted.lower()) or cur_disp == formatted.lower():
+                default_slug_disp = format_display_name(cid, prov_str)
+                is_default_alias_disp = any(
+                    cur_disp == format_display_name(a, prov_str)
+                    for al in (entry.get("aliases") or {}).values()
+                    for a in al
+                )
+                # Only upgrade raw lowercase slugs, default slug-derived names, or exact case-folded improvements; never clobber human names
+                if (
+                    (cur_disp == cur_disp.lower() and formatted != formatted.lower())
+                    or cur_disp == formatted.lower()
+                    or cur_disp == default_slug_disp
+                    or is_default_alias_disp
+                ):
                     entry["display_name"] = formatted
                     self.registry_dirty = True
 

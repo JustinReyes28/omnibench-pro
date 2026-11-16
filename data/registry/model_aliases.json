@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-13T08:31:00Z",
+  "updated_at": "2026-11-16T05:06:11Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -55,7 +55,8 @@
         "livebench": [
           "anthropic-claude-fable-5-2-xhigh",
           "claude-fable-5.2-(xhigh)",
-          "claude-fable-5-2-xhigh"
+          "claude-fable-5-2-xhigh",
+          "claude-fable-5.2"
         ],
         "arena": [
           "anthropic-claude-fable-5-2-xhigh-202611",
@@ -261,7 +262,8 @@
           "Claude Opus 5.5 (Max) (reasoning)",
           "Claude Opus 5.5",
           "Claude Opus 5.5 (Reasoning)",
-          "Claude Opus 5.5 (max with fallback)"
+          "Claude Opus 5.5 (max with fallback)",
+          "Claude Opus 5.5 Max"
         ],
         "livebench": [
           "anthropic-claude-opus-5-5",
@@ -407,7 +409,8 @@
         ],
         "livebench": [
           "anthropic-claude-fable-5-1-max",
-          "claude-fable-5.1-(max)"
+          "claude-fable-5.1-(max)",
+          "claude-fable-5.1"
         ],
         "arena": [
           "anthropic-claude-fable-5-1-max-202610",
@@ -543,7 +546,8 @@
       "aliases": {
         "artificial_analysis": [
           "Claude Sonnet 5.5 (Max)",
-          "Claude Sonnet 5.5 (Max) (reasoning)"
+          "Claude Sonnet 5.5 (Max) (reasoning)",
+          "Claude Sonnet 5.5 Max"
         ],
         "livebench": [
           "anthropic-claude-sonnet-5-5",
@@ -2335,7 +2339,8 @@
       "aliases": {
         "artificial_analysis": [
           "Gemma 4 31B",
-          "Gemma 4 31B (standard)"
+          "Gemma 4 31B (standard)",
+          "Gemma 4 31B Reasoning"
         ],
         "livebench": [
           "google-gemma-4-31b",
@@ -2452,7 +2457,8 @@
         ],
         "livebench": [
           "meta-muse-wonder-max",
-          "muse-wonder-1.0-(max)"
+          "muse-wonder-1.0-(max)",
+          "muse-wonder-1.0"
         ],
         "arena": [
           "meta-muse-wonder-max-202610",
@@ -2989,7 +2995,8 @@
         ],
         "livebench": [
           "qwen-3-8-27b-xhigh",
-          "qwen3.8-27b-(xhigh)"
+          "qwen3.8-27b-(xhigh)",
+          "qwen3.8-27b"
         ],
         "arena": [
           "qwen-3-8-27b-xhigh-202610",
@@ -3357,7 +3364,8 @@
         ],
         "livebench": [
           "xai-grok-4-6-high",
-          "grok-4.6-(high)"
+          "grok-4.6-(high)",
+          "grok-4.6"
         ],
         "arena": [
           "xai-grok-4-6-high-202610",
@@ -3753,7 +3761,8 @@
         ],
         "livebench": [
           "nvidia-nemotron-3-5-super-vl",
-          "nemotron-3.5-super-vl"
+          "nemotron-3.5-super-vl",
+          "nemotron-super-vl-3.5"
         ],
         "arena": [
           "nvidia-nemotron-3-5-super-vl-202610",
@@ -3777,7 +3786,8 @@
       "aliases": {
         "artificial_analysis": [
           "Nemotron 3 Ultra",
-          "Nemotron 3 Ultra (reasoning)"
+          "Nemotron 3 Ultra (reasoning)",
+          "Nemotron 3 Ultra 550B A55B Reasoning"
         ],
         "livebench": [
           "nvidia-nemotron-3-ultra",
@@ -4014,7 +4024,9 @@
         "artificial_analysis": [
           "Gemini 4 Hydrogen (xhigh)"
         ],
-        "livebench": [],
+        "livebench": [
+          "gemini-4-hydrogen"
+        ],
         "arena": [],
         "vals": [
           "Gemini 4 Hydrogen"
@@ -4480,7 +4492,8 @@
       "thinking_effort": "standard",
       "aliases": {
         "artificial_analysis": [
-          "Mistral Small 4"
+          "Mistral Small 4",
+          "Mistral Small 4 Reasoning"
         ],
         "livebench": [],
         "arena": [],
@@ -5183,6 +5196,71 @@
           "DeepSeek-V4-Pro (High, 20260813)"
         ],
         "vals": []
+      }
+    },
+    {
+      "canonical_id": "mistral-large-4-0",
+      "display_name": "Mistral Large 4 1029",
+      "provider": "Mistral AI",
+      "release_date": "2026-10-06",
+      "license": "Proprietary",
+      "is_open_weights": true,
+      "context_window": 1048576,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "mistral-large-4-0"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "nvidia-nemotron-super-vl-3-5-nvfp4",
+      "display_name": "Nemotron 3.5 Super VL (NVFP4)",
+      "provider": "NVIDIA",
+      "release_date": "2026-11-15",
+      "license": "Proprietary",
+      "is_open_weights": true,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": false,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [
+          "nemotron-super-vl-3.5-nvfp4"
+        ],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "alibaba-qwen4-max",
+      "display_name": "Qwen4 Max",
+      "provider": "Alibaba",
+      "release_date": "2026-11-16",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 984000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "Qwen4 Max"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": [
+          "Qwen 4 Max"
+        ]
       }
     }
   ]

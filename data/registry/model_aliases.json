@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-16T05:06:11Z",
+  "updated_at": "2026-11-17T05:29:32Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5242,12 +5242,12 @@
     },
     {
       "canonical_id": "alibaba-qwen4-max",
-      "display_name": "Qwen4 Max",
+      "display_name": "Qwen4-Max",
       "provider": "Alibaba",
       "release_date": "2026-11-16",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 984000,
+      "context_window": 1000000,
       "reasoning_mode": "reasoning",
       "thinking_effort": "max",
       "auto_promoted": true,
@@ -5256,11 +5256,34 @@
         "artificial_analysis": [
           "Qwen4 Max"
         ],
-        "livebench": [],
+        "livebench": [
+          "qwen4-max"
+        ],
         "arena": [],
         "vals": [
           "Qwen 4 Max"
         ]
+      }
+    },
+    {
+      "canonical_id": "google-gemma-4-e4b-reasoning",
+      "display_name": "Gemma 4 E4B Reasoning",
+      "provider": "Google",
+      "release_date": "2026-04-03",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 128000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "Gemma 4 E4B Reasoning"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
       }
     }
   ]

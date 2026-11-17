@@ -2,11 +2,11 @@
   "source_key": "livebench",
   "source_name": "LiveBench",
   "source_url": "https://livebench.ai/",
-  "fetched_at": "2026-11-16T21:21:49Z",
+  "fetched_at": "2026-11-17T05:29:27Z",
   "status": "live",
   "fetch_status": "live",
   "release": "2026-11-06",
-  "model_count": 150,
+  "model_count": 151,
   "models": [
     {
       "model_key": "anthropic-claude-fable-5-1-max",
@@ -517,6 +517,24 @@
       "cost_per_question_usd": 0.0186,
       "first_seen": "2026-11-10",
       "open_weights": true
+    },
+    {
+      "model_key": "qwen4-max",
+      "display_name": "Qwen4-Max",
+      "provider": "Alibaba",
+      "global_average": 73.3,
+      "coding": 69.8,
+      "mathematics": 80.7,
+      "reasoning": 92.2,
+      "data_analysis": 83.4,
+      "language": 84.7,
+      "instruction_following": 79.1,
+      "agentic_coding": 47.5,
+      "cost_per_question_usd": 0.5071,
+      "first_seen": "2026-11-17",
+      "release_date": "2026-11-16",
+      "metadata_verified": true,
+      "context_window": 1000000
     },
     {
       "model_key": "nvidia-smaug-nemotron-3-5-nvfp4",

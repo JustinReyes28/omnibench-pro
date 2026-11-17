@@ -1,6 +1,15 @@
 {
-  "unmatched_count": 1,
+  "unmatched_count": 2,
   "unmatched_models": [
+    {
+      "provisional_id": "unmatched-a-x-k2",
+      "source_key": "artificial_analysis",
+      "raw_name": "A.X-K2",
+      "provider": "Unknown",
+      "normalized_slug": "a-x-k2",
+      "closest_canonical_candidate": "thinking-machines-inkling-2-small",
+      "similarity_score": 0.267
+    },
     {
       "provisional_id": "unmatched-stealth-nebula-v1",
       "source_key": "arena",

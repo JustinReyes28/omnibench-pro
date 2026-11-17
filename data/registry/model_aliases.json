@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-17T05:29:32Z",
+  "updated_at": "2026-11-17T20:10:05Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5284,6 +5284,73 @@
         "livebench": [],
         "arena": [],
         "vals": []
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-2-astra-max",
+      "display_name": "GPT-6.2 Astra Max",
+      "provider": "OpenAI",
+      "release_date": "2026-11-17",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.2 Astra Max"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": [
+          "GPT-6.2 Astra"
+        ]
+      }
+    },
+    {
+      "canonical_id": "openai-gpt-6-2-sol-max",
+      "display_name": "GPT-6.2 Sol Max",
+      "provider": "OpenAI",
+      "release_date": "2026-11-17",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "GPT-6.2 Sol Max"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": [
+          "GPT-6.2 Sol"
+        ]
+      }
+    },
+    {
+      "canonical_id": "tencent-hy4-flash",
+      "display_name": "Hy4 Flash",
+      "provider": "Tencent",
+      "release_date": "2026-11-16",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1048576,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [],
+        "vals": [
+          "Hy4 Flash"
+        ]
       }
     }
   ]

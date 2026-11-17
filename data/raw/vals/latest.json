@@ -2,11 +2,11 @@
   "source_key": "vals",
   "source_name": "Vals.ai",
   "source_url": "https://www.vals.ai/benchmarks",
-  "fetched_at": "2026-11-17T05:29:29Z",
+  "fetched_at": "2026-11-17T20:10:00Z",
   "status": "live",
   "fetch_status": "live",
   "methodology_version": "Vals Index v2.2",
-  "model_count": 141,
+  "model_count": 144,
   "models": [
     {
       "vals_model_name": "Claude Fable 5.2 (Max)",
@@ -75,6 +75,20 @@
       "first_seen": "2026-11-12"
     },
     {
+      "vals_model_name": "GPT-6.2 Astra",
+      "provider": "Unknown",
+      "vals_index": 67.66,
+      "finance_agent": 60.7,
+      "legal_bench": 42.8,
+      "tax_agent": 21.8,
+      "vibe_code": 89.9,
+      "cost_per_test_usd": 10.68,
+      "first_seen": "2026-11-17",
+      "release_date": "2026-11-17",
+      "metadata_verified": true,
+      "context_window": 1050000
+    },
+    {
       "vals_model_name": "Muse Wonder Full (Max)",
       "provider": "Meta",
       "vals_index": 66.79,
@@ -84,6 +98,20 @@
       "vibe_code": 86.0,
       "cost_per_test_usd": 6.81,
       "first_seen": "2026-11-12"
+    },
+    {
+      "vals_model_name": "GPT-6.2 Sol",
+      "provider": "Unknown",
+      "vals_index": 66.06,
+      "finance_agent": 58.9,
+      "legal_bench": 37.0,
+      "tax_agent": 24.8,
+      "vibe_code": 87.6,
+      "cost_per_test_usd": 3.18,
+      "first_seen": "2026-11-17",
+      "release_date": "2026-11-17",
+      "metadata_verified": true,
+      "context_window": 1050000
     },
     {
       "vals_model_name": "GPT-6 Astra (Max)",
@@ -155,10 +183,10 @@
       "vals_model_name": "GPT-6.1 Terra (Max)",
       "provider": "OpenAI",
       "vals_index": 60.54,
-      "finance_agent": 56.0,
-      "legal_bench": 26.0,
-      "tax_agent": 17.1,
-      "vibe_code": 84.0,
+      "finance_agent": 58.12,
+      "legal_bench": 47.22,
+      "tax_agent": 35.11,
+      "vibe_code": 77.49,
       "cost_per_test_usd": 2.94,
       "first_seen": "2026-11-12"
     },
@@ -166,10 +194,10 @@
       "vals_model_name": "Muse Ember (Max)",
       "provider": "Meta",
       "vals_index": 60.48,
-      "finance_agent": 63.8,
-      "legal_bench": 49.0,
-      "tax_agent": 38.2,
-      "vibe_code": 83.7,
+      "finance_agent": 58.06,
+      "legal_bench": 47.17,
+      "tax_agent": 35.08,
+      "vibe_code": 77.41,
       "cost_per_test_usd": 0.15,
       "first_seen": "2026-11-12"
     },
@@ -359,6 +387,20 @@
       "vibe_code": 65.1,
       "cost_per_test_usd": 2.05,
       "first_seen": "2026-11-12"
+    },
+    {
+      "vals_model_name": "Hy4 Flash",
+      "provider": "Unknown",
+      "vals_index": 50.78,
+      "finance_agent": 48.75,
+      "legal_bench": 39.61,
+      "tax_agent": 29.45,
+      "vibe_code": 65.0,
+      "cost_per_test_usd": 0.07,
+      "first_seen": "2026-11-17",
+      "release_date": "2026-11-16",
+      "metadata_verified": true,
+      "context_window": 1048576
     },
     {
       "vals_model_name": "Muse Spark Open (xHigh)",

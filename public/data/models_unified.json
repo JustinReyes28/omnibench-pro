@@ -1,28 +1,28 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-11-19T06:33:40Z",
+  "generated_at": "2026-11-19T19:41:54Z",
   "sources_metadata": {
     "artificial_analysis": {
-      "last_updated": "2026-11-19T06:33:29Z",
+      "last_updated": "2026-11-19T19:41:38Z",
       "status": "live",
       "url": "https://artificialanalysis.ai/",
       "methodology_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "livebench": {
-      "last_updated": "2026-11-19T06:33:29Z",
+      "last_updated": "2026-11-19T19:41:39Z",
       "release": "2026-11-06",
       "status": "live",
       "url": "https://livebench.ai/",
       "repo_url": "https://github.com/LiveBench/new-livebench"
     },
     "arena": {
-      "last_updated": "2026-11-19T06:33:31Z",
+      "last_updated": "2026-11-19T19:41:47Z",
       "status": "live",
       "url": "https://arena.ai/leaderboard",
       "hf_url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard"
     },
     "vals": {
-      "last_updated": "2026-11-19T06:33:31Z",
+      "last_updated": "2026-11-19T19:41:48Z",
       "status": "live",
       "url": "https://www.vals.ai/benchmarks",
       "methodology_url": "https://www.vals.ai/methodology"
@@ -84,25 +84,25 @@
       },
       "normalized_pillars": {
         "aa": 98.94,
-        "lb": 97.86,
+        "lb": 96.52,
         "ar": 98.29,
         "va": 97.57
       },
       "capabilities": {
-        "coding": 98.4,
-        "reasoning": 96.1,
+        "coding": 98.3,
+        "reasoning": 96.0,
         "agentic": 96.9,
         "enterprise": 85.7,
-        "chat": 94.0
+        "chat": 93.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 98.18,
-        "coding_composite_score": 98.4,
+        "unified_quality_score": 97.77,
+        "coding_composite_score": 98.3,
         "enterprise_agent_score": 85.7,
-        "value_efficiency_score": 41.86,
+        "value_efficiency_score": 41.69,
         "is_pareto_optimal": true
       }
     },
@@ -161,25 +161,25 @@
       },
       "normalized_pillars": {
         "aa": 95.21,
-        "lb": 95.14,
+        "lb": 93.84,
         "ar": 96.3,
         "va": 98.22
       },
       "capabilities": {
-        "coding": 84.5,
-        "reasoning": 90.8,
-        "agentic": 98.3,
+        "coding": 84.4,
+        "reasoning": 90.7,
+        "agentic": 98.2,
         "enterprise": 94.5,
-        "chat": 93.3
+        "chat": 92.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 96.11,
-        "coding_composite_score": 84.5,
+        "unified_quality_score": 95.72,
+        "coding_composite_score": 84.4,
         "enterprise_agent_score": 94.5,
-        "value_efficiency_score": 40.98,
+        "value_efficiency_score": 40.82,
         "is_pareto_optimal": false
       }
     },
@@ -238,25 +238,25 @@
       },
       "normalized_pillars": {
         "aa": 92.44,
-        "lb": 94.75,
+        "lb": 93.45,
         "ar": 97.82,
         "va": 95.59
       },
       "capabilities": {
-        "coding": 92.6,
-        "reasoning": 94.0,
-        "agentic": 90.4,
+        "coding": 92.5,
+        "reasoning": 93.9,
+        "agentic": 90.3,
         "enterprise": 95.3,
-        "chat": 93.3
+        "chat": 92.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 94.73,
-        "coding_composite_score": 92.6,
+        "unified_quality_score": 94.34,
+        "coding_composite_score": 92.5,
         "enterprise_agent_score": 95.3,
-        "value_efficiency_score": 46.26,
+        "value_efficiency_score": 46.07,
         "is_pareto_optimal": true
       }
     },
@@ -315,26 +315,96 @@
       },
       "normalized_pillars": {
         "aa": 95.21,
-        "lb": 91.47,
-        "ar": 91.15,
+        "lb": 90.22,
+        "ar": 91.16,
         "va": 97.57
       },
       "capabilities": {
         "coding": 92.0,
-        "reasoning": 88.8,
-        "agentic": 94.5,
+        "reasoning": 88.7,
+        "agentic": 94.4,
         "enterprise": 88.2,
-        "chat": 88.7
+        "chat": 87.8
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 94.07,
+        "unified_quality_score": 93.7,
         "coding_composite_score": 92.0,
         "enterprise_agent_score": 88.2,
-        "value_efficiency_score": 40.11,
+        "value_efficiency_score": 39.95,
         "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "google-gemini-4-neon-xhigh",
+      "display_name": "Gemini 4 Neon",
+      "provider": "Google",
+      "release_date": "2026-11-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1048576,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "pricing": {
+        "input_per_1m_usd": 1.932,
+        "output_per_1m_usd": 9.66,
+        "blended_per_1m_usd": 3.864
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": 56.51
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 61.0,
+          "coding_index": 68.32,
+          "math_index": 75.64
+        },
+        "livebench": {
+          "global_average": 87.4,
+          "coding": 89.7,
+          "mathematics": 95.6,
+          "reasoning": 89.6,
+          "data_analysis": 85.3,
+          "language": 94.5,
+          "instruction_following": 81.5,
+          "agentic_coding": 82.6,
+          "cost_per_question_usd": 2.3205
+        },
+        "arena": null,
+        "vals": {
+          "vals_index": 70.87,
+          "finance_agent": 68.6,
+          "legal_bench": 56.3,
+          "tax_agent": 54.9,
+          "vibe_code": 93.7,
+          "cost_per_test_usd": 7.4
+        }
+      },
+      "normalized_pillars": {
+        "aa": 93.74,
+        "lb": 97.96,
+        "ar": null,
+        "va": 96.61
+      },
+      "capabilities": {
+        "coding": 88.3,
+        "reasoning": 92.2,
+        "agentic": 93.6,
+        "enterprise": 97.5,
+        "chat": 90.0
+      },
+      "composite": {
+        "sources_present": 3,
+        "coverage_ratio": 0.75,
+        "provisional_ranking": false,
+        "unified_quality_score": 93.55,
+        "coding_composite_score": 88.3,
+        "enterprise_agent_score": 97.5,
+        "value_efficiency_score": 49.12,
+        "is_pareto_optimal": true
       }
     },
     {
@@ -391,97 +461,27 @@
         }
       },
       "normalized_pillars": {
-        "aa": 91.13,
-        "lb": 95.66,
+        "aa": 91.14,
+        "lb": 94.35,
         "ar": 93.32,
         "va": 94.92
       },
       "capabilities": {
-        "coding": 93.0,
+        "coding": 92.9,
         "reasoning": 91.1,
-        "agentic": 93.2,
-        "enterprise": 90.3,
-        "chat": 91.9
+        "agentic": 93.1,
+        "enterprise": 90.2,
+        "chat": 90.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 93.77,
-        "coding_composite_score": 93.0,
-        "enterprise_agent_score": 90.3,
-        "value_efficiency_score": 36.91,
+        "unified_quality_score": 93.38,
+        "coding_composite_score": 92.9,
+        "enterprise_agent_score": 90.2,
+        "value_efficiency_score": 36.76,
         "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "openai-gpt-6-2-astra-max",
-      "display_name": "GPT-6.2 Astra",
-      "provider": "OpenAI",
-      "release_date": "2026-11-17",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 1050000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "max",
-      "pricing": {
-        "input_per_1m_usd": 1.2,
-        "output_per_1m_usd": 6.0,
-        "blended_per_1m_usd": 2.4
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": 134.86
-      },
-      "benchmarks": {
-        "artificial_analysis": {
-          "intelligence_index": 62.0,
-          "coding_index": 69.44,
-          "math_index": 76.88
-        },
-        "livebench": {
-          "global_average": 84.9,
-          "coding": 91.9,
-          "mathematics": 93.0,
-          "reasoning": 91.6,
-          "data_analysis": 84.1,
-          "language": 91.5,
-          "instruction_following": 82.8,
-          "agentic_coding": 70.8,
-          "cost_per_question_usd": 1.6472
-        },
-        "arena": null,
-        "vals": {
-          "vals_index": 67.66,
-          "finance_agent": 60.7,
-          "legal_bench": 42.8,
-          "tax_agent": 21.8,
-          "vibe_code": 89.9,
-          "cost_per_test_usd": 10.68
-        }
-      },
-      "normalized_pillars": {
-        "aa": 95.21,
-        "lb": 95.14,
-        "ar": null,
-        "va": 89.57
-      },
-      "capabilities": {
-        "coding": 88.5,
-        "reasoning": 93.5,
-        "agentic": 85.4,
-        "enterprise": 73.9,
-        "chat": 89.7
-      },
-      "composite": {
-        "sources_present": 3,
-        "coverage_ratio": 0.75,
-        "provisional_ranking": false,
-        "unified_quality_score": 91.14,
-        "coding_composite_score": 88.5,
-        "enterprise_agent_score": 73.9,
-        "value_efficiency_score": 51.88,
-        "is_pareto_optimal": true
       }
     },
     {
@@ -538,27 +538,97 @@
         }
       },
       "normalized_pillars": {
-        "aa": 88.53,
-        "lb": 92.16,
-        "ar": 90.07,
+        "aa": 88.54,
+        "lb": 90.91,
+        "ar": 90.08,
         "va": 93.56
       },
       "capabilities": {
         "coding": 90.2,
-        "reasoning": 88.1,
-        "agentic": 90.5,
-        "enterprise": 88.8,
-        "chat": 89.4
+        "reasoning": 88.0,
+        "agentic": 90.4,
+        "enterprise": 88.7,
+        "chat": 88.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 91.11,
+        "unified_quality_score": 90.74,
         "coding_composite_score": 90.2,
-        "enterprise_agent_score": 88.8,
-        "value_efficiency_score": 36.87,
+        "enterprise_agent_score": 88.7,
+        "value_efficiency_score": 36.72,
         "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "openai-gpt-6-2-astra-max",
+      "display_name": "GPT-6.2 Astra",
+      "provider": "OpenAI",
+      "release_date": "2026-11-17",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "max",
+      "pricing": {
+        "input_per_1m_usd": 1.2,
+        "output_per_1m_usd": 6.0,
+        "blended_per_1m_usd": 2.4
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": 134.86
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 62.0,
+          "coding_index": 69.44,
+          "math_index": 76.88
+        },
+        "livebench": {
+          "global_average": 84.9,
+          "coding": 91.9,
+          "mathematics": 93.0,
+          "reasoning": 91.6,
+          "data_analysis": 84.1,
+          "language": 91.5,
+          "instruction_following": 82.8,
+          "agentic_coding": 70.8,
+          "cost_per_question_usd": 1.6472
+        },
+        "arena": null,
+        "vals": {
+          "vals_index": 67.66,
+          "finance_agent": 60.7,
+          "legal_bench": 42.8,
+          "tax_agent": 21.8,
+          "vibe_code": 89.9,
+          "cost_per_test_usd": 10.68
+        }
+      },
+      "normalized_pillars": {
+        "aa": 95.21,
+        "lb": 93.84,
+        "ar": null,
+        "va": 89.57
+      },
+      "capabilities": {
+        "coding": 88.4,
+        "reasoning": 93.5,
+        "agentic": 85.3,
+        "enterprise": 73.9,
+        "chat": 87.1
+      },
+      "composite": {
+        "sources_present": 3,
+        "coverage_ratio": 0.75,
+        "provisional_ranking": false,
+        "unified_quality_score": 90.7,
+        "coding_composite_score": 88.4,
+        "enterprise_agent_score": 73.9,
+        "value_efficiency_score": 51.63,
+        "is_pareto_optimal": true
       }
     },
     {
@@ -615,26 +685,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 82.93,
-        "lb": 96.78,
-        "ar": 88.14,
+        "aa": 82.96,
+        "lb": 95.45,
+        "ar": 88.16,
         "va": 92.65
       },
       "capabilities": {
-        "coding": 91.9,
+        "coding": 91.8,
         "reasoning": 88.0,
-        "agentic": 92.4,
-        "enterprise": 90.3,
-        "chat": 86.2
+        "agentic": 92.3,
+        "enterprise": 90.2,
+        "chat": 85.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 90.3,
-        "coding_composite_score": 91.9,
-        "enterprise_agent_score": 90.3,
-        "value_efficiency_score": 35.27,
+        "unified_quality_score": 89.91,
+        "coding_composite_score": 91.8,
+        "enterprise_agent_score": 90.2,
+        "value_efficiency_score": 35.12,
         "is_pareto_optimal": false
       }
     },
@@ -692,26 +762,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 88.53,
-        "lb": 96.48,
-        "ar": 84.91,
+        "aa": 88.54,
+        "lb": 95.16,
+        "ar": 84.94,
         "va": 84.31
       },
       "capabilities": {
         "coding": 91.6,
-        "reasoning": 92.3,
-        "agentic": 87.5,
+        "reasoning": 92.2,
+        "agentic": 87.4,
         "enterprise": 69.0,
-        "chat": 80.0
+        "chat": 79.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 89.32,
+        "unified_quality_score": 88.93,
         "coding_composite_score": 91.6,
         "enterprise_agent_score": 69.0,
-        "value_efficiency_score": 36.57,
+        "value_efficiency_score": 36.41,
         "is_pareto_optimal": false
       }
     },
@@ -769,86 +839,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 85.51,
-        "lb": 86.3,
-        "ar": 83.69,
+        "aa": 85.52,
+        "lb": 85.12,
+        "ar": 83.73,
         "va": 96.4
       },
       "capabilities": {
         "coding": 87.6,
-        "reasoning": 86.6,
+        "reasoning": 86.5,
         "agentic": 86.9,
         "enterprise": 83.8,
-        "chat": 83.7
+        "chat": 82.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 88.2,
+        "unified_quality_score": 87.85,
         "coding_composite_score": 87.6,
         "enterprise_agent_score": 83.8,
-        "value_efficiency_score": 43.22,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "google-gemini-4-neon-xhigh",
-      "display_name": "Gemini 4 Neon Xhigh",
-      "provider": "Google",
-      "release_date": "2026-11-18",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 1048576,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "xhigh",
-      "pricing": {
-        "input_per_1m_usd": 1.932,
-        "output_per_1m_usd": 9.66,
-        "blended_per_1m_usd": 3.864
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": 56.51
-      },
-      "benchmarks": {
-        "artificial_analysis": {
-          "intelligence_index": 61.0,
-          "coding_index": 68.32,
-          "math_index": 75.64
-        },
-        "livebench": null,
-        "arena": null,
-        "vals": {
-          "vals_index": 70.87,
-          "finance_agent": 68.6,
-          "legal_bench": 56.3,
-          "tax_agent": 54.9,
-          "vibe_code": 93.7,
-          "cost_per_test_usd": 7.4
-        }
-      },
-      "normalized_pillars": {
-        "aa": 93.74,
-        "lb": null,
-        "ar": null,
-        "va": 96.61
-      },
-      "capabilities": {
-        "coding": 85.4,
-        "reasoning": 87.3,
-        "agentic": null,
-        "enterprise": 96.2,
-        "chat": null
-      },
-      "composite": {
-        "sources_present": 2,
-        "coverage_ratio": 0.5,
-        "provisional_ranking": false,
-        "unified_quality_score": 87.64,
-        "coding_composite_score": 85.4,
-        "enterprise_agent_score": 96.2,
-        "value_efficiency_score": 46.02,
+        "value_efficiency_score": 43.04,
         "is_pareto_optimal": false
       }
     },
@@ -906,26 +916,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 81.01,
-        "lb": 89.14,
-        "ar": 91.66,
+        "aa": 81.04,
+        "lb": 87.93,
+        "ar": 91.67,
         "va": 89.96
       },
       "capabilities": {
         "coding": 86.3,
-        "reasoning": 82.3,
-        "agentic": 86.6,
+        "reasoning": 82.2,
+        "agentic": 86.5,
         "enterprise": 85.0,
-        "chat": 87.1
+        "chat": 86.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 87.28,
+        "unified_quality_score": 86.93,
         "coding_composite_score": 86.3,
         "enterprise_agent_score": 85.0,
-        "value_efficiency_score": 36.15,
+        "value_efficiency_score": 36.0,
         "is_pareto_optimal": false
       }
     },
@@ -983,9 +993,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 77.73,
-        "lb": 92.59,
-        "ar": 88.82,
+        "aa": 77.77,
+        "lb": 91.33,
+        "ar": 88.84,
         "va": 90.3
       },
       "capabilities": {
@@ -993,16 +1003,16 @@
         "reasoning": 83.0,
         "agentic": 88.9,
         "enterprise": 87.4,
-        "chat": 86.4
+        "chat": 85.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 86.99,
+        "unified_quality_score": 86.63,
         "coding_composite_score": 88.2,
         "enterprise_agent_score": 87.4,
-        "value_efficiency_score": 34.54,
+        "value_efficiency_score": 34.39,
         "is_pareto_optimal": false
       }
     },
@@ -1060,26 +1070,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 85.51,
-        "lb": 93.67,
-        "ar": 85.15,
+        "aa": 85.52,
+        "lb": 92.39,
+        "ar": 85.17,
         "va": 81.53
       },
       "capabilities": {
-        "coding": 90.4,
+        "coding": 90.3,
         "reasoning": 91.1,
         "agentic": 84.4,
         "enterprise": 68.5,
-        "chat": 81.0
+        "chat": 80.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 86.91,
-        "coding_composite_score": 90.4,
+        "unified_quality_score": 86.53,
+        "coding_composite_score": 90.3,
         "enterprise_agent_score": 68.5,
-        "value_efficiency_score": 44.72,
+        "value_efficiency_score": 44.53,
         "is_pareto_optimal": false
       }
     },
@@ -1137,26 +1147,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 77.73,
-        "lb": 84.7,
-        "ar": 95.01,
+        "aa": 77.77,
+        "lb": 83.55,
+        "ar": 95.02,
         "va": 93.37
       },
       "capabilities": {
-        "coding": 83.4,
-        "reasoning": 85.4,
-        "agentic": 76.4,
-        "enterprise": 93.9,
-        "chat": 91.8
+        "coding": 83.3,
+        "reasoning": 85.3,
+        "agentic": 76.3,
+        "enterprise": 93.8,
+        "chat": 90.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 86.32,
-        "coding_composite_score": 83.4,
-        "enterprise_agent_score": 93.9,
-        "value_efficiency_score": 44.42,
+        "unified_quality_score": 85.99,
+        "coding_composite_score": 83.3,
+        "enterprise_agent_score": 93.8,
+        "value_efficiency_score": 44.25,
         "is_pareto_optimal": false
       }
     },
@@ -1214,26 +1224,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 87.06,
-        "lb": 83.67,
-        "ar": 83.02,
+        "aa": 87.07,
+        "lb": 82.52,
+        "ar": 83.06,
         "va": 88.98
       },
       "capabilities": {
-        "coding": 84.3,
-        "reasoning": 81.4,
-        "agentic": 87.3,
-        "enterprise": 80.3,
-        "chat": 82.5
+        "coding": 84.2,
+        "reasoning": 81.3,
+        "agentic": 87.2,
+        "enterprise": 80.2,
+        "chat": 81.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 85.92,
-        "coding_composite_score": 84.3,
-        "enterprise_agent_score": 80.3,
-        "value_efficiency_score": 36.64,
+        "unified_quality_score": 85.58,
+        "coding_composite_score": 84.2,
+        "enterprise_agent_score": 80.2,
+        "value_efficiency_score": 36.49,
         "is_pareto_optimal": false
       }
     },
@@ -1291,26 +1301,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 85.51,
-        "lb": 90.52,
-        "ar": 81.91,
+        "aa": 85.52,
+        "lb": 89.29,
+        "ar": 81.95,
         "va": 81.96
       },
       "capabilities": {
-        "coding": 87.1,
+        "coding": 87.0,
         "reasoning": 88.1,
-        "agentic": 83.7,
+        "agentic": 83.6,
         "enterprise": 66.8,
-        "chat": 81.3
+        "chat": 80.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 85.59,
-        "coding_composite_score": 87.1,
+        "unified_quality_score": 85.23,
+        "coding_composite_score": 87.0,
         "enterprise_agent_score": 66.8,
-        "value_efficiency_score": 36.07,
+        "value_efficiency_score": 35.92,
         "is_pareto_optimal": false
       }
     },
@@ -1361,26 +1371,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 88.53,
-        "lb": 87.03,
+        "aa": 88.54,
+        "lb": 85.85,
         "ar": null,
         "va": 86.31
       },
       "capabilities": {
-        "coding": 77.6,
+        "coding": 77.5,
         "reasoning": 87.6,
-        "agentic": 78.7,
+        "agentic": 78.6,
         "enterprise": 68.4,
-        "chat": 88.2
+        "chat": 85.7
       },
       "composite": {
         "sources_present": 3,
         "coverage_ratio": 0.75,
         "provisional_ranking": false,
-        "unified_quality_score": 85.28,
-        "coding_composite_score": 77.6,
+        "unified_quality_score": 84.89,
+        "coding_composite_score": 77.5,
         "enterprise_agent_score": 68.4,
-        "value_efficiency_score": 64.13,
+        "value_efficiency_score": 63.84,
         "is_pareto_optimal": true
       }
     },
@@ -1438,26 +1448,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 85.51,
-        "lb": 88.15,
-        "ar": 75.97,
+        "aa": 85.52,
+        "lb": 86.95,
+        "ar": 76.02,
         "va": 79.92
       },
       "capabilities": {
         "coding": 84.9,
-        "reasoning": 86.4,
-        "agentic": 81.3,
+        "reasoning": 86.3,
+        "agentic": 81.1,
         "enterprise": 64.6,
-        "chat": 76.0
+        "chat": 75.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 83.47,
+        "unified_quality_score": 83.12,
         "coding_composite_score": 84.9,
         "enterprise_agent_score": 64.6,
-        "value_efficiency_score": 35.17,
+        "value_efficiency_score": 35.03,
         "is_pareto_optimal": false
       }
     },
@@ -1515,26 +1525,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 77.73,
-        "lb": 82.68,
-        "ar": 86.55,
+        "aa": 77.77,
+        "lb": 81.55,
+        "ar": 86.57,
         "va": 87.83
       },
       "capabilities": {
-        "coding": 79.2,
+        "coding": 79.1,
         "reasoning": 83.9,
-        "agentic": 77.0,
-        "enterprise": 89.1,
-        "chat": 91.5
+        "agentic": 76.9,
+        "enterprise": 89.0,
+        "chat": 90.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 83.06,
-        "coding_composite_score": 79.2,
-        "enterprise_agent_score": 89.1,
-        "value_efficiency_score": 37.51,
+        "unified_quality_score": 82.74,
+        "coding_composite_score": 79.1,
+        "enterprise_agent_score": 89.0,
+        "value_efficiency_score": 37.36,
         "is_pareto_optimal": false
       }
     },
@@ -1585,26 +1595,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 83.87,
-        "lb": 79.83,
+        "aa": 83.89,
+        "lb": 78.74,
         "ar": null,
         "va": 91.41
       },
       "capabilities": {
-        "coding": 70.5,
-        "reasoning": 80.0,
-        "agentic": 78.4,
+        "coding": 70.4,
+        "reasoning": 79.9,
+        "agentic": 78.3,
         "enterprise": 91.9,
-        "chat": 84.2
+        "chat": 81.8
       },
       "composite": {
         "sources_present": 3,
         "coverage_ratio": 0.75,
         "provisional_ranking": false,
-        "unified_quality_score": 82.74,
-        "coding_composite_score": 70.5,
+        "unified_quality_score": 82.38,
+        "coding_composite_score": 70.4,
         "enterprise_agent_score": 91.9,
-        "value_efficiency_score": 49.15,
+        "value_efficiency_score": 48.93,
         "is_pareto_optimal": false
       }
     },
@@ -1662,26 +1672,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 77.73,
-        "lb": 81.56,
-        "ar": 78.01,
+        "aa": 77.77,
+        "lb": 80.44,
+        "ar": 78.06,
         "va": 92.65
       },
       "capabilities": {
         "coding": 83.2,
-        "reasoning": 80.8,
-        "agentic": 83.1,
+        "reasoning": 80.7,
+        "agentic": 83.0,
         "enterprise": 80.5,
-        "chat": 76.7
+        "chat": 75.8
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 82.65,
+        "unified_quality_score": 82.33,
         "coding_composite_score": 83.2,
         "enterprise_agent_score": 80.5,
-        "value_efficiency_score": 40.5,
+        "value_efficiency_score": 40.34,
         "is_pareto_optimal": false
       }
     },
@@ -1739,26 +1749,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 81.01,
-        "lb": 89.58,
-        "ar": 77.5,
+        "aa": 81.04,
+        "lb": 88.36,
+        "ar": 77.56,
         "va": 78.93
       },
       "capabilities": {
         "coding": 85.2,
-        "reasoning": 86.7,
-        "agentic": 80.7,
+        "reasoning": 86.6,
+        "agentic": 80.6,
         "enterprise": 65.8,
-        "chat": 77.8
+        "chat": 76.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 82.53,
+        "unified_quality_score": 82.19,
         "coding_composite_score": 85.2,
         "enterprise_agent_score": 65.8,
-        "value_efficiency_score": 42.47,
+        "value_efficiency_score": 42.29,
         "is_pareto_optimal": false
       }
     },
@@ -1816,26 +1826,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 73.66,
-        "lb": 87.59,
-        "ar": 81.29,
+        "aa": 73.7,
+        "lb": 86.4,
+        "ar": 81.34,
         "va": 85.41
       },
       "capabilities": {
-        "coding": 82.5,
+        "coding": 82.4,
         "reasoning": 77.8,
-        "agentic": 83.8,
+        "agentic": 83.7,
         "enterprise": 82.4,
-        "chat": 80.7
+        "chat": 79.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 81.92,
-        "coding_composite_score": 82.5,
+        "unified_quality_score": 81.58,
+        "coding_composite_score": 82.4,
         "enterprise_agent_score": 82.4,
-        "value_efficiency_score": 33.52,
+        "value_efficiency_score": 33.38,
         "is_pareto_optimal": false
       }
     },
@@ -1893,26 +1903,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 72.84,
-        "lb": 86.6,
-        "ar": 84.19,
+        "aa": 72.88,
+        "lb": 85.42,
+        "ar": 84.22,
         "va": 83.43
       },
       "capabilities": {
         "coding": 80.3,
         "reasoning": 76.0,
-        "agentic": 83.9,
-        "enterprise": 80.5,
-        "chat": 80.9
+        "agentic": 83.8,
+        "enterprise": 80.4,
+        "chat": 80.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 81.32,
+        "unified_quality_score": 80.98,
         "coding_composite_score": 80.3,
-        "enterprise_agent_score": 80.5,
-        "value_efficiency_score": 32.01,
+        "enterprise_agent_score": 80.4,
+        "value_efficiency_score": 31.88,
         "is_pareto_optimal": false
       }
     },
@@ -1970,26 +1980,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 77.73,
-        "lb": 88.58,
-        "ar": 71.73,
+        "aa": 77.77,
+        "lb": 87.38,
+        "ar": 71.8,
         "va": 76.42
       },
       "capabilities": {
         "coding": 82.7,
-        "reasoning": 84.2,
-        "agentic": 79.2,
+        "reasoning": 84.1,
+        "agentic": 79.0,
         "enterprise": 63.5,
-        "chat": 73.5
+        "chat": 72.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 79.76,
+        "unified_quality_score": 79.42,
         "coding_composite_score": 82.7,
         "enterprise_agent_score": 63.5,
-        "value_efficiency_score": 41.04,
+        "value_efficiency_score": 40.87,
         "is_pareto_optimal": false
       }
     },
@@ -2047,26 +2057,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 71.85,
-        "lb": 85.17,
-        "ar": 80.13,
+        "aa": 71.9,
+        "lb": 84.01,
+        "ar": 80.18,
         "va": 82.3
       },
       "capabilities": {
         "coding": 71.3,
         "reasoning": 81.3,
-        "agentic": 66.8,
-        "enterprise": 80.1,
-        "chat": 88.2
+        "agentic": 66.7,
+        "enterprise": 80.0,
+        "chat": 87.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 79.7,
+        "unified_quality_score": 79.38,
         "coding_composite_score": 71.3,
-        "enterprise_agent_score": 80.1,
-        "value_efficiency_score": 31.38,
+        "enterprise_agent_score": 80.0,
+        "value_efficiency_score": 31.25,
         "is_pareto_optimal": false
       }
     },
@@ -2124,26 +2134,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 79.46,
-        "lb": 85.7,
-        "ar": 75.6,
+        "aa": 79.48,
+        "lb": 84.53,
+        "ar": 75.66,
         "va": 74.19
       },
       "capabilities": {
         "coding": 82.3,
-        "reasoning": 83.3,
-        "agentic": 77.7,
+        "reasoning": 83.2,
+        "agentic": 77.6,
         "enterprise": 73.4,
-        "chat": 75.5
+        "chat": 74.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 79.44,
+        "unified_quality_score": 79.1,
         "coding_composite_score": 82.3,
         "enterprise_agent_score": 73.4,
-        "value_efficiency_score": 46.31,
+        "value_efficiency_score": 46.11,
         "is_pareto_optimal": false
       }
     },
@@ -2201,26 +2211,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 74.96,
-        "lb": 81.12,
-        "ar": 75.28,
+        "aa": 75.0,
+        "lb": 80.01,
+        "ar": 75.34,
         "va": 83.94
       },
       "capabilities": {
         "coding": 77.7,
         "reasoning": 75.9,
-        "agentic": 79.7,
+        "agentic": 79.6,
         "enterprise": 78.7,
-        "chat": 77.3
+        "chat": 76.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 79.1,
+        "unified_quality_score": 78.79,
         "coding_composite_score": 77.7,
         "enterprise_agent_score": 78.7,
-        "value_efficiency_score": 33.73,
+        "value_efficiency_score": 33.6,
         "is_pareto_optimal": false
       }
     },
@@ -2278,26 +2288,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 83.87,
-        "lb": 74.23,
-        "ar": 72.29,
+        "aa": 83.89,
+        "lb": 73.21,
+        "ar": 72.36,
         "va": 81.14
       },
       "capabilities": {
-        "coding": 76.6,
-        "reasoning": 75.2,
-        "agentic": 78.5,
-        "enterprise": 72.6,
-        "chat": 72.1
+        "coding": 76.5,
+        "reasoning": 75.1,
+        "agentic": 78.4,
+        "enterprise": 72.5,
+        "chat": 71.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 78.56,
-        "coding_composite_score": 76.6,
-        "enterprise_agent_score": 72.6,
-        "value_efficiency_score": 33.5,
+        "unified_quality_score": 78.27,
+        "coding_composite_score": 76.5,
+        "enterprise_agent_score": 72.5,
+        "value_efficiency_score": 33.37,
         "is_pareto_optimal": false
       }
     },
@@ -2355,26 +2365,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 69.08,
-        "lb": 74.23,
-        "ar": 91.47,
+        "aa": 69.13,
+        "lb": 73.21,
+        "ar": 91.49,
         "va": 83.73
       },
       "capabilities": {
         "coding": 75.4,
         "reasoning": 77.8,
-        "agentic": 72.4,
+        "agentic": 72.3,
         "enterprise": 82.9,
-        "chat": 92.6
+        "chat": 91.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 77.65,
+        "unified_quality_score": 77.36,
         "coding_composite_score": 75.4,
         "enterprise_agent_score": 82.9,
-        "value_efficiency_score": 35.98,
+        "value_efficiency_score": 35.85,
         "is_pareto_optimal": false
       }
     },
@@ -2432,26 +2442,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 81.01,
-        "lb": 80.69,
-        "ar": 66.89,
+        "aa": 81.04,
+        "lb": 79.59,
+        "ar": 66.98,
         "va": 74.78
       },
       "capabilities": {
         "coding": 77.9,
         "reasoning": 80.4,
-        "agentic": 74.9,
+        "agentic": 74.8,
         "enterprise": 59.1,
-        "chat": 68.2
+        "chat": 67.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 77.24,
+        "unified_quality_score": 76.93,
         "coding_composite_score": 77.9,
         "enterprise_agent_score": 59.1,
-        "value_efficiency_score": 32.55,
+        "value_efficiency_score": 32.42,
         "is_pareto_optimal": false
       }
     },
@@ -2509,26 +2519,86 @@
         }
       },
       "normalized_pillars": {
-        "aa": 72.84,
-        "lb": 84.4,
-        "ar": 74.55,
+        "aa": 72.88,
+        "lb": 83.25,
+        "ar": 74.61,
         "va": 71.76
       },
       "capabilities": {
-        "coding": 79.9,
-        "reasoning": 79.0,
-        "agentic": 77.5,
+        "coding": 79.8,
+        "reasoning": 78.9,
+        "agentic": 77.4,
         "enterprise": 59.2,
-        "chat": 69.4
+        "chat": 68.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 76.29,
-        "coding_composite_score": 79.9,
+        "unified_quality_score": 75.97,
+        "coding_composite_score": 79.8,
         "enterprise_agent_score": 59.2,
-        "value_efficiency_score": 39.26,
+        "value_efficiency_score": 39.09,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "google-gemini-4-hydrogen-high",
+      "display_name": "Gemini 4 Hydrogen (high)",
+      "provider": "Google",
+      "release_date": "2026-11-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "pricing": {
+        "input_per_1m_usd": 0.561,
+        "output_per_1m_usd": 2.805,
+        "blended_per_1m_usd": 1.122
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": 16.68
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 51.0,
+          "coding_index": 57.12,
+          "math_index": 63.24
+        },
+        "livebench": null,
+        "arena": {
+          "text_elo": 1502,
+          "text_ci_lower": 1493,
+          "text_ci_upper": 1511,
+          "coding_elo": 1513,
+          "vision_elo": null,
+          "votes": 4737
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": 79.48,
+        "lb": null,
+        "ar": 84.67,
+        "va": null
+      },
+      "capabilities": {
+        "coding": 73.8,
+        "reasoning": 74.0,
+        "agentic": null,
+        "enterprise": null,
+        "chat": 85.0
+      },
+      "composite": {
+        "sources_present": 2,
+        "coverage_ratio": 0.5,
+        "provisional_ranking": false,
+        "unified_quality_score": 74.82,
+        "coding_composite_score": 73.8,
+        "enterprise_agent_score": 72.42,
+        "value_efficiency_score": 49.2,
         "is_pareto_optimal": false
       }
     },
@@ -2586,86 +2656,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 65.88,
-        "lb": 77.29,
-        "ar": 69.32,
+        "aa": 65.94,
+        "lb": 76.23,
+        "ar": 69.4,
         "va": 86.71
       },
       "capabilities": {
-        "coding": 75.2,
-        "reasoning": 72.2,
-        "agentic": 78.9,
+        "coding": 75.1,
+        "reasoning": 72.1,
+        "agentic": 78.7,
         "enterprise": 75.2,
-        "chat": 71.5
+        "chat": 70.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 75.03,
-        "coding_composite_score": 75.2,
+        "unified_quality_score": 74.74,
+        "coding_composite_score": 75.1,
         "enterprise_agent_score": 75.2,
-        "value_efficiency_score": 36.76,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "google-gemini-4-hydrogen-high",
-      "display_name": "Gemini 4 Hydrogen (high)",
-      "provider": "Google",
-      "release_date": "2026-11-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 1000000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
-      "pricing": {
-        "input_per_1m_usd": 0.561,
-        "output_per_1m_usd": 2.805,
-        "blended_per_1m_usd": 1.122
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": 16.68
-      },
-      "benchmarks": {
-        "artificial_analysis": {
-          "intelligence_index": 51.0,
-          "coding_index": 57.12,
-          "math_index": 63.24
-        },
-        "livebench": null,
-        "arena": {
-          "text_elo": 1502,
-          "text_ci_lower": 1493,
-          "text_ci_upper": 1511,
-          "coding_elo": 1513,
-          "vision_elo": null,
-          "votes": 4737
-        },
-        "vals": null
-      },
-      "normalized_pillars": {
-        "aa": 79.46,
-        "lb": null,
-        "ar": 84.64,
-        "va": null
-      },
-      "capabilities": {
-        "coding": 73.8,
-        "reasoning": 74.0,
-        "agentic": null,
-        "enterprise": null,
-        "chat": 84.9
-      },
-      "composite": {
-        "sources_present": 2,
-        "coverage_ratio": 0.5,
-        "provisional_ranking": false,
-        "unified_quality_score": 74.8,
-        "coding_composite_score": 73.8,
-        "enterprise_agent_score": 72.4,
-        "value_efficiency_score": 49.18,
+        "value_efficiency_score": 36.62,
         "is_pareto_optimal": false
       }
     },
@@ -2723,26 +2733,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 67.61,
-        "lb": 79.31,
-        "ar": 72.52,
+        "aa": 67.66,
+        "lb": 78.23,
+        "ar": 72.59,
         "va": 78.93
       },
       "capabilities": {
-        "coding": 74.9,
+        "coding": 74.8,
         "reasoning": 71.2,
-        "agentic": 76.9,
+        "agentic": 76.8,
         "enterprise": 75.8,
-        "chat": 72.3
+        "chat": 71.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 74.69,
-        "coding_composite_score": 74.9,
+        "unified_quality_score": 74.39,
+        "coding_composite_score": 74.8,
         "enterprise_agent_score": 75.8,
-        "value_efficiency_score": 31.59,
+        "value_efficiency_score": 31.47,
         "is_pareto_optimal": false
       }
     },
@@ -2800,26 +2810,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 71.85,
-        "lb": 68.32,
-        "ar": 83.32,
+        "aa": 71.9,
+        "lb": 67.38,
+        "ar": 83.35,
         "va": 78.22
       },
       "capabilities": {
-        "coding": 70.4,
+        "coding": 70.3,
         "reasoning": 79.1,
-        "agentic": 65.2,
+        "agentic": 65.1,
         "enterprise": 66.5,
-        "chat": 78.4
+        "chat": 77.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 74.1,
-        "coding_composite_score": 70.4,
+        "unified_quality_score": 73.84,
+        "coding_composite_score": 70.3,
         "enterprise_agent_score": 66.5,
-        "value_efficiency_score": 40.25,
+        "value_efficiency_score": 40.11,
         "is_pareto_optimal": false
       }
     },
@@ -2867,25 +2877,25 @@
       },
       "normalized_pillars": {
         "aa": null,
-        "lb": 83.3,
-        "ar": 72.86,
+        "lb": 82.16,
+        "ar": 72.92,
         "va": null
       },
       "capabilities": {
-        "coding": 62.2,
+        "coding": 62.1,
         "reasoning": 86.0,
         "agentic": 57.8,
         "enterprise": null,
-        "chat": 80.2
+        "chat": 79.2
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 73.69,
-        "coding_composite_score": 62.2,
-        "enterprise_agent_score": 72.49,
-        "value_efficiency_score": 55.27,
+        "unified_quality_score": 73.1,
+        "coding_composite_score": 62.1,
+        "enterprise_agent_score": 71.83,
+        "value_efficiency_score": 54.82,
         "is_pareto_optimal": false
       }
     },
@@ -2943,26 +2953,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 66.25,
-        "lb": 75.78,
-        "ar": 84.37,
+        "aa": 66.31,
+        "lb": 74.74,
+        "ar": 84.4,
         "va": 67.18
       },
       "capabilities": {
         "coding": 72.8,
-        "reasoning": 72.3,
-        "agentic": 67.0,
+        "reasoning": 72.2,
+        "agentic": 66.9,
         "enterprise": 55.5,
-        "chat": 75.2
+        "chat": 74.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 72.06,
+        "unified_quality_score": 71.77,
         "coding_composite_score": 72.8,
         "enterprise_agent_score": 55.5,
-        "value_efficiency_score": 33.39,
+        "value_efficiency_score": 33.26,
         "is_pareto_optimal": false
       }
     },
@@ -3020,26 +3030,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 70.38,
-        "lb": 78.37,
-        "ar": 67.66,
+        "aa": 70.43,
+        "lb": 77.29,
+        "ar": 67.75,
         "va": 69.09
       },
       "capabilities": {
-        "coding": 75.0,
-        "reasoning": 75.8,
-        "agentic": 70.5,
-        "enterprise": 48.6,
-        "chat": 68.6
+        "coding": 74.9,
+        "reasoning": 75.7,
+        "agentic": 70.4,
+        "enterprise": 48.5,
+        "chat": 67.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 72.05,
-        "coding_composite_score": 75.0,
-        "enterprise_agent_score": 48.6,
-        "value_efficiency_score": 42.0,
+        "unified_quality_score": 71.75,
+        "coding_composite_score": 74.9,
+        "enterprise_agent_score": 48.5,
+        "value_efficiency_score": 41.83,
         "is_pareto_optimal": false
       }
     },
@@ -3097,26 +3107,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 71.85,
-        "lb": 79.31,
-        "ar": 59.93,
+        "aa": 71.9,
+        "lb": 78.23,
+        "ar": 60.05,
         "va": 70.26
       },
       "capabilities": {
-        "coding": 75.1,
+        "coding": 75.0,
         "reasoning": 77.1,
-        "agentic": 71.8,
+        "agentic": 71.7,
         "enterprise": 57.2,
-        "chat": 63.0
+        "chat": 62.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 71.9,
-        "coding_composite_score": 75.1,
+        "unified_quality_score": 71.61,
+        "coding_composite_score": 75.0,
         "enterprise_agent_score": 57.2,
-        "value_efficiency_score": 37.0,
+        "value_efficiency_score": 36.85,
         "is_pareto_optimal": false
       }
     },
@@ -3146,14 +3156,14 @@
           "math_index": 53.32
         },
         "livebench": {
-          "global_average": 73.3,
+          "global_average": 73.1,
           "coding": 69.8,
           "mathematics": 80.7,
           "reasoning": 92.2,
           "data_analysis": 83.4,
           "language": 84.7,
           "instruction_following": 79.1,
-          "agentic_coding": 47.5,
+          "agentic_coding": 46.6,
           "cost_per_question_usd": 0.5071
         },
         "arena": null,
@@ -3167,26 +3177,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 67.61,
-        "lb": 72.46,
+        "aa": 67.66,
+        "lb": 71.04,
         "ar": null,
         "va": 79.92
       },
       "capabilities": {
-        "coding": 54.3,
+        "coding": 54.0,
         "reasoning": 75.3,
-        "agentic": 74.0,
-        "enterprise": 78.7,
-        "chat": 81.0
+        "agentic": 73.3,
+        "enterprise": 78.6,
+        "chat": 78.7
       },
       "composite": {
         "sources_present": 3,
         "coverage_ratio": 0.75,
         "provisional_ranking": false,
-        "unified_quality_score": 71.63,
-        "coding_composite_score": 54.3,
-        "enterprise_agent_score": 78.7,
-        "value_efficiency_score": 42.28,
+        "unified_quality_score": 71.17,
+        "coding_composite_score": 54.0,
+        "enterprise_agent_score": 78.6,
+        "value_efficiency_score": 42.01,
         "is_pareto_optimal": false
       }
     },
@@ -3244,26 +3254,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 59.52,
-        "lb": 83.88,
-        "ar": 66.02,
+        "aa": 59.59,
+        "lb": 82.73,
+        "ar": 66.11,
         "va": 68.01
       },
       "capabilities": {
         "coding": 64.1,
         "reasoning": 76.8,
-        "agentic": 66.7,
+        "agentic": 66.6,
         "enterprise": 68.3,
-        "chat": 73.2
+        "chat": 72.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 69.93,
+        "unified_quality_score": 69.61,
         "coding_composite_score": 64.1,
         "enterprise_agent_score": 68.3,
-        "value_efficiency_score": 27.53,
+        "value_efficiency_score": 27.4,
         "is_pareto_optimal": false
       }
     },
@@ -3321,26 +3331,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 58.27,
-        "lb": 78.71,
-        "ar": 77.22,
+        "aa": 58.35,
+        "lb": 77.63,
+        "ar": 77.28,
         "va": 66.36
       },
       "capabilities": {
         "coding": 65.7,
-        "reasoning": 73.6,
-        "agentic": 59.2,
-        "enterprise": 66.8,
-        "chat": 80.1
+        "reasoning": 73.5,
+        "agentic": 59.1,
+        "enterprise": 66.7,
+        "chat": 79.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 69.27,
+        "unified_quality_score": 68.98,
         "coding_composite_score": 65.7,
-        "enterprise_agent_score": 66.8,
-        "value_efficiency_score": 27.27,
+        "enterprise_agent_score": 66.7,
+        "value_efficiency_score": 27.16,
         "is_pareto_optimal": false
       }
     },
@@ -3398,26 +3408,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 54.77,
-        "lb": 74.9,
-        "ar": 90.54,
+        "aa": 54.86,
+        "lb": 73.87,
+        "ar": 90.55,
         "va": 62.65
       },
       "capabilities": {
         "coding": 64.4,
-        "reasoning": 71.8,
-        "agentic": 54.9,
+        "reasoning": 71.7,
+        "agentic": 54.8,
         "enterprise": 61.5,
-        "chat": 87.4
+        "chat": 86.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 68.14,
+        "unified_quality_score": 67.86,
         "coding_composite_score": 64.4,
         "enterprise_agent_score": 61.5,
-        "value_efficiency_score": 26.82,
+        "value_efficiency_score": 26.71,
         "is_pareto_optimal": false
       }
     },
@@ -3475,26 +3485,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 61.67,
-        "lb": 76.02,
-        "ar": 57.84,
+        "aa": 61.73,
+        "lb": 74.98,
+        "ar": 57.97,
         "va": 71.76
       },
       "capabilities": {
         "coding": 64.3,
-        "reasoning": 76.4,
-        "agentic": 58.7,
+        "reasoning": 76.3,
+        "agentic": 58.6,
         "enterprise": 69.6,
-        "chat": 61.6
+        "chat": 60.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 67.92,
+        "unified_quality_score": 67.65,
         "coding_composite_score": 64.3,
         "enterprise_agent_score": 69.6,
-        "value_efficiency_score": 33.28,
+        "value_efficiency_score": 33.15,
         "is_pareto_optimal": false
       }
     },
@@ -3552,26 +3562,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 55.67,
-        "lb": 86.01,
-        "ar": 68.18,
+        "aa": 55.75,
+        "lb": 84.84,
+        "ar": 68.27,
         "va": 60.43
       },
       "capabilities": {
-        "coding": 64.1,
-        "reasoning": 75.8,
-        "agentic": 61.4,
+        "coding": 64.0,
+        "reasoning": 75.9,
+        "agentic": 61.3,
         "enterprise": 52.5,
-        "chat": 79.9
+        "chat": 79.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 67.84,
-        "coding_composite_score": 64.1,
+        "unified_quality_score": 67.53,
+        "coding_composite_score": 64.0,
         "enterprise_agent_score": 52.5,
-        "value_efficiency_score": 29.7,
+        "value_efficiency_score": 29.57,
         "is_pareto_optimal": false
       }
     },
@@ -3629,26 +3639,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 65.88,
-        "lb": 73.84,
-        "ar": 61.72,
+        "aa": 65.94,
+        "lb": 72.82,
+        "ar": 61.83,
         "va": 64.71
       },
       "capabilities": {
-        "coding": 70.5,
-        "reasoning": 71.3,
-        "agentic": 66.4,
-        "enterprise": 45.0,
-        "chat": 63.1
+        "coding": 70.4,
+        "reasoning": 71.2,
+        "agentic": 66.3,
+        "enterprise": 44.9,
+        "chat": 62.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 67.35,
-        "coding_composite_score": 70.5,
-        "enterprise_agent_score": 45.0,
-        "value_efficiency_score": 39.26,
+        "unified_quality_score": 67.08,
+        "coding_composite_score": 70.4,
+        "enterprise_agent_score": 44.9,
+        "value_efficiency_score": 39.11,
         "is_pareto_optimal": false
       }
     },
@@ -3706,9 +3716,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 52.06,
-        "lb": 73.54,
-        "ar": 70.13,
+        "aa": 52.15,
+        "lb": 72.52,
+        "ar": 70.21,
         "va": 75.69
       },
       "capabilities": {
@@ -3716,16 +3726,16 @@
         "reasoning": 69.4,
         "agentic": 69.4,
         "enterprise": 75.1,
-        "chat": 72.8
+        "chat": 72.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 67.12,
+        "unified_quality_score": 66.86,
         "coding_composite_score": 72.6,
         "enterprise_agent_score": 75.1,
-        "value_efficiency_score": 68.08,
+        "value_efficiency_score": 67.82,
         "is_pareto_optimal": true
       }
     },
@@ -3783,92 +3793,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 60.85,
-        "lb": 70.6,
-        "ar": 61.05,
+        "aa": 60.91,
+        "lb": 69.63,
+        "ar": 61.16,
         "va": 70.26
       },
       "capabilities": {
         "coding": 65.9,
         "reasoning": 63.4,
-        "agentic": 67.9,
+        "agentic": 67.8,
         "enterprise": 67.2,
-        "chat": 63.1
+        "chat": 62.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 66.16,
+        "unified_quality_score": 65.9,
         "coding_composite_score": 65.9,
         "enterprise_agent_score": 67.2,
-        "value_efficiency_score": 29.33,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "openai-gpt-5-5",
-      "display_name": "GPT-5.5",
-      "provider": "OpenAI",
-      "release_date": "2026-03-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 1050000,
-      "reasoning_mode": "standard",
-      "thinking_effort": "standard",
-      "pricing": {
-        "input_per_1m_usd": null,
-        "output_per_1m_usd": null,
-        "blended_per_1m_usd": null
-      },
-      "performance": {
-        "output_tokens_per_sec": null,
-        "ttft_seconds": null
-      },
-      "benchmarks": {
-        "artificial_analysis": null,
-        "livebench": {
-          "global_average": 72.15,
-          "coding": 78.63,
-          "mathematics": 69.77,
-          "reasoning": 87.27,
-          "data_analysis": 76.99,
-          "language": 85.57,
-          "instruction_following": 65.74,
-          "agentic_coding": 41.11,
-          "cost_per_question_usd": null
-        },
-        "arena": {
-          "text_elo": 1466,
-          "text_ci_lower": 1463,
-          "text_ci_upper": 1470,
-          "coding_elo": 1482,
-          "vision_elo": 1296,
-          "votes": 69748
-        },
-        "vals": null
-      },
-      "normalized_pillars": {
-        "aa": null,
-        "lb": 70.11,
-        "ar": 68.0,
-        "va": null
-      },
-      "capabilities": {
-        "coding": 57.6,
-        "reasoning": 68.1,
-        "agentic": 48.7,
-        "enterprise": null,
-        "chat": 77.7
-      },
-      "composite": {
-        "sources_present": 2,
-        "coverage_ratio": 0.5,
-        "provisional_ranking": false,
-        "unified_quality_score": 65.29,
-        "coding_composite_score": 57.6,
-        "enterprise_agent_score": 63.99,
-        "value_efficiency_score": 48.97,
+        "value_efficiency_score": 29.21,
         "is_pareto_optimal": false
       }
     },
@@ -3926,26 +3870,92 @@
         }
       },
       "normalized_pillars": {
-        "aa": 67.61,
-        "lb": 68.75,
-        "ar": 56.61,
+        "aa": 67.66,
+        "lb": 67.8,
+        "ar": 56.73,
         "va": 63.48
       },
       "capabilities": {
-        "coding": 66.9,
+        "coding": 66.8,
         "reasoning": 68.4,
-        "agentic": 64.6,
-        "enterprise": 49.5,
-        "chat": 59.0
+        "agentic": 64.5,
+        "enterprise": 49.4,
+        "chat": 58.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 65.27,
-        "coding_composite_score": 66.9,
-        "enterprise_agent_score": 49.5,
-        "value_efficiency_score": 27.51,
+        "unified_quality_score": 65.02,
+        "coding_composite_score": 66.8,
+        "enterprise_agent_score": 49.4,
+        "value_efficiency_score": 27.4,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "openai-gpt-5-5",
+      "display_name": "GPT-5.5",
+      "provider": "OpenAI",
+      "release_date": "2026-03-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1050000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": null,
+        "livebench": {
+          "global_average": 72.15,
+          "coding": 78.63,
+          "mathematics": 69.77,
+          "reasoning": 87.27,
+          "data_analysis": 76.99,
+          "language": 85.57,
+          "instruction_following": 65.74,
+          "agentic_coding": 41.11,
+          "cost_per_question_usd": null
+        },
+        "arena": {
+          "text_elo": 1466,
+          "text_ci_lower": 1463,
+          "text_ci_upper": 1470,
+          "coding_elo": 1482,
+          "vision_elo": 1296,
+          "votes": 69748
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": null,
+        "lb": 69.14,
+        "ar": 68.09,
+        "va": null
+      },
+      "capabilities": {
+        "coding": 57.5,
+        "reasoning": 68.0,
+        "agentic": 48.6,
+        "enterprise": null,
+        "chat": 76.8
+      },
+      "composite": {
+        "sources_present": 2,
+        "coverage_ratio": 0.5,
+        "provisional_ranking": false,
+        "unified_quality_score": 64.79,
+        "coding_composite_score": 57.5,
+        "enterprise_agent_score": 63.44,
+        "value_efficiency_score": 48.59,
         "is_pareto_optimal": false
       }
     },
@@ -4003,26 +4013,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 57.57,
-        "lb": 69.87,
-        "ar": 60.57,
+        "aa": 57.64,
+        "lb": 68.91,
+        "ar": 60.68,
         "va": 69.73
       },
       "capabilities": {
-        "coding": 69.7,
+        "coding": 69.8,
         "reasoning": 64.6,
-        "agentic": 68.1,
-        "enterprise": 63.9,
-        "chat": 65.6
+        "agentic": 68.0,
+        "enterprise": 63.8,
+        "chat": 64.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 64.75,
-        "coding_composite_score": 69.7,
-        "enterprise_agent_score": 63.9,
-        "value_efficiency_score": 39.7,
+        "unified_quality_score": 64.5,
+        "coding_composite_score": 69.8,
+        "enterprise_agent_score": 63.8,
+        "value_efficiency_score": 39.55,
         "is_pareto_optimal": false
       }
     },
@@ -4080,26 +4090,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 52.45,
-        "lb": 81.95,
-        "ar": 66.45,
+        "aa": 52.54,
+        "lb": 80.83,
+        "ar": 66.54,
         "va": 56.01
       },
       "capabilities": {
         "coding": 59.0,
-        "reasoning": 72.5,
-        "agentic": 60.5,
-        "enterprise": 48.8,
-        "chat": 76.4
+        "reasoning": 72.4,
+        "agentic": 60.4,
+        "enterprise": 48.7,
+        "chat": 75.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 64.29,
+        "unified_quality_score": 63.99,
         "coding_composite_score": 59.0,
-        "enterprise_agent_score": 48.8,
-        "value_efficiency_score": 31.08,
+        "enterprise_agent_score": 48.7,
+        "value_efficiency_score": 30.93,
         "is_pareto_optimal": false
       }
     },
@@ -4157,103 +4167,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 55.67,
-        "lb": 66.07,
-        "ar": 64.51,
+        "aa": 55.75,
+        "lb": 65.17,
+        "ar": 64.61,
         "va": 69.38
       },
       "capabilities": {
         "coding": 65.8,
-        "reasoning": 65.0,
-        "agentic": 65.9,
+        "reasoning": 64.9,
+        "agentic": 65.8,
         "enterprise": 68.6,
-        "chat": 70.3
+        "chat": 69.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 63.54,
+        "unified_quality_score": 63.31,
         "coding_composite_score": 65.8,
         "enterprise_agent_score": 68.6,
-        "value_efficiency_score": 33.91,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "google-gemini-3-1-pro-high",
-      "display_name": "Gemini 3.1 Pro (High)",
-      "provider": "Google",
-      "release_date": "2026-02-10",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 1000000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
-      "pricing": {
-        "input_per_1m_usd": 3.0,
-        "output_per_1m_usd": 12.0,
-        "blended_per_1m_usd": 5.25
-      },
-      "performance": {
-        "output_tokens_per_sec": 88.0,
-        "ttft_seconds": 0.82
-      },
-      "benchmarks": {
-        "artificial_analysis": {
-          "intelligence_index": 29.7,
-          "coding_index": 41.0,
-          "math_index": 47.6
-        },
-        "livebench": {
-          "global_average": 77.13,
-          "coding": 76.45,
-          "mathematics": 91.05,
-          "reasoning": 84.0,
-          "data_analysis": 78.54,
-          "language": 85.38,
-          "instruction_following": 79.1,
-          "agentic_coding": 45.4,
-          "cost_per_question_usd": null
-        },
-        "arena": {
-          "text_elo": 1480,
-          "text_ci_lower": 1474,
-          "text_ci_upper": 1486,
-          "coding_elo": 1474,
-          "vision_elo": 1388,
-          "votes": 61800
-        },
-        "vals": {
-          "vals_index": 54.5,
-          "finance_agent": 53.4,
-          "legal_bench": 40.0,
-          "tax_agent": 33.6,
-          "vibe_code": 76.8,
-          "cost_per_test_usd": 6.4
-        }
-      },
-      "normalized_pillars": {
-        "aa": 45.28,
-        "lb": 80.17,
-        "ar": 70.67,
-        "va": 58.44
-      },
-      "capabilities": {
-        "coding": 55.1,
-        "reasoning": 66.0,
-        "agentic": 64.6,
-        "enterprise": 60.2,
-        "chat": 82.1
-      },
-      "composite": {
-        "sources_present": 4,
-        "coverage_ratio": 1.0,
-        "provisional_ranking": false,
-        "unified_quality_score": 62.85,
-        "coding_composite_score": 55.1,
-        "enterprise_agent_score": 60.2,
-        "value_efficiency_score": 31.43,
+        "value_efficiency_score": 33.79,
         "is_pareto_optimal": false
       }
     },
@@ -4311,9 +4244,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 50.59,
-        "lb": 57.75,
-        "ar": 80.85,
+        "aa": 50.68,
+        "lb": 56.96,
+        "ar": 80.89,
         "va": 72.74
       },
       "capabilities": {
@@ -4321,16 +4254,93 @@
         "reasoning": 62.6,
         "agentic": 55.4,
         "enterprise": 71.7,
-        "chat": 73.6
+        "chat": 72.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.81,
+        "unified_quality_score": 62.61,
         "coding_composite_score": 60.7,
         "enterprise_agent_score": 71.7,
-        "value_efficiency_score": 47.16,
+        "value_efficiency_score": 47.01,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "google-gemini-3-1-pro-high",
+      "display_name": "Gemini 3.1 Pro (High)",
+      "provider": "Google",
+      "release_date": "2026-02-10",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "pricing": {
+        "input_per_1m_usd": 3.0,
+        "output_per_1m_usd": 12.0,
+        "blended_per_1m_usd": 5.25
+      },
+      "performance": {
+        "output_tokens_per_sec": 88.0,
+        "ttft_seconds": 0.82
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 29.7,
+          "coding_index": 41.0,
+          "math_index": 47.6
+        },
+        "livebench": {
+          "global_average": 77.13,
+          "coding": 76.45,
+          "mathematics": 91.05,
+          "reasoning": 84.0,
+          "data_analysis": 78.54,
+          "language": 85.38,
+          "instruction_following": 79.1,
+          "agentic_coding": 45.4,
+          "cost_per_question_usd": null
+        },
+        "arena": {
+          "text_elo": 1480,
+          "text_ci_lower": 1474,
+          "text_ci_upper": 1486,
+          "coding_elo": 1474,
+          "vision_elo": 1388,
+          "votes": 61800
+        },
+        "vals": {
+          "vals_index": 54.5,
+          "finance_agent": 53.4,
+          "legal_bench": 40.0,
+          "tax_agent": 33.6,
+          "vibe_code": 76.8,
+          "cost_per_test_usd": 6.4
+        }
+      },
+      "normalized_pillars": {
+        "aa": 45.4,
+        "lb": 79.07,
+        "ar": 70.74,
+        "va": 58.44
+      },
+      "capabilities": {
+        "coding": 55.1,
+        "reasoning": 65.9,
+        "agentic": 64.5,
+        "enterprise": 60.2,
+        "chat": 81.1
+      },
+      "composite": {
+        "sources_present": 4,
+        "coverage_ratio": 1.0,
+        "provisional_ranking": false,
+        "unified_quality_score": 62.56,
+        "coding_composite_score": 55.1,
+        "enterprise_agent_score": 60.2,
+        "value_efficiency_score": 31.29,
         "is_pareto_optimal": false
       }
     },
@@ -4388,26 +4398,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 55.67,
-        "lb": 64.05,
-        "ar": 66.21,
+        "aa": 55.75,
+        "lb": 63.17,
+        "ar": 66.31,
         "va": 67.68
       },
       "capabilities": {
-        "coding": 64.2,
+        "coding": 64.1,
         "reasoning": 64.3,
-        "agentic": 67.2,
+        "agentic": 67.1,
         "enterprise": 70.4,
-        "chat": 76.2
+        "chat": 75.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.77,
-        "coding_composite_score": 64.2,
+        "unified_quality_score": 62.54,
+        "coding_composite_score": 64.1,
         "enterprise_agent_score": 70.4,
-        "value_efficiency_score": 35.16,
+        "value_efficiency_score": 35.03,
         "is_pareto_optimal": false
       }
     },
@@ -4465,26 +4475,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 55.67,
-        "lb": 65.43,
-        "ar": 59.05,
+        "aa": 55.75,
+        "lb": 64.53,
+        "ar": 59.17,
         "va": 69.09
       },
       "capabilities": {
         "coding": 61.0,
         "reasoning": 58.5,
-        "agentic": 65.0,
+        "agentic": 64.9,
         "enterprise": 64.8,
-        "chat": 63.0
+        "chat": 62.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.46,
+        "unified_quality_score": 62.23,
         "coding_composite_score": 61.0,
         "enterprise_agent_score": 64.8,
-        "value_efficiency_score": 28.4,
+        "value_efficiency_score": 28.29,
         "is_pareto_optimal": false
       }
     },
@@ -4542,26 +4552,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 48.44,
-        "lb": 66.64,
-        "ar": 58.81,
+        "aa": 48.54,
+        "lb": 65.72,
+        "ar": 58.93,
         "va": 76.09
       },
       "capabilities": {
         "coding": 62.4,
         "reasoning": 58.2,
-        "agentic": 69.3,
+        "agentic": 69.2,
         "enterprise": 65.6,
-        "chat": 62.5
+        "chat": 61.8
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.37,
+        "unified_quality_score": 62.14,
         "coding_composite_score": 62.4,
         "enterprise_agent_score": 65.6,
-        "value_efficiency_score": 30.56,
+        "value_efficiency_score": 30.45,
         "is_pareto_optimal": false
       }
     },
@@ -4619,26 +4629,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 60.03,
-        "lb": 51.72,
-        "ar": 77.81,
+        "aa": 60.1,
+        "lb": 51.0,
+        "ar": 77.86,
         "va": 68.5
       },
       "capabilities": {
         "coding": 67.6,
         "reasoning": 68.6,
-        "agentic": 52.9,
-        "enterprise": 67.2,
-        "chat": 74.1
+        "agentic": 52.8,
+        "enterprise": 67.1,
+        "chat": 73.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.32,
+        "unified_quality_score": 62.13,
         "coding_composite_score": 67.6,
-        "enterprise_agent_score": 67.2,
-        "value_efficiency_score": 37.04,
+        "enterprise_agent_score": 67.1,
+        "value_efficiency_score": 36.92,
         "is_pareto_optimal": false
       }
     },
@@ -4696,26 +4706,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 58.56,
-        "lb": 61.46,
-        "ar": 76.4,
+        "aa": 58.63,
+        "lb": 60.62,
+        "ar": 76.46,
         "va": 58.77
       },
       "capabilities": {
-        "coding": 66.7,
+        "coding": 66.6,
         "reasoning": 69.3,
-        "agentic": 55.0,
+        "agentic": 54.9,
         "enterprise": 50.4,
-        "chat": 61.8
+        "chat": 61.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.16,
-        "coding_composite_score": 66.7,
+        "unified_quality_score": 61.94,
+        "coding_composite_score": 66.6,
         "enterprise_agent_score": 50.4,
-        "value_efficiency_score": 31.09,
+        "value_efficiency_score": 30.98,
         "is_pareto_optimal": false
       }
     },
@@ -4773,26 +4783,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 46.38,
-        "lb": 62.8,
-        "ar": 83.89,
+        "aa": 46.49,
+        "lb": 61.93,
+        "ar": 83.93,
         "va": 66.86
       },
       "capabilities": {
         "coding": 62.5,
         "reasoning": 58.2,
-        "agentic": 59.7,
-        "enterprise": 65.8,
-        "chat": 75.6
+        "agentic": 59.6,
+        "enterprise": 65.7,
+        "chat": 74.8
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 62.05,
+        "unified_quality_score": 61.83,
         "coding_composite_score": 62.5,
-        "enterprise_agent_score": 65.8,
-        "value_efficiency_score": 52.36,
+        "enterprise_agent_score": 65.7,
+        "value_efficiency_score": 52.18,
         "is_pareto_optimal": false
       }
     },
@@ -4850,26 +4860,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 57.57,
-        "lb": 59.56,
-        "ar": 51.89,
+        "aa": 57.64,
+        "lb": 58.74,
+        "ar": 52.04,
         "va": 73.92
       },
       "capabilities": {
         "coding": 54.5,
         "reasoning": 59.4,
         "agentic": 58.1,
-        "enterprise": 70.7,
-        "chat": 53.1
+        "enterprise": 70.6,
+        "chat": 52.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 61.4,
+        "unified_quality_score": 61.2,
         "coding_composite_score": 54.5,
-        "enterprise_agent_score": 70.7,
-        "value_efficiency_score": 62.28,
+        "enterprise_agent_score": 70.6,
+        "value_efficiency_score": 62.08,
         "is_pareto_optimal": false
       }
     },
@@ -4927,26 +4937,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 55.67,
-        "lb": 65.43,
-        "ar": 55.51,
+        "aa": 55.75,
+        "lb": 64.53,
+        "ar": 55.65,
         "va": 65.86
       },
       "capabilities": {
         "coding": 65.8,
         "reasoning": 61.3,
-        "agentic": 70.0,
+        "agentic": 69.9,
         "enterprise": 62.6,
-        "chat": 61.2
+        "chat": 60.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 61.12,
+        "unified_quality_score": 60.9,
         "coding_composite_score": 65.8,
         "enterprise_agent_score": 62.6,
-        "value_efficiency_score": 37.48,
+        "value_efficiency_score": 37.34,
         "is_pareto_optimal": false
       }
     },
@@ -5004,26 +5014,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 53.53,
-        "lb": 48.7,
-        "ar": 81.61,
+        "aa": 53.62,
+        "lb": 48.02,
+        "ar": 81.66,
         "va": 70.77
       },
       "capabilities": {
         "coding": 49.0,
         "reasoning": 68.5,
-        "agentic": 58.3,
-        "enterprise": 70.2,
-        "chat": 72.6
+        "agentic": 58.2,
+        "enterprise": 70.1,
+        "chat": 72.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 60.6,
+        "unified_quality_score": 60.43,
         "coding_composite_score": 49.0,
-        "enterprise_agent_score": 70.2,
-        "value_efficiency_score": 33.19,
+        "enterprise_agent_score": 70.1,
+        "value_efficiency_score": 33.1,
         "is_pareto_optimal": false
       }
     },
@@ -5081,26 +5091,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 51.32,
-        "lb": 61.46,
-        "ar": 72.08,
+        "aa": 51.42,
+        "lb": 60.62,
+        "ar": 72.15,
         "va": 63.48
       },
       "capabilities": {
         "coding": 65.3,
-        "reasoning": 67.9,
-        "agentic": 59.8,
-        "enterprise": 66.6,
-        "chat": 73.8
+        "reasoning": 68.0,
+        "agentic": 59.7,
+        "enterprise": 66.5,
+        "chat": 72.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 60.52,
+        "unified_quality_score": 60.3,
         "coding_composite_score": 65.3,
-        "enterprise_agent_score": 66.6,
-        "value_efficiency_score": 33.9,
+        "enterprise_agent_score": 66.5,
+        "value_efficiency_score": 33.78,
         "is_pareto_optimal": false
       }
     },
@@ -5158,26 +5168,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 60.85,
-        "lb": 66.94,
-        "ar": 52.45,
+        "aa": 60.91,
+        "lb": 66.02,
+        "ar": 52.59,
         "va": 56.75
       },
       "capabilities": {
         "coding": 63.7,
-        "reasoning": 65.3,
-        "agentic": 60.5,
+        "reasoning": 65.2,
+        "agentic": 60.4,
         "enterprise": 39.0,
-        "chat": 54.8
+        "chat": 54.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 60.39,
+        "unified_quality_score": 60.16,
         "coding_composite_score": 63.7,
         "enterprise_agent_score": 39.0,
-        "value_efficiency_score": 35.21,
+        "value_efficiency_score": 35.07,
         "is_pareto_optimal": false
       }
     },
@@ -5235,9 +5245,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 49.6,
-        "lb": 71.71,
-        "ar": 61.92,
+        "aa": 49.7,
+        "lb": 70.73,
+        "ar": 62.02,
         "va": 57.44
       },
       "capabilities": {
@@ -5245,16 +5255,16 @@
         "reasoning": 66.0,
         "agentic": 50.1,
         "enterprise": 59.2,
-        "chat": 68.2
+        "chat": 67.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 60.04,
+        "unified_quality_score": 59.79,
         "coding_composite_score": 56.8,
         "enterprise_agent_score": 59.2,
-        "value_efficiency_score": 29.42,
+        "value_efficiency_score": 29.3,
         "is_pareto_optimal": false
       }
     },
@@ -5312,26 +5322,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 55.67,
-        "lb": 56.89,
-        "ar": 50.23,
+        "aa": 55.75,
+        "lb": 56.11,
+        "ar": 50.38,
         "va": 71.42
       },
       "capabilities": {
-        "coding": 51.4,
+        "coding": 51.5,
         "reasoning": 58.1,
-        "agentic": 54.6,
+        "agentic": 54.5,
         "enterprise": 68.2,
-        "chat": 51.4
+        "chat": 50.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 59.16,
-        "coding_composite_score": 51.4,
+        "unified_quality_score": 58.97,
+        "coding_composite_score": 51.5,
         "enterprise_agent_score": 68.2,
-        "value_efficiency_score": 38.07,
+        "value_efficiency_score": 37.95,
         "is_pareto_optimal": false
       }
     },
@@ -5389,26 +5399,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 38.21,
-        "lb": 72.08,
-        "ar": 79.32,
+        "aa": 38.35,
+        "lb": 71.26,
+        "ar": 79.37,
         "va": 53.85
       },
       "capabilities": {
         "coding": 54.3,
-        "reasoning": 60.0,
-        "agentic": 58.7,
+        "reasoning": 60.1,
+        "agentic": 58.6,
         "enterprise": 61.0,
-        "chat": 76.1
+        "chat": 75.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 58.45,
+        "unified_quality_score": 58.25,
         "coding_composite_score": 54.3,
         "enterprise_agent_score": 61.0,
-        "value_efficiency_score": 33.27,
+        "value_efficiency_score": 33.16,
         "is_pareto_optimal": false
       }
     },
@@ -5466,103 +5476,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 45.65,
-        "lb": 75.21,
-        "ar": 62.25,
+        "aa": 45.76,
+        "lb": 74.18,
+        "ar": 62.36,
         "va": 49.74
       },
       "capabilities": {
         "coding": 56.2,
         "reasoning": 65.9,
-        "agentic": 50.5,
-        "enterprise": 43.8,
-        "chat": 63.5
+        "agentic": 50.4,
+        "enterprise": 43.7,
+        "chat": 62.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 58.03,
+        "unified_quality_score": 57.77,
         "coding_composite_score": 56.2,
-        "enterprise_agent_score": 43.8,
-        "value_efficiency_score": 28.34,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "moonshot-kimi-k3-base",
-      "display_name": "Kimi K3 (Max)",
-      "provider": "Moonshot AI",
-      "release_date": "2026-08-18",
-      "license": "MIT",
-      "is_open_weights": true,
-      "context_window": 1000000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "max",
-      "pricing": {
-        "input_per_1m_usd": 2.0,
-        "output_per_1m_usd": 11.94,
-        "blended_per_1m_usd": 4.49
-      },
-      "performance": {
-        "output_tokens_per_sec": 44.0,
-        "ttft_seconds": 1.32
-      },
-      "benchmarks": {
-        "artificial_analysis": {
-          "intelligence_index": 31.5,
-          "coding_index": 43.2,
-          "math_index": 50.4
-        },
-        "livebench": {
-          "global_average": 64.6,
-          "coding": 59.3,
-          "mathematics": 78.7,
-          "reasoning": 90.7,
-          "data_analysis": 78.7,
-          "language": 79.0,
-          "instruction_following": 77.2,
-          "agentic_coding": 26.4,
-          "cost_per_question_usd": 0.0219
-        },
-        "arena": {
-          "text_elo": 1487,
-          "text_ci_lower": 1483,
-          "text_ci_upper": 1492,
-          "coding_elo": 1538,
-          "vision_elo": null,
-          "votes": 41402
-        },
-        "vals": {
-          "vals_index": 52.95,
-          "finance_agent": 50.83,
-          "legal_bench": 41.3,
-          "tax_agent": 30.71,
-          "vibe_code": 67.78,
-          "cost_per_test_usd": 7.17
-        }
-      },
-      "normalized_pillars": {
-        "aa": 49.6,
-        "lb": 55.42,
-        "ar": 85.98,
-        "va": 53.17
-      },
-      "capabilities": {
-        "coding": 46.8,
-        "reasoning": 68.0,
-        "agentic": 50.8,
-        "enterprise": 56.3,
-        "chat": 79.8
-      },
-      "composite": {
-        "sources_present": 4,
-        "coverage_ratio": 1.0,
-        "provisional_ranking": false,
-        "unified_quality_score": 57.7,
-        "coding_composite_score": 46.8,
-        "enterprise_agent_score": 56.3,
-        "value_efficiency_score": 29.57,
+        "enterprise_agent_score": 43.7,
+        "value_efficiency_score": 28.21,
         "is_pareto_optimal": false
       }
     },
@@ -5620,103 +5553,103 @@
         }
       },
       "normalized_pillars": {
-        "aa": 45.65,
-        "lb": 55.94,
-        "ar": 82.34,
+        "aa": 45.76,
+        "lb": 55.17,
+        "ar": 82.38,
         "va": 59.44
       },
       "capabilities": {
         "coding": 57.1,
         "reasoning": 52.8,
-        "agentic": 50.6,
+        "agentic": 50.5,
         "enterprise": 57.1,
-        "chat": 72.8
+        "chat": 72.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 57.69,
+        "unified_quality_score": 57.5,
         "coding_composite_score": 57.1,
         "enterprise_agent_score": 57.1,
-        "value_efficiency_score": 35.33,
+        "value_efficiency_score": 35.21,
         "is_pareto_optimal": false
       }
     },
     {
-      "id": "anthropic-claude-opus-4-5-high",
-      "display_name": "Claude Opus 4.5 (High)",
-      "provider": "Anthropic",
-      "release_date": "2025-11-01",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 200000,
+      "id": "moonshot-kimi-k3-base",
+      "display_name": "Kimi K3 (Max)",
+      "provider": "Moonshot AI",
+      "release_date": "2026-08-18",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
       "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
+      "thinking_effort": "max",
       "pricing": {
-        "input_per_1m_usd": 15.0,
-        "output_per_1m_usd": 75.0,
-        "blended_per_1m_usd": 30.0
+        "input_per_1m_usd": 2.0,
+        "output_per_1m_usd": 11.94,
+        "blended_per_1m_usd": 4.49
       },
       "performance": {
-        "output_tokens_per_sec": 62.0,
+        "output_tokens_per_sec": 44.0,
         "ttft_seconds": 1.32
       },
       "benchmarks": {
         "artificial_analysis": {
-          "intelligence_index": 30.2,
-          "coding_index": 41.0,
-          "math_index": 46.2
+          "intelligence_index": 31.5,
+          "coding_index": 43.2,
+          "math_index": 50.4
         },
         "livebench": {
-          "global_average": 72.58,
-          "coding": 79.65,
-          "mathematics": 90.39,
-          "reasoning": 80.09,
-          "data_analysis": 74.44,
-          "language": 81.26,
-          "instruction_following": 62.55,
-          "agentic_coding": 39.7,
-          "cost_per_question_usd": null
+          "global_average": 64.6,
+          "coding": 59.3,
+          "mathematics": 78.7,
+          "reasoning": 90.7,
+          "data_analysis": 78.7,
+          "language": 79.0,
+          "instruction_following": 77.2,
+          "agentic_coding": 26.4,
+          "cost_per_question_usd": 0.0219
         },
         "arena": {
-          "text_elo": 1451,
-          "text_ci_lower": 1445,
-          "text_ci_upper": 1457,
-          "coding_elo": 1458,
-          "vision_elo": 1370,
-          "votes": 81200
+          "text_elo": 1487,
+          "text_ci_lower": 1483,
+          "text_ci_upper": 1492,
+          "coding_elo": 1538,
+          "vision_elo": null,
+          "votes": 41402
         },
         "vals": {
-          "vals_index": 52.8,
-          "finance_agent": 51.8,
-          "legal_bench": 38.2,
-          "tax_agent": 32.9,
-          "vibe_code": 74.8,
-          "cost_per_test_usd": 17.4
+          "vals_index": 52.95,
+          "finance_agent": 50.83,
+          "legal_bench": 41.3,
+          "tax_agent": 30.71,
+          "vibe_code": 67.78,
+          "cost_per_test_usd": 7.17
         }
       },
       "normalized_pillars": {
-        "aa": 47.03,
-        "lb": 71.01,
-        "ar": 58.14,
-        "va": 52.76
+        "aa": 49.7,
+        "lb": 54.66,
+        "ar": 86.0,
+        "va": 53.17
       },
       "capabilities": {
-        "coding": 55.1,
-        "reasoning": 63.2,
-        "agentic": 46.4,
-        "enterprise": 54.7,
-        "chat": 69.7
+        "coding": 46.9,
+        "reasoning": 68.0,
+        "agentic": 50.8,
+        "enterprise": 56.3,
+        "chat": 79.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 57.32,
-        "coding_composite_score": 55.1,
-        "enterprise_agent_score": 54.7,
-        "value_efficiency_score": 22.57,
+        "unified_quality_score": 57.5,
+        "coding_composite_score": 46.9,
+        "enterprise_agent_score": 56.3,
+        "value_efficiency_score": 29.47,
         "is_pareto_optimal": false
       }
     },
@@ -5774,26 +5707,103 @@
         }
       },
       "normalized_pillars": {
-        "aa": 53.92,
-        "lb": 47.92,
-        "ar": 73.58,
+        "aa": 54.01,
+        "lb": 47.25,
+        "ar": 73.64,
         "va": 62.65
       },
       "capabilities": {
         "coding": 61.8,
         "reasoning": 62.8,
-        "agentic": 48.7,
+        "agentic": 48.6,
         "enterprise": 61.3,
-        "chat": 70.0
+        "chat": 69.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 57.25,
+        "unified_quality_score": 57.09,
         "coding_composite_score": 61.8,
         "enterprise_agent_score": 61.3,
-        "value_efficiency_score": 34.02,
+        "value_efficiency_score": 33.93,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "anthropic-claude-opus-4-5-high",
+      "display_name": "Claude Opus 4.5 (High)",
+      "provider": "Anthropic",
+      "release_date": "2025-11-01",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 200000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "pricing": {
+        "input_per_1m_usd": 15.0,
+        "output_per_1m_usd": 75.0,
+        "blended_per_1m_usd": 30.0
+      },
+      "performance": {
+        "output_tokens_per_sec": 62.0,
+        "ttft_seconds": 1.32
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 30.2,
+          "coding_index": 41.0,
+          "math_index": 46.2
+        },
+        "livebench": {
+          "global_average": 72.58,
+          "coding": 79.65,
+          "mathematics": 90.39,
+          "reasoning": 80.09,
+          "data_analysis": 74.44,
+          "language": 81.26,
+          "instruction_following": 62.55,
+          "agentic_coding": 39.7,
+          "cost_per_question_usd": null
+        },
+        "arena": {
+          "text_elo": 1451,
+          "text_ci_lower": 1445,
+          "text_ci_upper": 1457,
+          "coding_elo": 1458,
+          "vision_elo": 1370,
+          "votes": 81200
+        },
+        "vals": {
+          "vals_index": 52.8,
+          "finance_agent": 51.8,
+          "legal_bench": 38.2,
+          "tax_agent": 32.9,
+          "vibe_code": 74.8,
+          "cost_per_test_usd": 17.4
+        }
+      },
+      "normalized_pillars": {
+        "aa": 47.13,
+        "lb": 70.03,
+        "ar": 58.26,
+        "va": 52.76
+      },
+      "capabilities": {
+        "coding": 55.1,
+        "reasoning": 63.2,
+        "agentic": 46.4,
+        "enterprise": 54.7,
+        "chat": 68.9
+      },
+      "composite": {
+        "sources_present": 4,
+        "coverage_ratio": 1.0,
+        "provisional_ranking": false,
+        "unified_quality_score": 57.08,
+        "coding_composite_score": 55.1,
+        "enterprise_agent_score": 54.7,
+        "value_efficiency_score": 22.47,
         "is_pareto_optimal": false
       }
     },
@@ -5851,26 +5861,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 55.67,
-        "lb": 64.48,
-        "ar": 46.54,
+        "aa": 55.75,
+        "lb": 63.59,
+        "ar": 46.7,
         "va": 54.27
       },
       "capabilities": {
         "coding": 60.4,
         "reasoning": 61.7,
-        "agentic": 59.3,
-        "enterprise": 44.3,
-        "chat": 50.3
+        "agentic": 59.2,
+        "enterprise": 44.2,
+        "chat": 49.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 56.59,
+        "unified_quality_score": 56.37,
         "coding_composite_score": 60.4,
-        "enterprise_agent_score": 44.3,
-        "value_efficiency_score": 29.12,
+        "enterprise_agent_score": 44.2,
+        "value_efficiency_score": 29.01,
         "is_pareto_optimal": false
       }
     },
@@ -5928,9 +5938,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 48.44,
-        "lb": 44.21,
-        "ar": 86.97,
+        "aa": 48.54,
+        "lb": 43.6,
+        "ar": 86.99,
         "va": 61.98
       },
       "capabilities": {
@@ -5938,16 +5948,16 @@
         "reasoning": 58.4,
         "agentic": 44.3,
         "enterprise": 58.0,
-        "chat": 82.9
+        "chat": 82.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 56.34,
+        "unified_quality_score": 56.19,
         "coding_composite_score": 59.0,
         "enterprise_agent_score": 58.0,
-        "value_efficiency_score": 33.86,
+        "value_efficiency_score": 33.77,
         "is_pareto_optimal": false
       }
     },
@@ -6005,26 +6015,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 46.38,
-        "lb": 61.85,
-        "ar": 57.09,
+        "aa": 46.49,
+        "lb": 61.0,
+        "ar": 57.22,
         "va": 61.24
       },
       "capabilities": {
         "coding": 62.6,
-        "reasoning": 54.7,
-        "agentic": 65.6,
+        "reasoning": 54.8,
+        "agentic": 65.5,
         "enterprise": 58.0,
-        "chat": 54.6
+        "chat": 53.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 56.34,
+        "unified_quality_score": 56.14,
         "coding_composite_score": 62.6,
         "enterprise_agent_score": 58.0,
-        "value_efficiency_score": 34.54,
+        "value_efficiency_score": 34.42,
         "is_pareto_optimal": false
       }
     },
@@ -6082,26 +6092,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 32.56,
-        "lb": 75.4,
-        "ar": 76.97,
+        "aa": 32.71,
+        "lb": 74.37,
+        "ar": 77.02,
         "va": 46.86
       },
       "capabilities": {
         "coding": 54.7,
         "reasoning": 57.3,
-        "agentic": 60.4,
+        "agentic": 60.3,
         "enterprise": 47.3,
-        "chat": 80.8
+        "chat": 79.8
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 55.65,
+        "unified_quality_score": 55.39,
         "coding_composite_score": 54.7,
         "enterprise_agent_score": 47.3,
-        "value_efficiency_score": 35.47,
+        "value_efficiency_score": 35.31,
         "is_pareto_optimal": false
       }
     },
@@ -6159,26 +6169,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 34.23,
-        "lb": 69.01,
-        "ar": 70.85,
+        "aa": 34.37,
+        "lb": 68.06,
+        "ar": 70.93,
         "va": 53.38
       },
       "capabilities": {
         "coding": 50.4,
         "reasoning": 60.8,
-        "agentic": 47.4,
+        "agentic": 47.3,
         "enterprise": 55.4,
-        "chat": 69.7
+        "chat": 68.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 54.94,
+        "unified_quality_score": 54.71,
         "coding_composite_score": 50.4,
         "enterprise_agent_score": 55.4,
-        "value_efficiency_score": 37.92,
+        "value_efficiency_score": 37.76,
         "is_pareto_optimal": false
       }
     },
@@ -6236,103 +6246,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 42.79,
-        "lb": 50.85,
-        "ar": 80.33,
+        "aa": 42.92,
+        "lb": 50.15,
+        "ar": 80.38,
         "va": 53.85
       },
       "capabilities": {
         "coding": 54.1,
         "reasoning": 49.2,
         "agentic": 46.7,
-        "enterprise": 52.4,
-        "chat": 69.4
+        "enterprise": 52.3,
+        "chat": 68.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 53.6,
+        "unified_quality_score": 53.44,
         "coding_composite_score": 54.1,
-        "enterprise_agent_score": 52.4,
-        "value_efficiency_score": 32.83,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "minimax-m3-1-flash",
-      "display_name": "MiniMax-M3.1-Flash",
-      "provider": "MiniMax",
-      "release_date": "2026-10-15",
-      "license": "Apache-2.0",
-      "is_open_weights": true,
-      "context_window": 1000000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "high",
-      "pricing": {
-        "input_per_1m_usd": 0.15,
-        "output_per_1m_usd": 0.6,
-        "blended_per_1m_usd": 0.26
-      },
-      "performance": {
-        "output_tokens_per_sec": 119.0,
-        "ttft_seconds": 0.68
-      },
-      "benchmarks": {
-        "artificial_analysis": {
-          "intelligence_index": 29.0,
-          "coding_index": 41.8,
-          "math_index": 48.2
-        },
-        "livebench": {
-          "global_average": 66.9,
-          "coding": 83.9,
-          "mathematics": 71.4,
-          "reasoning": 82.9,
-          "data_analysis": 71.4,
-          "language": 72.7,
-          "instruction_following": 74.0,
-          "agentic_coding": 28.8,
-          "cost_per_question_usd": 0.0015
-        },
-        "arena": {
-          "text_elo": 1446,
-          "text_ci_lower": 1440,
-          "text_ci_upper": 1452,
-          "coding_elo": 1454,
-          "vision_elo": 1354,
-          "votes": 34800
-        },
-        "vals": {
-          "vals_index": 53.78,
-          "finance_agent": 51.63,
-          "legal_bench": 41.95,
-          "tax_agent": 31.19,
-          "vibe_code": 68.84,
-          "cost_per_test_usd": 0.66
-        }
-      },
-      "normalized_pillars": {
-        "aa": 43.9,
-        "lb": 59.87,
-        "ar": 56.2,
-        "va": 55.72
-      },
-      "capabilities": {
-        "coding": 56.6,
-        "reasoning": 58.6,
-        "agentic": 50.0,
-        "enterprise": 56.6,
-        "chat": 61.9
-      },
-      "composite": {
-        "sources_present": 4,
-        "coverage_ratio": 1.0,
-        "provisional_ranking": false,
-        "unified_quality_score": 53.49,
-        "coding_composite_score": 56.6,
-        "enterprise_agent_score": 56.6,
-        "value_efficiency_score": 50.12,
+        "enterprise_agent_score": 52.3,
+        "value_efficiency_score": 32.73,
         "is_pareto_optimal": false
       }
     },
@@ -6390,9 +6323,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 50.19,
-        "lb": 44.95,
-        "ar": 70.44,
+        "aa": 50.29,
+        "lb": 44.32,
+        "ar": 70.52,
         "va": 57.44
       },
       "capabilities": {
@@ -6400,16 +6333,93 @@
         "reasoning": 58.6,
         "agentic": 45.0,
         "enterprise": 56.4,
-        "chat": 67.6
+        "chat": 67.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 53.47,
+        "unified_quality_score": 53.32,
         "coding_composite_score": 57.9,
         "enterprise_agent_score": 56.4,
-        "value_efficiency_score": 31.78,
+        "value_efficiency_score": 31.69,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "minimax-m3-1-flash",
+      "display_name": "MiniMax-M3.1-Flash",
+      "provider": "MiniMax",
+      "release_date": "2026-10-15",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "pricing": {
+        "input_per_1m_usd": 0.15,
+        "output_per_1m_usd": 0.6,
+        "blended_per_1m_usd": 0.26
+      },
+      "performance": {
+        "output_tokens_per_sec": 119.0,
+        "ttft_seconds": 0.68
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 29.0,
+          "coding_index": 41.8,
+          "math_index": 48.2
+        },
+        "livebench": {
+          "global_average": 66.9,
+          "coding": 83.9,
+          "mathematics": 71.4,
+          "reasoning": 82.9,
+          "data_analysis": 71.4,
+          "language": 72.7,
+          "instruction_following": 74.0,
+          "agentic_coding": 28.8,
+          "cost_per_question_usd": 0.0015
+        },
+        "arena": {
+          "text_elo": 1446,
+          "text_ci_lower": 1440,
+          "text_ci_upper": 1452,
+          "coding_elo": 1454,
+          "vision_elo": 1354,
+          "votes": 34800
+        },
+        "vals": {
+          "vals_index": 53.78,
+          "finance_agent": 51.63,
+          "legal_bench": 41.95,
+          "tax_agent": 31.19,
+          "vibe_code": 68.84,
+          "cost_per_test_usd": 0.66
+        }
+      },
+      "normalized_pillars": {
+        "aa": 44.02,
+        "lb": 59.04,
+        "ar": 56.33,
+        "va": 55.72
+      },
+      "capabilities": {
+        "coding": 56.6,
+        "reasoning": 58.6,
+        "agentic": 49.9,
+        "enterprise": 56.6,
+        "chat": 61.3
+      },
+      "composite": {
+        "sources_present": 4,
+        "coverage_ratio": 1.0,
+        "provisional_ranking": false,
+        "unified_quality_score": 53.3,
+        "coding_composite_score": 56.6,
+        "enterprise_agent_score": 56.6,
+        "value_efficiency_score": 49.94,
         "is_pareto_optimal": false
       }
     },
@@ -6467,26 +6477,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 40.53,
-        "lb": 52.66,
-        "ar": 69.89,
+        "aa": 40.66,
+        "lb": 51.94,
+        "ar": 69.97,
         "va": 59.66
       },
       "capabilities": {
         "coding": 54.0,
         "reasoning": 50.2,
-        "agentic": 51.7,
+        "agentic": 51.6,
         "enterprise": 58.5,
-        "chat": 61.9
+        "chat": 61.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 53.36,
+        "unified_quality_score": 53.19,
         "coding_composite_score": 54.0,
         "enterprise_agent_score": 58.5,
-        "value_efficiency_score": 64.49,
+        "value_efficiency_score": 64.29,
         "is_pareto_optimal": true
       }
     },
@@ -6544,26 +6554,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 39.15,
-        "lb": 58.44,
-        "ar": 49.58,
+        "aa": 39.28,
+        "lb": 57.64,
+        "ar": 49.73,
         "va": 65.21
       },
       "capabilities": {
         "coding": 52.9,
-        "reasoning": 49.1,
-        "agentic": 60.8,
+        "reasoning": 49.2,
+        "agentic": 60.7,
         "enterprise": 56.0,
-        "chat": 54.2
+        "chat": 53.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 53.02,
+        "unified_quality_score": 52.84,
         "coding_composite_score": 52.9,
         "enterprise_agent_score": 56.0,
-        "value_efficiency_score": 25.98,
+        "value_efficiency_score": 25.89,
         "is_pareto_optimal": false
       }
     },
@@ -6621,26 +6631,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 44.88,
-        "lb": 54.39,
-        "ar": 58.35,
+        "aa": 45.0,
+        "lb": 53.64,
+        "ar": 58.47,
         "va": 56.01
       },
       "capabilities": {
         "coding": 56.4,
         "reasoning": 60.5,
-        "agentic": 53.1,
+        "agentic": 53.0,
         "enterprise": 59.7,
-        "chat": 67.8
+        "chat": 67.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 52.54,
+        "unified_quality_score": 52.37,
         "coding_composite_score": 56.4,
         "enterprise_agent_score": 59.7,
-        "value_efficiency_score": 29.43,
+        "value_efficiency_score": 29.34,
         "is_pareto_optimal": false
       }
     },
@@ -6698,26 +6708,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 42.09,
-        "lb": 55.42,
-        "ar": 65.54,
+        "aa": 42.21,
+        "lb": 54.66,
+        "ar": 65.64,
         "va": 51.64
       },
       "capabilities": {
         "coding": 59.2,
         "reasoning": 55.5,
-        "agentic": 57.6,
+        "agentic": 57.5,
         "enterprise": 53.6,
-        "chat": 44.2
+        "chat": 44.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 51.99,
+        "unified_quality_score": 51.82,
         "coding_composite_score": 59.2,
         "enterprise_agent_score": 53.6,
-        "value_efficiency_score": 48.71,
+        "value_efficiency_score": 48.55,
         "is_pareto_optimal": false
       }
     },
@@ -6775,103 +6785,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 42.09,
-        "lb": 49.6,
-        "ar": 79.77,
+        "aa": 42.21,
+        "lb": 48.91,
+        "ar": 79.82,
         "va": 48.26
       },
       "capabilities": {
         "coding": 55.4,
         "reasoning": 55.2,
         "agentic": 45.8,
-        "enterprise": 51.5,
-        "chat": 69.8
+        "enterprise": 51.4,
+        "chat": 69.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 51.54,
+        "unified_quality_score": 51.37,
         "coding_composite_score": 55.4,
-        "enterprise_agent_score": 51.5,
-        "value_efficiency_score": 55.1,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "xai-grok-4-7-low",
-      "display_name": "Grok 4.7 (Low)",
-      "provider": "xAI",
-      "release_date": "2026-10-12",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 500000,
-      "reasoning_mode": "hybrid",
-      "thinking_effort": "low",
-      "pricing": {
-        "input_per_1m_usd": 1.5,
-        "output_per_1m_usd": 6.0,
-        "blended_per_1m_usd": 2.63
-      },
-      "performance": {
-        "output_tokens_per_sec": 88.0,
-        "ttft_seconds": 0.45
-      },
-      "benchmarks": {
-        "artificial_analysis": {
-          "intelligence_index": 31.0,
-          "coding_index": 42.1,
-          "math_index": 48.9
-        },
-        "livebench": {
-          "global_average": 64.5,
-          "coding": 77.8,
-          "mathematics": 70.6,
-          "reasoning": 76.1,
-          "data_analysis": 70.6,
-          "language": 79.4,
-          "instruction_following": 71.8,
-          "agentic_coding": 45.2,
-          "cost_per_question_usd": 0.0114
-        },
-        "arena": {
-          "text_elo": 1399,
-          "text_ci_lower": 1393,
-          "text_ci_upper": 1405,
-          "coding_elo": 1424,
-          "vision_elo": 1354,
-          "votes": 31400
-        },
-        "vals": {
-          "vals_index": 54.2,
-          "finance_agent": 56.1,
-          "legal_bench": 43.4,
-          "tax_agent": 31.5,
-          "vibe_code": 81.2,
-          "cost_per_test_usd": 4.5
-        }
-      },
-      "normalized_pillars": {
-        "aa": 48.44,
-        "lb": 55.04,
-        "ar": 39.05,
-        "va": 57.44
-      },
-      "capabilities": {
-        "coding": 53.4,
-        "reasoning": 55.9,
-        "agentic": 59.6,
-        "enterprise": 60.5,
-        "chat": 52.0
-      },
-      "composite": {
-        "sources_present": 4,
-        "coverage_ratio": 1.0,
-        "provisional_ranking": false,
-        "unified_quality_score": 51.26,
-        "coding_composite_score": 53.4,
-        "enterprise_agent_score": 60.5,
-        "value_efficiency_score": 28.72,
+        "enterprise_agent_score": 51.4,
+        "value_efficiency_score": 54.91,
         "is_pareto_optimal": false
       }
     },
@@ -6929,26 +6862,103 @@
         }
       },
       "normalized_pillars": {
-        "aa": 43.9,
-        "lb": 43.26,
-        "ar": 68.62,
+        "aa": 44.02,
+        "lb": 42.66,
+        "ar": 68.7,
         "va": 59.2
       },
       "capabilities": {
         "coding": 59.2,
         "reasoning": 56.0,
-        "agentic": 48.2,
+        "agentic": 48.1,
         "enterprise": 57.3,
-        "chat": 63.1
+        "chat": 62.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 51.24,
+        "unified_quality_score": 51.11,
         "coding_composite_score": 59.2,
         "enterprise_agent_score": 57.3,
-        "value_efficiency_score": 33.46,
+        "value_efficiency_score": 33.38,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "xai-grok-4-7-low",
+      "display_name": "Grok 4.7 (Low)",
+      "provider": "xAI",
+      "release_date": "2026-10-12",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 500000,
+      "reasoning_mode": "hybrid",
+      "thinking_effort": "low",
+      "pricing": {
+        "input_per_1m_usd": 1.5,
+        "output_per_1m_usd": 6.0,
+        "blended_per_1m_usd": 2.63
+      },
+      "performance": {
+        "output_tokens_per_sec": 88.0,
+        "ttft_seconds": 0.45
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 31.0,
+          "coding_index": 42.1,
+          "math_index": 48.9
+        },
+        "livebench": {
+          "global_average": 64.5,
+          "coding": 77.8,
+          "mathematics": 70.6,
+          "reasoning": 76.1,
+          "data_analysis": 70.6,
+          "language": 79.4,
+          "instruction_following": 71.8,
+          "agentic_coding": 45.2,
+          "cost_per_question_usd": 0.0114
+        },
+        "arena": {
+          "text_elo": 1399,
+          "text_ci_lower": 1393,
+          "text_ci_upper": 1405,
+          "coding_elo": 1424,
+          "vision_elo": 1354,
+          "votes": 31400
+        },
+        "vals": {
+          "vals_index": 54.2,
+          "finance_agent": 56.1,
+          "legal_bench": 43.4,
+          "tax_agent": 31.5,
+          "vibe_code": 81.2,
+          "cost_per_test_usd": 4.5
+        }
+      },
+      "normalized_pillars": {
+        "aa": 48.54,
+        "lb": 54.28,
+        "ar": 39.23,
+        "va": 57.44
+      },
+      "capabilities": {
+        "coding": 53.4,
+        "reasoning": 55.9,
+        "agentic": 59.5,
+        "enterprise": 60.5,
+        "chat": 51.3
+      },
+      "composite": {
+        "sources_present": 4,
+        "coverage_ratio": 1.0,
+        "provisional_ranking": false,
+        "unified_quality_score": 51.09,
+        "coding_composite_score": 53.4,
+        "enterprise_agent_score": 60.5,
+        "value_efficiency_score": 28.62,
         "is_pareto_optimal": false
       }
     },
@@ -7006,9 +7016,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 46.38,
-        "lb": 40.68,
-        "ar": 71.52,
+        "aa": 46.49,
+        "lb": 40.11,
+        "ar": 71.59,
         "va": 57.44
       },
       "capabilities": {
@@ -7016,16 +7026,16 @@
         "reasoning": 55.2,
         "agentic": 41.7,
         "enterprise": 53.7,
-        "chat": 77.7
+        "chat": 76.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 51.21,
+        "unified_quality_score": 51.08,
         "coding_composite_score": 52.2,
         "enterprise_agent_score": 53.7,
-        "value_efficiency_score": 30.78,
+        "value_efficiency_score": 30.7,
         "is_pareto_optimal": false
       }
     },
@@ -7083,9 +7093,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 48.44,
-        "lb": 42.57,
-        "ar": 54.04,
+        "aa": 48.54,
+        "lb": 41.98,
+        "ar": 54.17,
         "va": 62.36
       },
       "capabilities": {
@@ -7093,16 +7103,16 @@
         "reasoning": 48.3,
         "agentic": 44.7,
         "enterprise": 59.8,
-        "chat": 40.4
+        "chat": 40.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 51.0,
+        "unified_quality_score": 50.87,
         "coding_composite_score": 44.9,
         "enterprise_agent_score": 59.8,
-        "value_efficiency_score": 40.66,
+        "value_efficiency_score": 40.56,
         "is_pareto_optimal": false
       }
     },
@@ -7160,9 +7170,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 43.9,
-        "lb": 45.51,
-        "ar": 62.51,
+        "aa": 44.02,
+        "lb": 44.87,
+        "ar": 62.61,
         "va": 57.44
       },
       "capabilities": {
@@ -7170,16 +7180,16 @@
         "reasoning": 52.3,
         "agentic": 47.2,
         "enterprise": 62.6,
-        "chat": 57.7
+        "chat": 57.3
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 50.56,
+        "unified_quality_score": 50.42,
         "coding_composite_score": 46.4,
         "enterprise_agent_score": 62.6,
-        "value_efficiency_score": 42.38,
+        "value_efficiency_score": 42.26,
         "is_pareto_optimal": false
       }
     },
@@ -7237,9 +7247,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 32.96,
-        "lb": 67.16,
-        "ar": 59.6,
+        "aa": 33.11,
+        "lb": 66.24,
+        "ar": 59.72,
         "va": 42.82
       },
       "capabilities": {
@@ -7247,16 +7257,16 @@
         "reasoning": 54.8,
         "agentic": 50.0,
         "enterprise": 37.7,
-        "chat": 66.4
+        "chat": 65.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 49.68,
+        "unified_quality_score": 49.47,
         "coding_composite_score": 51.6,
         "enterprise_agent_score": 37.7,
-        "value_efficiency_score": 30.88,
+        "value_efficiency_score": 30.75,
         "is_pareto_optimal": false
       }
     },
@@ -7314,26 +7324,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 31.94,
-        "lb": 63.49,
-        "ar": 65.05,
+        "aa": 32.09,
+        "lb": 62.61,
+        "ar": 65.15,
         "va": 45.05
       },
       "capabilities": {
         "coding": 52.2,
         "reasoning": 52.0,
-        "agentic": 42.6,
+        "agentic": 42.5,
         "enterprise": 52.8,
-        "chat": 62.2
+        "chat": 61.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 49.65,
+        "unified_quality_score": 49.45,
         "coding_composite_score": 52.2,
         "enterprise_agent_score": 52.8,
-        "value_efficiency_score": 33.57,
+        "value_efficiency_score": 33.44,
         "is_pareto_optimal": false
       }
     },
@@ -7391,26 +7401,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 48.44,
-        "lb": 54.39,
-        "ar": 44.59,
+        "aa": 48.54,
+        "lb": 53.64,
+        "ar": 44.75,
         "va": 45.79
       },
       "capabilities": {
         "coding": 51.8,
         "reasoning": 52.5,
-        "agentic": 51.2,
+        "agentic": 51.1,
         "enterprise": 30.6,
-        "chat": 46.5
+        "chat": 46.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 48.98,
+        "unified_quality_score": 48.81,
         "coding_composite_score": 51.8,
         "enterprise_agent_score": 30.6,
-        "value_efficiency_score": 28.56,
+        "value_efficiency_score": 28.46,
         "is_pareto_optimal": false
       }
     },
@@ -7468,26 +7478,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 41.27,
-        "lb": 46.2,
-        "ar": 54.72,
+        "aa": 41.4,
+        "lb": 45.55,
+        "ar": 54.85,
         "va": 54.46
       },
       "capabilities": {
         "coding": 50.5,
         "reasoning": 52.9,
-        "agentic": 48.7,
+        "agentic": 48.6,
         "enterprise": 54.2,
-        "chat": 60.4
+        "chat": 59.8
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 48.06,
+        "unified_quality_score": 47.93,
         "coding_composite_score": 50.5,
         "enterprise_agent_score": 54.2,
-        "value_efficiency_score": 34.97,
+        "value_efficiency_score": 34.87,
         "is_pareto_optimal": false
       }
     },
@@ -7545,26 +7555,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 37.51,
-        "lb": 53.61,
-        "ar": 43.17,
+        "aa": 37.64,
+        "lb": 52.87,
+        "ar": 43.34,
         "va": 51.94
       },
       "capabilities": {
-        "coding": 51.0,
-        "reasoning": 46.3,
-        "agentic": 57.8,
+        "coding": 51.1,
+        "reasoning": 46.4,
+        "agentic": 57.7,
         "enterprise": 50.6,
-        "chat": 49.2
+        "chat": 48.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 46.8,
-        "coding_composite_score": 51.0,
+        "unified_quality_score": 46.64,
+        "coding_composite_score": 51.1,
         "enterprise_agent_score": 50.6,
-        "value_efficiency_score": 28.7,
+        "value_efficiency_score": 28.6,
         "is_pareto_optimal": false
       }
     },
@@ -7622,26 +7632,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 43.9,
-        "lb": 53.05,
-        "ar": 42.23,
+        "aa": 44.02,
+        "lb": 52.32,
+        "ar": 42.4,
         "va": 44.23
       },
       "capabilities": {
         "coding": 50.0,
         "reasoning": 49.9,
-        "agentic": 50.0,
+        "agentic": 49.9,
         "enterprise": 29.3,
-        "chat": 44.4
+        "chat": 43.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 46.48,
+        "unified_quality_score": 46.32,
         "coding_composite_score": 50.0,
         "enterprise_agent_score": 29.3,
-        "value_efficiency_score": 27.1,
+        "value_efficiency_score": 27.0,
         "is_pareto_optimal": false
       }
     },
@@ -7699,26 +7709,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 29.11,
-        "lb": 57.17,
-        "ar": 60.28,
+        "aa": 29.27,
+        "lb": 56.38,
+        "ar": 60.4,
         "va": 45.79
       },
       "capabilities": {
-        "coding": 45.4,
+        "coding": 45.5,
         "reasoning": 47.9,
-        "agentic": 45.4,
-        "enterprise": 50.6,
-        "chat": 56.2
+        "agentic": 45.3,
+        "enterprise": 50.5,
+        "chat": 55.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 46.37,
-        "coding_composite_score": 45.4,
-        "enterprise_agent_score": 50.6,
-        "value_efficiency_score": 49.57,
+        "unified_quality_score": 46.2,
+        "coding_composite_score": 45.5,
+        "enterprise_agent_score": 50.5,
+        "value_efficiency_score": 49.39,
         "is_pareto_optimal": false
       }
     },
@@ -7776,9 +7786,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 31.15,
-        "lb": 51.28,
-        "ar": 61.26,
+        "aa": 31.3,
+        "lb": 50.57,
+        "ar": 61.37,
         "va": 49.07
       },
       "capabilities": {
@@ -7786,16 +7796,16 @@
         "reasoning": 47.6,
         "agentic": 49.8,
         "enterprise": 53.1,
-        "chat": 59.1
+        "chat": 58.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 46.19,
+        "unified_quality_score": 46.03,
         "coding_composite_score": 51.9,
         "enterprise_agent_score": 53.1,
-        "value_efficiency_score": 31.88,
+        "value_efficiency_score": 31.77,
         "is_pareto_optimal": false
       }
     },
@@ -7853,26 +7863,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 27.0,
-        "lb": 60.5,
-        "ar": 62.94,
+        "aa": 27.16,
+        "lb": 59.67,
+        "ar": 63.04,
         "va": 40.09
       },
       "capabilities": {
         "coding": 43.7,
-        "reasoning": 46.4,
-        "agentic": 41.2,
+        "reasoning": 46.5,
+        "agentic": 41.1,
         "enterprise": 46.8,
-        "chat": 60.7
+        "chat": 59.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 45.71,
+        "unified_quality_score": 45.53,
         "coding_composite_score": 43.7,
         "enterprise_agent_score": 46.8,
-        "value_efficiency_score": 35.48,
+        "value_efficiency_score": 35.34,
         "is_pareto_optimal": false
       }
     },
@@ -7920,102 +7930,25 @@
       },
       "normalized_pillars": {
         "aa": null,
-        "lb": 50.06,
-        "ar": 36.82,
+        "lb": 49.36,
+        "ar": 37.01,
         "va": null
       },
       "capabilities": {
         "coding": 36.2,
-        "reasoning": 61.4,
-        "agentic": 30.0,
+        "reasoning": 61.3,
+        "agentic": 29.9,
         "enterprise": null,
-        "chat": 47.3
+        "chat": 46.6
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 45.65,
+        "unified_quality_score": 45.24,
         "coding_composite_score": 36.2,
-        "enterprise_agent_score": 47.41,
-        "value_efficiency_score": 34.24,
-        "is_pareto_optimal": false
-      }
-    },
-    {
-      "id": "openai-gpt-5-4-mini-xhigh",
-      "display_name": "GPT-5.4 Mini (xHigh)",
-      "provider": "OpenAI",
-      "release_date": "2026-01-22",
-      "license": "Proprietary",
-      "is_open_weights": false,
-      "context_window": 400000,
-      "reasoning_mode": "reasoning",
-      "thinking_effort": "xhigh",
-      "pricing": {
-        "input_per_1m_usd": 1.1,
-        "output_per_1m_usd": 4.5,
-        "blended_per_1m_usd": 1.95
-      },
-      "performance": {
-        "output_tokens_per_sec": 128.0,
-        "ttft_seconds": 0.52
-      },
-      "benchmarks": {
-        "artificial_analysis": {
-          "intelligence_index": 24.0,
-          "coding_index": 34.8,
-          "math_index": 40.6
-        },
-        "livebench": {
-          "global_average": 66.37,
-          "coding": 71.62,
-          "mathematics": 78.46,
-          "reasoning": 71.32,
-          "data_analysis": 70.79,
-          "language": 70.95,
-          "instruction_following": 59.8,
-          "agentic_coding": 41.67,
-          "cost_per_question_usd": null
-        },
-        "arena": {
-          "text_elo": 1412,
-          "text_ci_lower": 1406,
-          "text_ci_upper": 1418,
-          "coding_elo": 1424,
-          "vision_elo": 1342,
-          "votes": 42100
-        },
-        "vals": {
-          "vals_index": 48.2,
-          "finance_agent": 46.8,
-          "legal_bench": 29.1,
-          "tax_agent": 15.2,
-          "vibe_code": 72.4,
-          "cost_per_test_usd": 1.85
-        }
-      },
-      "normalized_pillars": {
-        "aa": 35.78,
-        "lb": 58.84,
-        "ar": 41.87,
-        "va": 41.66
-      },
-      "capabilities": {
-        "coding": 44.2,
-        "reasoning": 49.5,
-        "agentic": 42.4,
-        "enterprise": 36.2,
-        "chat": 49.7
-      },
-      "composite": {
-        "sources_present": 4,
-        "coverage_ratio": 1.0,
-        "provisional_ranking": false,
-        "unified_quality_score": 45.08,
-        "coding_composite_score": 44.2,
-        "enterprise_agent_score": 36.2,
-        "value_efficiency_score": 26.64,
+        "enterprise_agent_score": 46.89,
+        "value_efficiency_score": 33.93,
         "is_pareto_optimal": false
       }
     },
@@ -8073,26 +8006,103 @@
         }
       },
       "normalized_pillars": {
-        "aa": 46.38,
-        "lb": 40.25,
-        "ar": 45.27,
+        "aa": 46.49,
+        "lb": 39.68,
+        "ar": 45.43,
         "va": 49.07
       },
       "capabilities": {
-        "coding": 47.7,
-        "reasoning": 52.0,
-        "agentic": 46.2,
+        "coding": 47.8,
+        "reasoning": 52.1,
+        "agentic": 46.1,
         "enterprise": 51.5,
-        "chat": 50.5
+        "chat": 49.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 45.05,
-        "coding_composite_score": 47.7,
+        "unified_quality_score": 44.93,
+        "coding_composite_score": 47.8,
         "enterprise_agent_score": 51.5,
-        "value_efficiency_score": 31.9,
+        "value_efficiency_score": 31.82,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "openai-gpt-5-4-mini-xhigh",
+      "display_name": "GPT-5.4 Mini (xHigh)",
+      "provider": "OpenAI",
+      "release_date": "2026-01-22",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 400000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "pricing": {
+        "input_per_1m_usd": 1.1,
+        "output_per_1m_usd": 4.5,
+        "blended_per_1m_usd": 1.95
+      },
+      "performance": {
+        "output_tokens_per_sec": 128.0,
+        "ttft_seconds": 0.52
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 24.0,
+          "coding_index": 34.8,
+          "math_index": 40.6
+        },
+        "livebench": {
+          "global_average": 66.37,
+          "coding": 71.62,
+          "mathematics": 78.46,
+          "reasoning": 71.32,
+          "data_analysis": 70.79,
+          "language": 70.95,
+          "instruction_following": 59.8,
+          "agentic_coding": 41.67,
+          "cost_per_question_usd": null
+        },
+        "arena": {
+          "text_elo": 1412,
+          "text_ci_lower": 1406,
+          "text_ci_upper": 1418,
+          "coding_elo": 1424,
+          "vision_elo": 1342,
+          "votes": 42100
+        },
+        "vals": {
+          "vals_index": 48.2,
+          "finance_agent": 46.8,
+          "legal_bench": 29.1,
+          "tax_agent": 15.2,
+          "vibe_code": 72.4,
+          "cost_per_test_usd": 1.85
+        }
+      },
+      "normalized_pillars": {
+        "aa": 35.92,
+        "lb": 58.03,
+        "ar": 42.04,
+        "va": 41.66
+      },
+      "capabilities": {
+        "coding": 44.3,
+        "reasoning": 49.6,
+        "agentic": 42.4,
+        "enterprise": 36.2,
+        "chat": 49.1
+      },
+      "composite": {
+        "sources_present": 4,
+        "coverage_ratio": 1.0,
+        "provisional_ranking": false,
+        "unified_quality_score": 44.91,
+        "coding_composite_score": 44.3,
+        "enterprise_agent_score": 36.2,
+        "value_efficiency_score": 26.54,
         "is_pareto_optimal": false
       }
     },
@@ -8150,26 +8160,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 36.69,
-        "lb": 52.15,
-        "ar": 49.37,
+        "aa": 36.83,
+        "lb": 51.42,
+        "ar": 49.52,
         "va": 43.65
       },
       "capabilities": {
         "coding": 46.7,
         "reasoning": 46.9,
-        "agentic": 46.2,
-        "enterprise": 36.2,
-        "chat": 47.8
+        "agentic": 46.1,
+        "enterprise": 36.1,
+        "chat": 47.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 44.97,
+        "unified_quality_score": 44.82,
         "coding_composite_score": 46.7,
-        "enterprise_agent_score": 36.2,
-        "value_efficiency_score": 34.91,
+        "enterprise_agent_score": 36.1,
+        "value_efficiency_score": 34.79,
         "is_pareto_optimal": false
       }
     },
@@ -8227,26 +8237,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 34.23,
-        "lb": 42.57,
-        "ar": 53.66,
+        "aa": 34.37,
+        "lb": 41.98,
+        "ar": 53.79,
         "va": 54.94
       },
       "capabilities": {
         "coding": 42.7,
         "reasoning": 46.6,
-        "agentic": 46.9,
+        "agentic": 46.8,
         "enterprise": 62.5,
-        "chat": 55.1
+        "chat": 54.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 44.82,
+        "unified_quality_score": 44.71,
         "coding_composite_score": 42.7,
         "enterprise_agent_score": 62.5,
-        "value_efficiency_score": 33.65,
+        "value_efficiency_score": 33.57,
         "is_pareto_optimal": false
       }
     },
@@ -8304,26 +8314,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 36.18,
-        "lb": 39.47,
-        "ar": 63.5,
+        "aa": 36.32,
+        "lb": 38.92,
+        "ar": 63.6,
         "va": 49.74
       },
       "capabilities": {
         "coding": 43.1,
         "reasoning": 46.5,
         "agentic": 41.8,
-        "enterprise": 55.4,
-        "chat": 50.2
+        "enterprise": 55.3,
+        "chat": 49.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 44.66,
+        "unified_quality_score": 44.55,
         "coding_composite_score": 43.1,
-        "enterprise_agent_score": 55.4,
-        "value_efficiency_score": 27.45,
+        "enterprise_agent_score": 55.3,
+        "value_efficiency_score": 27.38,
         "is_pareto_optimal": false
       }
     },
@@ -8381,26 +8391,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 34.23,
-        "lb": 49.6,
-        "ar": 42.77,
+        "aa": 34.37,
+        "lb": 48.91,
+        "ar": 42.94,
         "va": 46.53
       },
       "capabilities": {
-        "coding": 48.9,
+        "coding": 49.0,
         "reasoning": 49.2,
         "agentic": 53.2,
         "enterprise": 39.2,
-        "chat": 33.2
+        "chat": 33.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 43.2,
-        "coding_composite_score": 48.9,
+        "unified_quality_score": 43.06,
+        "coding_composite_score": 49.0,
         "enterprise_agent_score": 39.2,
-        "value_efficiency_score": 40.48,
+        "value_efficiency_score": 40.35,
         "is_pareto_optimal": false
       }
     },
@@ -8458,26 +8468,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 28.72,
-        "lb": 42.57,
-        "ar": 55.03,
+        "aa": 28.88,
+        "lb": 41.98,
+        "ar": 55.16,
         "va": 50.64
       },
       "capabilities": {
         "coding": 52.5,
         "reasoning": 51.3,
-        "agentic": 47.2,
+        "agentic": 47.1,
         "enterprise": 59.2,
-        "chat": 51.4
+        "chat": 51.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 42.3,
+        "unified_quality_score": 42.19,
         "coding_composite_score": 52.5,
         "enterprise_agent_score": 59.2,
-        "value_efficiency_score": 31.88,
+        "value_efficiency_score": 31.8,
         "is_pareto_optimal": false
       }
     },
@@ -8535,26 +8545,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 33.58,
-        "lb": 52.66,
-        "ar": 40.8,
+        "aa": 33.73,
+        "lb": 51.94,
+        "ar": 40.98,
         "va": 39.76
       },
       "capabilities": {
-        "coding": 43.7,
+        "coding": 43.8,
         "reasoning": 44.8,
-        "agentic": 47.1,
+        "agentic": 47.0,
         "enterprise": 33.1,
-        "chat": 43.5
+        "chat": 43.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 41.93,
-        "coding_composite_score": 43.7,
+        "unified_quality_score": 41.79,
+        "coding_composite_score": 43.8,
         "enterprise_agent_score": 33.1,
-        "value_efficiency_score": 22.38,
+        "value_efficiency_score": 22.3,
         "is_pareto_optimal": false
       }
     },
@@ -8612,26 +8622,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 31.43,
-        "lb": 50.42,
-        "ar": 53.46,
+        "aa": 31.58,
+        "lb": 49.72,
+        "ar": 53.6,
         "va": 37.16
       },
       "capabilities": {
         "coding": 46.3,
         "reasoning": 39.0,
-        "agentic": 50.7,
+        "agentic": 50.6,
         "enterprise": 37.6,
-        "chat": 45.5
+        "chat": 45.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 41.86,
+        "unified_quality_score": 41.72,
         "coding_composite_score": 46.3,
         "enterprise_agent_score": 37.6,
-        "value_efficiency_score": 24.62,
+        "value_efficiency_score": 24.54,
         "is_pareto_optimal": false
       }
     },
@@ -8689,26 +8699,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 34.23,
-        "lb": 33.35,
-        "ar": 59.25,
+        "aa": 34.37,
+        "lb": 32.89,
+        "ar": 59.37,
         "va": 47.35
       },
       "capabilities": {
-        "coding": 40.5,
-        "reasoning": 43.8,
+        "coding": 40.6,
+        "reasoning": 43.9,
         "agentic": 34.3,
         "enterprise": 44.2,
-        "chat": 66.1
+        "chat": 65.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 41.0,
-        "coding_composite_score": 40.5,
+        "unified_quality_score": 40.92,
+        "coding_composite_score": 40.6,
         "enterprise_agent_score": 44.2,
-        "value_efficiency_score": 24.64,
+        "value_efficiency_score": 24.59,
         "is_pareto_optimal": false
       }
     },
@@ -8766,24 +8776,24 @@
         }
       },
       "normalized_pillars": {
-        "aa": 39.15,
-        "lb": 15.02,
-        "ar": 55.81,
+        "aa": 39.28,
+        "lb": 14.84,
+        "ar": 55.94,
         "va": 63.95
       },
       "capabilities": {
-        "coding": 29.3,
-        "reasoning": 40.4,
+        "coding": 29.4,
+        "reasoning": 40.5,
         "agentic": 31.8,
         "enterprise": 64.4,
-        "chat": 32.3
+        "chat": 32.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 40.61,
-        "coding_composite_score": 29.3,
+        "coding_composite_score": 29.4,
         "enterprise_agent_score": 64.4,
         "value_efficiency_score": 24.0,
         "is_pareto_optimal": false
@@ -8843,26 +8853,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 27.98,
-        "lb": 64.89,
-        "ar": 28.72,
+        "aa": 28.15,
+        "lb": 63.99,
+        "ar": 28.92,
         "va": 33.49
       },
       "capabilities": {
-        "coding": 39.9,
-        "reasoning": 55.0,
+        "coding": 40.0,
+        "reasoning": 55.1,
         "agentic": 49.1,
         "enterprise": 29.3,
-        "chat": 35.0
+        "chat": 34.6
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 40.54,
-        "coding_composite_score": 39.9,
+        "unified_quality_score": 40.35,
+        "coding_composite_score": 40.0,
         "enterprise_agent_score": 29.3,
-        "value_efficiency_score": 31.33,
+        "value_efficiency_score": 31.18,
         "is_pareto_optimal": false
       }
     },
@@ -8920,26 +8930,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 30.44,
-        "lb": 46.63,
-        "ar": 38.06,
+        "aa": 30.6,
+        "lb": 45.98,
+        "ar": 38.24,
         "va": 42.82
       },
       "capabilities": {
         "coding": 45.0,
         "reasoning": 45.8,
-        "agentic": 49.8,
+        "agentic": 49.7,
         "enterprise": 36.0,
-        "chat": 30.1
+        "chat": 30.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 39.54,
+        "unified_quality_score": 39.41,
         "coding_composite_score": 45.0,
         "enterprise_agent_score": 36.0,
-        "value_efficiency_score": 37.05,
+        "value_efficiency_score": 36.93,
         "is_pareto_optimal": false
       }
     },
@@ -8997,26 +9007,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 37.51,
-        "lb": 31.45,
-        "ar": 48.37,
+        "aa": 37.64,
+        "lb": 31.02,
+        "ar": 48.53,
         "va": 42.51
       },
       "capabilities": {
-        "coding": 41.3,
+        "coding": 41.4,
         "reasoning": 45.5,
         "agentic": 27.4,
         "enterprise": 43.2,
-        "chat": 63.3
+        "chat": 62.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 38.57,
-        "coding_composite_score": 41.3,
+        "unified_quality_score": 38.51,
+        "coding_composite_score": 41.4,
         "enterprise_agent_score": 43.2,
-        "value_efficiency_score": 26.68,
+        "value_efficiency_score": 26.64,
         "is_pareto_optimal": false
       }
     },
@@ -9074,26 +9084,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 26.01,
-        "lb": 42.57,
-        "ar": 50.53,
+        "aa": 26.17,
+        "lb": 41.98,
+        "ar": 50.67,
         "va": 40.92
       },
       "capabilities": {
-        "coding": 44.2,
-        "reasoning": 40.1,
-        "agentic": 44.0,
-        "enterprise": 45.1,
-        "chat": 49.7
+        "coding": 44.3,
+        "reasoning": 40.2,
+        "agentic": 43.9,
+        "enterprise": 45.0,
+        "chat": 49.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 38.38,
-        "coding_composite_score": 44.2,
-        "enterprise_agent_score": 45.1,
-        "value_efficiency_score": 47.95,
+        "unified_quality_score": 38.28,
+        "coding_composite_score": 44.3,
+        "enterprise_agent_score": 45.0,
+        "value_efficiency_score": 47.83,
         "is_pareto_optimal": true
       }
     },
@@ -9151,26 +9161,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 27.0,
-        "lb": 44.64,
-        "ar": 36.31,
+        "aa": 27.16,
+        "lb": 44.02,
+        "ar": 36.5,
         "va": 43.65
       },
       "capabilities": {
-        "coding": 41.5,
-        "reasoning": 36.6,
+        "coding": 41.6,
+        "reasoning": 36.7,
         "agentic": 49.3,
         "enterprise": 42.4,
-        "chat": 43.0
+        "chat": 42.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 37.85,
-        "coding_composite_score": 41.5,
+        "unified_quality_score": 37.74,
+        "coding_composite_score": 41.6,
         "enterprise_agent_score": 42.4,
-        "value_efficiency_score": 23.21,
+        "value_efficiency_score": 23.14,
         "is_pareto_optimal": false
       }
     },
@@ -9228,26 +9238,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 29.62,
-        "lb": 47.92,
-        "ar": 32.28,
+        "aa": 29.78,
+        "lb": 47.25,
+        "ar": 32.47,
         "va": 36.35
       },
       "capabilities": {
-        "coding": 38.9,
-        "reasoning": 40.7,
-        "agentic": 43.5,
+        "coding": 39.0,
+        "reasoning": 40.8,
+        "agentic": 43.4,
         "enterprise": 30.0,
-        "chat": 37.3
+        "chat": 37.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 37.19,
-        "coding_composite_score": 38.9,
+        "unified_quality_score": 37.07,
+        "coding_composite_score": 39.0,
         "enterprise_agent_score": 30.0,
-        "value_efficiency_score": 25.73,
+        "value_efficiency_score": 25.65,
         "is_pareto_optimal": false
       }
     },
@@ -9305,26 +9315,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 24.54,
-        "lb": 38.43,
-        "ar": 53.85,
+        "aa": 24.71,
+        "lb": 37.9,
+        "ar": 53.99,
         "va": 37.66
       },
       "capabilities": {
-        "coding": 43.0,
-        "reasoning": 37.2,
+        "coding": 43.1,
+        "reasoning": 37.3,
         "agentic": 40.7,
         "enterprise": 41.6,
-        "chat": 46.4
+        "chat": 46.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 36.38,
-        "coding_composite_score": 43.0,
+        "unified_quality_score": 36.3,
+        "coding_composite_score": 43.1,
         "enterprise_agent_score": 41.6,
-        "value_efficiency_score": 36.34,
+        "value_efficiency_score": 36.26,
         "is_pareto_optimal": false
       }
     },
@@ -9382,26 +9392,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 27.47,
-        "lb": 32.66,
-        "ar": 48.74,
+        "aa": 27.64,
+        "lb": 32.21,
+        "ar": 48.89,
         "va": 40.59
       },
       "capabilities": {
-        "coding": 35.0,
-        "reasoning": 37.5,
+        "coding": 35.1,
+        "reasoning": 37.6,
         "agentic": 35.1,
         "enterprise": 46.7,
-        "chat": 40.6
+        "chat": 40.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 35.5,
-        "coding_composite_score": 35.0,
+        "unified_quality_score": 35.44,
+        "coding_composite_score": 35.1,
         "enterprise_agent_score": 46.7,
-        "value_efficiency_score": 22.33,
+        "value_efficiency_score": 22.3,
         "is_pareto_optimal": false
       }
     },
@@ -9459,26 +9469,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 26.29,
-        "lb": 34.42,
-        "ar": 42.51,
+        "aa": 26.46,
+        "lb": 33.95,
+        "ar": 42.68,
         "va": 41.66
       },
       "capabilities": {
         "coding": 40.9,
-        "reasoning": 34.5,
+        "reasoning": 34.6,
         "agentic": 27.0,
         "enterprise": 44.9,
-        "chat": 31.3
+        "chat": 31.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 35.0,
+        "unified_quality_score": 34.94,
         "coding_composite_score": 40.9,
         "enterprise_agent_score": 44.9,
-        "value_efficiency_score": 18.93,
+        "value_efficiency_score": 18.9,
         "is_pareto_optimal": false
       }
     },
@@ -9536,26 +9546,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 23.12,
-        "lb": 37.74,
-        "ar": 51.58,
+        "aa": 23.3,
+        "lb": 37.22,
+        "ar": 51.73,
         "va": 34.88
       },
       "capabilities": {
-        "coding": 41.1,
+        "coding": 41.2,
         "reasoning": 36.5,
-        "agentic": 39.4,
+        "agentic": 39.3,
         "enterprise": 38.8,
-        "chat": 45.3
+        "chat": 44.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 34.72,
-        "coding_composite_score": 41.1,
+        "unified_quality_score": 34.64,
+        "coding_composite_score": 41.2,
         "enterprise_agent_score": 38.8,
-        "value_efficiency_score": 23.58,
+        "value_efficiency_score": 23.53,
         "is_pareto_optimal": false
       }
     },
@@ -9613,14 +9623,14 @@
         }
       },
       "normalized_pillars": {
-        "aa": 25.1,
-        "lb": 41.37,
-        "ar": 34.53,
+        "aa": 25.27,
+        "lb": 40.79,
+        "ar": 34.72,
         "va": 37.99
       },
       "capabilities": {
-        "coding": 39.7,
-        "reasoning": 40.0,
+        "coding": 39.8,
+        "reasoning": 40.1,
         "agentic": 44.7,
         "enterprise": 31.8,
         "chat": 27.1
@@ -9629,10 +9639,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 34.62,
-        "coding_composite_score": 39.7,
+        "unified_quality_score": 34.52,
+        "coding_composite_score": 39.8,
         "enterprise_agent_score": 31.8,
-        "value_efficiency_score": 32.44,
+        "value_efficiency_score": 32.34,
         "is_pareto_optimal": false
       }
     },
@@ -9690,26 +9700,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 24.03,
-        "lb": 37.06,
-        "ar": 47.99,
+        "aa": 24.2,
+        "lb": 36.54,
+        "ar": 48.15,
         "va": 28.44
       },
       "capabilities": {
-        "coding": 36.0,
+        "coding": 36.1,
         "reasoning": 32.5,
         "agentic": 34.8,
         "enterprise": 23.1,
-        "chat": 41.2
+        "chat": 40.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 32.64,
-        "coding_composite_score": 36.0,
+        "unified_quality_score": 32.55,
+        "coding_composite_score": 36.1,
         "enterprise_agent_score": 23.1,
-        "value_efficiency_score": 17.42,
+        "value_efficiency_score": 17.37,
         "is_pareto_optimal": false
       }
     },
@@ -9767,26 +9777,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 22.3,
-        "lb": 39.47,
-        "ar": 41.53,
+        "aa": 22.49,
+        "lb": 38.92,
+        "ar": 41.71,
         "va": 26.65
       },
       "capabilities": {
-        "coding": 37.0,
-        "reasoning": 30.9,
+        "coding": 37.1,
+        "reasoning": 31.0,
         "agentic": 40.4,
         "enterprise": 28.1,
-        "chat": 35.5
+        "chat": 35.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 31.42,
-        "coding_composite_score": 37.0,
+        "unified_quality_score": 31.34,
+        "coding_composite_score": 37.1,
         "enterprise_agent_score": 28.1,
-        "value_efficiency_score": 15.39,
+        "value_efficiency_score": 15.36,
         "is_pareto_optimal": false
       }
     },
@@ -9844,26 +9854,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 30.44,
-        "lb": 27.87,
-        "ar": 39.38,
+        "aa": 30.6,
+        "lb": 27.49,
+        "ar": 39.56,
         "va": 31.89
       },
       "capabilities": {
-        "coding": 36.9,
-        "reasoning": 40.8,
-        "agentic": 27.1,
+        "coding": 37.0,
+        "reasoning": 40.9,
+        "agentic": 27.0,
         "enterprise": 34.6,
-        "chat": 42.9
+        "chat": 42.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 31.37,
-        "coding_composite_score": 36.9,
+        "unified_quality_score": 31.33,
+        "coding_composite_score": 37.0,
         "enterprise_agent_score": 34.6,
-        "value_efficiency_score": 27.06,
+        "value_efficiency_score": 27.02,
         "is_pareto_optimal": false
       }
     },
@@ -9921,9 +9931,9 @@
         }
       },
       "normalized_pillars": {
-        "aa": 21.94,
-        "lb": 27.31,
-        "ar": 53.26,
+        "aa": 22.12,
+        "lb": 26.94,
+        "ar": 53.4,
         "va": 33.49
       },
       "capabilities": {
@@ -9931,16 +9941,16 @@
         "reasoning": 32.0,
         "agentic": 30.2,
         "enterprise": 39.7,
-        "chat": 41.1
+        "chat": 40.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 31.14,
+        "unified_quality_score": 31.1,
         "coding_composite_score": 32.5,
         "enterprise_agent_score": 39.7,
-        "value_efficiency_score": 28.86,
+        "value_efficiency_score": 28.82,
         "is_pareto_optimal": false
       }
     },
@@ -9998,26 +10008,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 15.52,
-        "lb": 28.43,
-        "ar": 69.67,
+        "aa": 15.71,
+        "lb": 28.04,
+        "ar": 69.75,
         "va": 29.9
       },
       "capabilities": {
         "coding": 33.6,
-        "reasoning": 25.6,
+        "reasoning": 25.7,
         "agentic": 28.3,
         "enterprise": 29.9,
-        "chat": 53.0
+        "chat": 52.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 31.11,
+        "unified_quality_score": 31.06,
         "coding_composite_score": 33.6,
         "enterprise_agent_score": 29.9,
-        "value_efficiency_score": 29.15,
+        "value_efficiency_score": 29.1,
         "is_pareto_optimal": false
       }
     },
@@ -10075,26 +10085,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 22.3,
-        "lb": 29.42,
-        "ar": 44.13,
+        "aa": 22.49,
+        "lb": 29.02,
+        "ar": 44.29,
         "va": 35.22
       },
       "capabilities": {
-        "coding": 34.7,
-        "reasoning": 40.6,
+        "coding": 34.8,
+        "reasoning": 40.7,
         "agentic": 27.5,
         "enterprise": 39.8,
-        "chat": 49.7
+        "chat": 49.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 30.94,
-        "coding_composite_score": 34.7,
+        "unified_quality_score": 30.9,
+        "coding_composite_score": 34.8,
         "enterprise_agent_score": 39.8,
-        "value_efficiency_score": 28.99,
+        "value_efficiency_score": 28.95,
         "is_pareto_optimal": false
       }
     },
@@ -10152,26 +10162,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 25.1,
-        "lb": 25.67,
-        "ar": 45.95,
+        "aa": 25.27,
+        "lb": 25.32,
+        "ar": 46.11,
         "va": 31.15
       },
       "capabilities": {
-        "coding": 33.7,
-        "reasoning": 37.1,
+        "coding": 33.8,
+        "reasoning": 37.2,
         "agentic": 25.2,
         "enterprise": 33.6,
-        "chat": 48.1
+        "chat": 47.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 29.91,
-        "coding_composite_score": 33.7,
+        "unified_quality_score": 29.88,
+        "coding_composite_score": 33.8,
         "enterprise_agent_score": 33.6,
-        "value_efficiency_score": 24.31,
+        "value_efficiency_score": 24.28,
         "is_pareto_optimal": false
       }
     },
@@ -10229,26 +10239,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 15.52,
-        "lb": 26.36,
-        "ar": 52.85,
+        "aa": 15.71,
+        "lb": 26.01,
+        "ar": 52.99,
         "va": 31.46
       },
       "capabilities": {
-        "coding": 31.2,
-        "reasoning": 34.7,
+        "coding": 31.3,
+        "reasoning": 34.8,
         "agentic": 26.0,
         "enterprise": 35.9,
-        "chat": 56.4
+        "chat": 55.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 28.36,
-        "coding_composite_score": 31.2,
+        "unified_quality_score": 28.33,
+        "coding_composite_score": 31.3,
         "enterprise_agent_score": 35.9,
-        "value_efficiency_score": 18.9,
+        "value_efficiency_score": 18.88,
         "is_pareto_optimal": false
       }
     },
@@ -10306,26 +10316,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 25.1,
-        "lb": 24.59,
-        "ar": 37.25,
+        "aa": 25.27,
+        "lb": 24.26,
+        "ar": 37.44,
         "va": 29.9
       },
       "capabilities": {
         "coding": 31.6,
-        "reasoning": 36.1,
+        "reasoning": 36.2,
         "agentic": 25.5,
         "enterprise": 34.0,
-        "chat": 40.8
+        "chat": 40.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 27.97,
+        "unified_quality_score": 27.95,
         "coding_composite_score": 31.6,
         "enterprise_agent_score": 34.0,
-        "value_efficiency_score": 37.89,
+        "value_efficiency_score": 37.86,
         "is_pareto_optimal": true
       }
     },
@@ -10383,26 +10393,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 23.52,
-        "lb": 8.5,
-        "ar": 60.57,
+        "aa": 23.7,
+        "lb": 8.43,
+        "ar": 60.68,
         "va": 28.44
       },
       "capabilities": {
-        "coding": 24.5,
-        "reasoning": 29.6,
+        "coding": 24.6,
+        "reasoning": 29.7,
         "agentic": 19.8,
         "enterprise": 28.9,
-        "chat": 42.1
+        "chat": 42.0
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 25.8,
-        "coding_composite_score": 24.5,
+        "unified_quality_score": 25.85,
+        "coding_composite_score": 24.6,
         "enterprise_agent_score": 28.9,
-        "value_efficiency_score": 29.48,
+        "value_efficiency_score": 29.54,
         "is_pareto_optimal": false
       }
     },
@@ -10443,26 +10453,26 @@
         "vals": null
       },
       "normalized_pillars": {
-        "aa": 18.8,
+        "aa": 18.98,
         "lb": null,
-        "ar": 38.82,
+        "ar": 39.0,
         "va": null
       },
       "capabilities": {
-        "coding": 23.7,
-        "reasoning": 16.6,
+        "coding": 23.9,
+        "reasoning": 16.8,
         "agentic": null,
         "enterprise": null,
-        "chat": 34.3
+        "chat": 34.5
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 25.47,
-        "coding_composite_score": 23.7,
-        "enterprise_agent_score": 22.14,
-        "value_efficiency_score": 19.38,
+        "unified_quality_score": 25.65,
+        "coding_composite_score": 23.9,
+        "enterprise_agent_score": 22.32,
+        "value_efficiency_score": 19.52,
         "is_pareto_optimal": false
       }
     },
@@ -10520,26 +10530,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 4.85,
-        "lb": 11.83,
-        "ar": 68.87,
+        "aa": 4.9,
+        "lb": 11.7,
+        "ar": 68.95,
         "va": 33.91
       },
       "capabilities": {
-        "coding": 28.9,
-        "reasoning": 28.6,
-        "agentic": 23.8,
+        "coding": 29.0,
+        "reasoning": 28.7,
+        "agentic": 23.7,
         "enterprise": 33.8,
-        "chat": 48.9
+        "chat": 48.8
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 23.81,
-        "coding_composite_score": 28.9,
+        "unified_quality_score": 23.8,
+        "coding_composite_score": 29.0,
         "enterprise_agent_score": 33.8,
-        "value_efficiency_score": 24.98,
+        "value_efficiency_score": 24.97,
         "is_pareto_optimal": false
       }
     },
@@ -10597,14 +10607,14 @@
         }
       },
       "normalized_pillars": {
-        "aa": 12.66,
-        "lb": 30.76,
-        "ar": 27.0,
+        "aa": 12.86,
+        "lb": 30.34,
+        "ar": 27.03,
         "va": 26.65
       },
       "capabilities": {
-        "coding": 28.4,
-        "reasoning": 28.1,
+        "coding": 28.5,
+        "reasoning": 28.2,
         "agentic": 33.8,
         "enterprise": 21.8,
         "chat": 20.1
@@ -10613,10 +10623,10 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 23.74,
-        "coding_composite_score": 28.4,
+        "unified_quality_score": 23.68,
+        "coding_composite_score": 28.5,
         "enterprise_agent_score": 21.8,
-        "value_efficiency_score": 22.24,
+        "value_efficiency_score": 22.19,
         "is_pareto_optimal": false
       }
     },
@@ -10674,26 +10684,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 15.52,
-        "lb": 23.77,
-        "ar": 64.31,
+        "aa": 15.71,
+        "lb": 23.46,
+        "ar": 64.41,
         "va": 5.47
       },
       "capabilities": {
-        "coding": 32.3,
-        "reasoning": 42.2,
+        "coding": 32.4,
+        "reasoning": 42.3,
         "agentic": 15.4,
         "enterprise": 14.2,
-        "chat": 52.6
+        "chat": 52.2
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 22.8,
-        "coding_composite_score": 32.3,
+        "unified_quality_score": 22.78,
+        "coding_composite_score": 32.4,
         "enterprise_agent_score": 14.2,
-        "value_efficiency_score": 13.73,
+        "value_efficiency_score": 13.72,
         "is_pareto_optimal": false
       }
     },
@@ -10751,26 +10761,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 18.8,
-        "lb": 29.12,
-        "ar": 41.28,
+        "aa": 18.98,
+        "lb": 28.73,
+        "ar": 41.45,
         "va": 6.95
       },
       "capabilities": {
-        "coding": 33.2,
-        "reasoning": 38.5,
+        "coding": 33.3,
+        "reasoning": 38.6,
         "agentic": 21.1,
         "enterprise": 13.7,
-        "chat": 47.2
+        "chat": 46.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 22.31,
-        "coding_composite_score": 33.2,
+        "unified_quality_score": 22.27,
+        "coding_composite_score": 33.3,
         "enterprise_agent_score": 13.7,
-        "value_efficiency_score": 19.71,
+        "value_efficiency_score": 19.68,
         "is_pareto_optimal": false
       }
     },
@@ -10828,26 +10838,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 21.09,
-        "lb": 22.57,
-        "ar": 13.76,
+        "aa": 21.27,
+        "lb": 22.27,
+        "ar": 13.81,
         "va": 25.27
       },
       "capabilities": {
         "coding": 22.4,
-        "reasoning": 25.1,
+        "reasoning": 25.2,
         "agentic": 22.6,
         "enterprise": 24.6,
-        "chat": 19.2
+        "chat": 18.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 21.48,
+        "unified_quality_score": 21.45,
         "coding_composite_score": 22.4,
         "enterprise_agent_score": 24.6,
-        "value_efficiency_score": 17.46,
+        "value_efficiency_score": 17.43,
         "is_pareto_optimal": false
       }
     },
@@ -10888,26 +10898,26 @@
         "vals": null
       },
       "normalized_pillars": {
-        "aa": 6.33,
+        "aa": 6.37,
         "lb": null,
-        "ar": 50.89,
+        "ar": 51.04,
         "va": null
       },
       "capabilities": {
-        "coding": 19.1,
-        "reasoning": 5.0,
+        "coding": 19.2,
+        "reasoning": 5.1,
         "agentic": null,
         "enterprise": null,
-        "chat": 48.5
+        "chat": 48.7
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 21.18,
-        "coding_composite_score": 19.1,
-        "enterprise_agent_score": 13.76,
-        "value_efficiency_score": 15.82,
+        "unified_quality_score": 21.26,
+        "coding_composite_score": 19.2,
+        "enterprise_agent_score": 13.81,
+        "value_efficiency_score": 15.88,
         "is_pareto_optimal": false
       }
     },
@@ -10965,26 +10975,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 17.08,
-        "lb": 16.14,
-        "ar": 48.97,
+        "aa": 17.27,
+        "lb": 15.95,
+        "ar": 49.13,
         "va": 3.25
       },
       "capabilities": {
-        "coding": 27.2,
-        "reasoning": 34.9,
+        "coding": 27.3,
+        "reasoning": 35.0,
         "agentic": 10.2,
         "enterprise": 10.4,
-        "chat": 37.7
+        "chat": 37.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 18.12,
-        "coding_composite_score": 27.2,
+        "unified_quality_score": 18.15,
+        "coding_composite_score": 27.3,
         "enterprise_agent_score": 10.4,
-        "value_efficiency_score": 14.07,
+        "value_efficiency_score": 14.09,
         "is_pareto_optimal": false
       }
     },
@@ -11042,26 +11052,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 17.7,
-        "lb": 18.38,
+        "aa": 17.89,
+        "lb": 18.15,
         "ar": 12.09,
         "va": 21.08
       },
       "capabilities": {
         "coding": 19.0,
-        "reasoning": 21.2,
+        "reasoning": 21.3,
         "agentic": 19.0,
         "enterprise": 20.5,
-        "chat": 16.6
+        "chat": 16.4
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 17.91,
+        "unified_quality_score": 17.9,
         "coding_composite_score": 19.0,
         "enterprise_agent_score": 20.5,
-        "value_efficiency_score": 16.78,
+        "value_efficiency_score": 16.77,
         "is_pareto_optimal": false
       }
     },
@@ -11119,14 +11129,14 @@
         }
       },
       "normalized_pillars": {
-        "aa": 17.98,
-        "lb": 3.5,
-        "ar": 30.93,
+        "aa": 18.17,
+        "lb": 3.51,
+        "ar": 31.12,
         "va": 21.57
       },
       "capabilities": {
-        "coding": 14.5,
-        "reasoning": 23.4,
+        "coding": 14.6,
+        "reasoning": 23.5,
         "agentic": 14.4,
         "enterprise": 22.2,
         "chat": 27.4
@@ -11135,10 +11145,70 @@
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 16.48,
-        "coding_composite_score": 14.5,
+        "unified_quality_score": 16.56,
+        "coding_composite_score": 14.6,
         "enterprise_agent_score": 22.2,
-        "value_efficiency_score": 22.33,
+        "value_efficiency_score": 22.43,
+        "is_pareto_optimal": false
+      }
+    },
+    {
+      "id": "ibm-granite-4-2-30b",
+      "display_name": "Granite 4.2 30B",
+      "provider": "IBM",
+      "release_date": "2026-08-07",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 131000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "pricing": {
+        "input_per_1m_usd": null,
+        "output_per_1m_usd": null,
+        "blended_per_1m_usd": null
+      },
+      "performance": {
+        "output_tokens_per_sec": null,
+        "ttft_seconds": null
+      },
+      "benchmarks": {
+        "artificial_analysis": {
+          "intelligence_index": 6.0,
+          "coding_index": 6.72,
+          "math_index": 7.44
+        },
+        "livebench": null,
+        "arena": {
+          "text_elo": 1361,
+          "text_ci_lower": 1351,
+          "text_ci_upper": 1372,
+          "coding_elo": 1394,
+          "vision_elo": null,
+          "votes": 3304
+        },
+        "vals": null
+      },
+      "normalized_pillars": {
+        "aa": 8.0,
+        "lb": null,
+        "ar": 28.08,
+        "va": null
+      },
+      "capabilities": {
+        "coding": 13.1,
+        "reasoning": 6.6,
+        "agentic": null,
+        "enterprise": null,
+        "chat": 25.9
+      },
+      "composite": {
+        "sources_present": 2,
+        "coverage_ratio": 0.5,
+        "provisional_ranking": false,
+        "unified_quality_score": 14.69,
+        "coding_composite_score": 13.1,
+        "enterprise_agent_score": 11.35,
+        "value_efficiency_score": 11.02,
         "is_pareto_optimal": false
       }
     },
@@ -11196,24 +11266,24 @@
         }
       },
       "normalized_pillars": {
-        "aa": 15.52,
-        "lb": 15.58,
+        "aa": 15.71,
+        "lb": 15.39,
         "ar": 3.25,
         "va": 18.67
       },
       "capabilities": {
-        "coding": 15.8,
-        "reasoning": 19.1,
+        "coding": 15.9,
+        "reasoning": 19.2,
         "agentic": 16.8,
         "enterprise": 18.1,
-        "chat": 8.9
+        "chat": 8.7
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
         "unified_quality_score": 14.48,
-        "coding_composite_score": 15.8,
+        "coding_composite_score": 15.9,
         "enterprise_agent_score": 18.1,
         "value_efficiency_score": 10.0,
         "is_pareto_optimal": false
@@ -11273,24 +11343,24 @@
         }
       },
       "normalized_pillars": {
-        "aa": 7.88,
-        "lb": 9.2,
-        "ar": 21.89,
+        "aa": 8.0,
+        "lb": 9.11,
+        "ar": 21.93,
         "va": 23.35
       },
       "capabilities": {
-        "coding": 16.0,
-        "reasoning": 17.6,
+        "coding": 16.1,
+        "reasoning": 17.7,
         "agentic": 21.2,
         "enterprise": 29.3,
-        "chat": 25.8
+        "chat": 25.5
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 14.24,
-        "coding_composite_score": 16.0,
+        "unified_quality_score": 14.26,
+        "coding_composite_score": 16.1,
         "enterprise_agent_score": 29.3,
         "value_efficiency_score": 10.0,
         "is_pareto_optimal": false
@@ -11350,26 +11420,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 14.19,
-        "lb": 13.42,
+        "aa": 14.39,
+        "lb": 13.27,
         "ar": 10.97,
         "va": 16.09
       },
       "capabilities": {
-        "coding": 15.3,
-        "reasoning": 17.5,
+        "coding": 15.4,
+        "reasoning": 17.6,
         "agentic": 15.0,
         "enterprise": 15.6,
-        "chat": 14.0
+        "chat": 13.9
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 13.95,
-        "coding_composite_score": 15.3,
+        "unified_quality_score": 13.97,
+        "coding_composite_score": 15.4,
         "enterprise_agent_score": 15.6,
-        "value_efficiency_score": 14.91,
+        "value_efficiency_score": 14.93,
         "is_pareto_optimal": false
       }
     },
@@ -11427,26 +11497,26 @@
         }
       },
       "normalized_pillars": {
-        "aa": 7.88,
-        "lb": 5.49,
-        "ar": 18.51,
+        "aa": 8.0,
+        "lb": 5.46,
+        "ar": 18.55,
         "va": 16.9
       },
       "capabilities": {
-        "coding": 12.4,
-        "reasoning": 15.8,
+        "coding": 12.5,
+        "reasoning": 15.9,
         "agentic": 7.9,
         "enterprise": 16.5,
-        "chat": 22.3
+        "chat": 22.1
       },
       "composite": {
         "sources_present": 4,
         "coverage_ratio": 1.0,
         "provisional_ranking": false,
-        "unified_quality_score": 11.01,
-        "coding_composite_score": 12.4,
+        "unified_quality_score": 11.05,
+        "coding_composite_score": 12.5,
         "enterprise_agent_score": 16.5,
-        "value_efficiency_score": 11.55,
+        "value_efficiency_score": 11.59,
         "is_pareto_optimal": false
       }
     },
@@ -11487,14 +11557,14 @@
         "vals": null
       },
       "normalized_pillars": {
-        "aa": 6.33,
+        "aa": 6.37,
         "lb": null,
-        "ar": 18.95,
+        "ar": 18.99,
         "va": null
       },
       "capabilities": {
-        "coding": 10.3,
-        "reasoning": 5.0,
+        "coding": 10.4,
+        "reasoning": 5.1,
         "agentic": null,
         "enterprise": null,
         "chat": 12.8
@@ -11503,10 +11573,10 @@
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 10.54,
-        "coding_composite_score": 10.3,
-        "enterprise_agent_score": 8.43,
-        "value_efficiency_score": 18.96,
+        "unified_quality_score": 10.58,
+        "coding_composite_score": 10.4,
+        "enterprise_agent_score": 8.47,
+        "value_efficiency_score": 19.03,
         "is_pareto_optimal": true
       }
     },
@@ -11547,26 +11617,26 @@
         "vals": null
       },
       "normalized_pillars": {
-        "aa": 6.33,
+        "aa": 6.37,
         "lb": null,
         "ar": 12.3,
         "va": null
       },
       "capabilities": {
         "coding": 9.0,
-        "reasoning": 5.0,
+        "reasoning": 5.1,
         "agentic": null,
         "enterprise": null,
-        "chat": 5.5
+        "chat": 5.4
       },
       "composite": {
         "sources_present": 2,
         "coverage_ratio": 0.5,
         "provisional_ranking": false,
-        "unified_quality_score": 8.32,
+        "unified_quality_score": 8.35,
         "coding_composite_score": 9.0,
-        "enterprise_agent_score": 7.33,
-        "value_efficiency_score": 6.24,
+        "enterprise_agent_score": 7.36,
+        "value_efficiency_score": 6.26,
         "is_pareto_optimal": false
       }
     }

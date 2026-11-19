@@ -2,10 +2,10 @@
   "source_key": "arena",
   "source_name": "Arena.ai (LMSYS)",
   "source_url": "https://arena.ai/leaderboard",
-  "fetched_at": "2026-11-19T06:33:31Z",
+  "fetched_at": "2026-11-19T19:41:47Z",
   "status": "live",
   "fetch_status": "live",
-  "model_count": 172,
+  "model_count": 173,
   "models": [
     {
       "arena_model_id": "google-gemini-4-carbon-high-202610",
@@ -19,6 +19,22 @@
       "vision_elo": null,
       "votes": 4273,
       "first_seen": "2026-11-10"
+    },
+    {
+      "arena_model_id": "Gemini 4 Neon (High)",
+      "display_name": "Gemini 4 Neon (High)",
+      "organization": "google",
+      "license": "Proprietary",
+      "text_elo": 1530,
+      "text_ci_lower": 1520,
+      "text_ci_upper": 1540,
+      "coding_elo": 1556,
+      "vision_elo": null,
+      "votes": 3885,
+      "first_seen": "2026-11-19",
+      "release_date": "2026-11-18",
+      "metadata_verified": true,
+      "context_window": 1048576
     },
     {
       "arena_model_id": "google-gemini-4-argon-202610",
@@ -1110,6 +1126,22 @@
       "first_seen": "2026-11-10"
     },
     {
+      "arena_model_id": "Granite 4.2 30B",
+      "display_name": "Granite 4.2 30B",
+      "organization": "ibm",
+      "license": "Apache 2.0",
+      "text_elo": 1361,
+      "text_ci_lower": 1351,
+      "text_ci_upper": 1372,
+      "coding_elo": 1394,
+      "vision_elo": null,
+      "votes": 3304,
+      "first_seen": "2026-11-19",
+      "release_date": "2026-08-07",
+      "metadata_verified": true,
+      "open_weights": true
+    },
+    {
       "arena_model_id": "qwen-3-coder-480b-a35b-202610",
       "display_name": "Qwen3-Coder 480B A35B Instruct",
       "organization": "Alibaba",
@@ -1199,22 +1231,6 @@
       "vision_elo": null,
       "votes": 54476,
       "first_seen": "2026-11-10"
-    },
-    {
-      "arena_model_id": "Gemini 4 Neon (High)",
-      "display_name": "Gemini 4 Neon (High)",
-      "organization": "google",
-      "license": "Proprietary",
-      "text_elo": 1530,
-      "text_ci_lower": 1520,
-      "text_ci_upper": 1540,
-      "coding_elo": 1556,
-      "vision_elo": null,
-      "votes": 3885,
-      "first_seen": "2026-11-19",
-      "release_date": "2026-11-18",
-      "metadata_verified": true,
-      "context_window": 1048576
     },
     {
       "arena_model_id": "anthropic-claude-fable-5-2-max-202611",

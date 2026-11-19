@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-19T06:33:40Z",
+  "updated_at": "2026-11-19T19:41:54Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5380,12 +5380,12 @@
     },
     {
       "canonical_id": "google-gemini-4-neon-xhigh",
-      "display_name": "Gemini 4 Neon Xhigh",
+      "display_name": "Gemini 4 Neon",
       "provider": "Google",
       "release_date": "2026-11-18",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 1000000,
+      "context_window": 1048576,
       "reasoning_mode": "reasoning",
       "thinking_effort": "xhigh",
       "auto_promoted": true,
@@ -5394,7 +5394,9 @@
         "artificial_analysis": [
           "Gemini 4 Neon Xhigh"
         ],
-        "livebench": [],
+        "livebench": [
+          "gemini-4-neon"
+        ],
         "arena": [],
         "vals": [
           "Gemini 4 Neon"
@@ -5544,7 +5546,9 @@
           "Granite 4.2 30B"
         ],
         "livebench": [],
-        "arena": [],
+        "arena": [
+          "Granite 4.2 30B"
+        ],
         "vals": []
       }
     },

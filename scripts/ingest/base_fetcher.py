@@ -22,15 +22,19 @@ class _SimpleTableParser(HTMLParser):
         super().__init__()
         self.tables: list[list[list[str]]] = []
         self.table_links: list[list[list[list[str]]]] = []
+        self.table_imgs: list[list[list[list[dict[str, str]]]]] = []
         self._in_table = False
         self._in_row = False
         self._in_cell = False
         self._cur_table: list[list[str]] = []
         self._cur_table_links: list[list[list[str]]] = []
+        self._cur_table_imgs: list[list[list[dict[str, str]]]] = []
         self._cur_row: list[str] = []
         self._cur_row_links: list[list[str]] = []
+        self._cur_row_imgs: list[list[dict[str, str]]] = []
         self._cur_cell: list[str] = []
         self._cur_cell_links: list[str] = []
+        self._cur_cell_imgs: list[dict[str, str]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         t = tag.lower()
@@ -38,18 +42,30 @@ class _SimpleTableParser(HTMLParser):
             self._in_table = True
             self._cur_table = []
             self._cur_table_links = []
+            self._cur_table_imgs = []
         elif t == "tr" and self._in_table:
             self._in_row = True
             self._cur_row = []
             self._cur_row_links = []
+            self._cur_row_imgs = []
         elif t in ("td", "th") and self._in_row:
             self._in_cell = True
             self._cur_cell = []
             self._cur_cell_links = []
+            self._cur_cell_imgs = []
         elif t == "a" and self._in_cell:
             for k, v in attrs:
                 if k.lower() == "href" and v:
                     self._cur_cell_links.append(v.strip())
+        elif t == "img" and self._in_cell:
+            attr_map = {k.lower(): (v or "").strip() for k, v in attrs if k}
+            img_info = {
+                "alt": attr_map.get("alt", ""),
+                "title": attr_map.get("title", ""),
+                "src": attr_map.get("src", ""),
+            }
+            if any(img_info.values()):
+                self._cur_cell_imgs.append(img_info)
 
     def handle_endtag(self, tag: str) -> None:
         t = tag.lower()
@@ -57,16 +73,19 @@ class _SimpleTableParser(HTMLParser):
             self._in_cell = False
             self._cur_row.append(" ".join("".join(self._cur_cell).split()))
             self._cur_row_links.append(list(self._cur_cell_links))
+            self._cur_row_imgs.append(list(self._cur_cell_imgs))
         elif t == "tr" and self._in_row:
             self._in_row = False
             if self._cur_row:
                 self._cur_table.append(self._cur_row)
                 self._cur_table_links.append(self._cur_row_links)
+                self._cur_table_imgs.append(self._cur_row_imgs)
         elif t == "table" and self._in_table:
             self._in_table = False
             if self._cur_table:
                 self.tables.append(self._cur_table)
                 self.table_links.append(self._cur_table_links)
+                self.table_imgs.append(self._cur_table_imgs)
 
     def handle_data(self, data: str) -> None:
         if self._in_cell:
@@ -89,6 +108,21 @@ def extract_html_tables_with_links(html: str) -> list[list[list[tuple[str, list[
         table_out: list[list[tuple[str, list[str]]]] = []
         for cells, links in zip(rows, row_links):
             table_out.append(list(zip(cells, links)))
+        combined.append(table_out)
+    return combined
+
+
+def extract_html_tables_rich(
+    html: str,
+) -> list[list[list[tuple[str, list[str], list[dict[str, str]]]]]]:
+    """Parses HTML tables into (cell_text, [href, ...], [img_attrs, ...]) tuples per cell."""
+    parser = _SimpleTableParser()
+    parser.feed(html)
+    combined: list[list[list[tuple[str, list[str], list[dict[str, str]]]]]] = []
+    for rows, row_links, row_imgs in zip(parser.tables, parser.table_links, parser.table_imgs):
+        table_out: list[list[tuple[str, list[str], list[dict[str, str]]]]] = []
+        for cells, links, imgs in zip(rows, row_links, row_imgs):
+            table_out.append(list(zip(cells, links, imgs)))
         combined.append(table_out)
     return combined
 
@@ -294,6 +328,8 @@ class BaseFetcher:
                         combined["context_window"] = clean_item["context_window"]
                     if clean_item.get("aa_slug"):
                         combined["aa_slug"] = clean_item["aa_slug"]
+                    if combined.get("provider") in (None, "", "Unknown") and clean_item.get("provider") not in (None, "", "Unknown"):
+                        combined["provider"] = clean_item["provider"]
                     for field in (
                         "input_price_per_1m",
                         "output_price_per_1m",

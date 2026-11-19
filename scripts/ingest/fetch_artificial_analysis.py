@@ -5,7 +5,74 @@ from datetime import datetime
 import os
 import re
 from typing import Any
-from scripts.ingest.base_fetcher import BaseFetcher, extract_html_tables_with_links
+from scripts.ingest.base_fetcher import BaseFetcher, extract_html_tables_rich
+from scripts.transform.entity_resolver import _infer_provider
+
+_GENERIC_LOGO_TOKENS = frozenset({
+    "logo",
+    "icon",
+    "model",
+    "provider",
+    "creator",
+    "ai",
+    "unknown",
+    "open",
+    "open weights",
+    "closed",
+    "proprietary",
+    "reasoning",
+    "thinking",
+    "verified",
+    "info",
+    "new",
+    "chart",
+    "graph",
+})
+
+
+def _clean_logo_label(raw_label: str) -> str:
+    cleaned = re.sub(r"^(?:logo|icon)\s+(?:of|for)\s+", "", raw_label.strip(), flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s*(?:logo|icon)\s*$", "", cleaned, flags=re.IGNORECASE).strip(" :-")
+    parts = cleaned.split()
+    if len(parts) >= 2 and len(parts) % 2 == 0 and parts[: len(parts) // 2] == parts[len(parts) // 2 :]:
+        cleaned = " ".join(parts[: len(parts) // 2])
+    return cleaned
+
+
+def _extract_creator_from_row_imgs(
+    imgs: list[dict[str, str]],
+    model_name: str,
+) -> str | None:
+    norm_model = re.sub(r"[^a-z0-9]", "", model_name.lower())
+    for img in imgs:
+        for attr_key in ("alt", "title"):
+            raw_val = (img.get(attr_key) or "").strip()
+            if not raw_val:
+                continue
+            cand = _clean_logo_label(raw_val)
+            cand_norm = re.sub(r"[^a-z0-9]", "", cand.lower())
+            if (
+                len(cand) >= 2
+                and not cand.startswith("$")
+                and cand.lower() not in _GENERIC_LOGO_TOKENS
+                and cand_norm != norm_model
+                and re.search(r"[a-zA-Z]", cand)
+            ):
+                return cand
+    for img in imgs:
+        src = (img.get("src") or "").strip()
+        m_src = re.search(r"/(?:logos|creators)/([A-Za-z0-9_-]+)\.(?:svg|png|webp|jpg|jpeg)(?:[?#]|$)", src, re.IGNORECASE)
+        if m_src:
+            stem = m_src.group(1).replace("_", " ").replace("-", " ").strip()
+            stem_norm = re.sub(r"[^a-z0-9]", "", stem.lower())
+            if (
+                len(stem) >= 2
+                and stem.lower() not in _GENERIC_LOGO_TOKENS
+                and stem_norm != norm_model
+            ):
+                normed = _infer_provider(model_name, stem)
+                return normed if normed != "Unknown" else stem.title()
+    return None
 
 
 def _parse_context_str(raw_ctx: str) -> int:
@@ -146,7 +213,7 @@ class ArtificialAnalysisFetcher(BaseFetcher):
     def _scrape_public_leaderboard(self) -> list[dict[str, Any]]:
         html = self.request_text(self.leaderboard_url, accept="text/html")
         models: list[dict[str, Any]] = []
-        for table in extract_html_tables_with_links(html):
+        for table in extract_html_tables_rich(html):
             if not table:
                 continue
             col_map: dict[str, int | None] = {
@@ -213,7 +280,7 @@ class ArtificialAnalysisFetcher(BaseFetcher):
             for row in data_rows:
                 if len(row) < 4 or len(row) <= max(m_idx, i_idx):
                     continue
-                model_cell, model_links = row[m_idx]
+                model_cell, model_links, model_imgs = row[m_idx]
                 model_name = re.sub(r"\s*,\s*default\s+fallback\b", "", model_cell.strip(), flags=re.IGNORECASE).strip()
                 if not model_name or model_name.lower() in ("model", "features", "model name"):
                     continue
@@ -224,6 +291,29 @@ class ArtificialAnalysisFetcher(BaseFetcher):
                     creator_raw = " ".join(parts[: len(parts) // 2])
                 if not creator_raw or creator_raw.startswith("$"):
                     creator_raw = "Unknown"
+
+                all_row_links = list(model_links) + [
+                    href
+                    for idx, cell in enumerate(row)
+                    if idx != m_idx
+                    for href in cell[1]
+                ]
+                if creator_raw == "Unknown":
+                    # Check cell logo <img> metadata first, then /models/creators/<slug> links in the row
+                    logo_creator = _extract_creator_from_row_imgs(model_imgs, model_name)
+                    if logo_creator:
+                        creator_raw = logo_creator
+                    else:
+                        for href in all_row_links:
+                            m_cr = re.search(r"/models/creators/([A-Za-z0-9._-]+)(?:$|[/?#])", href)
+                            if m_cr:
+                                slug_txt = m_cr.group(1).replace("-", " ").replace("_", " ").strip()
+                                if slug_txt:
+                                    resolved = _infer_provider(model_name, slug_txt)
+                                    creator_raw = resolved if resolved != "Unknown" else " ".join(
+                                        w.capitalize() for w in slug_txt.split()
+                                    )
+                                    break
 
                 intel_raw = row[i_idx][0].strip()
                 if not intel_raw or "$" in intel_raw or "/" in intel_raw or re.search(r"[mk]\s*$", intel_raw, re.IGNORECASE):
@@ -246,17 +336,11 @@ class ArtificialAnalysisFetcher(BaseFetcher):
                 lat_val = _parse_float_cell(row[lat_idx][0]) if lat_idx is not None and len(row) > lat_idx else None
 
                 aa_slug: str | None = None
-                all_row_links = list(model_links) + [
-                    href
-                    for idx, cell in enumerate(row)
-                    if idx != m_idx
-                    for href in cell[1]
-                ]
                 for href in all_row_links:
                     m_slug = re.search(r"/models/([A-Za-z0-9._-]+)(?:$|[/?#])", href)
                     if m_slug:
                         cand_slug = m_slug.group(1)
-                        if cand_slug.lower() not in ("compare", "providers", "models", "leaderboard"):
+                        if cand_slug.lower() not in ("compare", "providers", "models", "leaderboard", "creators"):
                             aa_slug = cand_slug
                             if not href.rstrip("/").endswith("/providers"):
                                 break

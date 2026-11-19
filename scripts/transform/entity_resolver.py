@@ -29,7 +29,7 @@ _VENDOR_PREFIX_RE = re.compile(
     re.IGNORECASE,
 )
 _ORG_SLUG_PREFIX_RE = re.compile(
-    r"^(?:openai|anthropic|google|meta|deepseek|xai|zai|z-ai|xiaomi|minimax|nvidia|thinking-machines|thinking_machines|tencent|cohere|allenai|microsoft|amazon|stepfun|upstage|liquid-ai|liquid|ibm|alibaba|mistral-ai|moonshot-ai|moonshot|reflection-ai|reflection|sapiens-ai|china-mobile|lg-ai-research|ai21-labs|ai21|ifm|inclusionai|inception)-",
+    r"^(?:openai|anthropic|google|meta|deepseek|xai|zai|z-ai|xiaomi|minimax|nvidia|thinking-machines|thinking_machines|tencent|cohere|allenai|microsoft|amazon|stepfun|upstage|liquid-ai|liquid|ibm|alibaba|mistral-ai|moonshot-ai|moonshot|reflection-ai|reflection|sapiens-ai|china-mobile|lg-ai-research|ai21-labs|ai21|ifm|inclusionai|inception|sk-telecom|joy-future-academy|ai9stars|naver|multiverse-computing|prime-intellect|nex-agi|openbmb|sarvam|swiss-ai-initiative|longcat|trillion-labs|motif-technologies|nous-research)-",
     re.IGNORECASE,
 )
 _EFFORT_SUFFIX_RE = re.compile(
@@ -38,11 +38,15 @@ _EFFORT_SUFFIX_RE = re.compile(
 _EFFORT_TOKENS = frozenset({"max", "xhigh", "high", "medium", "low", "minimal", "none", "standard"})
 _STEALTH_PROVIDERS = frozenset({"stealth lab", "stealth", "anonymous", "unknown", ""})
 
-_PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
+_PROVIDER_HINTS: tuple[tuple[tuple[str | re.Pattern[str], ...], str], ...] = (
     (("claude", "anthropic"), "Anthropic"),
-    (("gpt-", "gpt-oss", "o1-", "o3-", "o4-", "openai", "codex"), "OpenAI"),
+    (("gpt-", "gpt-oss", "o1-", "o3-", "o4-", "openai", "codex", re.compile(r"(?:^|[\s/])o3(?=$|[\s(\-])", re.IGNORECASE)), "OpenAI"),
     (("gemini", "gemma", "google"), "Google"),
     (("inkling", "thinking-machines", "thinking machines"), "Thinking Machines"),
+    (("a.x-", "a.x ", "sk telecom"), "SK Telecom"),
+    (("joyai", "joy future"), "Joy Future Academy"),
+    ((re.compile(r"\bhermes\b", re.IGNORECASE), "nous research"), "Nous Research"),
+    (("hypernova", "multiverse computing"), "Multiverse Computing"),
     (("muse", "llama", "meta", "wonder"), "Meta"),
     (("hy4", "hy3", "hunyuan", "tencent"), "Tencent"),
     (("deepseek",), "DeepSeek"),
@@ -52,7 +56,7 @@ _PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
     (("minimax",), "MiniMax"),
     (("kimi", "moonshot"), "Moonshot AI"),
     (("grok", "xai", "spacexai"), "xAI"),
-    (("mistral", "pixtral", "codestral", "magistral"), "Mistral AI"),
+    (("mistral", "pixtral", "codestral", "magistral", "ministral"), "Mistral AI"),
     (("nemotron", "nvidia"), "NVIDIA"),
     (("mercury", "inception"), "Inception"),
     (("step-", "step "), "StepFun"),
@@ -64,11 +68,12 @@ _PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
     (("nanbeige",), "Nanbeige"),
     (("apodex",), "Apodex"),
     (("jt-", "china mobile"), "China Mobile"),
-    (("inclusionai",), "InclusionAI"),
+    (("inclusionai", re.compile(r"\b(?:ling|ring)\b", re.IGNORECASE)), "InclusionAI"),
     (("k2 horizon",), "IFM"),
+    ((re.compile(r"\bbeam\b", re.IGNORECASE), "reflection"), "Reflection AI"),
     (("falcon", "tii"), "TII"),
     (("jamba", "ai21"), "AI21 Labs"),
-    (("olmo", "allenai"), "AllenAI"),
+    (("molmo", "olmo", "allenai", "allen institute for ai"), "AllenAI"),
     (("granite", "ibm"), "IBM"),
     (("lfm", "liquid"), "Liquid AI"),
     (("ernie", "baidu"), "Baidu"),
@@ -76,6 +81,16 @@ _PROVIDER_HINTS: tuple[tuple[tuple[str, ...], str], ...] = (
     (("doubao", "seed-", "bytedance"), "ByteDance"),
     (("exaone",), "LG AI Research"),
     (("sonar", "r1-1776", "perplexity"), "Perplexity"),
+    (("g9v3", "ai9stars"), "AI9Stars"),
+    (("hyperclova", "naver"), "Naver"),
+    (("intellect-", "prime intellect"), "Prime Intellect"),
+    (("nex-n", "nex agi"), "Nex AGI"),
+    (("minicpm", "openbmb"), "OpenBMB"),
+    (("sarvam",), "Sarvam"),
+    (("apertus", "swiss ai"), "Swiss AI Initiative"),
+    (("longcat",), "LongCat"),
+    ((re.compile(r"\btri-\d", re.IGNORECASE), "trillion labs"), "Trillion Labs"),
+    ((re.compile(r"\bmotif-", re.IGNORECASE), "motif technologies"), "Motif Technologies"),
 )
 
 _PROVIDER_ALIASES: dict[str, str] = {
@@ -83,9 +98,12 @@ _PROVIDER_ALIASES: dict[str, str] = {
     "anthropic": "Anthropic",
     "google": "Google",
     "meta": "Meta",
+    "meta-llama": "Meta",
     "deepseek": "DeepSeek",
+    "deepseek-ai": "DeepSeek",
     "alibaba": "Alibaba",
     "alibaba cloud": "Alibaba",
+    "qwen": "Alibaba",
     "xiaomi": "Xiaomi",
     "minimax": "MiniMax",
     "tencent": "Tencent",
@@ -107,11 +125,15 @@ _PROVIDER_ALIASES: dict[str, str] = {
     "institute of foundation models": "IFM",
     "mistral": "Mistral AI",
     "mistral ai": "Mistral AI",
+    "mistralai": "Mistral AI",
     "moonshot": "Moonshot AI",
     "moonshot ai": "Moonshot AI",
+    "moonshotai": "Moonshot AI",
     "kimi": "Moonshot AI",
     "z.ai": "Z.AI",
     "zai": "Z.AI",
+    "zai-org": "Z.AI",
+    "thudm": "Z.AI",
     "z ai": "Z.AI",
     "zhipu": "Z.AI",
     "x.ai": "xAI",
@@ -130,6 +152,7 @@ _PROVIDER_ALIASES: dict[str, str] = {
     "01-ai": "01.AI",
     "tii": "TII",
     "allenai": "AllenAI",
+    "allen institute for ai": "AllenAI",
     "ai21": "AI21 Labs",
     "ai21 labs": "AI21 Labs",
     "liquid": "Liquid AI",
@@ -137,6 +160,26 @@ _PROVIDER_ALIASES: dict[str, str] = {
     "microsoft": "Microsoft",
     "amazon": "Amazon",
     "perplexity": "Perplexity",
+    "sk telecom": "SK Telecom",
+    "sk-telecom": "SK Telecom",
+    "skt": "SK Telecom",
+    "joy future academy": "Joy Future Academy",
+    "joy ai": "Joy Future Academy",
+    "joy-ai": "Joy Future Academy",
+    "nous research": "Nous Research",
+    "nousresearch": "Nous Research",
+    "ai9stars": "AI9Stars",
+    "naver": "Naver",
+    "multiverse computing": "Multiverse Computing",
+    "prime intellect": "Prime Intellect",
+    "nex agi": "Nex AGI",
+    "openbmb": "OpenBMB",
+    "sarvam": "Sarvam",
+    "sarvam ai": "Sarvam",
+    "swiss ai initiative": "Swiss AI Initiative",
+    "longcat": "LongCat",
+    "trillion labs": "Trillion Labs",
+    "motif technologies": "Motif Technologies",
 }
 
 _PROVIDER_CANONICAL_PREFIX: dict[str, str] = {
@@ -289,12 +332,18 @@ def _slug_signature(slug: str) -> tuple[tuple[str, ...], frozenset[str]]:
 
 def _infer_provider(raw_name: str, provider: str) -> str:
     prov_clean = (provider or "").strip()
-    if prov_clean and prov_clean != "Unknown" and not prov_clean.startswith("$") and re.search(r"[a-zA-Z]", prov_clean):
+    if prov_clean and prov_clean.lower() != "unknown" and not prov_clean.startswith("$") and re.search(r"[a-zA-Z]", prov_clean):
         return _PROVIDER_ALIASES.get(prov_clean.lower(), prov_clean)
-    lowered = raw_name.lower()
-    for prefixes, canonical_provider in _PROVIDER_HINTS:
-        if any(tok in lowered for tok in prefixes):
-            return canonical_provider
+    # Strip trailing ", Based on <base model>" clauses so derivative models are not attributed to base-model vendors
+    base_name = re.sub(r",?\s+based\s+on\s+.*$", "", raw_name or "", flags=re.IGNORECASE).strip()
+    lowered = base_name.lower()
+    for matchers, canonical_provider in _PROVIDER_HINTS:
+        for tok in matchers:
+            if isinstance(tok, re.Pattern):
+                if tok.search(lowered):
+                    return canonical_provider
+            elif tok in lowered:
+                return canonical_provider
     return "Unknown"
 
 

@@ -882,6 +882,223 @@ class TestIngestionAdapters(unittest.TestCase):
             self.assertEqual(m["model_name"], "Claude Fable 5.2 Max")
             self.assertEqual(m["provider"], "Unknown")
 
+    def test_aa_scrape_recovers_creator_from_logos_and_creator_links_and_upgrades_lkg(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            adapter = ArtificialAnalysisFetcher(raw_dir=Path(tmpdir), offline_mode=False)
+            sample_html = """
+            <table>
+              <tr><th>Model</th><th>Context Window</th><th>Artificial Analysis Intelligence Index</th><th>Price</th></tr>
+              <tr>
+                <td><img src="/logos/sk_telecom.svg" alt="SK Telecom logo"/> <a href="/models/a-x-k2">A.X-K2</a></td>
+                <td>262k</td><td>9.0%</td><td>--</td>
+              </tr>
+              <tr>
+                <td><a href="/models/creators/joy-ai"></a> <a href="/models/joyvl2_v27">JoyAI-VL-Preview</a></td>
+                <td>1m</td><td>45.0%</td><td>--</td>
+              </tr>
+              <tr>
+                <td><img src="/icons/info.svg" alt="info"/> <a href="/models/unattributed-model">Unattributed Model</a></td>
+                <td>128k</td><td>12.0%</td><td>--</td>
+              </tr>
+            </table>
+            """
+            with patch.object(adapter, "request_text", return_value=sample_html):
+                parsed = adapter._scrape_public_leaderboard()
+
+            self.assertEqual(len(parsed), 3)
+            by_name = {m["model_name"]: m for m in parsed}
+            self.assertEqual(by_name["A.X-K2"]["provider"], "SK Telecom")
+            self.assertEqual(by_name["A.X-K2"]["aa_slug"], "a-x-k2")
+            self.assertEqual(by_name["JoyAI-VL-Preview"]["provider"], "Joy Future Academy")
+            self.assertEqual(by_name["JoyAI-VL-Preview"]["aa_slug"], "joyvl2_v27")
+            self.assertEqual(by_name["Unattributed Model"]["provider"], "Unknown")
+
+            adapter.latest_path.write_text(
+                json.dumps({
+                    "fetched_at": "2026-11-17T00:00:00Z",
+                    "models": [
+                        {
+                            "model_name": "A.X-K2",
+                            "provider": "Unknown",
+                            "context_window": 262000,
+                            "intelligence_index": 9.0,
+                            "aa_slug": "a-x-k2",
+                        }
+                    ],
+                }),
+                encoding="utf-8",
+            )
+            merged = adapter.merge_with_lkg([
+                {
+                    "model_name": "A.X-K2",
+                    "provider": "SK Telecom",
+                    "context_window": 262000,
+                    "intelligence_index": 9.0,
+                    "aa_slug": "a-x-k2",
+                    "_scraped_summary": True,
+                }
+            ])
+            self.assertEqual(merged[0]["provider"], "SK Telecom")
+
+    def test_parse_aa_model_page_creator_license_specs_and_openrouter_provider(self) -> None:
+        faq_html = """
+        <html><head><title>A.X-K2 - Intelligence, Price & Benchmarks</title></head>
+        <body>
+          <div>SK Telecom logo SK Telecom • Open weights model • Released August 2026</div>
+          <div>Technical Specifications · License Apache 2.0 · 262k context</div>
+          <p>Who created A.X-K2? A.X-K2 was created by SK Telecom.</p>
+        </body></html>
+        """
+        parsed_ax = parse_aa_model_page(faq_html, query_name="A.X-K2")
+        self.assertEqual(parsed_ax["provider"], "SK Telecom")
+        self.assertTrue(parsed_ax["open_weights"])
+        self.assertEqual(parsed_ax["license"], "Apache-2.0")
+        self.assertEqual(parsed_ax["context_window"], 262000)
+
+        # Preserve dotted creator names (Z.AI) and normalize aliases (Reflection -> Reflection AI, Allen Institute for AI -> AllenAI)
+        self.assertEqual(
+            parse_aa_model_page("<p>GLM-5.2 was created by Z.AI.</p>")["provider"],
+            "Z.AI",
+        )
+        self.assertEqual(
+            parse_aa_model_page("<p>Beam 1.0 was created by Reflection, and was released on Oct 1, 2026.</p>")["provider"],
+            "Reflection AI",
+        )
+        self.assertEqual(
+            parse_aa_model_page("<p>OLMo 3 was created by Allen Institute for AI.</p>")["provider"],
+            "AllenAI",
+        )
+
+        # Fallback extraction via meta description, header logo badge, and pre-aside creator link
+        meta_html = """
+        <html><head><meta content='FutureModel by FutureLab Z scores 52 on Artificial Analysis.' name='description'></head>
+        <body><p>FutureModel · Proprietary model · Released Nov 18, 2026</p></body></html>
+        """
+        self.assertEqual(parse_aa_model_page(meta_html)["provider"], "FutureLab Z")
+
+        badge_html = "<div>NewLab Corp logo NewLab Corp • Proprietary model • Released Nov 17, 2026</div>"
+        parsed_badge = parse_aa_model_page(badge_html)
+        self.assertEqual(parsed_badge["provider"], "NewLab Corp")
+        self.assertEqual(parsed_badge["release_date"], "2026-11-17")
+
+        link_html = """
+        <div><a href="/models/creators/futurelab-z"><span>FutureLab Z</span></a></div>
+        <aside><a href="/models/creators/wrong-sidebar">Wrong Sidebar</a></aside>
+        """
+        self.assertEqual(parse_aa_model_page(link_html)["provider"], "FutureLab Z")
+
+        or_hit = match_openrouter_model(
+            "GLM-5.3",
+            [{"id": "zai-org/glm-5.3", "name": "Z.AI: GLM-5.3", "created": 1790000000, "context_length": 262144}],
+        )
+        self.assertIsNotNone(or_hit)
+        self.assertEqual(or_hit["provider"], "Z.AI")
+
+    def test_enrich_snapshots_recovers_unknown_provider_for_unseen_lab_and_skips_stealth(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            raw_dir = tmp / "raw"
+            aliases_copy = tmp / "model_aliases.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+            for src in ("artificial_analysis", "livebench", "arena", "vals"):
+                (raw_dir / src).mkdir(parents=True, exist_ok=True)
+                (raw_dir / src / "latest.json").write_text(json.dumps({"fetched_at": "2026-11-18T00:00:00Z", "models": []}))
+
+            (raw_dir / "artificial_analysis" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-11-18T00:00:00Z",
+                "models": [
+                    {
+                        "model_name": "A.X-K2",
+                        "provider": "Unknown",
+                        "aa_slug": "a-x-k2",
+                        "context_window": 262000,
+                        "open_weights": False,
+                        "intelligence_index": 9.0,
+                    },
+                    {
+                        "model_name": "XenoBot-1",
+                        "provider": "Unknown",
+                        "aa_slug": "xenobot-1",
+                        "context_window": 128000,
+                        "open_weights": False,
+                        "intelligence_index": 51.0,
+                    },
+                    {
+                        "model_name": "AlreadyDatedModel-9",
+                        "provider": "Unknown",
+                        "release_date": "2026-11-18",
+                        "metadata_verified": True,
+                        "context_window": 262144,
+                        "open_weights": False,
+                        "intelligence_index": 49.0,
+                    },
+                ],
+            }))
+            (raw_dir / "arena" / "latest.json").write_text(json.dumps({
+                "fetched_at": "2026-11-18T00:00:00Z",
+                "models": [
+                    {"arena_model_id": "stealth-nebula-test", "display_name": "stealth-nebula-test", "organization": "Stealth Lab"},
+                ],
+            }))
+
+            def fake_json(url: str, headers: dict | None = None, timeout: float = 10.0):
+                if "openrouter.ai" in url:
+                    return {
+                        "data": [
+                            {
+                                "id": "futurelab/alreadydatedmodel-9",
+                                "name": "FutureLab Z: AlreadyDatedModel-9",
+                                "created": 1795000000,
+                                "context_length": 262144,
+                            }
+                        ]
+                    }
+                return []
+
+            def fake_text(url: str, headers: dict | None = None, timeout: float = 10.0):
+                if url.endswith("/models/a-x-k2"):
+                    return (
+                        "<html><head><title>A.X-K2 - Artificial Analysis</title></head>"
+                        "<body><p>SK Telecom logo SK Telecom • Open weights model • Released August 2026.</p>"
+                        "<p>Technical Specifications · License Apache 2.0 · 262k context</p>"
+                        "<p>A.X-K2 was created by SK Telecom. A.X-K2 was released on Aug 5, 2026.</p></body></html>"
+                    )
+                if url.endswith("/models/xenobot-1"):
+                    return (
+                        "<html><head><title>XenoBot-1 - Artificial Analysis</title></head>"
+                        "<body><p>XenoBot-1 was created by FutureLab Z. Proprietary model released on Nov 18, 2026. 1m context window.</p></body></html>"
+                    )
+                raise RuntimeError(f"Unexpected URL {url}")
+
+            with patch("scripts.ingest.metadata_enricher._http_get_json", side_effect=fake_json), patch(
+                "scripts.ingest.metadata_enricher._http_get_text", side_effect=fake_text
+            ):
+                res = enrich_snapshots(raw_dir=raw_dir, aliases_path=aliases_copy, offline_mode=False)
+
+            self.assertEqual(res["enriched_count"], 3)
+            aa_models = {
+                m["model_name"]: m
+                for m in json.loads((raw_dir / "artificial_analysis" / "latest.json").read_text())["models"]
+            }
+            ax = aa_models["A.X-K2"]
+            self.assertEqual(ax["provider"], "SK Telecom")
+            self.assertEqual(ax["release_date"], "2026-08-05")
+            self.assertTrue(ax["open_weights"])
+            self.assertEqual(ax["license"], "Apache-2.0")
+
+            xeno = aa_models["XenoBot-1"]
+            self.assertEqual(xeno["provider"], "FutureLab Z")
+            self.assertEqual(xeno["release_date"], "2026-11-18")
+            self.assertEqual(xeno["license"], "Proprietary")
+            self.assertEqual(xeno["context_window"], 1_000_000)
+
+            dated = aa_models["AlreadyDatedModel-9"]
+            self.assertEqual(dated["provider"], "FutureLab Z")
+
+            arena_stealth = json.loads((raw_dir / "arena" / "latest.json").read_text())["models"][0]
+            self.assertEqual(arena_stealth["organization"], "Stealth Lab")
+            self.assertNotIn("release_date", arena_stealth)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-17T20:10:05Z",
+  "updated_at": "2026-11-19T00:51:32Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5293,7 +5293,7 @@
       "release_date": "2026-11-17",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 1000000,
+      "context_window": 1050000,
       "reasoning_mode": "reasoning",
       "thinking_effort": "max",
       "auto_promoted": true,
@@ -5316,7 +5316,7 @@
       "release_date": "2026-11-17",
       "license": "Proprietary",
       "is_open_weights": false,
-      "context_window": 1000000,
+      "context_window": 1050000,
       "reasoning_mode": "reasoning",
       "thinking_effort": "max",
       "auto_promoted": true,
@@ -5351,6 +5351,27 @@
         "vals": [
           "Hy4 Flash"
         ]
+      }
+    },
+    {
+      "canonical_id": "sk-telecom-a-x-k2",
+      "display_name": "A.X-K2",
+      "provider": "SK Telecom",
+      "release_date": "2026-11-17",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 262000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": false,
+      "aliases": {
+        "artificial_analysis": [
+          "A.X-K2"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
       }
     }
   ]

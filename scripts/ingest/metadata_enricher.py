@@ -22,9 +22,9 @@ from typing import Any
 from scripts.transform.entity_resolver import (
     ALIASES_PATH,
     EntityResolver,
+    _PROVIDER_ALIASES,
     _infer_provider,
     format_display_name,
-    is_stealth_model,
     normalize_slug,
 )
 
@@ -359,7 +359,7 @@ def parse_aa_model_page(html_text: str, query_name: str | None = None) -> dict[s
 
     faq_date: str | None = None
     m_faq = re.search(
-        r"(?:was\s+)?released\s+on\s+([A-Z][a-z]+\s+\d{1,2},\s+20\d{2})",
+        r"(?:was\s+)?released(?:\s+on)?\s+([A-Z][a-z]+\s+\d{1,2},\s+20\d{2})",
         text,
         re.IGNORECASE,
     )
@@ -403,6 +403,86 @@ def parse_aa_model_page(html_text: str, query_name: str | None = None) -> dict[s
             open_weights = parsed_lic[0] if open_weights is None else open_weights
             if parsed_lic[1] != "other":
                 license_name = parsed_lic[1]
+    if not license_name and open_weights is not False:
+        m_spec_lic = re.search(
+            r"\bLicense\s+(Apache[- ]?2\.0|Modified[- ]?MIT|MIT|OpenMDW[- ]?1\.1|OpenMDW|NVIDIA\s+Open(?:\s+Model)?)\b",
+            text,
+            re.IGNORECASE,
+        )
+        if m_spec_lic:
+            parsed_lic = normalize_license_name(m_spec_lic.group(1))
+            if parsed_lic and parsed_lic[1] != "other":
+                open_weights = parsed_lic[0] if open_weights is None else open_weights
+                license_name = parsed_lic[1]
+
+    raw_creator: str | None = None
+    creator_stop = frozenset(
+        {"unknown", "stealth", "stealth lab", "anonymous", "the", "a", "an", "artificial analysis"}
+    )
+    m_created = re.search(
+        r"\b(?:was\s+)?created\s+by\s+([A-Za-z0-9][A-Za-z0-9.&'+\-\s]{0,58}?)"
+        r"(?=\.(?:\s|$)|[,;(]|\s+\(|\s+and\s+(?:was\s+)?(?:released|announced|made)\b|\s+in\s+20\d{2}\b|\s+with\s+a\b|$)",
+        text,
+        re.IGNORECASE,
+    )
+    if m_created:
+        cand_c = re.sub(r"\s+", " ", m_created.group(1)).strip(" .,:;-")
+        if len(cand_c) >= 2 and cand_c.lower() not in creator_stop and re.search(r"[a-zA-Z]", cand_c):
+            raw_creator = cand_c
+
+    if not raw_creator:
+        m_meta = re.search(
+            r"<meta\b(?=[^>]*\bname=[\"']description[\"'])(?=[^>]*\bcontent=([\"'])(.*?)\1)[^>]*>",
+            html_text,
+            re.IGNORECASE | re.DOTALL,
+        )
+        if m_meta:
+            desc_txt = re.sub(r"\s+", " ", html_lib.unescape(m_meta.group(2))).strip()
+            m_desc = re.search(
+                r"\bby\s+([A-Za-z0-9][A-Za-z0-9.&'+\-\s]{0,50}?)\s+(?:scores|ranks|is|costs|benchmarks|features|on\s+Artificial\s+Analysis)\b",
+                desc_txt,
+                re.IGNORECASE,
+            )
+            if m_desc:
+                cand_c = re.sub(r"\s+", " ", m_desc.group(1)).strip(" .,:;-")
+                if len(cand_c) >= 2 and cand_c.lower() not in creator_stop and re.search(r"[a-zA-Z]", cand_c):
+                    raw_creator = cand_c
+
+    if not raw_creator:
+        m_logo_hdr = re.search(
+            r"(?<![A-Za-z0-9.&'+\-])([A-Za-z0-9][A-Za-z0-9.&'+\- ]{1,40}?)\s+logo\s+\1(?![A-Za-z0-9])",
+            text[:3500],
+            re.IGNORECASE,
+        )
+        if m_logo_hdr:
+            cand_c = re.sub(r"\s+", " ", m_logo_hdr.group(1)).strip(" .,:;-")
+            if len(cand_c) >= 2 and cand_c.lower() not in creator_stop and re.search(r"[a-zA-Z]", cand_c):
+                raw_creator = cand_c
+
+    if not raw_creator:
+        main_html = re.split(r"<aside\b", html_text, maxsplit=1, flags=re.IGNORECASE)[0]
+        m_cr = re.search(
+            r'href=["\'](?:https?://[^"\']*)?/models/creators/([A-Za-z0-9._-]+)(?:$|[/?#"\'])[^>]*>(.*?)</a>',
+            main_html,
+            re.IGNORECASE | re.DOTALL,
+        )
+        if m_cr:
+            link_txt = re.sub(r"\s+", " ", html_lib.unescape(re.sub(r"<[^>]+>", " ", m_cr.group(2)))).strip(" .,:;-")
+            if link_txt and len(link_txt) >= 2 and link_txt.lower() not in creator_stop and re.search(r"[a-zA-Z]", link_txt):
+                raw_creator = link_txt
+            else:
+                slug_txt = m_cr.group(1).replace("-", " ").replace("_", " ").strip()
+                if len(slug_txt) >= 2 and slug_txt.lower() not in creator_stop and re.search(r"[a-zA-Z]", slug_txt):
+                    raw_creator = _PROVIDER_ALIASES.get(
+                        slug_txt.lower(),
+                        " ".join(w.capitalize() for w in slug_txt.split()),
+                    )
+
+    provider: str | None = None
+    if raw_creator:
+        norm_p = _infer_provider(query_name or page_title or "", raw_creator)
+        if norm_p != "Unknown":
+            provider = norm_p
 
     context_window: int | None = None
     m_ctx = re.search(r"(?:context\s+(?:window|length)[^0-9]{0,20}|^|\s)(\d+(?:\.\d+)?)\s*([mk])\s+context\b", text, re.IGNORECASE)
@@ -426,6 +506,7 @@ def parse_aa_model_page(html_text: str, query_name: str | None = None) -> dict[s
 
     return {
         "page_title": page_title,
+        "provider": provider,
         "release_date": aa_release_date,
         "header_ym": header_ym,
         "faq_date": faq_date,
@@ -477,8 +558,30 @@ def match_openrouter_model(raw_name: str, or_models: list[dict[str, Any]]) -> di
             ctx = entry.get("context_length")
             ctx_val = int(ctx) if isinstance(ctx, (int, float)) and int(ctx) > 1000 else None
             hf_id = entry.get("hugging_face_id")
+
+            or_prov: str | None = None
+            m_or_pfx = re.match(r"^([A-Za-z0-9][A-Za-z0-9 .&'+\-_]{0,38}?):\s+", or_name)
+            if m_or_pfx:
+                pfx = m_or_pfx.group(1).strip()
+                if pfx.lower() not in ("free", "beta", "nitro", "floor", "extended", "exacto", "thinking", "reasoning", "unknown"):
+                    cand_p = _infer_provider(or_display or raw_name, pfx)
+                    if cand_p != "Unknown":
+                        or_prov = cand_p
+            if not or_prov and "/" in or_id:
+                owner = or_id.split("/", 1)[0].strip().lower()
+                if owner and owner not in ("openrouter", "unknown", "anonymous", "stealth"):
+                    if owner in _PROVIDER_ALIASES:
+                        or_prov = _PROVIDER_ALIASES[owner]
+                    else:
+                        inferred_from_name = _infer_provider(or_display or raw_name, "")
+                        if inferred_from_name != "Unknown":
+                            or_prov = inferred_from_name
+                        else:
+                            or_prov = " ".join(w.capitalize() for w in re.split(r"[-_]+", owner) if w) or None
+
             cand = {
                 "openrouter_id": or_id,
+                "provider": or_prov,
                 "release_date": created_date,
                 "context_window": ctx_val,
                 "hugging_face_id": str(hf_id).strip() if hf_id else None,
@@ -624,7 +727,22 @@ def reconcile_enriched_metadata(
     ]
     context_window = max(ctx_cands) if ctx_cands else None
 
+    # Provider / creator reconciliation (AA SSR primary, OpenRouter / official HF org fallback)
+    hf_owner: str | None = None
+    hf_id_val = str(hf_meta.get("hugging_face_id") or "")
+    if "/" in hf_id_val:
+        hf_owner_slug = hf_id_val.split("/", 1)[0].strip().lower()
+        hf_owner = _PROVIDER_ALIASES.get(hf_owner_slug)
+    provider: str | None = None
+    for cand_prov in (aa_meta.get("provider"), or_meta.get("provider"), hf_owner):
+        if cand_prov and str(cand_prov).strip().lower() not in ("unknown", "stealth", "stealth lab", "anonymous"):
+            norm_p = _infer_provider(raw_name, str(cand_prov))
+            if norm_p != "Unknown":
+                provider = norm_p
+                break
+
     return {
+        "provider": provider,
         "release_date": release_date,
         "open_weights": open_weights,
         "license": license_name,
@@ -710,12 +828,25 @@ def enrich_snapshots(
             raw_name = _raw_id_for(source_key, item)
             if not raw_name:
                 continue
-            raw_prov = str(item.get("provider") or item.get("organization") or "Unknown")
+            prov_field = "organization" if source_key == "arena" and "provider" not in item else "provider"
+            raw_prov = str(item.get(prov_field) or item.get("provider") or item.get("organization") or "Unknown")
             inferred_prov = _infer_provider(raw_name, raw_prov)
-            if is_stealth_model(inferred_prov, raw_name):
+
+            prov_lower = inferred_prov.strip().lower()
+            name_lower = raw_name.strip().lower()
+            is_explicit_stealth = (
+                prov_lower in ("stealth lab", "stealth", "anonymous")
+                or name_lower.startswith(("stealth-", "stealth ", "anonymous-", "anonymous "))
+                or (source_key == "arena" and inferred_prov == "Unknown" and not item.get("aa_slug"))
+            )
+            if is_explicit_stealth:
                 continue
 
-            cid, tier, meta = resolver.resolve(source_key, raw_name, raw_prov, auto_promote=False)
+            if inferred_prov != "Unknown" and item.get(prov_field) in (None, "", "Unknown"):
+                item[prov_field] = inferred_prov
+                snap_dirty = True
+
+            cid, tier, meta = resolver.resolve(source_key, raw_name, inferred_prov, auto_promote=False)
             is_curated = (
                 tier != "tier3_quarantine"
                 and not meta.get("auto_promoted", False)
@@ -732,8 +863,13 @@ def enrich_snapshots(
                     item["display_name"] = formatted_disp
                     snap_dirty = True
 
-            # Skip live remote lookups if item already has verified date and >128k context
-            if item.get("release_date") and item.get("metadata_verified") and (item.get("context_window") or 128000) > 128000:
+            # Skip live remote lookups only if provider, verified date, and >128k context are resolved
+            if (
+                inferred_prov != "Unknown"
+                and item.get("release_date")
+                and item.get("metadata_verified")
+                and (item.get("context_window") or 128000) > 128000
+            ):
                 continue
 
             cache_key = normalize_slug(raw_name)
@@ -749,7 +885,13 @@ def enrich_snapshots(
                         aa_meta = parse_aa_model_page(aa_html, query_name=raw_name)
                     except Exception as exc:
                         logger.debug("AA model page lookup failed for %s: %s", aa_slug, exc)
-                elif not item.get("release_date") and not (or_meta and or_meta.get("release_date")):
+                elif (
+                    not item.get("release_date")
+                    and not (or_meta and or_meta.get("release_date"))
+                ) or (
+                    inferred_prov == "Unknown"
+                    and not (or_meta and or_meta.get("provider"))
+                ):
                     # Fallback SSR slug probe for Arena/LiveBench/Vals items absent from OpenRouter
                     derived_cands: list[str] = [cache_key]
                     base_slug = re.sub(
@@ -772,14 +914,16 @@ def enrich_snapshots(
                             continue
 
                 hf_repo_cand = (or_meta or {}).get("hugging_face_id") or aa_meta.get("hugging_face_id")
+                effective_prov = aa_meta.get("provider") or (or_meta or {}).get("provider") or inferred_prov
                 lower_raw = raw_name.lower()
                 closed_lab = (
-                    inferred_prov in ("Anthropic", "xAI")
-                    or (inferred_prov == "OpenAI" and "gpt-oss" not in lower_raw)
-                    or (inferred_prov == "Google" and "gemma" not in lower_raw)
+                    effective_prov in ("Anthropic", "xAI")
+                    or (effective_prov == "OpenAI" and "gpt-oss" not in lower_raw)
+                    or (effective_prov == "Google" and "gemma" not in lower_raw)
                 )
                 allow_unlinked_hf = aa_meta.get("open_weights") is True or (
                     aa_meta.get("open_weights") is not False
+                    and effective_prov != "Unknown"
                     and not closed_lab
                     and not aa_meta.get("release_date")
                 )
@@ -825,10 +969,21 @@ def enrich_snapshots(
                 )
 
             rec = cache[cache_key]
+            item_enriched = False
+            if rec.get("provider") and item.get(prov_field) in (None, "", "Unknown"):
+                item[prov_field] = rec["provider"]
+                snap_dirty = True
+                item_enriched = True
+                if cur_disp and cur_disp == raw_name:
+                    formatted_disp = format_display_name(raw_name, rec["provider"])
+                    if formatted_disp and formatted_disp != cur_disp:
+                        item["display_name"] = formatted_disp
             if rec.get("release_date") and not item.get("release_date"):
                 item["release_date"] = rec["release_date"]
                 item["metadata_verified"] = True
                 snap_dirty = True
+                item_enriched = True
+            if item_enriched:
                 enriched_count += 1
             if rec.get("open_weights") is True and not item.get("open_weights"):
                 item["open_weights"] = True

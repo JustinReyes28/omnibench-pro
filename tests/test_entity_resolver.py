@@ -668,6 +668,49 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
             self.assertIsNotNone(nebula["capabilities"]["reasoning"])
             self.assertIsNotNone(nebula["capabilities"]["chat"])
 
+    def test_provider_hints_and_derivative_based_on_clauses(self) -> None:
+        expected_hints = [
+            ("A.X-K2", "Unknown", "SK Telecom"),
+            ("JoyAI-VL-Preview", "Unknown", "Joy Future Academy"),
+            ("JoyAI-VL-Preview", "Joy AI", "Joy Future Academy"),
+            ("Beam 1.0", "Unknown", "Reflection AI"),
+            ("Ling 3.1 Flash 1019", "Unknown", "InclusionAI"),
+            ("Ring-flash-2.0", "Unknown", "InclusionAI"),
+            ("Inkling 2 Small", "Unknown", "Thinking Machines"),
+            ("Hermes 4 - Llama-3.1 70B Non-reasoning", "Unknown", "Nous Research"),
+            ("HyperNova 60B 2605 High, Based on gpt-oss-120b", "Unknown", "Multiverse Computing"),
+            ("INTELLECT-3 Based on GLM-4.5-Air", "Unknown", "Prime Intellect"),
+            ("Nex-N2-Pro Based on Qwen3.5-397B-A17B", "Unknown", "Nex AGI"),
+            ("Molmo 2 8B", "Allen Institute for AI", "AllenAI"),
+            ("Ministral 14B 2512", "Unknown", "Mistral AI"),
+            ("Tri-21B", "Unknown", "Trillion Labs"),
+            ("Motif-2-12.7B", "Unknown", "Motif Technologies"),
+            ("o3 (high)", "Unknown", "OpenAI"),
+        ]
+        for model_name, raw_prov, exp_prov in expected_hints:
+            self.assertEqual(_infer_provider(model_name, raw_prov), exp_prov, msg=f"{model_name!r} / {raw_prov!r}")
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            aliases_copy = Path(tmpdir) / "model_aliases.json"
+            shutil.copy2(ALIASES_PATH, aliases_copy)
+            res = EntityResolver(aliases_path=aliases_copy)
+
+            cid_ax, tier_ax, meta_ax = res.resolve("artificial_analysis", "A.X-K2", "Unknown", auto_promote=True)
+            self.assertEqual(cid_ax, "sk-telecom-a-x-k2")
+            self.assertNotEqual(tier_ax, "tier3_quarantine")
+            self.assertEqual(meta_ax["provider"], "SK Telecom")
+
+            cid_ax3, tier_ax3, meta_ax3 = res.resolve("artificial_analysis", "A.X-K3", "Unknown", auto_promote=True)
+            self.assertEqual(cid_ax3, "sk-telecom-a-x-k3")
+            self.assertEqual(tier_ax3, "tier2_auto_promoted")
+            self.assertEqual(meta_ax3["provider"], "SK Telecom")
+
+            cid_joy, tier_joy, meta_joy = res.resolve("artificial_analysis", "JoyAI-VL-Preview", "Unknown", auto_promote=True)
+            self.assertEqual(cid_joy, "joy-future-academy-joyai-vl")
+            self.assertEqual(tier_joy, "tier2_auto_promoted")
+            self.assertEqual(meta_joy["provider"], "Joy Future Academy")
+            self.assertEqual(len(res.unmatched_queue), 0)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -56,6 +56,47 @@ class ArenaFetcher(BaseFetcher):
         except Exception:
             return set()
 
+    def _load_cross_source_families(self) -> set[tuple[str, str]]:
+        """Loads (provider, model_family_key) pairs already tracked in AA, LiveBench, or Vals snapshots."""
+        families: set[tuple[str, str]] = set()
+        try:
+            from scripts.transform.entity_resolver import _infer_provider, model_family_key
+        except Exception:
+            return families
+
+        raw_root = self.raw_dir.parent
+        source_fields = (
+            ("artificial_analysis", ("model_name", "display_name"), "provider"),
+            ("livebench", ("model_key", "display_name"), "provider"),
+            ("vals", ("vals_model_name", "display_name"), "provider"),
+        )
+        for src_key, name_fields, prov_field in source_fields:
+            snap_path = raw_root / src_key / "latest.json"
+            if not snap_path.exists():
+                continue
+            try:
+                snap = json.loads(snap_path.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            for item in snap.get("models", []):
+                raw_name = ""
+                for nf in name_fields:
+                    val = str(item.get(nf) or "").strip()
+                    if val:
+                        raw_name = val
+                        break
+                if not raw_name:
+                    continue
+                raw_prov = str(item.get(prov_field) or "Unknown")
+                prov = _infer_provider(raw_name, raw_prov)
+                fk = model_family_key(raw_name, prov)
+                if not fk:
+                    continue
+                if prov and prov != "Unknown":
+                    families.add((prov, fk))
+                families.add(("", fk))
+        return families
+
     def _filter_live_models(
         self,
         models: list[dict[str, Any]],
@@ -82,12 +123,23 @@ class ArenaFetcher(BaseFetcher):
 
         resolver = None
         is_stealth_fn = None
+        infer_provider_fn = None
+        family_key_fn = None
         try:
-            from scripts.transform.entity_resolver import EntityResolver, is_stealth_model
+            from scripts.transform.entity_resolver import (
+                EntityResolver,
+                _infer_provider,
+                is_stealth_model,
+                model_family_key,
+            )
             resolver = EntityResolver()
             is_stealth_fn = is_stealth_model
+            infer_provider_fn = _infer_provider
+            family_key_fn = model_family_key
         except Exception:
             resolver = None
+
+        cross_source_families = self._load_cross_source_families()
 
         ranked = sorted(
             models,
@@ -141,6 +193,17 @@ class ArenaFetcher(BaseFetcher):
 
             if _is_pre_2026_checkpoint(raw_id):
                 continue
+
+            # Admit non-frontier Arena models whose family is already tracked by AA, LiveBench, or Vals
+            if cross_source_families and infer_provider_fn is not None and family_key_fn is not None:
+                inferred_prov = infer_provider_fn(raw_id, org)
+                ar_fk = family_key_fn(raw_id, inferred_prov)
+                if ar_fk and (
+                    (inferred_prov, ar_fk) in cross_source_families
+                    or (inferred_prov == "Unknown" and ("", ar_fk) in cross_source_families)
+                ):
+                    known_models.append(m)
+                    continue
 
             eff_rank = (explicit_ranks or {}).get(key_lower, global_rank)
             is_2026_plus = bool(re.search(r"202[6-9]", raw_id))

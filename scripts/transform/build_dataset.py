@@ -28,6 +28,16 @@ PUBLIC_DATA_DIR = ROOT_DIR / "public" / "data"
 
 _ALL_SOURCES = ("artificial_analysis", "livebench", "arena", "vals")
 _FLAGSHIP_EFFORT_ORDER = {"max": 0, "xhigh": 1, "high": 2}
+_EFFORT_PROXIMITY_SCALE = {
+    "max": 0,
+    "xhigh": 1,
+    "high": 2,
+    "medium": 3,
+    "low": 4,
+    "minimal": 5,
+    "standard": 6,
+    "none": 7,
+}
 
 
 def build_unified_dataset(
@@ -419,6 +429,21 @@ def build_unified_dataset(
     resolver.save_registry(path=aliases_path)
     resolver.save_unmatched_queue(path=unmatched_path)
 
+    # Snapshot direct Arena donors per family BEFORE the >= min_sources gate pops single-source Arena siblings
+    # (e.g., Arena publishes "Gemini 4 Neon (High)" while AA/LiveBench/Vals corroborate "Gemini 4 Neon (xHigh)").
+    arena_donors_by_family: dict[tuple[str, str], list[tuple[str, str, dict[str, Any]]]] = {}
+    for cid, rec in merged.items():
+        ar_block = rec["benchmarks"].get("arena")
+        if ar_block is None:
+            continue
+        if rec.get("reasoning_mode") == "non_reasoning" or "non-reasoning" in rec.get("display_name", "").lower():
+            continue
+        fk = (rec["provider"], model_family_key(cid, rec["provider"]))
+        if fk[1]:
+            arena_donors_by_family.setdefault(fk, []).append(
+                (cid, str(rec.get("thinking_effort") or "standard"), dict(ar_block))
+            )
+
     # 6b. Gate published leaderboard to corroborated multi-source models (>= min_sources) BEFORE normalization,
     # while keeping valid single-source models tracked in model_aliases.json so they auto-graduate smoothly once
     # a 2nd independent benchmark evaluates them.
@@ -429,6 +454,37 @@ def build_unified_dataset(
     ]
     for cid in gated_out_cids:
         merged.pop(cid, None)
+
+    # 6c. Transparent Sibling Effort-Tier Arena Fallback:
+    # For corroborated reasoning models missing a direct Arena ELO (e.g. xhigh when Arena only tracks high),
+    # inherit the closest sibling effort tier's Arena ELO with explicit provenance (`inherited_from_effort`)
+    # without merging or altering canonical identities in model_aliases.json.
+    for cid, rec in merged.items():
+        if rec["benchmarks"].get("arena") is not None:
+            continue
+        if rec.get("reasoning_mode") == "non_reasoning" or "non-reasoning" in rec.get("display_name", "").lower():
+            continue
+        fk = (rec["provider"], model_family_key(cid, rec["provider"]))
+        donors = arena_donors_by_family.get(fk)
+        if not donors:
+            continue
+        target_effort = str(rec.get("thinking_effort") or "standard")
+        target_pos = _EFFORT_PROXIMITY_SCALE.get(target_effort, 6)
+        candidates = [d for d in donors if d[0] != cid]
+        if not candidates:
+            continue
+        candidates.sort(
+            key=lambda d: (
+                abs(_EFFORT_PROXIMITY_SCALE.get(d[1], 6) - target_pos),
+                _EFFORT_PROXIMITY_SCALE.get(d[1], 6),
+                -int(d[2].get("votes") or 0),
+                -int(d[2].get("text_elo") or 0),
+            )
+        )
+        _, donor_effort, donor_arena = candidates[0]
+        inherited = dict(donor_arena)
+        inherited["inherited_from_effort"] = donor_effort
+        rec["benchmarks"]["arena"] = inherited
 
     # Compute calibrated normalized scores across all 4 sources
     aa_map = {

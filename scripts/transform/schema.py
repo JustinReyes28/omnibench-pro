@@ -95,6 +95,11 @@ def validate_canonical_model_record(record: dict[str, Any]) -> dict[str, Any]:
         for k in ("text_elo", "text_ci_lower", "text_ci_upper", "coding_elo", "vision_elo"):
             _check_finite_number(ar.get(k), f"arena.{k}", allow_none=True, min_val=500.0, max_val=2500.0)
         _check_finite_number(ar.get("votes"), "arena.votes", allow_none=True, min_val=0.0)
+        inherited_effort = ar.get("inherited_from_effort")
+        if inherited_effort is not None and (
+            not isinstance(inherited_effort, str) or inherited_effort not in VALID_EFFORT_LEVELS
+        ):
+            raise ValueError(f"Invalid arena.inherited_from_effort='{inherited_effort}' in record {record.get('id')}")
 
     va = benchmarks.get("vals")
     if va is not None:

@@ -51,6 +51,14 @@ const FOCUS_TABS: Array<{ key: BreakdownFocus; label: string; color: string }> =
   { key: 'chat', label: 'Chat', color: '#C84B31' },
 ];
 
+function isRecentRelease(isoDate: string, windowDays = 30): boolean {
+  const parts = isoDate.split('-').map(Number);
+  if (parts.length !== 3 || parts.some(Number.isNaN)) return false;
+  const releasedMs = Date.UTC(parts[0], parts[1] - 1, parts[2]);
+  const diffDays = (Date.now() - releasedMs) / (1000 * 60 * 60 * 24);
+  return diffDays >= -1 && diffDays <= windowDays;
+}
+
 export const LeaderboardTable: React.FC<Props> = ({
   models,
   totalModelsCount,
@@ -779,6 +787,7 @@ export const LeaderboardTable: React.FC<Props> = ({
                   const effort = (m.thinking_effort || 'standard').toUpperCase();
                   const labStyle = getLabStyle(m.provider);
                   const colCount = tableViewMode === 'capabilities' ? 11 : 10;
+                  const arenaPendingVotes = !ar && isRecentRelease(m.release_date);
 
                   return (
                     <React.Fragment key={m.id}>
@@ -877,8 +886,32 @@ export const LeaderboardTable: React.FC<Props> = ({
                             <td className="px-3 py-3 text-right font-mono text-[#111317]">
                               {lb ? `${lb.global_average.toFixed(1)}%` : '—'}
                             </td>
-                            <td className="px-3 py-3 text-right font-mono text-[#111317]">
-                              {ar ? ar.text_elo : '—'}
+                            <td
+                              className="px-3 py-3 text-right font-mono text-[#111317]"
+                              title={
+                                ar
+                                  ? ar.inherited_from_effort
+                                    ? `Arena Elo inherited from sibling ${ar.inherited_from_effort.toUpperCase()} tier (direct ${effort} rating not yet published)`
+                                    : `Arena.ai Text Elo: ${ar.text_elo} (${ar.votes.toLocaleString()} votes)`
+                                  : arenaPendingVotes
+                                    ? 'Pending Arena.ai crowd-voted Elo (recent release)'
+                                    : 'Not listed on Arena.ai leaderboard'
+                              }
+                            >
+                              {ar ? (
+                                <div className="inline-flex flex-col items-end leading-tight">
+                                  <span>{ar.text_elo}</span>
+                                  {ar.inherited_from_effort && (
+                                    <span className="text-[8px] font-semibold uppercase text-[#68707C]">
+                                      via {ar.inherited_from_effort.toUpperCase()}
+                                    </span>
+                                  )}
+                                </div>
+                              ) : arenaPendingVotes ? (
+                                <span className="text-[10px] text-[#8A530B]">Pending</span>
+                              ) : (
+                                <span className="text-[#9E998B]">—</span>
+                              )}
                             </td>
                           </>
                         )}
@@ -1021,9 +1054,16 @@ export const LeaderboardTable: React.FC<Props> = ({
                                     <div>Coding Elo: {ar.coding_elo}</div>
                                     {ar.vision_elo && <div>Vision Elo: {ar.vision_elo}</div>}
                                     <div>Votes: {ar.votes.toLocaleString()}</div>
+                                    {ar.inherited_from_effort && (
+                                      <div className="text-[10px] text-[#68707C]">
+                                        Inherited from {ar.inherited_from_effort.toUpperCase()} tier
+                                      </div>
+                                    )}
                                   </div>
                                 ) : (
-                                  <div className="text-[#68707C]">Not evaluated</div>
+                                  <div className="text-[#68707C]">
+                                    {arenaPendingVotes ? 'Pending Arena votes (recent release)' : 'Not listed on Arena.ai'}
+                                  </div>
                                 )}
                               </div>
                             </div>

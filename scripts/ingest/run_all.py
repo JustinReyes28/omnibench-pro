@@ -13,8 +13,8 @@ def run_all(offline_mode: bool | None = None) -> dict[str, dict]:
     adapters = [
         ArtificialAnalysisFetcher(offline_mode=offline_mode),
         LiveBenchFetcher(offline_mode=offline_mode),
-        ArenaFetcher(offline_mode=offline_mode),
         ValsFetcher(offline_mode=offline_mode),
+        ArenaFetcher(offline_mode=offline_mode),
     ]
     results = {}
     for adapter in adapters:

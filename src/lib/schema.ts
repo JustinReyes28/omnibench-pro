@@ -36,6 +36,7 @@ export const ArenaSchema = z.object({
   coding_elo: z.number(),
   vision_elo: z.number().nullable(),
   votes: z.number(),
+  inherited_from_effort: z.string().nullable().optional(),
 });
 
 export const ValsSchema = z.object({

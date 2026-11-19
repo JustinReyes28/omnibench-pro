@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-19T00:51:32Z",
+  "updated_at": "2026-11-19T06:33:40Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5288,7 +5288,7 @@
     },
     {
       "canonical_id": "openai-gpt-6-2-astra-max",
-      "display_name": "GPT-6.2 Astra Max",
+      "display_name": "GPT-6.2 Astra",
       "provider": "OpenAI",
       "release_date": "2026-11-17",
       "license": "Proprietary",
@@ -5302,7 +5302,9 @@
         "artificial_analysis": [
           "GPT-6.2 Astra Max"
         ],
-        "livebench": [],
+        "livebench": [
+          "gpt-6.2-astra"
+        ],
         "arena": [],
         "vals": [
           "GPT-6.2 Astra"
@@ -5311,7 +5313,7 @@
     },
     {
       "canonical_id": "openai-gpt-6-2-sol-max",
-      "display_name": "GPT-6.2 Sol Max",
+      "display_name": "GPT-6.2 Sol",
       "provider": "OpenAI",
       "release_date": "2026-11-17",
       "license": "Proprietary",
@@ -5325,7 +5327,9 @@
         "artificial_analysis": [
           "GPT-6.2 Sol Max"
         ],
-        "livebench": [],
+        "livebench": [
+          "gpt-6.2-sol"
+        ],
         "arena": [],
         "vals": [
           "GPT-6.2 Sol"
@@ -5357,20 +5361,253 @@
       "canonical_id": "sk-telecom-a-x-k2",
       "display_name": "A.X-K2",
       "provider": "SK Telecom",
-      "release_date": "2026-11-17",
-      "license": "Proprietary",
-      "is_open_weights": false,
+      "release_date": "2026-08-12",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
       "context_window": 262000,
       "reasoning_mode": "standard",
       "thinking_effort": "standard",
       "auto_promoted": true,
-      "metadata_verified": false,
+      "metadata_verified": true,
       "aliases": {
         "artificial_analysis": [
           "A.X-K2"
         ],
         "livebench": [],
         "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "google-gemini-4-neon-xhigh",
+      "display_name": "Gemini 4 Neon Xhigh",
+      "provider": "Google",
+      "release_date": "2026-11-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "xhigh",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "Gemini 4 Neon Xhigh"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": [
+          "Gemini 4 Neon"
+        ]
+      }
+    },
+    {
+      "canonical_id": "joy-future-academy-joyai-vl",
+      "display_name": "JoyAI-VL-Preview",
+      "provider": "Joy Future Academy",
+      "release_date": "2026-11-17",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "JoyAI-VL-Preview"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "ifm-k2-horizon-32b",
+      "display_name": "K2 Horizon 32B",
+      "provider": "IFM",
+      "release_date": "2026-09-01",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 524000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "K2 Horizon 32B"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "ifm-k2-horizon-mova-36b-a4b",
+      "display_name": "K2 Horizon MoVA 36B A4B",
+      "provider": "IFM",
+      "release_date": "2026-09-01",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 524000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "K2 Horizon MoVA 36B A4B"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "ifm-k2-horizon-7b",
+      "display_name": "K2 Horizon 7B",
+      "provider": "IFM",
+      "release_date": "2026-09-01",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 524000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "K2 Horizon 7B"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "ifm-k2-horizon-3-7b",
+      "display_name": "K2 Horizon 3.7B",
+      "provider": "IFM",
+      "release_date": "2026-09-01",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 524000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "K2 Horizon 3.7B"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "liquid-lfm3-1-7b",
+      "display_name": "LFM3-1.7B",
+      "provider": "Liquid AI",
+      "release_date": "2026-10-23",
+      "license": "lfm 1.0",
+      "is_open_weights": true,
+      "context_window": 262000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "LFM3-1.7B"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "ibm-granite-4-2-30b",
+      "display_name": "Granite 4.2 30B",
+      "provider": "IBM",
+      "release_date": "2026-08-07",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 131000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "Granite 4.2 30B"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "ifm-k2-horizon-0-9b",
+      "display_name": "K2 Horizon 0.9B",
+      "provider": "IFM",
+      "release_date": "2026-09-01",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 131000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "K2 Horizon 0.9B"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "liquid-lfm3-vl-2b",
+      "display_name": "LFM3-VL-2B",
+      "provider": "Liquid AI",
+      "release_date": "2026-10-19",
+      "license": "lfm 1.0",
+      "is_open_weights": true,
+      "context_window": 128000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "LFM3-VL-2B"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
+      }
+    },
+    {
+      "canonical_id": "google-gemini-4-neon-high",
+      "display_name": "Gemini 4 Neon (High)",
+      "provider": "Google",
+      "release_date": "2026-11-18",
+      "license": "Proprietary",
+      "is_open_weights": false,
+      "context_window": 1048576,
+      "reasoning_mode": "reasoning",
+      "thinking_effort": "high",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [],
+        "livebench": [],
+        "arena": [
+          "Gemini 4 Neon (High)"
+        ],
         "vals": []
       }
     }

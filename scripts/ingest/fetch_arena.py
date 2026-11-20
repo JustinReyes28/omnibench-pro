@@ -56,8 +56,8 @@ class ArenaFetcher(BaseFetcher):
         except Exception:
             return set()
 
-    def _load_cross_source_families(self) -> set[tuple[str, str]]:
-        """Loads (provider, model_family_key) pairs already tracked in AA, LiveBench, or Vals snapshots."""
+    def _load_cross_source_families(self, resolver: Any = None) -> set[tuple[str, str]]:
+        """Loads post-2025 (provider, model_family_key) pairs tracked in AA, LiveBench, or Vals snapshots."""
         families: set[tuple[str, str]] = set()
         try:
             from scripts.transform.entity_resolver import _infer_provider, model_family_key
@@ -87,7 +87,19 @@ class ArenaFetcher(BaseFetcher):
                         break
                 if not raw_name:
                     continue
+                item_rd = str(item.get("release_date") or "")[:10]
+                if item_rd and item_rd < "2026-01-01":
+                    continue
                 raw_prov = str(item.get(prov_field) or "Unknown")
+                if resolver is not None:
+                    try:
+                        _, tier, meta = resolver.resolve(src_key, raw_name, raw_prov, auto_promote=False)
+                        if tier != "tier3_quarantine":
+                            meta_rd = str(meta.get("release_date") or "")[:10]
+                            if meta_rd and meta_rd < "2026-01-01":
+                                continue
+                    except Exception:
+                        pass
                 prov = _infer_provider(raw_name, raw_prov)
                 fk = model_family_key(raw_name, prov)
                 if not fk:
@@ -139,7 +151,7 @@ class ArenaFetcher(BaseFetcher):
         except Exception:
             resolver = None
 
-        cross_source_families = self._load_cross_source_families()
+        cross_source_families = self._load_cross_source_families(resolver=resolver)
 
         ranked = sorted(
             models,

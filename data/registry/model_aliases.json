@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-20T01:01:12Z",
+  "updated_at": "2026-11-20T19:21:28Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5288,7 +5288,7 @@
     },
     {
       "canonical_id": "openai-gpt-6-2-astra-max",
-      "display_name": "GPT-6.2 Astra",
+      "display_name": "GPT-6.2 Astra (Max)",
       "provider": "OpenAI",
       "release_date": "2026-11-17",
       "license": "Proprietary",
@@ -5305,7 +5305,9 @@
         "livebench": [
           "gpt-6.2-astra"
         ],
-        "arena": [],
+        "arena": [
+          "GPT-6.2 Astra (Max)"
+        ],
         "vals": [
           "GPT-6.2 Astra"
         ]
@@ -5313,7 +5315,7 @@
     },
     {
       "canonical_id": "openai-gpt-6-2-sol-max",
-      "display_name": "GPT-6.2 Sol",
+      "display_name": "GPT-6.2 Sol (Max)",
       "provider": "OpenAI",
       "release_date": "2026-11-17",
       "license": "Proprietary",
@@ -5330,7 +5332,9 @@
         "livebench": [
           "gpt-6.2-sol"
         ],
-        "arena": [],
+        "arena": [
+          "GPT-6.2 Sol (Max)"
+        ],
         "vals": [
           "GPT-6.2 Sol"
         ]

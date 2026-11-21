@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-20T19:21:28Z",
+  "updated_at": "2026-11-21T04:33:28Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5764,6 +5764,29 @@
           "GPT-5.4 nano (High)"
         ],
         "vals": []
+      }
+    },
+    {
+      "canonical_id": "thinking-machines-inkling-2-mini",
+      "display_name": "Inkling 2 Mini",
+      "provider": "Thinking Machines",
+      "release_date": "2026-11-17",
+      "license": "Apache-2.0",
+      "is_open_weights": true,
+      "context_window": 1048576,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "Inkling 2 Mini"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": [
+          "Inkling 2 Mini"
+        ]
       }
     }
   ]

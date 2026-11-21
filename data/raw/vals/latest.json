@@ -2,11 +2,11 @@
   "source_key": "vals",
   "source_name": "Vals.ai",
   "source_url": "https://www.vals.ai/benchmarks",
-  "fetched_at": "2026-11-20T19:21:14Z",
+  "fetched_at": "2026-11-21T04:33:21Z",
   "status": "live",
   "fetch_status": "live",
   "methodology_version": "Vals Index v2.2",
-  "model_count": 145,
+  "model_count": 146,
   "models": [
     {
       "vals_model_name": "Claude Fable 5.2 (Max)",
@@ -426,6 +426,22 @@
       "vibe_code": 62.17,
       "cost_per_test_usd": 4.72,
       "first_seen": "2026-11-12"
+    },
+    {
+      "vals_model_name": "Inkling 2 Mini",
+      "provider": "Thinking Machines",
+      "vals_index": 46.46,
+      "finance_agent": 44.6,
+      "legal_bench": 36.24,
+      "tax_agent": 26.95,
+      "vibe_code": 59.47,
+      "cost_per_test_usd": 3.2,
+      "first_seen": "2026-11-21",
+      "release_date": "2026-11-17",
+      "metadata_verified": true,
+      "open_weights": true,
+      "license": "Apache-2.0",
+      "context_window": 1048576
     },
     {
       "vals_model_name": "Mercury 3 (High)",

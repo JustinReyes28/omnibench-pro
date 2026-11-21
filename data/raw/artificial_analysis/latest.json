@@ -2,11 +2,11 @@
   "source_key": "artificial_analysis",
   "source_name": "Artificial Analysis",
   "source_url": "https://artificialanalysis.ai/",
-  "fetched_at": "2026-11-20T19:21:13Z",
+  "fetched_at": "2026-11-21T04:33:20Z",
   "status": "live",
   "fetch_status": "live",
   "methodology_version": "Intelligence Index v5.0",
-  "model_count": 184,
+  "model_count": 185,
   "models": [
     {
       "model_name": "Claude Fable 5.2 (Max)",
@@ -699,6 +699,25 @@
       "license": "Apache-2.0",
       "metadata_verified": true,
       "aa_slug": "nanbeige4-3-33b"
+    },
+    {
+      "model_name": "Inkling 2 Mini",
+      "provider": "Thinking Machines",
+      "context_window": 1000000,
+      "open_weights": true,
+      "intelligence_index": 20.0,
+      "coding_index": 22.4,
+      "math_index": 24.8,
+      "output_tokens_per_second": null,
+      "ttft_seconds": 9.72,
+      "input_price_per_1m": 0.177,
+      "output_price_per_1m": 0.885,
+      "blended_price_per_1m": 0.354,
+      "aa_slug": "inkling-2-mini",
+      "first_seen": "2026-11-21",
+      "release_date": "2026-11-17",
+      "metadata_verified": true,
+      "license": "Apache-2.0"
     },
     {
       "model_name": "Qwen3.8 27B (xHigh)",

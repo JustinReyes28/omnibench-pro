@@ -1,11 +1,11 @@
 {
   "schema_version": "1.1.0",
-  "updated_at": "2026-11-23T04:25:51Z",
+  "updated_at": "2026-11-23T22:59:41Z",
   "entries": [
     {
       "date": "2026-11-23",
       "type": "release_sync",
-      "summary": "Verified multi-source fleet (154 models requiring >=2 independent benchmarks: 143 full 4/4 coverage, 11 dual-source 2/4 models) with 5-dimension capability profiles.",
+      "summary": "Verified multi-source fleet (154 models requiring >=2 independent benchmarks: 144 full 4/4 coverage, 10 dual-source 2/4 models) with 5-dimension capability profiles.",
       "highlights": [
         "Newly indexed verified releases include: Gemini 4 Neon, GPT-6.2 Astra (Max), GPT-6.2 Sol (Max), Inkling 2 Mini, Qwen4-Max, Gemini 4 Hydrogen (xhigh)."
       ]

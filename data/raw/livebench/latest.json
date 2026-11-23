@@ -2,11 +2,11 @@
   "source_key": "livebench",
   "source_name": "LiveBench",
   "source_url": "https://livebench.ai/",
-  "fetched_at": "2026-11-23T04:25:44Z",
+  "fetched_at": "2026-11-23T22:59:30Z",
   "status": "live",
   "fetch_status": "live",
   "release": "2026-11-06",
-  "model_count": 154,
+  "model_count": 155,
   "models": [
     {
       "model_key": "anthropic-claude-fable-5-1-max",
@@ -351,6 +351,41 @@
       "first_seen": "2026-11-10"
     },
     {
+      "model_key": "inkling-2-mini",
+      "display_name": "Inkling 2 Mini",
+      "provider": "Thinking Machines",
+      "global_average": 54.9,
+      "coding": 59.0,
+      "mathematics": 35.7,
+      "reasoning": 78.9,
+      "data_analysis": 71.6,
+      "language": 71.8,
+      "instruction_following": 73.4,
+      "agentic_coding": 18.9,
+      "cost_per_question_usd": 0.0868,
+      "first_seen": "2026-11-23",
+      "release_date": "2026-11-17",
+      "metadata_verified": true,
+      "open_weights": true,
+      "license": "Apache-2.0",
+      "context_window": 1048576
+    },
+    {
+      "model_key": "thinking-machines-inkling-2-small",
+      "display_name": "Inkling 2 Small",
+      "provider": "Thinking Machines",
+      "global_average": 58.4,
+      "coding": 62.8,
+      "mathematics": 64.5,
+      "reasoning": 68.2,
+      "data_analysis": 61.0,
+      "language": 54.2,
+      "instruction_following": 56.8,
+      "agentic_coding": 41.3,
+      "cost_per_question_usd": 0.0052,
+      "first_seen": "2026-11-10"
+    },
+    {
       "model_key": "thinking-machines-inkling-xhigh",
       "display_name": "Inkling (xHigh)",
       "provider": "Thinking Machines",
@@ -378,7 +413,8 @@
       "instruction_following": 77.8,
       "agentic_coding": 39.1,
       "cost_per_question_usd": 0.0104,
-      "first_seen": "2026-11-10"
+      "first_seen": "2026-11-10",
+      "open_weights": true
     },
     {
       "model_key": "moonshot-kimi-k3-base",
@@ -1140,21 +1176,6 @@
       "instruction_following": 76.9,
       "agentic_coding": 65.9,
       "cost_per_question_usd": 0.012,
-      "first_seen": "2026-11-10"
-    },
-    {
-      "model_key": "thinking-machines-inkling-2-small",
-      "display_name": "Inkling 2 Small",
-      "provider": "Thinking Machines",
-      "global_average": 58.4,
-      "coding": 62.8,
-      "mathematics": 64.5,
-      "reasoning": 68.2,
-      "data_analysis": 61.0,
-      "language": 54.2,
-      "instruction_following": 56.8,
-      "agentic_coding": 41.3,
-      "cost_per_question_usd": 0.0052,
       "first_seen": "2026-11-10"
     },
     {

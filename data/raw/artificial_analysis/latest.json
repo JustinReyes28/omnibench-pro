@@ -2,11 +2,11 @@
   "source_key": "artificial_analysis",
   "source_name": "Artificial Analysis",
   "source_url": "https://artificialanalysis.ai/",
-  "fetched_at": "2026-11-23T04:25:43Z",
+  "fetched_at": "2026-11-23T22:59:29Z",
   "status": "live",
   "fetch_status": "live",
   "methodology_version": "Intelligence Index v5.0",
-  "model_count": 185,
+  "model_count": 186,
   "models": [
     {
       "model_name": "Claude Fable 5.2 (Max)",
@@ -660,6 +660,25 @@
       "license": "Proprietary",
       "metadata_verified": true,
       "aa_slug": "agnes-2-5-pro-theta"
+    },
+    {
+      "model_name": "Ling-3.2-air",
+      "provider": "InclusionAI",
+      "context_window": 1000000,
+      "open_weights": true,
+      "intelligence_index": 23.0,
+      "coding_index": 25.76,
+      "math_index": 28.52,
+      "output_tokens_per_second": null,
+      "ttft_seconds": null,
+      "input_price_per_1m": null,
+      "output_price_per_1m": null,
+      "blended_price_per_1m": null,
+      "aa_slug": "ling-3-2-air",
+      "first_seen": "2026-11-23",
+      "release_date": "2026-11-23",
+      "metadata_verified": true,
+      "license": "MIT"
     },
     {
       "model_name": "DeepSeek V4 Pro 0813 (Max)",

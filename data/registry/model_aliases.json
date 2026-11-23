@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-23T04:25:51Z",
+  "updated_at": "2026-11-23T22:59:41Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5782,13 +5782,36 @@
         "artificial_analysis": [
           "Inkling 2 Mini"
         ],
-        "livebench": [],
+        "livebench": [
+          "inkling-2-mini"
+        ],
         "arena": [
           "Inkling 2 Mini"
         ],
         "vals": [
           "Inkling 2 Mini"
         ]
+      }
+    },
+    {
+      "canonical_id": "inclusionai-ling-3-2-air",
+      "display_name": "Ling-3.2-air",
+      "provider": "InclusionAI",
+      "release_date": "2026-11-23",
+      "license": "MIT",
+      "is_open_weights": true,
+      "context_window": 1000000,
+      "reasoning_mode": "standard",
+      "thinking_effort": "standard",
+      "auto_promoted": true,
+      "metadata_verified": true,
+      "aliases": {
+        "artificial_analysis": [
+          "Ling-3.2-air"
+        ],
+        "livebench": [],
+        "arena": [],
+        "vals": []
       }
     }
   ]

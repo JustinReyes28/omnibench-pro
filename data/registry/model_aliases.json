@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1.0",
-  "updated_at": "2026-11-21T04:33:28Z",
+  "updated_at": "2026-11-23T04:25:51Z",
   "models": [
     {
       "canonical_id": "anthropic-claude-fable-5-2-max",
@@ -5783,7 +5783,9 @@
           "Inkling 2 Mini"
         ],
         "livebench": [],
-        "arena": [],
+        "arena": [
+          "Inkling 2 Mini"
+        ],
         "vals": [
           "Inkling 2 Mini"
         ]

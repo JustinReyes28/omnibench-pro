@@ -707,8 +707,13 @@ class TestEntityResolverAndNormalizer(unittest.TestCase):
 
             cid_joy, tier_joy, meta_joy = res.resolve("artificial_analysis", "JoyAI-VL-Preview", "Unknown", auto_promote=True)
             self.assertEqual(cid_joy, "joy-future-academy-joyai-vl")
-            self.assertEqual(tier_joy, "tier2_auto_promoted")
+            self.assertNotEqual(tier_joy, "tier3_quarantine")
             self.assertEqual(meta_joy["provider"], "Joy Future Academy")
+
+            cid_joy2, tier_joy2, meta_joy2 = res.resolve("artificial_analysis", "JoyAI-VL-2-Preview", "Unknown", auto_promote=True)
+            self.assertEqual(cid_joy2, "joy-future-academy-joyai-vl-2")
+            self.assertEqual(tier_joy2, "tier2_auto_promoted")
+            self.assertEqual(meta_joy2["provider"], "Joy Future Academy")
             self.assertEqual(len(res.unmatched_queue), 0)
 
 

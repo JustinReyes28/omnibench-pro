@@ -1099,6 +1099,115 @@ class TestIngestionAdapters(unittest.TestCase):
             self.assertEqual(arena_stealth["organization"], "Stealth Lab")
             self.assertNotIn("release_date", arena_stealth)
 
+    def test_vals_merge_recalibrates_lkg_on_systematic_index_shift(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            raw_dir = Path(tmpdir)
+            vals_dir = raw_dir / "vals"
+            vals_dir.mkdir(parents=True, exist_ok=True)
+
+            # Seed 12 live-tracked models + 2 LKG-only models (1 sibling + 1 unrelated)
+            existing_models = [
+                {
+                    "vals_model_name": "Grok 4.7 (xHigh)",
+                    "provider": "xAI",
+                    "vals_index": 58.62,
+                    "finance_agent": 56.28,
+                    "legal_bench": 45.72,
+                    "tax_agent": 34.0,
+                    "vibe_code": 75.03,
+                    "cost_per_test_usd": 11.63,
+                },
+                {
+                    "vals_model_name": "Grok 4.7 (High)",
+                    "provider": "xAI",
+                    "vals_index": 58.10,
+                    "finance_agent": 60.10,
+                    "legal_bench": 46.60,
+                    "tax_agent": 33.80,
+                    "vibe_code": 85.60,
+                    "cost_per_test_usd": 9.55,
+                },
+                {
+                    "vals_model_name": "Unrelated LKG Model",
+                    "provider": "OpenAI",
+                    "vals_index": 60.00,
+                    "finance_agent": 55.00,
+                    "legal_bench": 42.00,
+                    "tax_agent": 30.00,
+                    "vibe_code": 80.00,
+                    "cost_per_test_usd": 5.00,
+                },
+            ]
+            for i in range(1, 12):
+                existing_models.append({
+                    "vals_model_name": f"Anchor Model {i}",
+                    "provider": "Anthropic",
+                    "vals_index": 60.0 + i,
+                    "finance_agent": 60.0,
+                    "legal_bench": 50.0,
+                    "tax_agent": 40.0,
+                    "vibe_code": 90.0,
+                    "cost_per_test_usd": 10.0,
+                })
+
+            (vals_dir / "latest.json").write_text(
+                json.dumps({"fetched_at": "2026-11-23T00:00:00Z", "models": existing_models}),
+                encoding="utf-8",
+            )
+
+            # Simulate a systematic Vals Index + Vibe Code recalibration (all 12 live models drop ~3% / ~12%)
+            # while finance_agent, legal_bench, tax_agent remain unchanged on anchors.
+            live_models = [
+                {
+                    "vals_model_name": "Grok 4.7",
+                    "provider": "Unknown",
+                    "vals_index": 56.53,
+                    "finance_agent": 54.27,
+                    "legal_bench": 44.09,
+                    "tax_agent": 32.79,
+                    "vibe_code": 72.36,
+                    "cost_per_test_usd": 11.63,
+                },
+            ]
+            for i in range(1, 12):
+                live_models.append({
+                    "vals_model_name": f"Anchor Model {i}",
+                    "provider": "Anthropic",
+                    "vals_index": round((60.0 + i) * 0.97, 2),
+                    "finance_agent": 60.0,
+                    "legal_bench": 50.0,
+                    "tax_agent": 40.0,
+                    "vibe_code": 79.2,
+                    "cost_per_test_usd": 10.0,
+                })
+
+            fetcher = ValsFetcher(raw_dir=raw_dir, offline_mode=True)
+            merged = fetcher.merge_with_lkg(live_models)
+            by_name = {m["vals_model_name"]: m for m in merged}
+
+            # Live model keeps its exact upstream score
+            self.assertAlmostEqual(by_name["Grok 4.7 (xHigh)"]["vals_index"], 56.53, places=2)
+            # LKG-only sibling is rescaled by the Grok 4.7 family ratio (56.53 / 58.62) and stays below xHigh
+            expected_high = round(58.10 * (56.53 / 58.62), 2)
+            self.assertAlmostEqual(by_name["Grok 4.7 (High)"]["vals_index"], expected_high, places=2)
+            self.assertLess(by_name["Grok 4.7 (High)"]["vals_index"], by_name["Grok 4.7 (xHigh)"]["vals_index"])
+            # Unchanged sub-metrics (finance/legal/tax) are NOT altered on LKG-only models
+            self.assertEqual(by_name["Grok 4.7 (High)"]["finance_agent"], 60.10)
+            self.assertEqual(by_name["Grok 4.7 (High)"]["legal_bench"], 46.60)
+            self.assertEqual(by_name["Grok 4.7 (High)"]["tax_agent"], 33.80)
+            # Systematically shifted vibe_code IS recalibrated
+            self.assertLess(by_name["Grok 4.7 (High)"]["vibe_code"], 85.60)
+            # Unrelated LKG-only model uses the global median ratio (~0.97)
+            self.assertAlmostEqual(by_name["Unrelated LKG Model"]["vals_index"], round(60.00 * 0.97, 2), places=2)
+            self.assertEqual(by_name["Unrelated LKG Model"]["finance_agent"], 55.00)
+
+            # Save snapshot and verify a repeat merge with identical live scores is completely idempotent
+            fetcher.save_snapshot(merged, status="live")
+            merged_again = fetcher.merge_with_lkg(live_models)
+            by_name_again = {m["vals_model_name"]: m for m in merged_again}
+            self.assertEqual(by_name_again["Grok 4.7 (High)"]["vals_index"], expected_high)
+            self.assertEqual(by_name_again["Unrelated LKG Model"]["vals_index"], round(60.00 * 0.97, 2))
+
 
 if __name__ == "__main__":
     unittest.main()

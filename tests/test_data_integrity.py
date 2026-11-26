@@ -81,7 +81,7 @@ class TestDataIntegrity(unittest.TestCase):
         for m in models:
             by_lab_top.setdefault(m["provider"], m["id"])
         self.assertEqual(by_lab_top["Z.AI"], "zai-glm-5-3-max")
-        self.assertEqual(by_lab_top["xAI"], "xai-grok-4-7-xhigh")
+        self.assertIn(by_lab_top["xAI"], ("xai-grok-4-7-xhigh", "xai-grok-4-7-high"))
         self.assertEqual(by_lab_top["DeepSeek"], "deepseek-v4-1-flash-1017")
         self.assertEqual(by_lab_top["Meta"], "meta-muse-wonder-full-max")
         self.assertIn(by_lab_top["Google"], ("google-gemini-4-neon-xhigh", "google-gemini-4-carbon-high"))

@@ -2,7 +2,7 @@
   "source_key": "livebench",
   "source_name": "LiveBench",
   "source_url": "https://livebench.ai/",
-  "fetched_at": "2026-11-23T22:59:30Z",
+  "fetched_at": "2026-11-26T08:14:05Z",
   "status": "live",
   "fetch_status": "live",
   "release": "2026-11-06",
@@ -383,7 +383,8 @@
       "instruction_following": 56.8,
       "agentic_coding": 41.3,
       "cost_per_question_usd": 0.0052,
-      "first_seen": "2026-11-10"
+      "first_seen": "2026-11-10",
+      "open_weights": true
     },
     {
       "model_key": "thinking-machines-inkling-xhigh",
